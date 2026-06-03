@@ -1,0 +1,20 @@
+# --- Archivy / balíčky ---
+*.zip
+
+# --- Strojově specifická konfigurace (absolutní cesty) ---
+.env
+
+# --- Obsidian: sdílíme nastavení, ale ne per-user UI stav ---
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# --- Původní zdrojové docx (47 MB binárek, jen vstup; wiki je odvozená) ---
+# Smaž tento řádek, pokud chceš verzovat i originály kvůli provenienci.
+_sources/
+
+# --- OS smetí ---
+.DS_Store
+Thumbs.db
+desktop.ini

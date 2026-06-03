@@ -1,0 +1,564 @@
+{
+  "version": 1,
+  "sources": {
+    "_raw/szz-01.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 10494,
+      "modified_at": "2026-06-03T14:55:47+02:00",
+      "content_hash": "sha256:0713a47a02db02dc26f97d7d329451cd57fd5c1722c771014312fbad4237a01c",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/01-polovodicove-prvky-cmos.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-02.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 9205,
+      "modified_at": "2026-06-03T14:55:47+02:00",
+      "content_hash": "sha256:62591053a4b362f26325f39d58843e23b009f374e022decac0f813be7fb0a62e",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/02-kombinacni-logicke-obvody.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-03.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 14803,
+      "modified_at": "2026-06-03T14:55:47+02:00",
+      "content_hash": "sha256:4f0777cce0a4fff3d0617e7ed6e5d80026175d03e0d079700c7ec8f74e4c33f4",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/03-sekvencni-logicke-obvody.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-04.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 12676,
+      "modified_at": "2026-06-03T14:55:47+02:00",
+      "content_hash": "sha256:b88d8bee4c3f3215488c06ba1bc279faaeaba03c144d575f6253d53d108e3283",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/04-hierarchie-pameti.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-05.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 19237,
+      "modified_at": "2026-06-03T14:55:48+02:00",
+      "content_hash": "sha256:f213b2b3ed6f3697725a44652209f0dc19ae45b0a7516429d293cfca75d1797c",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/05-vestavene-systemy.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-06.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 8931,
+      "modified_at": "2026-06-03T14:55:48+02:00",
+      "content_hash": "sha256:55b4bd281c03aeadd284e1666edf6201c43fa38ec72b80db4c41461d7e74e660",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/06-periferie-preruseni-dma-sbernice.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-07.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 7077,
+      "modified_at": "2026-06-03T14:55:48+02:00",
+      "content_hash": "sha256:7c40deb7593505509aa532e029b7d26643f14260071c77c53a90cea4bea4b225",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/07-princip-cinnosti-pocitace-pipelining.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-08.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 8749,
+      "modified_at": "2026-06-03T14:55:48+02:00",
+      "content_hash": "sha256:07a99b56012ad31d2e893fc27dc1b8452e6877dd6a654a9bafc6e1b1a086ba5e",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/08-minimalizace-logickych-vyrazu.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-09.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 10184,
+      "modified_at": "2026-06-03T14:55:48+02:00",
+      "content_hash": "sha256:81a1a2e8953485062f94f807013ac51788dd77797b766b0f75817da365235cb8",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/09-reprezentace-cisel-ieee754.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-10.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 6673,
+      "modified_at": "2026-06-03T14:55:48+02:00",
+      "content_hash": "sha256:4c282c8e18c8340c307760db33cf80791dde7b1fb69ef1ac1143d158798d501d",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/10-fpga-vhdl.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-11.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 11824,
+      "modified_at": "2026-06-03T14:55:48+02:00",
+      "content_hash": "sha256:c146927e6d682235310e5a00fbb6419a4af55903cd36d393d72467d8c6a4f4e7",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/11-2d-vektorova-grafika.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-12.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 11723,
+      "modified_at": "2026-06-03T14:55:48+02:00",
+      "content_hash": "sha256:5ebf0505cdce8d8624474563c162eb7d4cf5687e2c46be99c6a0c2444aeb73bf",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/12-3d-transformace-pipeline.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-13.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 9977,
+      "modified_at": "2026-06-03T14:55:49+02:00",
+      "content_hash": "sha256:68df3c1e16ddfd81dcba6e747fa7c5ce7b46fe2dfca06be4448cd0acb9b561bb",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/13-graficka-uzivatelska-rozhrani.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-14.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 12886,
+      "modified_at": "2026-06-03T14:55:49+02:00",
+      "content_hash": "sha256:9648331312eadd8e7ebcd90b530a1be7a113aa64d8fa2402a8eb77ec1d84d48e",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/14-spektralni-analyza.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-15.md": {
+      "ingested_at": "2026-06-03T15:12:58+02:00",
+      "size_bytes": 12010,
+      "modified_at": "2026-06-03T14:55:49+02:00",
+      "content_hash": "sha256:8e2b41a24f37aa287829e85b5dd027c4afcad246f65a32cdebd323084a2c8a8a",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/15-cislicove-filtry.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/caste-otazky-szz.md": {
+      "ingested_at": "2026-06-03T16:56:21+02:00",
+      "size_bytes": 83043,
+      "modified_at": "2026-06-03T16:56:21+02:00",
+      "content_hash": "sha256:83a38cf0e21eaf3298bbd7e335a81759ed3001de4864bc6bf18584ec40d46d3f",
+      "source_type": "document",
+      "project": null,
+      "note": "Exam question bank (frequent questions per okruh, no answers). Maps 1:1 to all 44 okruhy; integrated as '## Časté otázky u zkoušky' sections.",
+      "pages_created": [],
+      "pages_updated": [
+        "okruhy/01-polovodicove-prvky-cmos.md",
+        "okruhy/02-kombinacni-logicke-obvody.md",
+        "okruhy/03-sekvencni-logicke-obvody.md",
+        "okruhy/04-hierarchie-pameti.md",
+        "okruhy/05-vestavene-systemy.md",
+        "okruhy/06-periferie-preruseni-dma-sbernice.md",
+        "okruhy/07-princip-cinnosti-pocitace-pipelining.md",
+        "okruhy/08-minimalizace-logickych-vyrazu.md",
+        "okruhy/09-reprezentace-cisel-ieee754.md",
+        "okruhy/10-fpga-vhdl.md",
+        "okruhy/11-2d-vektorova-grafika.md",
+        "okruhy/12-3d-transformace-pipeline.md",
+        "okruhy/13-graficka-uzivatelska-rozhrani.md",
+        "okruhy/14-spektralni-analyza.md",
+        "okruhy/15-cislicove-filtry.md"
+      ]
+    },
+    "_raw/szz-16.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 16635,
+      "modified_at": "2026-06-03T14:55:49+02:00",
+      "content_hash": "sha256:877b2353d0cf8026bcf55e421c935e539993696617e87934d2ce1fe3950830b1",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/16-mnoziny-relace-zobrazeni.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-17.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 16701,
+      "modified_at": "2026-06-03T14:55:49+02:00",
+      "content_hash": "sha256:26f5fcb1ce5a9849ffae00ff1387aa5e513d8b1e3b4e8654efe89c9b56694bf2",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/17-diferencialni-integralni-pocet.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-18.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 7576,
+      "modified_at": "2026-06-03T14:55:49+02:00",
+      "content_hash": "sha256:c22e896d5709ff6511a33fa9f4fdad7b756b0a4f917d86344594add4dc7b69f7",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/18-ciselne-soustavy.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-19.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 15563,
+      "modified_at": "2026-06-03T14:55:49+02:00",
+      "content_hash": "sha256:0d9b24488430207b059e0b18f185ee86b29333a6db2b4c119cd356b31e842ee3",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/19-vyrokova-predikatova-logika.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-20.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 7254,
+      "modified_at": "2026-06-03T14:55:50+02:00",
+      "content_hash": "sha256:f8e82b6c21aa069d8a5ac2e024f3248079166d67852ad33dfef452e90d3666bb",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/20-boolovy-algebry.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-21.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 9635,
+      "modified_at": "2026-06-03T14:55:50+02:00",
+      "content_hash": "sha256:08f5014084cc31905d00d50d0ee243f5a3799bb5d3e3a8ee538aea807f06c22d",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/21-regularni-jazyky.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-22.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 8858,
+      "modified_at": "2026-06-03T14:55:50+02:00",
+      "content_hash": "sha256:8436bf9184cea26a2ec422258bdd157aff1c6ccf02ab5871940455d9501b1bc5",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/22-bezkontextove-jazyky.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-23.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 11584,
+      "modified_at": "2026-06-03T14:55:50+02:00",
+      "content_hash": "sha256:f45f352dc6d5a35e34590aab79bffb7295a99db1c06dc46db031f9bc32277be2",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/23-struktura-prekladace.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-24.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 13036,
+      "modified_at": "2026-06-03T14:55:50+02:00",
+      "content_hash": "sha256:bd2b977bb3a5e6a4a565359bd27f9c4afa43d95d37d785a53eb9802e5106ee09",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/24-numericke-metody.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-25.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 13904,
+      "modified_at": "2026-06-03T14:55:50+02:00",
+      "content_hash": "sha256:bfaa258546d4002254e008b3ba143ebaea8304d082111af9db17a490ef7f1ade",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/25-teorie-grafu.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-26.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 31377,
+      "modified_at": "2026-06-03T14:55:51+02:00",
+      "content_hash": "sha256:545a4d5c0bb0f7d7f70be5f0c22f072d4d21b1fba5e698964a70bca9b0452e42",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/26-reseni-uloh-prohledavani.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-27.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 34206,
+      "modified_at": "2026-06-03T14:55:51+02:00",
+      "content_hash": "sha256:4b97772b382dcddc624cb26deaf3af323e1501ae6678652abebbd725a8b57afc",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/27-strojove-uceni.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-28.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 20604,
+      "modified_at": "2026-06-03T14:55:51+02:00",
+      "content_hash": "sha256:4cbbc0b85893107d5d9dc0d4618fa5ddd1445e65e0a89aff775b89211697a234",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/28-modelovani-simulace.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-29.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 16447,
+      "modified_at": "2026-06-03T14:55:51+02:00",
+      "content_hash": "sha256:1eea825d8f85638e20f968d5dc270e8180d2b27843eb8c382891608017a563eb",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/29-datove-ridici-struktury.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-30.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 26789,
+      "modified_at": "2026-06-03T14:55:52+02:00",
+      "content_hash": "sha256:7c9630b4e658bd8b386132caf39698d303af4702af018029ef9c8b3d0575aa5d",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/30-vyhledavani-razeni.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-31.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 23823,
+      "modified_at": "2026-06-03T14:55:52+02:00",
+      "content_hash": "sha256:3927dc21a79075c30f13d836c30283f2eb20297cd57d5ab7601fe50e41ed1858",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/31-pravdepodobnost-statistika.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-32.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 9743,
+      "modified_at": "2026-06-03T14:55:52+02:00",
+      "content_hash": "sha256:fb9eb4f4c5b9ab6a52d1ce877941edb184ccf76542cc6bd9c13ab1ab3bdd4f30",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/32-slozitost-algoritmu.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-33.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 26067,
+      "modified_at": "2026-06-03T14:55:52+02:00",
+      "content_hash": "sha256:0e7ff4c4b22cc512cf0b967bc91dcf2237d0b4c1a567f4923c242d101d03bcb2",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/33-zivotni-cyklus-sw.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-34.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 16655,
+      "modified_at": "2026-06-03T14:55:53+02:00",
+      "content_hash": "sha256:a87dc885d9712adb897bf28916fdfda7240c52b9e9ad4e68a1a0b7d0b395ff7c",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/34-uml.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-35.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 14330,
+      "modified_at": "2026-06-03T14:55:53+02:00",
+      "content_hash": "sha256:8222d6a565db862cc294ef39e569c5216b33124c1f87f7caf4c81afc0cc1dd56",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/35-konceptualni-modelovani-db.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-36.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 16080,
+      "modified_at": "2026-06-03T14:55:53+02:00",
+      "content_hash": "sha256:eb33f8dd6db851292948680995a4dcacbfec6f32279e3dfdc0df8ff23e309a7c",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/36-relacni-data-sql-transakce.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-37.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 12728,
+      "modified_at": "2026-06-03T14:55:53+02:00",
+      "content_hash": "sha256:5533021075934f4ac3f01cb78f397a95fd906e20ca957e993306987e442863ae",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/37-webova-rozhrani-autentizace.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-38.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 42494,
+      "modified_at": "2026-06-03T14:55:54+02:00",
+      "content_hash": "sha256:75229ee5866c79867fdbac7882b9a2cbaaf546e99d52391a384241875439b40f",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/38-sprava-souboru-pameti.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-39.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 28716,
+      "modified_at": "2026-06-03T14:55:54+02:00",
+      "content_hash": "sha256:e49c87cc2f0eded1b6e5106b86346c34cd66fe1c0c53561cc1e27c1d8363d155",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/39-planovani-synchronizace-procesu.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-40.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 27527,
+      "modified_at": "2026-06-03T14:55:54+02:00",
+      "content_hash": "sha256:cd78aec33911eeca6b9d183dbfe33f14694b2992a19c4bb1049a8e0776785729",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/40-objektova-orientace.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-41.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 12434,
+      "modified_at": "2026-06-03T14:55:54+02:00",
+      "content_hash": "sha256:6db6dc683a1ec4f0980db3fae84ee4ec7b33e4ffd1935716a0ea816a194fa92c",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/41-assembler.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-42.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 48605,
+      "modified_at": "2026-06-03T14:55:55+02:00",
+      "content_hash": "sha256:9af3adb2f646d4bfa69f81821ff1be01d2b8862ef7d25718acc129cc72c3da17",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/42-sluzby-aplikacni-vrstvy.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-43.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 31673,
+      "modified_at": "2026-06-03T14:55:55+02:00",
+      "content_hash": "sha256:ccae1dc210276dc2d2108b2b14f3dc0761ef68ba43a773cf93f32f1f98a3339c",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/43-tcp-ip-komunikace.md"
+      ],
+      "pages_updated": []
+    },
+    "_raw/szz-44.md": {
+      "ingested_at": "2026-06-03T19:00:00+02:00",
+      "size_bytes": 22391,
+      "modified_at": "2026-06-03T14:55:55+02:00",
+      "content_hash": "sha256:9657d09c817bc0d1ead134f22e880432929013adc2d4e766d8a86ed60098bdc3",
+      "source_type": "document",
+      "project": null,
+      "pages_created": [
+        "okruhy/44-smerovani-zabezpeceni-siti.md"
+      ],
+      "pages_updated": []
+    }
+  },
+  "stats": {
+    "total_sources_ingested": 45,
+    "total_pages": 44
+  }
+}

@@ -1,0 +1,47 @@
+# SZZ wiki — FIT BUT (bakalářské státnice)
+
+Studijní wiki pokrývající **všech 44 okruhů** státní závěrečné zkoušky. Je to **Obsidian vault** — pro plný zážitek (klikací odkazy `[[…]]`, vložené obrázky, graf) ji **otevři v [Obsidianu](https://obsidian.md)**: *Open folder as vault* → vyber tuto složku. V GitHubu / běžném prohlížeči markdownu se wikilinky a obrázky nezobrazí pěkně.
+
+## Kde začít
+
+➡️ Otevři **[[index]]** (`index.md`) — je to **rozcestník se všemi 44 okruhy** rozdělenými do tematických bloků. Klikni na okruh, nebo čti popořadě.
+
+## Struktura každého okruhu
+
+Každá stránka v `okruhy/` má stejné tři vrstvy (čti shora dolů):
+
+1. **## Shrnutí** — destilovaný přehled + odkazy na související okruhy + klíčové diagramy s popisky. Na rychlé zopakování.
+2. **## Časté otázky u zkoušky** — na co se zkoušející typicky ptají, se stručnými odpověďmi a odkazy do plného znění. *(Zdroj: sdílený soubor častých otázek.)*
+3. **## Plné znění (ke studiu)** — **kompletní text** ke každému okruhu se **všemi obrázky**. Hlavní materiál na učení.
+
+Dole je vždy **navigace ◀ ▶** na předchozí/další okruh, takže jdou číst „jeden po druhém".
+
+## Dvě osy čtení
+
+- **Lineárně** — okruh 1 → 2 → … → 44 (navigace dole na každé stránce + obsah v `index.md`).
+- **Po souvislostech** — okruhy se vzájemně prolinkují (sekce „Souvislosti" a `[[odkazy]]` v textu).
+
+## Složky
+
+| Složka / soubor | Co obsahuje |
+|---|---|
+| **`okruhy/`** | 44 stránek `NN-nazev.md`, jedna na okruh (číslované → řadí se 01→44) |
+| **`synthesis/`** | 9 **průřezových** stránek — pojmy, co se vrací napříč okruhy (automaty, zásobník, Fourier, B+ stromy, transakce/ACID, složitost, kryptografie, přerušení, relace) |
+| **`media/`** | ~855 obrázků a schémat (`szz-NN/…`), vkládané do stránek |
+| **`index.md`** | rozcestník — **začni tady** |
+| `_sources/docx/` | původní docx, ze kterých wiki vznikla |
+| `_raw/` | zdrojové podklady (mj. soubor častých otázek) |
+| `log.md`, `hot.md` | provozní deník a „hot cache" (historie/stav budování wiki) |
+| `_meta/taxonomy.md` | seznam tagů |
+
+## ⚠️ Než tomu uvěříš na 100 %
+
+Plné znění je **doslovně převzaté** ze studentských materiálů (které samy disklejmují správnost) — neupravoval jsem ho. Při kontrole jsem našel **10 míst s možnou nepřesností**, každé označené blokem **`> [!note] Ke kontrole`** přímo na stránce. Dvě jsou ověřené chyby (ověřeno proti zdrojům):
+
+- **okruh 9** — hranice IEEE 754 jsou o jedničku posunuté (správně single 2⁻¹²⁶/2⁻¹⁴⁹, double 2⁻¹⁰²²/2⁻¹⁰⁷⁴).
+- **okruh 31** — t-test ↔ z-test prohozené (t-test = *neznámý* rozptyl).
+
+Další flagy: okruhy 1, 14, 15, 17, 20, 26, 27, 30. Ber wiki jako **studijní pomůcku, ne ověřenou pravdu** — u označených míst si fakt ověř.
+
+---
+*Wiki byla sestavena z docx podkladů; obsah je v češtině (jazyk zkoušky). Hodně štěstí u státnic! 🎓*
