@@ -93,7 +93,7 @@ Směrování (routing) je **určování cest paketů** mezi různými počítač
 ![[media/szz-44/media/image1.png]]
 
 
-Položky ve **směrovací tabulce** (routing table) tvoří **pouze síťové adresy** o délce **8**, **16** a **24** bitů, viz obrázek vlevo. Délka vychází z **masek sítí** jednotlivých tříd. Třídu lze poznat dle nejvyšších bitů (prefixu), viz obrázek vpravo. V routing table je **2^7 + 2^14 + 2^21 = 2 113 664** adres (ne všechny jsou použitelné, např. broadcastové), ale i tak jich je mnoho.
+Položky ve **směrovací tabulce** (routing table) tvoří **pouze síťové adresy** o délce **8**, **16** a **24** bitů, viz obrázek vlevo. Délka vychází z **masek sítí** jednotlivých tříd. Třídu lze poznat dle nejvyšších bitů (prefixu), viz obrázek vpravo. V routing table je $2^7 + 2^{14} + 2^{21} = 2\,113\,664$ adres (ne všechny jsou použitelné, např. broadcastové), ale i tak jich je mnoho.
 ![[media/szz-44/media/image10.png]]
 
 
@@ -237,7 +237,7 @@ Existují vyhrazené IP adresy (L3) pro multicast:
 
 Multicast na L2 je řešen **mapováním IP adres** na **MAC** adresy, mapování ale není přesné:
 
-- **IPv4** používá pro mapování 23 bitů MAC adresy, 5 bitů se nemapuje (32-23-4(blok D) = 5, tj. 2^5 = **32** multicast IP adres je mapováno na stejnou MAC adresu), jedná se o adresy **01:00:5E:00:00:00** až **01:00:5E:7F:FF:FF**.
+- **IPv4** používá pro mapování 23 bitů MAC adresy, 5 bitů se nemapuje ($32-23-4$ (blok D) $= 5$, tj. $2^5 = 32$ multicast IP adres je mapováno na stejnou MAC adresu), jedná se o adresy **01:00:5E:00:00:00** až **01:00:5E:7F:FF:FF**.
 
 - IPv6 používá pro mapování 32 bitů MAC adresy a jedná se o adresy **33:33:xx:xx:xx:xx**, tedy **33:33:00:00:00:00** až **33:33:FF:FF:FF:FF**.
 ![[media/szz-44/media/image4.png]]

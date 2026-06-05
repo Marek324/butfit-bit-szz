@@ -47,7 +47,7 @@ updated: 2026-06-03T15:40:00Z
 *IEEE 754 (single): interpretace hodnot podle exponentu — normalizovaná/denormalizovaná čísla, ±0, ±∞, NaN.*
 
 > [!note] Ke kontrole (ověřeno proti standardu IEEE 754)
-> Plné znění uvádí u **single** rozlišitelnost normalizovaných **2^-127** a nenormalizovaných **2^-150** a u **double** **2^-1023** / **2^-1075** — všechny jsou **o jedničku posunuté**. Správně: single nejmenší normalizované = **2^-126**, nejmenší denormalizované = **2^-149**; double **2^-1022** / **2^-1074**. Rozsah „〈-2^127, 2^127〉" je také přibližný — největší konečné single ≈ 2^128.
+> Plné znění uvádí u **single** rozlišitelnost normalizovaných $2^{-127}$ a nenormalizovaných $2^{-150}$ a u **double** $2^{-1023}$ / $2^{-1075}$ — všechny jsou **o jedničku posunuté**. Správně: single nejmenší normalizované = $2^{-126}$, nejmenší denormalizované = $2^{-149}$; double $2^{-1022}$ / $2^{-1074}$. Rozsah „$\langle -2^{127}, 2^{127} \rangle$" je také přibližný — největší konečné single ≈ $2^{128}$.
 
 - **Chyba zobrazení** — např. 0,1 nelze přesně vyjádřit; pro finance se používá **BCD** nebo **fixní řád** (uložení celého čísla setin).
 
@@ -71,7 +71,7 @@ Sčítačky realizující tyto operace popisuje [[okruhy/02-kombinacni-logicke-o
 *Na co se u tohoto okruhu typicky ptají. Plné odpovědi níže.*
 
 **Reprezentace čísel** ↪ [[#Desetinná čísla]]
-- *Fixed vs. floating point?* → Pevná: pevný počet bitů na celou/desetinnou část (omezený rozsah); plovoucí: mantisa × 2^exponent (velký rozsah, omezená přesnost).
+- *Fixed vs. floating point?* → Pevná: pevný počet bitů na celou/desetinnou část (omezený rozsah); plovoucí: mantisa $\times 2^{exponent}$ (velký rozsah, omezená přesnost).
 - *Struktura IEEE 754?* → sign bit + exponent (s BIASem) + mantisa (implicitní 1); single 32 b (E 8 b, M 23 b, bias 127), double 64 b (E 11 b, bias 1023).
 - *Co je BIAS?* → Posun exponentu (kód posunuté nuly) → umožní záporné exponenty bez znaménkového bitu.
 
@@ -173,10 +173,10 @@ rozsahem čísla.
   exponentu představují speciální hodnoty; exponent je roven 0, pokud je
   jeho hodnota 127 binárně), mantisa je vyjádřena na **23** bitech, MSB
   je znaménkový. **Přesnost** je **7** dekadických čísel, rozsah
-  zobrazení je **〈-2^127, 2^127〉**, rozlišitelnost **normalizovaných**
-  čísel je **2^-127** a **nenormalizovaných** **2^-150**. Největší a
-  **druhé** největší číslo se liší o **2^104** (23 jedniček \<\< 127 -
-  (22 jedniček a 0) \<\< 127 = 2^104).
+  zobrazení je $\langle -2^{127}, 2^{127} \rangle$, rozlišitelnost **normalizovaných**
+  čísel je $2^{-127}$ a **nenormalizovaných** $2^{-150}$. Největší a
+  **druhé** největší číslo se liší o $2^{104}$ (23 jedniček $\ll$ 127 -
+  (22 jedniček a 0) $\ll$ 127 = $2^{104}$).
   
 ![[media/szz-09/media/image11.png]]
 
@@ -186,9 +186,8 @@ rozsahem čísla.
 - **Double precision** (double - 64 bitů): Exponent
   má rozsah **11** bitů a je posunut o **-1023** (polovinu rozsahu),
   mantisa je vyjádřena na **52** bitech, MSB je znaménkový. **Přesnost**
-  je **16** dekadických čísel, rozsah zobrazení je **〈-2^1023,
-  2^1023〉**, rozlišitelnost **normalizovaných** čísel je **2^-1023** a
-  **nenormalizovaných** **2^-1075**.
+  je **16** dekadických čísel, rozsah zobrazení je $\langle -2^{1023}, 2^{1023} \rangle$, rozlišitelnost **normalizovaných** čísel je $2^{-1023}$ a
+  **nenormalizovaných** $2^{-1075}$.
 
 **Explicitní jednička** - V mantise čísla je nutné
 explicitně mít jedničku.
@@ -203,7 +202,7 @@ reprezentovaného čísla o jeden bit, v mantise se jednička neuvádí. Až na
 ### Chyba zobrazení
 
 Jelikož se číslo skládá ze **součtu zlomků** mocnin 2
-(např. 2<sup>-2</sup> = ¼) **není** možné na konečném počtu bitů
+(např. $2^{-2} = \tfrac{1}{4}$) **není** možné na konečném počtu bitů
 (registru) **reprezentovat** všechna čísla, a tak dochází k
 **nepřesnostem**. Např. číslo **0.1** nelze přesně vyjádřit, což je
 obvyklá hodnota ve finančnictví a je nutné pro tyto aplikace používat

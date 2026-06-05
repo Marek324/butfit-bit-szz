@@ -31,12 +31,12 @@ updated: 2026-06-03T18:15:00Z
 
 ### Časová a prostorová složitost
 - **Časová složitost** = řádový počet **elementárních operací** v závislosti na velikosti vstupu n (ne reálný čas).
-- **Prostorová složitost** = spotřeba paměti; obvykle menší než časová (často O(1); Quick O(log n) zásobník, Merge rekurze, BFS O(b^d)).
+- **Prostorová složitost** = spotřeba paměti; obvykle menší než časová (často $O(1)$; Quick $O(\log n)$ zásobník, Merge rekurze, BFS $O(b^d)$).
 - Postup: určit n → max. počet operací → ponechat nejrychleji rostoucí člen → škrtnout konstanty.
 
 ### Asymptotická notace
 - **O (Omikron)** — horní hranice (nejčastější); **Ω (Omega)** — dolní hranice; **Θ (Théta)** — přesná třída (obě hranice).
-- Typické třídy: O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < O(2ⁿ).
+- Typické třídy: $O(1)$ < $O(\log n)$ < $O(n)$ < $O(n \log n)$ < $O(n²)$ < $O(n³)$ < $O(2ⁿ)$.
 - **P** (řešitelné v polynomiálním čase) × **NP** (ověřitelné/nedeterministicky polynomiální).
 
 ### Určování složitosti
@@ -59,10 +59,10 @@ Použití u řazení/vyhledávání viz [[okruhy/30-vyhledavani-razeni]]; u proh
 
 **Asymptotická notace** ↪ [[#Asymptotická notace]]
 - *O vs. Ω vs. Θ?* → O horní hranice, Ω dolní hranice, Θ obě (přesná třída).
-- *Typické třídy + příklady?* → O(1) index pole, O(log n) binární vyhledávání, O(n) průchod, O(n²) bubble sort, O(2ⁿ) rekurze.
+- *Typické třídy + příklady?* → $O(1)$ index pole, $O(\log n)$ binární vyhledávání, $O(n)$ průchod, $O(n²)$ bubble sort, $O(2ⁿ)$ rekurze.
 
 **Určování složitosti** ↪ [[#Určování složitosti]]
-- *Vnořené cykly?* → Násobí se → O(n²), O(n³); dělení řídicí proměnné → log n.
+- *Vnořené cykly?* → Násobí se → $O(n²)$, $O(n³)$; dělení řídicí proměnné → log n.
 - *Proč se konstanty vynechávají?* → Asymptoticky (n→∞) nehrají roli; podstatný je řád růstu.
 
 ## Plné znění (ke studiu)
@@ -79,7 +79,7 @@ Složitost algoritmů definuje kritéria, podle kterých jednotlivé algoritmy h
 ![[media/szz-32/media/image6.png]]
 
 
-- **Součet1**: U prvního algoritmu lze jednoduše **detekovat cyklus** podle **n** a **vnořený cyklus** podle **n** (obecně nemusí být jednoduché vnořené cykly detekovat). To znamená, že pro **každé konkrétní číslo z n** se provede **n iterací**, celkově tedy **n\*n** iterací, neboli **n^2** iterací, a v každé iteraci je **provedeno sčítání**.
+- **Součet1**: U prvního algoritmu lze jednoduše **detekovat cyklus** podle **n** a **vnořený cyklus** podle **n** (obecně nemusí být jednoduché vnořené cykly detekovat). To znamená, že pro **každé konkrétní číslo z n** se provede **n iterací**, celkově tedy **n\*n** iterací, neboli **$n^2$** iterací, a v každé iteraci je **provedeno sčítání**.
 
 - **Součet2**: Zde je pouze **jeden cyklus** (while), tudíž hned na první pohled by se dalo **chybně** říct, že bude provedeno n operací. To ale není pravda, protože je nutné si v těle cyklu všimnou **dělení n** v každé iteraci, to znamená, že bude provedeno **log2(n)** operací.
 
@@ -111,9 +111,9 @@ U definování složitostí se snažíme, aby co nejvíce odpovídaly složitost
 
 ### Složitost Omikron - **Ό**
 
-Vyjadřuje **horní hranici** časového chování algoritmu (omezuje chování algoritmu shora, tj. algoritmus **nebude nikdy pomalejší (nebude trvat déle)**, než dané omezení). Značíme jako **Omikron(g(n))** nebo **‘O(g(n))** nebo jen **O(g(n))**.
+Vyjadřuje **horní hranici** časového chování algoritmu (omezuje chování algoritmu shora, tj. algoritmus **nebude nikdy pomalejší (nebude trvat déle)**, než dané omezení). Značíme jako **Omikron(g(n))** nebo **‘$O(g(n))$** nebo jen **$O(g(n))$**.
 
-- Zápis **f(n) ∈ O(g(n))**, označuje, že funkce **f(n)** je **rostoucí maximálně tak rychle** jako funkce **g(n)**. Dostatečně velký **násobek funkce g(n)** **shora omezuje funkci f(n)** pro **dostatečně velké n**.
+- Zápis **f(n) ∈ $O(g(n))$**, označuje, že funkce **f(n)** je **rostoucí maximálně tak rychle** jako funkce **g(n)**. Dostatečně velký **násobek funkce g(n)** **shora omezuje funkci f(n)** pro **dostatečně velké n**.
 
 Nejčastěji používané složitosti:
 ![[media/szz-32/media/image7.png]]
@@ -153,7 +153,7 @@ Orientační typické hodnoty velikosti vstupu **n**, pro které algoritmus s da
 
 # Paměťová (prostorová) složitost
 
-Udává **spotřebu paměti**, případně **diskového prostoru** v závislosti na **vstupních datech**. Prostorová složitost **nebývá kritická** a často ji neřešíme (paměť si narozdíl od času můžeme koupit). Nicméně může mít **zásadní** vliv na realizovatelnost algoritmu. Obvykle je u algoritmů ale **prostorová složitost menší než časová**. Např. u většiny řadících algoritmů je prostorová složitost **konstantní O(1)**. U Quick sort je **logaritmická O(log(n))** - nutné si uchovat **hranice ještě nezpracovaných částí**. Stejně tak je nutné si uchovávat hranice polí u Merge sort - **rekurze znamená paměť**. U algoritmu pro prohledávání stavového prostoru **BFS** je např. prostorová složitost stejná jako časová, a to exponenciální **O(b^d)** (b je faktor větvení, d hloubka). U DFS je časová složitost stále exponenciální, ale prostorová pouze **O(b\*d)**. U backtracking je pak složitost pouze **lineární O(d)**.
+Udává **spotřebu paměti**, případně **diskového prostoru** v závislosti na **vstupních datech**. Prostorová složitost **nebývá kritická** a často ji neřešíme (paměť si narozdíl od času můžeme koupit). Nicméně může mít **zásadní** vliv na realizovatelnost algoritmu. Obvykle je u algoritmů ale **prostorová složitost menší než časová**. Např. u většiny řadících algoritmů je prostorová složitost **konstantní $O(1)$**. U Quick sort je **logaritmická $O(\log (n))$** - nutné si uchovat **hranice ještě nezpracovaných částí**. Stejně tak je nutné si uchovávat hranice polí u Merge sort - **rekurze znamená paměť**. U algoritmu pro prohledávání stavového prostoru **BFS** je např. prostorová složitost stejná jako časová, a to exponenciální **$O(b^d)$** (b je faktor větvení, d hloubka). U DFS je časová složitost stále exponenciální, ale prostorová pouze **$O(b \cdot d)$**. U backtracking je pak složitost pouze **lineární $O(d)$**.
 
 ## Asymptotická paměťová složitost
 
@@ -173,9 +173,9 @@ Mají i stejný význam.
 
 Hlavní dva jevy, které řešíme při určování časové složitosti, jsou **cykly** (zejména **vnořené**) a **rekurze** závisející na **vstupních datech**.
 
-- **Vnoření cyklů** většinou znamená násobení složitosti → vede na polynomiální časovou složitost: dva vnořené cykly - **O(n^2)**, tři vnořené cykly - **O(n^3)**. Nutno **sledovat úpravy řídící proměnné cyklu**, např. její **dělení** vede na **logaritmickou složitost O(log(n)).**
+- **Vnoření cyklů** většinou znamená násobení složitosti → vede na polynomiální časovou složitost: dva vnořené cykly - **$O(n^2)$**, tři vnořené cykly - **$O(n^3)$**. Nutno **sledovat úpravy řídící proměnné cyklu**, např. její **dělení** vede na **logaritmickou složitost $O(\log (n))$.**
 
-- **Rekurze** většinou znamená **exponenciální složitost**. Záleží, na **počtu rekurzivních volání funkce** v jejím těle. Pro dvě volání je složitost **O(2^n)**, pro tři volání **O(3^n)**, … Počet volání můžeme označovat jako **faktor větvení** (zejména se používá u stromů).
+- **Rekurze** většinou znamená **exponenciální složitost**. Záleží, na **počtu rekurzivních volání funkce** v jejím těle. Pro dvě volání je složitost **$O(2^n)$**, pro tři volání **$O(3^n)$**, … Počet volání můžeme označovat jako **faktor větvení** (zejména se používá u stromů).
 
 Při více cyklech za sebou uvažujeme ten **nejhorší** - **nejrychleji rostoucí člen**.
 

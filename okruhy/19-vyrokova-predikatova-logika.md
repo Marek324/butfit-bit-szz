@@ -58,7 +58,7 @@ Souvisí s [[okruhy/16-mnoziny-relace-zobrazeni]] (formální definice), [[okruh
 **Sémantika VL** ↪ [[#Výroková logika]]
 - *Splnitelnost vs. platnost (tautologie)?* → Splnitelná = ∃ ohodnocení s hodnotou 1; tautologie = platí pro všechna ohodnocení.
 - *Ekvivalence vs. důsledek?* → Ekvivalence: stejné modely; důsledek: každý model ϕ je modelem ψ.
-- *Počet řádků prav. tabulky pro N proměnných?* → 2^N.
+- *Počet řádků prav. tabulky pro N proměnných?* → $2^N$.
 
 **Normální formy** ↪ [[#Normální formy]]
 - *DNF vs. CNF?* → DNF = disjunkce konjunkcí (SoP); CNF = konjunkce disjunkcí (PoS); převod přes NNF + distributivita.
@@ -187,7 +187,7 @@ Postup převodu obecné formule na formuli v NNF:
 
 ### Disjunktivní normální forma (DNF)
 
-Formule je v DNF (sum of products, SoP) v případě, že je zapsána jako disjunkce konjunkcí literálů (konjunkce jsou uvnitř závorek, disjunkce na nejvyšší úrovni). V případě DNF se **konjunkci** literálů říká **klauzule**. Používá se následující značení, kde **l<sub>i,j</sub>** je literál:
+Formule je v DNF (sum of products, SoP) v případě, že je zapsána jako disjunkce konjunkcí literálů (konjunkce jsou uvnitř závorek, disjunkce na nejvyšší úrovni). V případě DNF se **konjunkci** literálů říká **klauzule**. Používá se následující značení, kde $l_{i,j}$ je literál:
 ![[media/szz-19/media/image31.png]]
 
 
@@ -205,7 +205,7 @@ Postup převodu obecné formule na formuli v DNF:
 
 ### Konjunktivní normální forma (CNF)
 
-Formule je v CNF (product of sums, PoS) v případě, že je zapsána jako konjunkce disjunkcí literálů (disjunkce jsou uvnitř závorek, konjunkce na nejvyšší úrovni). V případě CNF se **disjunkci** literálů říká **klauzule**. Používá se následující značení, kde **l<sub>i,j</sub>** je literál:
+Formule je v CNF (product of sums, PoS) v případě, že je zapsána jako konjunkce disjunkcí literálů (disjunkce jsou uvnitř závorek, konjunkce na nejvyšší úrovni). V případě CNF se **disjunkci** literálů říká **klauzule**. Používá se následující značení, kde $l_{i,j}$ je literál:
 ![[media/szz-19/media/image14.png]]
 
 
@@ -237,7 +237,7 @@ Další logické spojky:
 
 > x ↑ y ⇐def⇒ ¬(x ∧ y).
 
-Ne všechny zavedené logické spojky jsou nezbytné. Systém logických spojek S je nějaká podmnožina logických spojek, např. S = {→, ∧, 1}. Budeme používat označení Φ<sub>S</sub> pro množinu všech formulí, které lze vytvořit pomocí spojek z S (a proměnných z X a závorek). Systém spojek S je úplný, pokud pro každou formuli výrokové logiky φ ∈ ΦVL existuje formule φ<sub>S</sub> ∈ Φ<sub>S</sub> taková, že φ ⇔ φ<sub>s</sub>.
+Ne všechny zavedené logické spojky jsou nezbytné. Systém logických spojek S je nějaká podmnožina logických spojek, např. S = {→, ∧, 1}. Budeme používat označení $\Phi_S$ pro množinu všech formulí, které lze vytvořit pomocí spojek z S (a proměnných z X a závorek). Systém spojek S je úplný, pokud pro každou formuli výrokové logiky $\varphi \in \Phi_{VL}$ existuje formule $\varphi_S \in \Phi_S$ taková, že $\varphi \Leftrightarrow \varphi_S$.
 ![[media/szz-19/media/image29.png]]
 
 
@@ -310,7 +310,7 @@ Volné proměnné jsou takové, které **nejsou vázané žádným kvantifikáto
 ![[media/szz-19/media/image5.png]]
 
 
-Proměnná je ve formuli **volná**, pokud je ve formuli **alespoň jeden volný výskyt dané proměnné**. Formuli s **volnými** **proměnnými** říkáme **výroková forma** (x^2 - y \> z), formuli **bez volných proměnných** říkáme **uzavřená formule** nebo také **výrok** (∀x∃y(x \< 2y)).
+Proměnná je ve formuli **volná**, pokud je ve formuli **alespoň jeden volný výskyt dané proměnné**. Formuli s **volnými** **proměnnými** říkáme **výroková forma** ($x^2 - y > z$), formuli **bez volných proměnných** říkáme **uzavřená formule** nebo také **výrok** ($\forall x\, \exists y\, (x < 2y)$).
 
 ## Sémantika predikátové logiky
 
@@ -352,7 +352,7 @@ kvantifikátorů, za nímž následuje formule bez kvantifikátorů, tj. má
 
 následující tvar:
 
-kde Q<sub>1</sub>,..., Q<sub>k</sub> ∈ {∃, ∀}, x<sub>1</sub>,...,x<sub>k</sub> ∈ X a ψ je formule bez kvantifikátorů. Postup:
+kde $Q_1, \dots, Q_k \in \{\exists, \forall\}$, $x_1, \dots, x_k \in X$ a $\psi$ je formule bez kvantifikátorů. Postup:
 ![[media/szz-19/media/image4.png]]
 
 ![[media/szz-19/media/image11.png]]

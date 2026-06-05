@@ -57,7 +57,7 @@ Algoritmy nad těmito strukturami viz [[okruhy/30-vyhledavani-razeni]]; složito
 
 **Datové struktury** ↪ [[#Datové typy a struktury]]
 - *Statická vs. dynamická alokace?* → Statická = pevná velikost při překladu; dynamická = za běhu (halda, ukazatele).
-- *Pole vs. spojový seznam v paměti?* → Pole souvislý blok (přímý přístup O(1)); seznam rozptýlené uzly s ukazateli (vkládání O(1), přístup O(n)).
+- *Pole vs. spojový seznam v paměti?* → Pole souvislý blok (přímý přístup $O(1)$); seznam rozptýlené uzly s ukazateli (vkládání $O(1)$, přístup $O(n)$).
 
 **ADT** ↪ [[#Abstraktní datové typy (ADT)]]
 - *Co je ADT a proč?* → Množina hodnot + operace bez detailů implementace; zvyšuje abstrakci, snižuje provázanost.

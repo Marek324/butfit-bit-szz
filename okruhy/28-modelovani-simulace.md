@@ -87,14 +87,14 @@ Systém je soubor elementárních částí (prvků systémů), které mají mezi
 
 **Formálně** se jedná o dvojici **S = (U, R)**, kde:
 
-- **U = {u<sub>1</sub>, u<sub>2</sub>, …, u<sub>n</sub>}** je univerzum - konečná **množina prvků** systému. Každý prvek je navíc tvořen dvojicí (X, Y), **u = (X, Y)**, kde:
+- $U = \{u_1, u_2, \dots, u_n\}$ je univerzum - konečná **množina prvků** systému. Každý prvek je navíc tvořen dvojicí $(X, Y)$, **u = (X, Y)**, kde:
 
   - **X** je množina všech **vstupních proměnných**.
 
   - **Y** je množina všech **výstupních proměnných**.
 
 - **R** - Množina všech **propojení** (relací), která je podmnožinou **kartézských součinů vstupů a výstupů** jednotlivých prvků.\
-  Propojení prvku u<sub>i</sub> s u<sub>j</sub>:\
+  Propojení prvku $u_i$ s $u_j$:\
   
 ![[media/szz-28/media/image15.png]]
 
@@ -341,7 +341,7 @@ Přesnost (N je počet provedených experimentů):
 
 - **Okolí (neighbourhood)** - Typy se liší počtem a pozicí **okolních buněk**.
 
-- **Pravidla (Rules)** - Funkce stavu buňky a jejího okolí definující nový stav buňky v čase: **s(t + 1) = f(s(t), N<sub>s</sub>(t))**.
+- **Pravidla (Rules)** - Funkce stavu buňky a jejího okolí definující nový stav buňky v čase: $s(t + 1) = f(s(t), N_s(t))$.
 
 Lze je rozdělit do **4 tříd**:
 

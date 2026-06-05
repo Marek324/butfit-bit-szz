@@ -119,7 +119,7 @@ nacházet vypadají:
 
 ### Zrychlení zřetězené linky
 
-$`\frac{N*k*t}{(k + N - 1)*(t + d)}`$ 
+$$S = \frac{N \cdot k \cdot t}{(k + N - 1) \cdot (t + d)}$$
 
 kde:
 

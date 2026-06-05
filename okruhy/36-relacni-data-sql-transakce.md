@@ -94,7 +94,7 @@ Objekt je struktura, kterou lze jednoznačně identifikovat - je mu přiřazena 
 
 ### Ukládání strukturovaných dat
 
-Strukturovaná data jsou obvykle tvořena různě **zanořenými strukturami** a **kolekcemi**. Mohli bychom je do souboru ukládat binárně, tak jak jsou uložené v operační paměti a informace, co a jak (tj. **metadata** o datech) je v tomto souboru uložené nějak jinak např. do dalšího souboru. Tento způsob je ale dost nepraktický, proto používáme **standardizované formáty** uložení (**JSON**, **XML**, YAML, TOML, …), ve kterých jsou uloženy i (některá) metadata o ukládaných datech (jejich **názvy**, jiná metadata jsou ukládána např. pomocí **Document Type Definition** (DTD) a **XML Schema Definition** (XSD) v případě XML a **JSON-LD** v případě JSON). A formát těchto souborů (**meta<sup>2</sup>data**) jsou právě popsána standardem (specifikací standardu) a již se nemusí s daty předávat.
+Strukturovaná data jsou obvykle tvořena různě **zanořenými strukturami** a **kolekcemi**. Mohli bychom je do souboru ukládat binárně, tak jak jsou uložené v operační paměti a informace, co a jak (tj. **metadata** o datech) je v tomto souboru uložené nějak jinak např. do dalšího souboru. Tento způsob je ale dost nepraktický, proto používáme **standardizované formáty** uložení (**JSON**, **XML**, YAML, TOML, …), ve kterých jsou uloženy i (některá) metadata o ukládaných datech (jejich **názvy**, jiná metadata jsou ukládána např. pomocí **Document Type Definition** (DTD) a **XML Schema Definition** (XSD) v případě XML a **JSON-LD** v případě JSON). A formát těchto souborů (**meta²data**) jsou právě popsána standardem (specifikací standardu) a již se nemusí s daty předávat.
 
 ## Serializace
 
@@ -126,9 +126,9 @@ Název **relační model** a **relační databáze** je odvozen od faktu, že re
 
 Schématem relační databáze nazýváma **dvojici (R, I)**, kde:
 
-- R = {R<sub>1</sub>, R<sub>2</sub>, …, R<sub>n</sub>} je množina schémat relací,
+- $R = \{R_1, R_2, \dots, R_n\}$ je množina schémat relací,
 
-- I = {I<sub>1</sub>, I<sub>2</sub>, ..., I<sub>m</sub>} je množina integritních omezení.
+- $I = \{I_1, I_2, \dots, I_m\}$ je množina integritních omezení.
 
 ### Integritní omezení
 

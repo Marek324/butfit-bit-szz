@@ -49,8 +49,8 @@ updated: 2026-06-03T15:40:00Z
 | **DFT** | N vzorků diskrétního | N komplexních koeficientů |
 
 - **Pomůcka**: periodicita v čase ⇒ diskrétnost ve frekvenci; diskrétnost v čase ⇒ periodicita ve frekvenci.
-- **DFT** je pro PC ideální (konečný počet vzorků i koeficientů), pracuje v **O(n²)**.
-- **FFT** — rychlá DFT v **O(n·log n)**; jeden z nejpoužívanějších algoritmů (komprese JPEG/MP3, filtrace, **konvoluce** přes násobení ve frekvenční doméně).
+- **DFT** je pro PC ideální (konečný počet vzorků i koeficientů), pracuje v **$O(n²)$**.
+- **FFT** — rychlá DFT v **$O(n·\log n)$**; jeden z nejpoužívanějších algoritmů (komprese JPEG/MP3, filtrace, **konvoluce** přes násobení ve frekvenční doméně).
 
 > [!note] Ke kontrole
 > Plné znění tvrdí, že FFT „lze počítat **pouze** pro počty vzorků = mocnina 2". To platí jen pro **radix-2** FFT (Cooley-Tukey). Obecně FFT existuje pro **libovolné N** (mixed-radix, Bluestein/chirp-z), jen je nejefektivnější pro vysoce složená N. Také pozn.: JPEG ve skutečnosti používá **DCT**, ne přímo FFT.
@@ -75,7 +75,7 @@ Spektrum je základem pro [[okruhy/15-cislicove-filtry|číslicové filtry]] (fr
 **Fourierova analýza** ↪ [[#Fourierův rozklad]]
 - *FŘ vs. FT vs. DTFT vs. DFT?* → FŘ: spojitý periodický → diskrétní koeficienty; FT: spojitý → spojité spektrum; DTFT: diskrétní → spojité periodické; DFT: N vzorků → N koeficientů (vhodné pro PC).
 - *Vztah čas–frekvence?* → Periodicita v čase ⇒ diskrétnost ve frekvenci a naopak.
-- *FFT?* → Rychlá DFT, O(n·log n), n = mocnina 2; využití komprese (JPEG/MP3), filtrace, konvoluce.
+- *FFT?* → Rychlá DFT, $O(n·\log n)$, n = mocnina 2; využití komprese (JPEG/MP3), filtrace, konvoluce.
 - *Konvoluční teorém?* → Konvoluce v čase = násobení ve frekvenci (a naopak).
 
 ## Plné znění (ke studiu)
@@ -147,7 +147,7 @@ Průběh signálu se opakuje s určitou periodou T: s(t) = s(t+T).
   - ω - úhlový nebo kruhový kmitočet, \[rad/s\] pro spojitý a \[rad\]
     pro diskrétní signál,
 
-  - Ⲫ<sub>0</sub> - počáteční fáze \[rad\]. Posunutí funkce po ose x.
+  - $\varphi_0$ - počáteční fáze \[rad\]. Posunutí funkce po ose x.
 
 ## Spektrální analýza
 
@@ -175,8 +175,8 @@ Každý periodický signál lze vyjádřit jako součet sinusovek a
 cosinusovek. **Frekvence** jednotlivých sinusovek a cosinusovek jsou
 **celočíselným násobkem** frekvence **původního** signálu. **Fázi** a
 **amplitudu** každé harmonické složky (sinusovky a cosinusovky) lze
-získat **Furiérovým rozkladem** (výpočet koeficientů a<sub>n</sub> a
-b<sub>n</sub>). Furierova řada tedy **umožňuje popsat původní periodický
+získat **Furiérovým rozkladem** (výpočet koeficientů $a_n$ a
+$b_n$). Furierova řada tedy **umožňuje popsat původní periodický
 signál součtem sinusovek a kosinusovek**.
 
 Fourierova řada může být také zapsána jako součet komplexních
@@ -272,7 +272,7 @@ oblasti **frekvenční**. DTFT je **periodická** s periodou **2\*pi**.
 Slouží pro **převod** (transformaci) signálů z **prostorové** nebo
 **časové** oblasti **do** oblasti **frekvenční**. **Vzorkuje výstup
 DTFT** (Fourierova transformace s diskrétním časem), který je spojitý.
-Pracuje s **kvadratickou O(n^2)** časovou složitostí.
+Pracuje s **kvadratickou $O(n^2)$** časovou složitostí.
 
 - **Vstup**: **N vzorků** obecného neperiodického diskrétního signálu
   (DFT bere těchto N vzorků, jako by se periodicky opakovaly)
@@ -286,8 +286,8 @@ Pracuje s **kvadratickou O(n^2)** časovou složitostí.
 
 
 Modifikace DFT, která je rychlejší: pracuje s **linearitmickou
-O(n\*logn)** časovou složitostí. Lze počítat pouze pro **počty vzorků**,
-které jsou rovny **mocnině 2** (2^n). Jedná se dnes o jeden z
+$O(n \cdot \log n)$** časovou složitostí. Lze počítat pouze pro **počty vzorků**,
+které jsou rovny **mocnině 2** ($2^n$). Jedná se dnes o jeden z
 **nejpoužívanějších algoritmů vůbec**. Např.:
 
 - **Komprese** JPEG, MP3, …: Fungují na principu výpočtu FFT a následně
@@ -302,8 +302,8 @@ které jsou rovny **mocnině 2** (2^n). Jedná se dnes o jeden z
 
 - **konvoluce**: pomocí FFT se převedou signály **do frekvenční
   domény**, **vynásobí** **se** a **převedou se zpět** pomocí IFFT
-  (inverzní FFT). Běžná konvoluce je v **O(n^2)**, konvoluce pomocí FFT
-  v **O(n\*logn)**.
+  (inverzní FFT). Běžná konvoluce je v **$O(n^2)$**, konvoluce pomocí FFT
+  v **$O(n \cdot \log n)$**.
 
 ### Pomůcka
 

@@ -99,7 +99,7 @@ Disk je rozdělen na sektory, což jsou nejmenší jednotky, které lze číst/z
 
 - **Sektor disku** - Jeho nejmenší adresovatelná jednotka (má pevnou délku).
 
-- **Alokační blok** - **2<sup>n</sup> sektorů** - Nejmenší jednotka diskového prostoru, se kterou dovoluje OS pracovat.
+- **Alokační blok** - **$2^n$ sektorů** - Nejmenší jednotka diskového prostoru, se kterou dovoluje OS pracovat.
 
 - **Fragmentace** - Data jsou uložena nesouvisle po částech. Zpomaluje operace prováděné s diskem. Disk lze defragmentovat - přeuspořádat uložená data, aby byla souvislá.
 
@@ -201,7 +201,7 @@ Na základě **velikosti jednotlivých bloků** a **velikosti odkazů na bloky**
 ![[media/szz-38/media/image18.png]]
 
 
-Velikost souboru je také ovlivněna OS (např. na 32 bitech je největší reprezentovatelné číslo 2^32-1, což odpovídá 4 GiB). **i-uzel NEOBSAHUJE** **název souboru**.
+Velikost souboru je také ovlivněna OS (např. na 32 bitech je největší reprezentovatelné číslo $2^{32}-1$, což odpovídá 4 GiB). **i-uzel NEOBSAHUJE** **název souboru**.
 
 ## Jiné způsoby organizace souborů
 
@@ -531,7 +531,7 @@ LAP je rozdělen na **několik segmentů**. Segmenty přiděluje různým část
 
 #### **Jednoúrovňové tabulky stránek**
 
-**Nejjednodušší**, ale prakticky **nepoužitelný** způsob implementace tabulek stránek. OS si udržuje informace o volných rámcích a pro každý proces včetně jádra si udržuje jeho **tabulku stránek** (page table), **adresa tabulky** je uložena v k tomu určenému **registru**. Tabulka stránek obsahuje **popis mapování** (dvojice první logická adresa stránky a první fyzická adresa rámce) a **různé příznaky** (modifikace, přístupová práva, příznak globality - může používat více procesů, …). Tabulky stránek jsou stejně jako data **udržovány v hlavní paměti**, z čehož plyne důvod nepraktičnosti jednoúrovňových stránek. Na **32 bit** systému existuje **2^32** adres, pokud má stránka velikost **4096 B** (**2^12** B) je nutné uchovávat informaci o **2^20** stránkách, jeden záznam o mapování stránky na rámec může mít **4 B**, což znamená **4 MiB** pro uložení stránek **pro jeden proces**. Problém exponenciálně roste u 64 bit systémů.
+**Nejjednodušší**, ale prakticky **nepoužitelný** způsob implementace tabulek stránek. OS si udržuje informace o volných rámcích a pro každý proces včetně jádra si udržuje jeho **tabulku stránek** (page table), **adresa tabulky** je uložena v k tomu určenému **registru**. Tabulka stránek obsahuje **popis mapování** (dvojice první logická adresa stránky a první fyzická adresa rámce) a **různé příznaky** (modifikace, přístupová práva, příznak globality - může používat více procesů, …). Tabulky stránek jsou stejně jako data **udržovány v hlavní paměti**, z čehož plyne důvod nepraktičnosti jednoúrovňových stránek. Na **32 bit** systému existuje $2^{32}$ adres, pokud má stránka velikost **4096 B** ($2^{12}$ B) je nutné uchovávat informaci o $2^{20}$ stránkách, jeden záznam o mapování stránky na rámec může mít **4 B**, což znamená **4 MiB** pro uložení stránek **pro jeden proces**. Problém exponenciálně roste u 64 bit systémů.
 
 Při provádění příkazu v programu dochází ke **dvěma přístupům do paměti** - **instrukce** a její **operandy**. To vede ke dvěma přístupům do tabulky stránek. Pro urychlení tohoto procesu se používá **TLB**.
 
@@ -563,7 +563,7 @@ Pro **každý rámec** udává, **jaký proces** do něj má namapovanou **jakou
 
 #### **Stránkování a segmentace na žádost**
 
-Je nemožné (u 32 bit teoreticky ano, u 64 bit ne), aby byl celý LAP jednoho procesu, natož více procesů, namapován do paměti (RAM má obvykle kolem 8-128 GB, LAP má u 64 bit procesoru 2^64 adres, což je mnohem víc než 128 GB). I když ale **není** celý **LAP** procesu **namapován** do fyzické paměti, **proces o tom neví**. Stránky/segmenty jsou mapovány na rámce a tím **zaváděny do RAM**, až když je to **potřeba** (proces čte/zapisuje do dané oblasti paměti). Namapování stránky na rámec je ale **časově velmi náročná** operace (může být nutné číst data z disku), proto se tyto operace snažíme eliminovat, procesor tak **preemptivně načítá stránky** do paměti (mapuje na rámce) předtím, než z nich proces chce číst/zapisovat. Při využití všech rámců je nutné část namapovaných dat odložit na disk (swap area), což většinou vede na velké zpomalení systému. Informace o načtených a odložených stránkách si vede **jádro ve svých strukturách** (také v paměti, ale zde si jádro zajistí, že tam jsou neustále), **MMU** o nich **nemá informace**. K **výpadku stránky** dochází, když do ní proces **odkazuje**, ale není načtena v tabulkách stránek nebo chybí v hashovací tabulce či invertované tabulce. Při výpadku generuje **MMU přerušení**, a jádro musí výpadek stránky obsloužit (některé stránky jsou chráněny proti výpadku, např. ty, které obsahují tabulky stránek).
+Je nemožné (u 32 bit teoreticky ano, u 64 bit ne), aby byl celý LAP jednoho procesu, natož více procesů, namapován do paměti (RAM má obvykle kolem 8-128 GB, LAP má u 64 bit procesoru $2^{64}$ adres, což je mnohem víc než 128 GB). I když ale **není** celý **LAP** procesu **namapován** do fyzické paměti, **proces o tom neví**. Stránky/segmenty jsou mapovány na rámce a tím **zaváděny do RAM**, až když je to **potřeba** (proces čte/zapisuje do dané oblasti paměti). Namapování stránky na rámec je ale **časově velmi náročná** operace (může být nutné číst data z disku), proto se tyto operace snažíme eliminovat, procesor tak **preemptivně načítá stránky** do paměti (mapuje na rámce) předtím, než z nich proces chce číst/zapisovat. Při využití všech rámců je nutné část namapovaných dat odložit na disk (swap area), což většinou vede na velké zpomalení systému. Informace o načtených a odložených stránkách si vede **jádro ve svých strukturách** (také v paměti, ale zde si jádro zajistí, že tam jsou neustále), **MMU** o nich **nemá informace**. K **výpadku stránky** dochází, když do ní proces **odkazuje**, ale není načtena v tabulkách stránek nebo chybí v hashovací tabulce či invertované tabulce. Při výpadku generuje **MMU přerušení**, a jádro musí výpadek stránky obsloužit (některé stránky jsou chráněny proti výpadku, např. ty, které obsahují tabulky stránek).
 
 #### **Obsluha výpadku stránky**
 

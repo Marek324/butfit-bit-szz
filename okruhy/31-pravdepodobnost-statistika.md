@@ -360,7 +360,7 @@ Požadavky na generátor:
 
 Další algoritmy generování:
 
-- **Mersenne twister** (perioda 2^19937 − 1),
+- **Mersenne twister** (perioda $2^{19937} - 1$),
 
 - **Xorshift**.
 

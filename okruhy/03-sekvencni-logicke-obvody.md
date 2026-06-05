@@ -433,7 +433,7 @@ druhů, lze je použít např:
 **Stavový automat** - Konečný automat (KA) je
 **šestice** (případně jako **sedmice**, pokud chceme definovat i množinu
 koncových stavů):\
-M = (S, Σ, Λ, T, G, s<sub>0</sub>), kde:
+$M = (S, \Sigma, \Lambda, T, G, s_0)$, kde:
 
 - S je konečná neprázdná množina stavů (vnitřní
   abeceda),

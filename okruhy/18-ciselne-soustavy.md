@@ -163,8 +163,8 @@ Postupuje se stejně jako s celými čísly, ale tentokrát je lepší čísla o
 > (736)8 = (7\|3\|6)8 = (111\|011\|110)2 = (111011110)2
 
 - **Převod mezi dvojkovou a šestnáctkovou soustavou:** na zapsání všech šestnáctkových číslic stačí přesně **4 bity**. Stačí číslo rozdělit na **nibly** (čtveřice) a každý zapsat jako **šestnáctkovou číslici**, respektive z šestnáctkové číslice vytvářet **nibly** (čtveřice binárních číslic).\
-  (0001\|0011\|0010\|1010)<sub>2</sub> = (1\|3\|2\|A)<sub>16</sub>\
-  (8\|A\|F)<sub>16</sub> = (1000\|1010\|1111)<sub>2</sub>
+  (0001\|0011\|0010\|1010)₂ = (1\|3\|2\|A)₁₆\
+  (8\|A\|F)₁₆ = (1000\|1010\|1111)₂
 
 ## Zdroje
 

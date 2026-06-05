@@ -37,7 +37,7 @@ updated: 2026-06-03T15:40:00Z
 
 - **Impulsní odezva h[n]** — výstup LTI systému na jednotkový impuls; **plně definuje** systém (impuls obsahuje všechny frekvence, ve frekvenční doméně roven 1).
 - Libovolný signál = vážený součet posunutých impulsů.
-- **Konvoluce** — výstup = konvoluce vstupu s impulsní odezvou; v časové doméně O(n²), ve frekvenční doméně jen **násobení** (viz [[okruhy/14-spektralni-analyza|FFT]]).
+- **Konvoluce** — výstup = konvoluce vstupu s impulsní odezvou; v časové doméně $O(n²)$, ve frekvenční doméně jen **násobení** (viz [[okruhy/14-spektralni-analyza|FFT]]).
 - **FIR** — konečná impulsní odezva, **bez rekurze** (zpětné smyčky).
 - **IIR** — nekonečná odezva, **min. jedna rekurze**.
 
@@ -47,11 +47,11 @@ updated: 2026-06-03T15:40:00Z
 ## Přenosová funkce a frekvenční charakteristika
 
 - **Přenosová funkce H(z)** = poměr výstupu Y(z) ku vstupu X(z) ve frekvenční oblasti (při nulových počátečních podmínkách); rovná se DTFT/Z-transformaci impulsní odezvy.
-- **Z-transformace** — x[n−k] → X(z)·z^(−k); umožní určit **nuly** (z čitatele) a **póly** (ze jmenovatele); **Region of Convergence** určuje stabilitu.
+- **Z-transformace** — x[n−k] → X(z)·$z^{-k}$; umožní určit **nuly** (z čitatele) a **póly** (ze jmenovatele); **Region of Convergence** určuje stabilitu.
 
 > [!note] Ke kontrole
 > Plné znění na jednom místě píše, že „přenosovou funkci lze získat z impulsní odezvy pomocí **Laplaceovy** transformace". Pro **diskrétní** (číslicové) filtry je to **Z-transformace** (Laplaceova transformace patří ke **spojitým** systémům) — zbytek okruhu správně používá Z-transformaci, takže jde o vnitřní nekonzistenci.
-- **Frekvenční charakteristika** — přenosová funkce pro z = e^(jω) (DTFT); **amplitudová** |H(ω)| a **fázová** arg(H(ω)).
+- **Frekvenční charakteristika** — přenosová funkce pro z = $e^{jω}$ (DTFT); **amplitudová** |H(ω)| a **fázová** arg(H(ω)).
 - Typy: **dolní propusť**, **horní propusť**, **pásmová propusť**, **pásmová zádrž**.
 
 ![[media/szz-15/media/image38.png]]
@@ -81,7 +81,7 @@ Frekvenční analýza staví na [[okruhy/14-spektralni-analyza|Fourierově trans
 - *Co to je, vztah ke konvoluci?* → Odezva systému na jednotkový impuls; plně definuje LTI systém; výstup = konvoluce vstupu s impulsní odezvou h[n].
 
 **Frekvenční charakteristika a typy filtrů** ↪ [[#Přenosová funkce a frekvenční charakteristika]]
-- *Jak ji získat?* → Fourierova transformace impulsní odezvy (H(z) pro z = e^(jω)); amplitudová |H(ω)| a fázová charakteristika.
+- *Jak ji získat?* → Fourierova transformace impulsní odezvy (H(z) pro z = $e^{jω}$); amplitudová |H(ω)| a fázová charakteristika.
 - *Typy filtrů?* → dolní propust, horní propust, pásmová propust, pásmová zádrž.
 
 **Blokové schéma** ↪ [[#Impulsní odezva a konvoluce]]
@@ -293,7 +293,7 @@ charakterizuje v **časové doméně**. Graficky ji vynášíme ve dvou grafech
 jako **amplitudovou charakteristiku** **\|H(⍵)\|** (jak filtr
 zeslabuje/zesiluje) a **fázovou** **charakteristiku arg(H(⍵))** (jak
 filtr posouvá). Frekvenční charakteristika je přenosová funkce
-(z-transformace) vyhodnocená pro **z = e^(j\*omega)**, tedy pro
+(z-transformace) vyhodnocená pro **z = $e^{j\*omega}$**, tedy pro
 DTFT.
 
 ### Dělení frekvenčních charakteristik
@@ -332,26 +332,25 @@ rovnice.
 
 Postup:
 
-1.  vstupy **x\[n-k\]** se přepíší na **X(z)z^(-k),**
+1.  vstupy **x\[n-k\]** se přepíší na $X(z)\,z^{-k}$,
 
-2.  výstupy **y\[n-k\]** se přepíší na **Y(z)z^(-k)** (pro k = 0 se
-    jedná o z^0, což je 1 a proto se nepíše),
+2.  výstupy **y\[n-k\]** se přepíší na $Y(z)\,z^{-k}$ (pro k = 0 se
+    jedná o $z^0$, což je 1 a proto se nepíše),
 
 3.  všechny **Y(z)** se přepíší na jednu stranu rovnice a všechny
     **X(z)** na druhou (tento krok chybí v příkladu níže),
 
-4.  vytknou se **Y(z)** a **X(z)**, takže vznikne něco jako **Y(z)\*(1 +
-    a1\*z^-1 +** **...) = X(z)\*(b1\*z^-1 + ...)**,
+4.  vytknou se **Y(z)** a **X(z)**, takže vznikne něco jako
+    $Y(z) \cdot (1 + a_1 z^{-1} + \dots) = X(z) \cdot (b_1 z^{-1} + \dots)$,
 
-5.  převedeme do tvaru **H(z) = Y(z)/X(z) = (b1\*z^-1 + ...)/(1 +
-    a1\*z^-1 + ...)**.
+5.  převedeme do tvaru
+    $H(z) = \dfrac{Y(z)}{X(z)} = \dfrac{b_1 z^{-1} + \dots}{1 + a_1 z^{-1} + \dots}$.
 
-6.  vzniklý zlomek se **rozšíří** násobením **z^x/z^x** (což je 1, takže
+6.  vzniklý zlomek se **rozšíří** násobením $z^x / z^x$ (což je 1, takže
     je hodnota zlomku pořád stejná), **x** se rovná největšímu **k**
     (krok není explicitně uveden v příkladě),
 
-7.  převod na PoS (product of sums - např. **z^2 - 4** ==
-    **(z-2)\*(z+2)**)
+7.  převod na PoS (product of sums - např. $z^2 - 4 = (z-2)(z+2)$)
 
 8.  určení nul (z Y(z), tedy z čitatele) a pólů (z X(z), tedy ze
     jmenovatele).
@@ -398,8 +397,7 @@ Komplexní čísla\
 ![[media/szz-15/media/image18.png]]
 
 
-- **Exponenciální tvar komplexního čísla** - z =
-  r\*e<sup>jⲪ</sup>
+- **Exponenciální tvar komplexního čísla** - $z = r \cdot e^{j\varphi}$
 
 - **Komplexně sdružené číslo** - pro číslo
   
@@ -413,8 +411,7 @@ existuje
   
 ![[media/szz-15/media/image22.png]]
 . Součtem
-  čísla a jeho komplexně sdruženého čísla vznikne reálné číslo. Funkce y
-  = e<sup>jx</sup> je komplexní exponenciála; Součtem s komplexně
+  čísla a jeho komplexně sdruženého čísla vznikne reálné číslo. Funkce $y = e^{jx}$ je komplexní exponenciála; Součtem s komplexně
   sdruženou získáme kosinusovku.\
   
 ![[media/szz-15/media/image7.png]]

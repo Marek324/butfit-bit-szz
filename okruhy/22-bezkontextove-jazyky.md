@@ -91,7 +91,7 @@ Slouží pro **generování BKJ**. Je to **čtveřice** **G = (N, T, P, S)**, kd
 
 Nejznámějším bezkontextovým jazykem je jazyk
 
-**L(G) = {(a^n)(b^n) : n ≥ 0}**
+$L(G) = \{a^n b^n : n \geq 0\}$
 ![[media/szz-22/media/image6.png]]
 
 

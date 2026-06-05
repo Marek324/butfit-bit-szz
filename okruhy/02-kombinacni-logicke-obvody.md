@@ -31,11 +31,11 @@ updated: 2026-06-03T15:40:00Z
 
 ## Výběrové obvody
 
-- **Multiplexor** — z N řídicích vstupů vybírá na výstup hodnotu jednoho z až **2^N** vstupů.
-- **Demultiplexor** — opačně: vstup posílá na jeden z 2^N výstupů.
+- **Multiplexor** — z N řídicích vstupů vybírá na výstup hodnotu jednoho z až **$2^N$** vstupů.
+- **Demultiplexor** — opačně: vstup posílá na jeden z $2^N$ výstupů.
 
 ![[media/szz-02/media/image20.png]]
-*Multiplexor — výběr jednoho z 2^N vstupů podle řídicích vstupů.*
+*Multiplexor — výběr jednoho z $2^N$ vstupů podle řídicích vstupů.*
 
 ![[media/szz-02/media/image23.png]]
 *Demultiplexor — směrování vstupu na jeden z výstupů.*
@@ -43,8 +43,8 @@ updated: 2026-06-03T15:40:00Z
 ## Kódovací obvody
 
 - **Kodér / dekodér** — převádějí informaci podle kombinační tabulky.
-- **Binární kodér** — zakóduje 2^N vstupů (vždy aktivní právě jeden) na N výstupů.
-- **Binární dekodér** — N vstupů → 2^N výstupů (aktivní jeden výstup); lze realizovat demultiplexorem.
+- **Binární kodér** — zakóduje $2^N$ vstupů (vždy aktivní právě jeden) na N výstupů.
+- **Binární dekodér** — N vstupů → $2^N$ výstupů (aktivní jeden výstup); lze realizovat demultiplexorem.
 - **Prioritní kodér** — připouští více aktivních vstupů, kóduje ten s nejvyšší prioritou (využití v obsluze [[okruhy/06-periferie-preruseni-dma-sbernice|přerušení]] a ve [[okruhy/05-vestavene-systemy|Flash ADC]]).
 
 ## Binární sčítačky
@@ -77,11 +77,11 @@ Doplnění o paměťový prvek (klopný obvod D) vede na [[okruhy/03-sekvencni-l
 - *NAND vs. NOR — ekvivalence?* → Obě jsou funkčně úplné — z každé lze sestavit libovolnou logickou funkci.
 
 **Multiplexor / demultiplexor** ↪ [[#Výběrové obvody]]
-- *Co je MUX/DMX?* → MUX vybírá z N řídicích vstupů jeden z 2^N datových na výstup; DMX opačně (1 → jeden z 2^N).
-- *Vztah počtu vstupů a řídicích?* → 2^N datových ↔ N řídicích.
+- *Co je MUX/DMX?* → MUX vybírá z N řídicích vstupů jeden z $2^N$ datových na výstup; DMX opačně (1 → jeden z $2^N$).
+- *Vztah počtu vstupů a řídicích?* → $2^N$ datových ↔ N řídicích.
 
 **Kodér / dekodér** ↪ [[#Kódovací obvody]]
-- *Dekodér?* → N vstupů → 2^N výstupů, aktivní právě jeden.
+- *Dekodér?* → N vstupů → $2^N$ výstupů, aktivní právě jeden.
 - *Binární vs. prioritní kodér?* → Binární vyžaduje právě jeden aktivní vstup; prioritní připouští více a kóduje ten s nejvyšší prioritou.
 
 **Sčítačky (HA/FA)** ↪ [[#Binární sčítačky]]
@@ -98,7 +98,7 @@ nemají paměť.
 ## **Multiplexor** 
 
 Kombinací **N** **řídících vstupů** vybírá na
-**výstup hodnotu jednoho** z až **2^N** vstupů.\
+**výstup hodnotu jednoho** z až **$2^N$** vstupů.\
 
 ![[media/szz-02/media/image20.png]]
 
@@ -123,7 +123,7 @@ Kombinací **N** **řídících vstupů** vybírá na
 ## Demultiplexor
 
 Kombinací **N** **řídících vstupů** vysílá vstup na
-jeden z obvykle **2^N** **výstupů**.\
+jeden z obvykle **$2^N$** **výstupů**.\
 
 ![[media/szz-02/media/image23.png]]
 
@@ -148,13 +148,12 @@ hradel
 
 **Kodér** kóduje (**kombinuje**, převádí) informaci z
 **N** vstupů na **K** výstupů na základě **kombinační tabulky**. Obecně
-platí, že **N \> K** (jinak jde spíš o dekodér) a **2^K \>= N** (jinak
+platí, že $N > K$ (jinak jde spíš o dekodér) a $2^K \geq N$ (jinak
 nelze zaručit jednoznačné kódování).
 
 **Dekodér** je kombinační logický obvod
 **komplementární** ke kodéru. Dekóduje (**kombinuje**, převádí)
-informaci z **N** vstupů na **K** výstupů. Obecně platí, že **N \<
-K**.
+informaci z **N** vstupů na **K** výstupů. Obecně platí, že $N < K$.
 
 - To znamená, že zapojení kodéru a za ním dekodéru se
   **stejnou kombinační** tabulkou, která je **jednoznačná** (pro každý
@@ -176,7 +175,7 @@ K**.
 
 ## Binární kodér (Encoder)
 
-Umožňuje na **N** **výstupů** zakódovat až **2^N**
+Umožňuje na **N** **výstupů** zakódovat až **$2^N$**
 **vstupů**. Musí ale platit, že vždy je **aktivní** **pouze jeden** ze
 vstupů. Pomocí kodéru lze například převádět stisknutou klávesu (vstup)
 na její binární hodnotu. Klávesa 0 je zapojena na první vstup, klávesa 1
@@ -189,7 +188,7 @@ klávesu 1, 0b0010 pro klávesu 2, …
 
 ## Binární dekodér (Decoder)
 
-Dekóduje **N vstupů** na **2^N výstupů**, narozdíl od
+Dekóduje **N vstupů** na **$2^N$ výstupů**, narozdíl od
 kodéru mohou být vstupy libovolně aktivní. Pro daný vstup je ale aktivní
 vždy **pouze jeden výstup**. Dekodér lze například použít pro adresaci
 zařízení na sběrnici (binární adresa umožňuje aktivovat jedno z

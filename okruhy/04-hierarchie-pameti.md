@@ -279,9 +279,9 @@ bloky z hlavní paměti přiřazovány/mapovány do RVP.
   velký počet výpadků (procesor současně pracuje s dvěma bloky, které
   mají stejnou adresu v RVP).
 
-  - např. pro RVP s 2^10 bloky a pamětí s 2^30 bloky
-    (protože 2^2 = 4 B je obsah pole v RVP) bude pravděpodobnost při
-    náhodném výběru bloku 2^10/2^30 = 1/2^20 zaokrouhleně 1/1 000 000,
+  - např. pro RVP s $2^{10}$ bloky a pamětí s $2^{30}$ bloky
+    (protože $2^2 = 4$ B je obsah pole v RVP) bude pravděpodobnost při
+    náhodném výběru bloku $2^{10}/2^{30} = 1/2^{20}$ zaokrouhleně 1/1 000 000,
     tedy **0.0001%**.
 
   - díky **časové a prostorové lokalitě** není ale

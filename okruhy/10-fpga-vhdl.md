@@ -32,8 +32,8 @@ updated: 2026-06-03T15:40:00Z
 ## Vnitřní struktura FPGA
 
 - **Configurable Logic Blocks (CLB)** — z více *slice*; obsahují:
-  - **LUT (Look-Up Table)** — 2^N bitový registr s výsledky kombinační logiky N proměnných (volatilní → konfigurace z FLASH při startu).
-  - **2^N−1 multiplexor** — vybírá hodnotu z LUT podle vstupů.
+  - **LUT (Look-Up Table)** — $2^N$ bitový registr s výsledky kombinační logiky N proměnných (volatilní → konfigurace z FLASH při startu).
+  - **$2^N-1$ multiplexor** — vybírá hodnotu z LUT podle vstupů.
   - **klopný obvod typu D** — paměť pro [[okruhy/03-sekvencni-logicke-obvody|sekvenční obvody]].
   - **2-1 multiplexor** — volí mezi kombinačním (LUT) a sekvenčním výstupem.
 - **Programmable Interconnects** — programovatelné propojení (switch v křížení).
@@ -98,13 +98,13 @@ integrated circuit - nejrychlejší, nejúspornější) a pouze SW řešení
   jeden **CLB** nebo **slice**. **CLB** může být tvořeno více
   **slice**:
 
-  - Look Up Table (**LUT**): **2^N** bitový register
+  - Look Up Table (**LUT**): $2^N$ bitový register
     obsahující výsledky kombinační logiky **N** proměnných. Jedná se
     volatilní paměť, tzn. konfigurace jednotlivých LUT musí být uložena
     v nevolatilní paměti (FLASH), ze které jsou LUT při spuštění
     nakonfigurovány.
 
-  - **2^N-1** multiplexor: **N** určuje počet
+  - **$2^N-1$ multiplexor**: **N** určuje počet
     vstupních proměnných. Pomocí kterého se **vybírá** hodnota z **LUT**
     na výstup na základě hodnot **vstupních proměnných**.
 
@@ -112,7 +112,7 @@ integrated circuit - nejrychlejší, nejúspornější) a pouze SW řešení
     umožňuje tvorbu sekvenčních obvodů.
 
   - **2-1** multiplexor: vybírá mezi výstupem z LUT
-    (získaného pomocí **2^N-1** multiplexoru) nebo výstupem z klopného
+    (získaného pomocí **$2^N-1$ multiplexor**u) nebo výstupem z klopného
     obvodu. Tento multiplexor tak určuje, jestli půjde o sekvenční. nebo
     kombinační logiku.
 ![[media/szz-10/media/image7.png]]

@@ -42,7 +42,7 @@ updated: 2026-06-03T17:30:00Z
 
 ### Grafové algoritmy
 - **BFS** (fronta) — nejkratší cesta v **neváženém** grafu; **DFS** (zásobník).
-- **Dijkstra** (prioritní fronta) — nejkratší cesta v **kladně váženém** grafu; O((V+E)·log V).
+- **Dijkstra** (prioritní fronta) — nejkratší cesta v **kladně váženém** grafu; $O((V+E)·\log V)$.
 - **Jarník/Prim** a **Kruskal** — **minimální kostra** váženého grafu (greedy).
 
 Grafy jako relace viz [[okruhy/16-mnoziny-relace-zobrazeni]]; prohledávání viz [[okruhy/26-reseni-uloh-prohledavani]]; Dijkstra v [[okruhy/44-smerovani-zabezpeceni-siti|Link-State směrování]].
@@ -266,7 +266,7 @@ Algoritmus prochází nejprve do co nejvzdálenější úrovně a poté se postu
 
 ### Dijkstrův algoritmus
 
-Algoritmus pro hledání **nejkratší cesty** (vzdálenosti) mezi **dvěma vrcholy** **u** a **v** v **kladně váženém** grafu. Jako úložiště používá **prioritní frontu**. Může pracovat s časovou komplexitou **O((hrany+vrcholy)\*log(vrcholy))** nebo **O(vrcholy^2)** při použití pole**.** Princip algoritmu:
+Algoritmus pro hledání **nejkratší cesty** (vzdálenosti) mezi **dvěma vrcholy** **u** a **v** v **kladně váženém** grafu. Jako úložiště používá **prioritní frontu**. Může pracovat s časovou komplexitou **$O((hrany+vrcholy) \cdot \log (vrcholy))$** nebo **$O(vrcholy^2)$** při použití pole**.** Princip algoritmu:
 
 1.  Všechny vrcholy až na počáteční jsou ohodnoceny **nekonečnem** (neznáme do nich cestu), počáteční vrchol je ohodnocen **0** (cesta do tohoto vrcholu je nulová). Všechny vrcholy jsou označeny za nezpracované.
 

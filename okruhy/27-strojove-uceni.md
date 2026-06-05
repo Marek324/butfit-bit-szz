@@ -105,13 +105,13 @@ Algoritmus funguje následovně:
 
 2.  Je-li množina atributů **MA** prázdná, vraťte **listový** uzel označený **disjunkcí** všech tříd, do kterých patří prvky v množině příkladů **MP**, jinak pokračujte.
 
-3.  Vyberte atribut **A<sub>i</sub>**, odstraňte jej z množiny atributů **MA** a učiňte jej kořenem **aktuálního** stromu. Nechť **MA-i** je množina atributů **MA** bez atributu **A<sub>i</sub>** .
+3.  Vyberte atribut $A_i$, odstraňte jej z množiny atributů **MA** a učiňte jej kořenem **aktuálního** stromu. Nechť **MA-i** je množina atributů **MA** bez atributu $A_i$ .
 
-4.  Pro každou hodnotu **H<sub>ji</sub>** vybraného atributu **A<sub>i</sub>**:
+4.  Pro každou hodnotu $H_{ji}$ vybraného atributu $A_i$:
 
-    1.  Vytvořte novou větev stromu označenou hodnotou **H<sub>ji</sub>**.
+    1.  Vytvořte novou větev stromu označenou hodnotou $H_{ji}$.
 
-    2.  Volejte rekurzivně algoritmus s parametry **MP<sub>ji</sub>** a **MA-i** , kde množina **MP<sub>ji</sub>** je podmnožinou všech prvků množiny příkladů **MP**, které **mají** hodnotu **H<sub>ji</sub>** atributu **A<sub>i</sub>**.
+    2.  Volejte rekurzivně algoritmus s parametry $MP_{ji}$ a **MA-i** , kde množina $MP_{ji}$ je podmnožinou všech prvků množiny příkladů **MP**, které **mají** hodnotu $H_{ji}$ atributu $A_i$.
 
     3.  Připojte vrácený podstrom/uzel k této větvi.
 
@@ -121,11 +121,11 @@ Na **základě trénovací množiny**, viz tabulka výše, lze říct, že pokud
 ![[media/szz-27/media/image3.png]]
 
 
-Algoritmus je jednoduchý, ale obsahuje zásadní problém, kterým je výběr atributu **A<sub>i</sub>** v bodě 3. **Nevhodné** výběry vedou k **hlubokým** a **neefektivním** vyhledávacím stromům, přestože **optimální strom** může být poměrně **jednoduchý**.
+Algoritmus je jednoduchý, ale obsahuje zásadní problém, kterým je výběr atributu $A_i$ v bodě 3. **Nevhodné** výběry vedou k **hlubokým** a **neefektivním** vyhledávacím stromům, přestože **optimální strom** může být poměrně **jednoduchý**.
 
 ### Algoritmus ID3 - Iterative Dichotomiser 3 (Induction of Decision Tree)
 
-Jedná se o modifikaci algoritmu Decision Tree, který **řeší** problém při **výběru rozhodovacího atributu A<sub>i</sub>** v bodě 3. Výběr atributu není náhodný, ale je prováděn tak, aby byl **maximalizován informační zisk**, tj. aby byl **nejdříve** vybrán takový **atribut**, který co **nejvíce ovlivní výsledné rozhodnutí** (atribut, který ovlivňuje rozhodnutí úplně nejvíce je pak kořenem rozhodovacího stromu). Lze na to nahlížet také tak, že **množiny**, které vzniknou **rozdělením dle nějakého atributu** mají co **nejmenší míru entropie** (míru neuspořádanosti) tj. je v nich co nejvíce prvků spadajících pod stejný výsledek. Pokud jsou v množině 3 prvky, které spadají **všechny do jedné kategorie** výsledků (např. nízky risk), je míra **entropie** této množiny **nulová**. Pokud zde budou naopak 3 prvky spadající do **3 různých kategorií** (nízký, přiměřený a vysoký risk), je míra entropie této množiny **nejvyšší**. Vybíráme tedy takový **atribut**, který rozdělí množinu na podmnožiny s **nejmenší entropií** a přinese tak **největší informační zisk**.
+Jedná se o modifikaci algoritmu Decision Tree, který **řeší** problém při **výběru rozhodovacího atributu** $A_i$ v bodě 3. Výběr atributu není náhodný, ale je prováděn tak, aby byl **maximalizován informační zisk**, tj. aby byl **nejdříve** vybrán takový **atribut**, který co **nejvíce ovlivní výsledné rozhodnutí** (atribut, který ovlivňuje rozhodnutí úplně nejvíce je pak kořenem rozhodovacího stromu). Lze na to nahlížet také tak, že **množiny**, které vzniknou **rozdělením dle nějakého atributu** mají co **nejmenší míru entropie** (míru neuspořádanosti) tj. je v nich co nejvíce prvků spadajících pod stejný výsledek. Pokud jsou v množině 3 prvky, které spadají **všechny do jedné kategorie** výsledků (např. nízky risk), je míra **entropie** této množiny **nulová**. Pokud zde budou naopak 3 prvky spadající do **3 různých kategorií** (nízký, přiměřený a vysoký risk), je míra entropie této množiny **nejvyšší**. Vybíráme tedy takový **atribut**, který rozdělí množinu na podmnožiny s **nejmenší entropií** a přinese tak **největší informační zisk**.
 
 Informační zisk s respektováním hodnot **atributu Příjem** (**\<15**, **15-35**, **\>35**) se vypočítá takto: **MP1** (\<15) **= {1,4,7,11}**, **MP2** (15-35) = **{2,3,12,14}**, **MP3** (\>35) = **{5,6,8,9,10,13}** (už jen podle rozdělení prvků do množin je zřejmé, že MP1 bude mít nulovou entropii, MP2 bude mít z této trojice největší entropii a entropie MP3 bude mezi).
 ![[media/szz-27/media/image12.png]]

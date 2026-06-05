@@ -52,7 +52,7 @@ Instrukční sada [[okruhy/07-princip-cinnosti-pocitace-pipelining|RISC × CISC]
 
 ## Převodníky
 
-- **ADC** (analogově-číslicový): **Flash ADC** (kombinační, 2^N−1 [[okruhy/02-kombinacni-logicke-obvody|komparátorů]] + prioritní kodér, rychlý, drahý); **aproximační ADC** (sekvenční, SAR, půlení intervalů, O(N)).
+- **ADC** (analogově-číslicový): **Flash ADC** (kombinační, $2^N-1$ [[okruhy/02-kombinacni-logicke-obvody|komparátorů]] + prioritní kodér, rychlý, drahý); **aproximační ADC** (sekvenční, SAR, půlení intervalů, $O(N)$).
 - **DAC** (číslicově-analogový): obvykle **R-2R odporový žebřík**.
 
 ![[media/szz-05/media/image9.png]]
@@ -77,7 +77,7 @@ Displej (7segment), klávesnice (dělič napětí + ADC, nebo kodér), motory/LE
 - *Synchronní vs. asynchronní přenos?* → Synchronní přenáší i hodiny; asynchronní si je generuje příjemce ze smluveného baud rate.
 
 **Převodníky (ADC/DAC)** ↪ [[#Převodníky]]
-- *Flash vs. aproximační ADC?* → Flash = paralelní pole komparátorů (rychlý, drahý); aproximační = SAR, půlení intervalů, O(N).
+- *Flash vs. aproximační ADC?* → Flash = paralelní pole komparátorů (rychlý, drahý); aproximační = SAR, půlení intervalů, $O(N)$.
 - *Proč schodovitý převodní graf?* → Digitální výstup je diskrétní (kvantovaný), ne spojitá čára; přesnost roste s počtem bitů.
 - *Role S/H obvodu?* → Sample & hold navzorkuje a drží napětí po dobu převodu.
 
@@ -423,13 +423,13 @@ na výstupu, který např. nastavuje teplotou.
 
 Převádí **analogový** (spojitý) signál na
 **digitální** (diskrétní - **binární číslo**, které dokáže interpretovat
-**MCU**). Naměřené hodnoty MCU ale dostává v rozsahu **0 až 2^N-1** a
+**MCU**). Naměřené hodnoty MCU ale dostává v rozsahu $0$ až $2^N-1$ a
 musí je převést na **odpovídající** hodnotu napětí. Existuje více druhů
 AD převodníků, dva základní jsou:
 
 - **Flash ADC** (direct-conversion ADC): Jedná se
   pouze o **kombinační** obvod, převod probíhá **paralelně** s
-  **konstantní** rychlostí. **N** bitový převodník je tvořen **2^N - 1**
+  **konstantní** rychlostí. **N** bitový převodník je tvořen $2^N - 1$
   **komparátory**, které jsou připojeny k **napěťovému žebříku** na
   vstupu **minus** (-), který dělí **referenční napětí**, a na vstup
   **plus** (+) je přivedeno **měřené napětí**. Výsledky komparátorů jsou
@@ -452,7 +452,7 @@ AD převodníků, dva základní jsou:
   obvod, měřené napětí musí být **navzorkováno** a poté až probíhá
   převod. Funguje na principu binárního vyhledávání (**půlení
   intervalů**) správné hodnoty napětí, pracuje ale s lineární časovou
-  složitostí **O(N)**, kde **N** je počet převáděných bitů (musí se
+  složitostí **$O(N)$**, kde **N** je počet převáděných bitů (musí se
   zkontrolovat každý). Je
   tvořen:
 ![[media/szz-05/media/image9.png]]
@@ -501,7 +501,7 @@ obvodu v místě **out** je **R**. Paralelně zapojené dva **2R** rezistory
 pod **b0**, mají odpor roven součtu jejich **převrácených** hodnot, tedy
 **R**, což znamená, že pod **b1**, vzniknou také paralelně zapojené dva
 **2R** (2R a 2x 1R v sérii) rezistory atd. Napětí z **b0** bude po cestě
-k **out** rozděleno **čtyřikrát**, tedy doputuje tam **1/2^4 = 1/16**, z
+k **out** rozděleno **čtyřikrát**, tedy doputuje tam $1/2^4 = 1/16$, z
 **b1** bude rozděleno **třikrát** na **1/8**, z b2 **dvakrát** na
 **1/4** a z **b3** jednou na **1/2** [<u>DAC Methods R2R
 Ladder</u>](https://youtu.be/bXUfDLF4MVc). Na **out** takhle může být

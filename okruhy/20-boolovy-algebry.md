@@ -175,7 +175,7 @@ Je preto potrebné si pozrieť pojmy ako **čiastočne usporiadaná množina**, 
 
 ### Funkce
 
-Na Booleově algebrách lze realizovat **(2^2)^2**, tedy **16** funkcí (Dva operandy, každý s dvěma možnými hodnotami: 2^2 možných kombinací vstupů. Každý výstup těchto kombinací může nabývat dvou možných hodnot. Celkem tedy Booleovy algebry mohou realizovat (2^2)^2 = 16 možných operací.).
+Na Booleově algebrách lze realizovat $(2^2)^2$, tedy **16** funkcí (Dva operandy, každý s dvěma možnými hodnotami: $2^2$ možných kombinací vstupů. Každý výstup těchto kombinací může nabývat dvou možných hodnot. Celkem tedy Booleovy algebry mohou realizovat $(2^2)^2 = 16$ možných operací.).
 
 - **NOT** - Negace (doplněk)\
   
