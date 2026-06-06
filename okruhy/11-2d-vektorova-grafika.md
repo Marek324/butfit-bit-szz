@@ -139,7 +139,9 @@ zpátky do původní polohy a orientace.)
 	- $B = y_2 - y_1$
 	- vektor $[A, B]$ je **směrovým vektorem** přímky.
 
-- **Směrnicový tvar** — $y = k \cdot x + q$, kde $k = \dfrac{y_2 - y_1}{x_2 - x_1}$
+- **Směrnicový tvar**
+	- $y = k \cdot x + q$
+	- $k = \dfrac{y_2 - y_1}{x_2 - x_1}$
 
 ### Algoritmus DDA (Digital differential analyzer)
 
