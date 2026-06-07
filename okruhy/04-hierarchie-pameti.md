@@ -53,7 +53,7 @@ updated: 2026-06-03T15:40:00Z
 *Vícecestné (set-asociativní) mapování — více bloků se stejnými spodními bity + příznak.*
 
 - **Mapování**: přímé, **n-cestné**, **plně asociativní** (drahé, pro velké cache nerealizovatelné), skupinově/sektorově asociativní.
-- Výběr oběti: LRU, MRU, FIFO, náhodně.
+- Výběr oběti: LRU, MFU, FIFO, náhodně.
 
 ## Koherence (konzistence) dat
 
@@ -325,7 +325,7 @@ Pravděpodobnost výpadku lze samozřejmě nejlépe snížit
 U vícecestných RVP se musí také řešit problém výběru
 oběti, pokud je RVP pro daný ukazatel (adresu) plná (všechny bloku jsou
 označeny jako **validní**). Používají se metody jako náhodný výběr, LRU,
-MRU, FIFO atd. Obecně tyto metody vyžadují další logiku
+MFU, FIFO atd. Obecně tyto metody vyžadují další logiku
 (obvody).
 ![[media/szz-04/media/image4.png]]
 
