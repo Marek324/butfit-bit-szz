@@ -61,6 +61,11 @@ _FRONTMATTER = re.compile(r"\A---\n.*?\n---\n", re.DOTALL)
 _EMBED = re.compile(r"!\[\[([^\]|]+?)(?:\|[^\]]*)?\]\]")
 _WIKILINK = re.compile(r"\[\[([^\]]+?)\]\]")
 _CALLOUT = re.compile(r"^(\s*>)\s*\[!(\w+)\]\s*(.*)$")
+_ATX = re.compile(r"^(#{1,6})\s+(.*?)\s*$")
+# A line of only `=` is a Setext-H1 underline. The sources use ATX headings only,
+# so any such line is a stray docx artifact that would turn the line above it into
+# a phantom top-level heading; blank it out.
+_SETEXT_RULE = re.compile(r"(?m)^=+[ \t]*$")
 
 
 def _embed_to_image(match: re.Match) -> str:
@@ -94,6 +99,32 @@ def _fix_callouts(text: str) -> str:
     return "\n".join(out)
 
 
+def _normalize_headings(text: str) -> str:
+    """Give every document exactly one H1 (its title).
+
+    Several source files use `#` not just for the title but also for major
+    sections of the full text (okruh 31 has seven `#` headings). Left alone
+    they all land at the top TOC level and clutter the merged contents. Keep
+    the first heading as the H1 title and demote any later `#` heading to `##`;
+    drop empty headings (one okruh has a stray `# ` with no text).
+    """
+    out, seen_title = [], False
+    for line in text.splitlines():
+        m = _ATX.match(line)
+        if m:
+            hashes, body = m.groups()
+            if not body:
+                continue  # empty heading → drop
+            if not seen_title:
+                seen_title = True
+            elif hashes == "#":
+                hashes = "##"  # stray inner H1 → H2
+            out.append(f"{hashes} {body}")
+        else:
+            out.append(line)
+    return "\n".join(out)
+
+
 def preprocess(md_path: Path) -> str:
     """Turn an Obsidian Markdown file into pandoc-friendly Markdown."""
     text = md_path.read_text(encoding="utf-8")
@@ -101,6 +132,8 @@ def preprocess(md_path: Path) -> str:
     text = _fix_callouts(text)
     text = _EMBED.sub(_embed_to_image, text)
     text = _WIKILINK.sub(_wikilink_to_text, text)
+    text = _SETEXT_RULE.sub("", text)
+    text = _normalize_headings(text)
     return text.strip() + "\n"
 
 
@@ -110,7 +143,14 @@ def _pandoc_cmd(out_path: Path, args: argparse.Namespace, *, toc: bool, title: s
         # We strip frontmatter ourselves and pass the title via -M, so disable
         # YAML metadata parsing — otherwise the `---` thematic breaks in the doc
         # footers get misread as metadata blocks when files are concatenated.
+        # We strip frontmatter ourselves and pass the title via -M, so disable
+        # YAML metadata parsing — otherwise the `---` thematic breaks in the doc
+        # footers get misread as metadata blocks.
         "-f", "markdown-yaml_metadata_block",
+        # Parse each input file on its own. Without this, concatenated files are
+        # reparsed as one stream and the `---`/footer at a file boundary can
+        # swallow the next file's `#` title, dropping most okruhy from the TOC.
+        "--file-scope",
         f"--pdf-engine={args.engine}",
         "--include-in-header", str(HEADER),
         "--resource-path", str(ROOT),
@@ -130,16 +170,28 @@ def _pandoc_cmd(out_path: Path, args: argparse.Namespace, *, toc: bool, title: s
     return cmd
 
 
-def _run_pandoc(content: str, out_path: Path, args: argparse.Namespace, *, toc: bool, title: str | None) -> None:
+def _build(paths: list[Path], out_path: Path, args: argparse.Namespace, *, toc: bool, title: str | None) -> None:
+    """Preprocess each source file to a temp file and run pandoc over them all.
+
+    Files are passed as separate inputs (with --file-scope) so each parses
+    cleanly; a trailing raw `\\newpage` between them keeps documents on their
+    own pages in the merged output.
+    """
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.NamedTemporaryFile("w", suffix=".md", dir=ROOT, delete=False, encoding="utf-8") as tmp:
-        tmp.write(content)
-        tmp_path = Path(tmp.name)
+    tmp_paths: list[Path] = []
     try:
-        cmd = _pandoc_cmd(out_path, args, toc=toc, title=title) + [str(tmp_path)]
+        for i, src in enumerate(paths):
+            content = preprocess(src)
+            if i < len(paths) - 1:
+                content += "\n\\newpage\n"
+            with tempfile.NamedTemporaryFile("w", suffix=".md", dir=ROOT, delete=False, encoding="utf-8") as tmp:
+                tmp.write(content)
+                tmp_paths.append(Path(tmp.name))
+        cmd = _pandoc_cmd(out_path, args, toc=toc, title=title) + [str(p) for p in tmp_paths]
         subprocess.run(cmd, check=True)
     finally:
-        tmp_path.unlink(missing_ok=True)
+        for p in tmp_paths:
+            p.unlink(missing_ok=True)
     print(f"  ✓ {out_path.relative_to(ROOT)}")
 
 
@@ -152,11 +204,6 @@ def _slug_path(directory: Path, slug: str) -> Path:
     return path
 
 
-def _merge(paths: list[Path]) -> str:
-    """Concatenate preprocessed files, page-breaking between them."""
-    return "\n\n\\newpage\n\n".join(preprocess(p) for p in paths)
-
-
 # ── subcommands ───────────────────────────────────────────────────────────────
 
 def cmd_single(directory: Path, out_subdir: str, slug: str | None, args: argparse.Namespace) -> None:
@@ -167,7 +214,7 @@ def cmd_single(directory: Path, out_subdir: str, slug: str | None, args: argpars
     print(f"Building {len(paths)} PDF(s) from {directory.relative_to(ROOT)}/ …")
     for path in paths:
         out = BUILD / out_subdir / f"{path.stem}.pdf"
-        _run_pandoc(preprocess(path), out, args, toc=False, title=None)
+        _build([path], out, args, toc=False, title=None)
 
 
 def cmd_topic(args):
@@ -181,22 +228,22 @@ def cmd_synthesis(args):
 def cmd_topics(args):
     paths = sorted(OKRUHY.glob("*.md"))
     print(f"Merging {len(paths)} okruhy …")
-    _run_pandoc(_merge(paths), BUILD / "szz-okruhy.pdf", args,
-                toc=True, title="SZZ — Okruhy (FIT BUT)")
+    _build(paths, BUILD / "szz-okruhy.pdf", args,
+           toc=True, title="SZZ — Okruhy (FIT BUT)")
 
 
 def cmd_syntheses(args):
     paths = sorted(SYNTHESIS.glob("*.md"))
     print(f"Merging {len(paths)} syntéz …")
-    _run_pandoc(_merge(paths), BUILD / "szz-syntezy.pdf", args,
-                toc=True, title="SZZ — Syntézy (FIT BUT)")
+    _build(paths, BUILD / "szz-syntezy.pdf", args,
+           toc=True, title="SZZ — Syntézy (FIT BUT)")
 
 
 def cmd_all(args):
     paths = sorted(OKRUHY.glob("*.md")) + sorted(SYNTHESIS.glob("*.md"))
     print(f"Merging everything ({len(paths)} dokumentů) …")
-    _run_pandoc(_merge(paths), BUILD / "szz-vse.pdf", args,
-                toc=True, title="SZZ — Kompletní materiály (FIT BUT)")
+    _build(paths, BUILD / "szz-vse.pdf", args,
+           toc=True, title="SZZ — Kompletní materiály (FIT BUT)")
 
 
 def main() -> None:
