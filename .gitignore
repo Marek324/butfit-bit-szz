@@ -18,3 +18,11 @@ _sources/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# --- Lokálně generované PDF (build_pdf.py) ---
+/build/
+
+# --- Python / uv ---
+.venv/
+__pycache__/
+*.pyc

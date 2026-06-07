@@ -1,0 +1,15 @@
+[project]
+name = "szz-pdf"
+version = "0.1.0"
+description = "Local PDF builder for the SZZ wiki (pandoc + LuaLaTeX)."
+readme = "README.md"
+requires-python = ">=3.10"
+# The builder is pure standard library — pandoc and a LaTeX engine are the only
+# real requirements and they are system tools, not Python packages.
+dependencies = []
+
+[tool.uv]
+# This is a repo-local script, not an installable package: `build_pdf.py` finds
+# the wiki and its pandoc header relative to its own location in the repo, so it
+# must run in place. `uv sync` then only provisions the interpreter/venv.
+package = false
