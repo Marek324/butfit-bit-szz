@@ -85,3 +85,23 @@
   \fi%
 }
 \makeatother
+
+% ── Heading style ────────────────────────────────────────────────────────────
+% h4/h5 map to \paragraph/\subparagraph, which are *run-in* headings in the
+% article class. An image placed directly after such a heading then gets typeset
+% as the heading's inline body — shifted right and overflowing the margin. Make
+% them display headings (own line, following content below) so images start fresh.
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {2.5ex \@plus 1ex \@minus .2ex}{0.8ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
+  {2.5ex \@plus 1ex \@minus .2ex}{0.8ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
+% ── Line breaking ────────────────────────────────────────────────────────────
+% Let very long URLs break anywhere (Discord/CDN links overflow the page edge),
+% and give the line breaker extra slack so long words don't push into the margin.
+\usepackage{xurl}
+\setlength{\emergencystretch}{3em}

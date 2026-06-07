@@ -66,6 +66,10 @@ _ATX = re.compile(r"^(#{1,6})\s+(.*?)\s*$")
 # so any such line is a stray docx artifact that would turn the line above it into
 # a phantom top-level heading; blank it out.
 _SETEXT_RULE = re.compile(r"(?m)^=+[ \t]*$")
+# Obsidian `<u>…</u>` underline tags. They add nothing in print and, around a
+# link's text, stop pandoc from emitting a breakable \url{} — a long URL then
+# runs off the page. Strip them (link text again matches the target → \url{}).
+_HTML_U = re.compile(r"</?u>")
 
 
 def _embed_to_image(match: re.Match) -> str:
@@ -95,6 +99,30 @@ def _fix_callouts(text: str) -> str:
             title = title.strip() or CALLOUT_LABELS.get(ctype.lower(), ctype.capitalize())
             out.append(f"{prefix} **{title}**")
         else:
+            out.append(line)
+    return "\n".join(out)
+
+
+def _isolate_embeds(text: str) -> str:
+    """Put every `![[…]]` embed on its own block, surrounded by blank lines.
+
+    The sources routinely glue an embed directly under text, a list item or a
+    heading (≈560 times). pandoc then treats it as an *inline* image placed
+    mid-line, and a wide screenshot runs off the right margin. De-indenting the
+    embed and giving it blank lines above and below makes it a centered block
+    figure that `\\pandocbounded` keeps within `\\linewidth`. Consecutive embeds
+    are likewise separated so they stack instead of sitting side by side.
+    """
+    out: list[str] = []
+    for line in text.splitlines():
+        is_embed = line.lstrip().startswith("![[")
+        if is_embed:
+            if out and out[-1].strip():
+                out.append("")
+            out.append(line.strip())
+        else:
+            if line.strip() and out and out[-1].strip().startswith("![["):
+                out.append("")
             out.append(line)
     return "\n".join(out)
 
@@ -129,7 +157,9 @@ def preprocess(md_path: Path) -> str:
     """Turn an Obsidian Markdown file into pandoc-friendly Markdown."""
     text = md_path.read_text(encoding="utf-8")
     text = _FRONTMATTER.sub("", text)
+    text = _HTML_U.sub("", text)
     text = _fix_callouts(text)
+    text = _isolate_embeds(text)
     text = _EMBED.sub(_embed_to_image, text)
     text = _WIKILINK.sub(_wikilink_to_text, text)
     text = _SETEXT_RULE.sub("", text)
