@@ -68,3 +68,20 @@
 \newunicodechar{𝛄}{$\gamma$}   % U+1D6C4
 \newunicodechar{∆}{$\Delta$}   % U+2206
 \newunicodechar{∉}{$\notin$}   % U+2209
+
+% ── Image sizing ─────────────────────────────────────────────────────────────
+% pandoc's \pandocbounded caps images at the full \textheight, so a tall figure
+% can hug (or slightly exceed) the bottom edge and leaves no room when text sits
+% above it on the same page. Re-cap at 0.9\textheight for a safety margin; width
+% stays at \linewidth.
+\makeatletter
+\renewcommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\dimexpr0.9\textheight\relax}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi%
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+\makeatother
