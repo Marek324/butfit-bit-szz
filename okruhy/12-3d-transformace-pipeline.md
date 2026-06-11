@@ -240,37 +240,35 @@ akcelerovat v HW).
 
 
 ### Paralelní projekce (**rovnoběžná**, ortografická)
-
 - **zachovává rovnoběžnost hran**
-
 - **vzdálenost** průmětny **neovlivňuje**
   **velikost** průmětu (při změně vzdálenosti objektu se nemění jeho
   velikost)
-
 - **kolmé promítání** - paprsky jsou **kolmé na
   průmětnu**
-
 - použití: technické **CAD** aplikace, výkresová
   dokumentace
 
-### Perspektivní projekce (**středová**)
+**Ortografická matice** (kolmé promítání do roviny $z=0$, sloupcová konvence
+$P'=M\cdot P$) jen zahodí hloubku $z$ a ponechá $w=1$ — proto velikost na
+vzdálenosti nezávisí (žádné dělení $w$):
+
+$$\begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&0&0\\0&0&0&1\end{bmatrix}\cdot\begin{bmatrix}x\\y\\z\\1\end{bmatrix}=\begin{bmatrix}x\\y\\0\\1\end{bmatrix}.$$
+
+Je to **afinní** (lineární) transformace — spodní řádek zůstává $[0\;0\;0\;1]$,
+na rozdíl od perspektivní matice níže.
 ![[media/szz-12/media/image9.png]]
 
-
+### Perspektivní projekce (**středová**)
 - **nezachovává** **rovnoběžnost** hran
-
 - použití ve **hrách**, **VR** a jinde
-
 - **vzdálenost průmětny** od objektu **ovlivňuje
   velikost průmětu** (se vzdáleností objektu se objekt zmenšuje)
-
 - nelineární středová projekce: paprsky **vycházejí z
   1 bodu** - **středu projekce**
-
 - pro jednodušší manipulaci se **kamera** obvykle
   **zafixuje** do počátku souřadného systému a **hýbe** se (pomocí
   transformačních matic) se **scénou**.
-
   - **Geometrický princip projekce**: z vrcholů
     trojúhelníku se do středu projekce (tj. střed souřadného systému,
     kam je umístěna i kamera) vrhnou paprsky (u perspektivní projekce se
