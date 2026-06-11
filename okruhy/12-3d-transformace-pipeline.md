@@ -29,8 +29,8 @@ updated: 2026-06-03T15:40:00Z
 
 ## Transformace
 
-- **Lineární** (zachovává lineární kombinaci): měřítko, rotace, zkosení.
-- **Afinní** (zachovává kolinearitu a dělicí poměr): + posunutí; lineární následovaná posunem.
+- **Lineární** (zachovává lineární kombinaci i **počátek**): měřítko, rotace, zkosení, zrcadlení.
+- **Afinní** (zachovává kolinearitu, dělicí poměr i rovnoběžnost): + posunutí; lineární následovaná posunem.
 - **Homogenní souřadnice** — přidaná váha **w** (u afinních w = 1) → jednotný **maticový zápis** všech transformací, snadné **skládání** a perspektivní projekce.
 - Skládání závisí na pořadí; první transformace musí být **nejblíže** transformovanému bodu.
 
@@ -89,123 +89,121 @@ souřadnicovém systému nebo **změna** **souřadnicového** systému
 
 ### Lineární transformace
 
-Lineární transformace **zachovává lineární
-kombinaci** (vektory je možné aplikovat **zároveň nebo po jednom** a
-výsledek bude vždy stejný). Pro **libovolné** dva vektory a **skalár**
-platí:
+Lineární transformace **zachovává lineární kombinaci** — vektory lze aplikovat
+**zároveň nebo po jednom** a výsledek je vždy stejný. Pro libovolné dva vektory
+a skalár platí:
 
-Mezi lineární transformace patří **měřítko**
-(zvětšení, zmenšení), **rotace** a
-**zkosení**.
-![[media/szz-12/media/image11.png]]
+$$f(\vec{x}_1+\vec{x}_2) = f(\vec{x}_1)+f(\vec{x}_2), \qquad f(\alpha\,\vec{x}_1) = \alpha\,f(\vec{x}_1).$$
 
+Důsledek: lineární transformace **vždy zachovává počátek** ($f(\vec{0})=\vec{0}$).
+Patří sem **měřítko** (zvětšení, zmenšení), **rotace**, **zkosení** a **zrcadlení**.
+**Posunutí (translace) lineární není** — posunulo by počátek — proto se zavádějí
+homogenní souřadnice.
 
 ### Afinní transformace
 
-Afinní transformace zachovává **kolinearitu a dělící
-poměr** (body ležící na přímce budou ležet na přímce - v jednom bodě; i
-po zobrazení). Všechny základní geometrické operace (**měřítko Sc**,
-**rotace R**, **zkosení Sh** i **posunutí T**) jsou afinní. Lze ji
-vyjádřit jako lineární transformaci následovanou posunem. Každá lineární
-transformace je současně i afinní.
+Afinní transformace = **lineární následovaná posunutím**, $f(\vec{x})=A\vec{x}+\vec{b}$.
+Zachovává **kolinearitu a dělící poměr** (body ležící na přímce zůstanou na přímce
+a poměr jejich vzdáleností se nezmění), dále **rovnoběžnost** a **konvexnost**.
+Obecně nezachovává délky ani úhly (zkosení a nestejnoměrné měřítko je deformují,
+přímku ale nechají přímkou). Všechny základní geometrické operace (**měřítko Sc**,
+**rotace R**, **zkosení Sh** i **posunutí T**) jsou afinní. Každá lineární
+transformace je současně afinní (s $\vec{b}=\vec{0}$); afinní množina je striktně
+větší.
+
+> [!note] Proč afinní zachovává kolinearitu
+> Přímku zapíšeme parametricky jako $P + t\,\vec{d}$ (bod + skalár × směr) a dosadíme do $f(\vec{x})=A\vec{x}+\vec{b}$:
+> $$f(P+t\vec{d}) = A(P+t\vec{d})+\vec{b} = (AP+\vec{b}) + t\,(A\vec{d}) = f(P) + t\,(A\vec{d}),$$
+> což je opět **bod + $t\cdot$ směr**, tedy přímka (pokud $A\vec{d}\neq\vec{0}$). Projektivní (perspektivní) transformace přímky na přímky také zobrazí, ale poruší rovnoběžnost a poměry (rovnoběžky se protnou v úběžníku); nelineární zkreslení (např. zkreslení objektivu) přímky ohýbá na křivky — afinní už není.
 
 ### Homogenní souřadnice (váha)
 
-Ke standardním **kartézským** souřadnicím (x, y ve 2D
-a x, y, z ve 3D) je přidána jedna navíc - souřadnice **w** (váha bodu, u
-**afinních je w = 1**). Umožňují pracovat se **všemi** druhy základních
-**transformací** jednotně pomocí **maticového zápisu**. Maticový zápis
-umožňuje provádět jednoduché skládání transformací.
+Ke standardním **kartézským** souřadnicím (x, y ve 2D, x, y, z ve 3D) se přidá
+souřadnice **w** (váha bodu, u **afinních je w = 1**). Umožňují pracovat se
+**všemi** základními **transformacemi** jednotně pomocí **maticového zápisu**.
 
-**Důvody použití:**
+**Tři důvody použití** (přibližně dle důležitosti):
 
-- Jednotná reprezentace základních transformací
-  pomocí maticového zápisu.
+1. **Posunutí jako násobení maticí.** Posunutí je afinní, ne lineární, takže běžnou
+   $n\times n$ maticí ho jako násobení nevyjádříme. Přidáním jedné dimenze se
+   přičtení $\vec{b}$ "schová" do matice — pak je *každá* afinní transformace jediné
+   maticové násobení.
 
-- Umožňují skládání
-  transformací.
-![[media/szz-12/media/image15.png]]
+2. **Jednotné skládání.** Když je vše "násobení maticí", celý řetězec složíme
+   vynásobením matic do jediné. Tu předpočítáme jednou a aplikujeme na tisíce
+   vrcholů (bez homogenních souřadnic by se střídalo násobení s přičítáním a nešlo
+   by to sloučit do jediné operace).
 
+3. **Perspektiva a body v nekonečnu.** Souřadnice $w$ není vždy 1: perspektivní
+   projekce zapisuje nenulové hodnoty do spodního řádku a **perspektivní dělení**
+   (dělení $w$) zmenšuje vzdálené objekty. $w$ navíc odlišuje **body** ($w=1$) od
+   **směrů/vektorů** ($w=0$); $w=0$ reprezentuje bod v nekonečnu (úběžník).
 
-- Realizace perspektivní projekce.
+Důvody 1–2 jsou pohodlí a jednotnost, důvod 3 je skutečná nová schopnost.
 
-#### Transformace
+#### Maticový zápis základních transformací
 
-- **Posunutí** (translace): Ve **3D** stačí rozšířit
-  o řádek a sloupec s **dz**, resp.
-  **-dz**.
-![[media/szz-12/media/image13.png]]
+Níže ve **sloupcové konvenci** (bod jako sloupec, matice vlevo): $P' = M\cdot P$.
 
-![[media/szz-12/media/image2.png]]
+- **Posunutí** (translace), 2D — posun je v posledním sloupci; inverze neguje $d_x, d_y$:
 
+$$\begin{bmatrix}x'\\y'\\1\end{bmatrix} = \begin{bmatrix}1&0&d_x\\0&1&d_y\\0&0&1\end{bmatrix}\begin{bmatrix}x\\y\\1\end{bmatrix},\qquad T^{-1}=\begin{bmatrix}1&0&-d_x\\0&1&-d_y\\0&0&1\end{bmatrix}.$$
 
-<!-- -->
+  Ve **3D** stačí matici rozšířit o řádek a sloupec s $d_z$ (resp. $-d_z$):
 
-- **Změna měřítka** ve 3D (scale): P’ = PᐧS, ve 3D
-  stačí rozšířit o řádek s **Sz**, resp. **1/Sz**.
+$$T_{3D}=\begin{bmatrix}1&0&0&d_x\\0&1&0&d_y\\0&0&1&d_z\\0&0&0&1\end{bmatrix}.$$
 
+- **Změna měřítka** (scale), $P'=P\cdot S$; ve 3D přibude $S_z$ (inverze $1/S_z$):
 
-![[media/szz-12/media/image16.png]]
+$$S=\begin{bmatrix}S_x&0&0\\0&S_y&0\\0&0&1\end{bmatrix},\qquad S^{-1}=\begin{bmatrix}1/S_x&0&0\\0&1/S_y&0\\0&0&1\end{bmatrix}.$$
 
+- **Zkosení** (shear): **1** matice ve **2D**, **3** matice ve **3D** (směry YZ, XZ, XY):
 
-- **Zkosení**: **1** matice pro zkosení ve **2D**,
-  **3** matice pro zkosení ve směrech YZ, XZ a XY ve
-  **3D**.
-![[media/szz-12/media/image7.png]]
+$$S_H=\begin{bmatrix}1&S_{hx}&0\\S_{hy}&1&0\\0&0&1\end{bmatrix},\qquad S_H^{-1}=\begin{bmatrix}1&-S_{hx}&0\\-S_{hy}&1&0\\0&0&1\end{bmatrix}.$$
 
+$$S_{HYZ}=\begin{bmatrix}1&0&0&0\\S_{hy}&1&0&0\\S_{hz}&0&1&0\\0&0&0&1\end{bmatrix},\quad S_{HXZ}=\begin{bmatrix}1&S_{hx}&0&0\\0&1&0&0\\0&S_{hz}&1&0\\0&0&0&1\end{bmatrix},\quad S_{HXY}=\begin{bmatrix}1&0&S_{hx}&0\\0&1&S_{hy}&0\\0&0&1&0\\0&0&0&1\end{bmatrix}.$$
 
-- **Rotace kolem počátku souřadného systému**: Ve 3D
-  3 matice
-![[media/szz-12/media/image14.png]]
+- **Rotace kolem počátku**, 2D — $P'=R\cdot P$ (inverze = rotace o $-\alpha$, tj. transpozice):
 
-![[media/szz-12/media/image17.png]]
+$$R=\begin{bmatrix}\cos\alpha&-\sin\alpha&0\\\sin\alpha&\cos\alpha&0\\0&0&1\end{bmatrix},\qquad R^{-1}=\begin{bmatrix}\cos\alpha&\sin\alpha&0\\-\sin\alpha&\cos\alpha&0\\0&0&1\end{bmatrix}.$$
 
-![[media/szz-12/media/image3.png]]
+  Ve **3D** jsou **3 matice** (rotace kolem os X, Y, Z):
 
+$$R_x=\begin{bmatrix}1&0&0&0\\0&\cos\alpha&-\sin\alpha&0\\0&\sin\alpha&\cos\alpha&0\\0&0&0&1\end{bmatrix},\quad R_y=\begin{bmatrix}\cos\alpha&0&\sin\alpha&0\\0&1&0&0\\-\sin\alpha&0&\cos\alpha&0\\0&0&0&1\end{bmatrix},\quad R_z=\begin{bmatrix}\cos\alpha&-\sin\alpha&0&0\\\sin\alpha&\cos\alpha&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}.$$
 
-- **Rotace ve 3D kolem obecné osy**: dána směrovým
-  vektorem **v** a bodem umístění **P**, je třeba rozdělit na
-  posloupnost
-  transformací:
-![[media/szz-12/media/image6.png]]
+> [!note] Proč má $R_y$ obrácená znaménka sinů
+> Všechny tři rotace točí **proti směru hodinových ručiček při pohledu z kladné poloosy** (pravidlo pravé ruky) a každá pracuje v rovině zbývajících dvou os v pořadí cyklu $x\to y\to z\to x$. $R_x$ (rovina y,z) i $R_z$ (rovina x,y) mají osy v matici ve stejném pořadí jako cyklus, kdežto $R_y$ má pořadí $z\to x$ obrácené — blok 2×2 se proto vloží "transponovaně" a znaménka u sinů se prohodí. Tím $R_y$ zůstává správnou pravotočivou rotací. (Ve **řádkové** konvenci $P'=P\cdot M$ jsou všechny matice transpozicí zde uvedených.)
 
+- **Rotace ve 3D kolem obecné osy** (dané směrovým vektorem $\vec{v}$ a bodem $P$) se rozloží na posloupnost:
 
-  - 1. Posunutí osy rotace do počátku souřadného
-    systému
+  1. posunutí osy rotace do počátku souřadného systému,
+  2. sklopení posunuté osy do jedné ze souřadných rovin,
+  3. otočení sklopené osy do jedné ze souřadných os (např. X),
+  4. provedení požadované rotace o úhel ω kolem této osy (zde X),
+  5. vrácení osy rotace do původní polohy.
 
-  - 2. Sklopení posunuté osy do jedné ze souřadných
-    rovin
+  Souhrnná matice:
 
-  - 3. otočení sklopené osy do jedné ze souřadných os
-    (např. do X)
+$$M = T\cdot R_x\cdot R_z\cdot R_{x(\omega)}\cdot R_z^{-1}\cdot R_x^{-1}\cdot T^{-1}.$$
 
-  - 4. Provedení požadované rotace o úhel ω kolem
-    příslušné osy (zde X)
-
-  - 5. Vrácení osy rotace do původní
-    polohy
-![[media/szz-12/media/image8.png]]
-
-
-Zkráceně musíme nejdřív **obecnou osu dostat do
-pozice jedné z os souřadného systému**, provést otočení a vrátit osu do
-původního místa.
+  Zkráceně: **obecnou osu dostat do pozice jedné z os**, provést otočení a vrátit osu na původní místo.
 
 ### Skládání transformací
 
-U skládání transformací závisí na jejich pořadí,
-např. **posunutí**, **rotace**, **zvětšení**.
+U skládání závisí na **pořadí** (násobení matic je asociativní, ale
+**nekomutativní**; ani rotace mezi sebou nekomutují, $R_x R_y \neq R_y R_x$).
+Souhrnnou matici $M$ předpočítáme jednou a každý vrchol je pak jediné násobení.
 
-- **zápis bodu v řádku**: **P’** = **P**ᐧTᐧRᐧS,
-  matici M souhrnné transformace získáme jako M = TᐧRᐧS a **P’** =
-  **P**ᐧM.
+- **zápis bodu ve sloupci** (sloupcová konvence): $P' = T\cdot R\cdot S\cdot P$, matici $M = T\cdot R\cdot S$; aplikuje se **zprava doleva**, tj. nejprve $S$ (nejblíž bodu).
+- **zápis bodu v řádku** (řádková konvence): $P' = P\cdot S\cdot R\cdot T$, matici $M = S\cdot R\cdot T$; aplikuje se **zleva doprava**, opět nejprve $S$.
 
-- **zápis bodu ve sloupci**: **P’** = SᐧRᐧTᐧ**P**,
-  matici M souhrnné transformace získáme jako M = SᐧRᐧT a **P’** =
-  Mᐧ**P**.
+V obou případech musí být **první transformace v pořadí nejblíž transformovanému
+bodu**. Typicky **měřítko → rotace → posunutí**: objekt nejdřív zvětšíme a otočíme
+kolem vlastního počátku a teprve pak posuneme na místo (posunutí jako první by
+rotaci provedlo kolem počátku světa).
 
-V obou případech musí být první transformace v pořadí
-**nejblíž transformovanému bodu**.
+> [!note] Řádkové vs. sloupcové vektory
+> Jde o **dvě konvence téhož**: řádkové vektory ($P'=P\cdot M$, matice vpravo) vs. sloupcové ($P'=M\cdot P$, matice vlevo — standard v matematice a OpenGL). Matice jedné konvence jsou **transpozicí** druhé ($M_{\text{sloupec}} = M_{\text{řádek}}^{\mathsf{T}}$), proto se i pořadí ve skládání obrací ($(AB)^{\mathsf{T}}=B^{\mathsf{T}}A^{\mathsf{T}}$). Pozor: konvence vektoru **není totéž** co řádkové/sloupcové uložení v paměti (row-/column-major) — to jsou nezávislé volby (OpenGL: sloupcové vektory + column-major; DirectX tradičně: řádkové vektory + row-major, obě volby se "vyruší").
 
 ## Zobrazení 3D polygonálních modelů
 
@@ -281,6 +279,15 @@ akcelerovat v HW).
     paprsek původně
     vyšel.
 ![[media/szz-12/media/image5.png]]
+
+**Perspektivní matice** (promítnutí na rovinu $z=d$, střed projekce v počátku;
+sloupcová konvence $P'=M\cdot P$) zapisuje do spodního řádku, čímž $w$ závisí na
+hloubce:
+
+$$\begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&1/d&0\end{bmatrix}\cdot\begin{bmatrix}x\\y\\z\\1\end{bmatrix}=\begin{bmatrix}x\\y\\z\\z/d\end{bmatrix}\;\xrightarrow{\text{/ }w}\;\left(\frac{dx}{z},\,\frac{dy}{z}\right).$$
+
+Je to jediná **projektivní (neafinní)** matice — má nenulový spodní řádek. Až
+**perspektivní dělení** souřadnicí $w=z/d$ zajistí, že se vzdálené objekty zmenší.
 
 
 ### RayTracing
