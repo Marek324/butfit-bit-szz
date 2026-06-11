@@ -295,14 +295,11 @@ principu zpětného sledování cest paprsku od kamery ke zdroji světla.
 Hledá se množství světla, které paprsek přináší.
 
 Paprsky dělíme na:
-
 - **Primární**: Vychází z kamery, mají společný
   počátek nebo jsou rovnoběžné
-
 - **Stínové**: Z místa dopadu paprsku do každého
   světla, zajímá nás, jestli jej **vidíme nebo nevidíme**, podle toho
   následně spočítáme **stín**.
-
 - **Sekundární**: Vznikají **odrazem a lomem** z míst
   **dopadů primárních** a sekundárních paprsků. Jsou chaotičtější než
   primární paprsky.
@@ -317,29 +314,25 @@ optimalizovat například ohledem na to, že **sekundární** paprsky mají
 
 Metoda **globálního osvětlení scény**. Řeší **šíření
 energie**, objekty mohou být sekundárními zdroji světla (odraz).
-
 - Vychází ze zákona zachování energie, vyžaduje
   energeticky uzavřenou scénu.
-
 - Scéna musí být reprezentovaná **polygonálním
   modelem** (jiné modely - CSG, B-rep, Drátové modely).
-
 - Vychází z dvousměrové distribuční **funkce
   BRDF**.
-
 - Před vlastním výpočtem je třeba **polygony** ve
   scéně **rozdělit** na **malé plošky** a spočítat **konfigurační
   faktory** (**vliv** každé **plošky** na každou **jinou plošku** ve
   scéně).
-
 - Nedokáže pracovat s průhlednými objekty.
-
 - Výpočet scény **není závislý na poloze
   kamery**.
-
 - V praxi lze **kombinovat s RayTracing**.
 
 ## Principy programovatelného vykreslovacího řetězce (zobrazovací pipeline)
+
+![[media/szz-12/media/image4.png]]
+![[Pasted image 20260611171127.png]]
 
 zobrazovací pipeline je tvořena těmito částmi:
 
@@ -363,10 +356,7 @@ zobrazovací pipeline je tvořena těmito částmi:
     trojúhelníky. Jednotka tak spustí Vertex Shader 12x, který takto
     spustí 12x Vertex Assembly.
 
-4.  **Clipping/Culling**: provádí **ořez prostoru**
-    na view frustum. Trojúhelníky na **hranicích** musí ořezat (může
-    vést na rozdělení na 2) a zahazuje trojúhelníky, které nejsou vůbec
-    vidět (odvrácené, překryté).
+4.  **Clipping/Culling**: provádí **ořez prostoru** na view frustum. Trojúhelníky na **hranicích** musí ořezat (může vést na rozdělení na 2).
 
 5.  **Perspective Division**: provádí převod z
     homogenních souřadnic na kartézskéch na základě hloubky trojúhelníků
@@ -402,15 +392,7 @@ zobrazovací pipeline je tvořena těmito částmi:
       framebufferu je míchá. Existuje mnoho způsobů realizace, např.
       pomocí **průhlednosti** (**alpha blending**).
 
-Obsah framebufferu je poté
-zobrazen.
-![[media/szz-12/media/image4.png]]
-
-
-> 
-![[media/szz-12/media/image1.png]]
- style="width:6.25in;height:2.17708in" />
-
+Obsah framebufferu je poté zobrazen.
 ## Jiná reprezentace objektů
 
 - **CSG** (Constructive solid geometry) - skládání jednoduchých 3D
