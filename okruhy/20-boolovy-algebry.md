@@ -69,19 +69,13 @@ updated: 2026-06-03T17:10:00Z
 
 **Booleova algebra** je algebraická struktura se dvěma binárními (**∧**, **∨**) a jedním unárním operátorem (**¬**). Jedná se o **distributivní komplementární svaz**. **Zobecňuje** **vlastnosti** **množinových a** **logických** **operací**. Používá se k reprezentaci pravdivostních hodnot a logických funkcí.
 
-\
 Booleova algebra je **šestice** **(B, ∧, ∨, ¬, 0, 1)**, kde:
 
 - B je neprázdná množina,
-
 - 0 ∈ B a je nejmenší prvek,
-
 - 1 ∈ B a je největší prvek,
-
 - ∧ je **binární** operace **průsek**,
-
 - ∨ je **binární** operace **spojení**,
-
 - ¬ je **unární** operace **doplňku**.
 
 Jelikož Booleova algebra je svaz (a tedy částečně seřazená množina) **průsek** vrací právě ***infimum*** (menší z operandů a∧b) a **spojení** vrací právě ***supremum*** (větší z operandů a∨b).
@@ -95,129 +89,95 @@ Je preto potrebné si pozrieť pojmy ako **čiastočne usporiadaná množina**, 
 ### Axiomy
 
 - **Uzavřenost**: Uzavřenost operací na množině B **(a+b) ∈ B**, **(aᐧb)** **∈ B**, **¬a ∈ B** (a, b ∈ B).
-
-- **Komutativita:** Binární operace u níž **nezáleží na pořadí prvků**.
-
-- **Distributivita**: Binární operaci je možné distribuovat přes jinou operaci. Operaci **průsek** je možné **distribuovat** **přes** operaci **spojení** a operaci **spojení přes** operaci **průsek**.
-![[media/szz-20/media/image7.png]]
-
-![[media/szz-20/media/image6.png]]
-
-
-- **Neutralita 0 a 1**: **0** je neutrální prvek pro operaci **spojení** a **1** je neutrální prvek pro operaci **průsek**.
-![[media/szz-20/media/image9.png]]
-
-
-- **Komplementárnost:** existence doplňku (komplementu)
-![[media/szz-20/media/image5.png]]
-
-
+- **Komutativita:** Binární operace u níž **nezáleží na pořadí prvků**. $x \lor y = y \lor x, \quad x \land y = y \land x$
+- **Distributivita**: Binární operaci je možné distribuovat přes jinou operaci. Operaci **průsek** je možné **distribuovat** **přes** operaci **spojení** a operaci **spojení přes** operaci **průsek**. $x \lor (y \land z) = (x \lor y) \land (x \lor z), \quad x \land (y \lor z) = (x \land y) \lor (x \land z)$
+- **Neutralita 0 a 1**: **0** je neutrální prvek pro operaci **spojení** a **1** je neutrální prvek pro operaci **průsek**. $x \lor 0 = x, \quad x \land 1 = x$
+- **Komplementárnost:** existence doplňku (komplementu) $x \lor \lnot x = 1, \quad x \land \lnot x = 0$
 - **Nedegenerovanost**: množina B obsahuje alespoň dva různé prvky (0 != 1), někdy je připouštěna tzv. **triviální BA** pouze s jedním prvkem, pak platí **0 == 1** a všechny operace na BA vrací stejnou hodnotu.
 
-### Vlastnosti
+### Vlastnosti / Teorémy
 
-- **Asociativita**: u operace nezáleží, jak jsou použity závorky u více operandů (někde nebývá jako axiom).
-![[media/szz-20/media/image12.png]]
-
-
-- **Absorpce**: (někde nebývá jako axiom)
-
-- **Agresivita nuly** - Při průseku jakéhokoliv prvku s 0, je výsledek 0.\
-  x ∧ 0 = 0
-![[media/szz-20/media/image16.png]]
-
-
-- **Agresivita jedničky** - Při spojení jakéhokoliv prvku s 1, je výsledek 1.\
-  x ∨ 1 = 1
-
-- **Idempotence** - Opakovaným použitím na nějaký vstup vznikne stejný výstup. Tedy jakákoliv binární operace prvku se sebou samým má za výsledek ten stejný prvek.\
-  x ∨ x = x\
-  x ∧ x = x
-
-- **Absorpce** **negace**\
-  x ∨ (¬x ∧ y) = x ∨ y, x ∧ (¬x ∨ y) = x ∧ y
-
-- **Dvojitá negace**\
-  ¬(¬x) = x
-
-- **0 a 1 jsou vzájemně komplementární**
-
-> ¬0 = 1, ¬1 = 0
-
-- **De Morganovy zákony**\
-  ¬x ∧ ¬y = ¬(x ∨ y), ¬x ∨ ¬y = ¬(x ∧ y)
+- **Asociativita**: u operace nezáleží, jak jsou použity závorky u více operandů (někde nebývá jako axiom). $a \lor (b \lor c) = (a \lor b) \lor c, \quad a \land (b \land c) = (a \land b) \land c$
+- **Absorpce**: (někde nebývá jako axiom) $a \lor (a \land b) = a, \quad a \land (a \lor b) = a$
+- **Agresivita nuly** - Při průseku jakéhokoliv prvku s 0, je výsledek 0. $x \land 0 = 0$
+- **Agresivita jedničky** - Při spojení jakéhokoliv prvku s 1, je výsledek 1. $x \lor 1 = 1$
+- **Idempotence** - Opakovaným použitím na nějaký vstup vznikne stejný výstup. Tedy jakákoliv binární operace prvku se sebou samým má za výsledek ten stejný prvek. $x \lor x = x, \quad x \land x = x$
+- **Absorpce** **negace** $x \lor (\lnot x \land y) = x \lor y, \quad x \land (\lnot x \lor y) = x \land y$
+- **Dvojitá negace** $\lnot(\lnot x) = x$
+- **0 a 1 jsou vzájemně komplementární** $\lnot 0 = 1, \quad \lnot 1 = 0$
+- **De Morganovy zákony** $\lnot x \land \lnot y = \lnot(x \lor y), \quad \lnot x \lor \lnot y = \lnot(x \land y)$
 
 ### Příklady Booleových algeber
 
 - **triviální algebry:**
-
   - **0 = 1** (obsahují pouze jeden prvek)
-
   - všechny operace dávají stejný výsledek
-
 - **algebry výroků**:
-
   - **0 - false** (nepravda), **1 - true** (pravda),
-
   - **∧ - konjunkce**, **∨ - disjunkce**, **¬ - negace**
-
 - **množinová algebra**:
-
   - **0 - prázdná množina** (Ø), **1 - univerzum** (U),
-
   - **∧ - průnik**, **∨ - sjednocení**, **¬ - doplněk**
-
 - **algebry elektrických obvodů**:
-
   - **0 - low** (log. 0), **1 - high** (log. 1)
-
   - **∧ - AND**, **∨ - OR**, **¬ - NOT**
 
 ### Funkce
 
 Na Booleově algebrách lze realizovat $(2^2)^2$, tedy **16** funkcí (Dva operandy, každý s dvěma možnými hodnotami: $2^2$ možných kombinací vstupů. Každý výstup těchto kombinací může nabývat dvou možných hodnot. Celkem tedy Booleovy algebry mohou realizovat $(2^2)^2 = 16$ možných operací.).
 
-- **NOT** - Negace (doplněk)\
-  
+Přehled všech 16 funkcí dvou proměnných:
+
+| Funkce | Název funkce | Logický člen | Algebraický výraz |
+|--------|--------------|--------------|-------------------|
+| $f_0$ | konstanta | | $0$ |
+| $f_1$ | logický součet | NEBO (OR, ODER) | $a + b$ |
+| $f_2$ | implikace | | $\bar a + b$ |
+| $f_3$ | implikace | | $a + \bar b$ |
+| $f_4$ | Shefferova funkce | NAND | $\bar a + \bar b = \overline{ab}$ |
+| $f_5$ | logický součin | A (AND, UND) | $ab$ |
+| $f_6$ | inhibice | | $\bar a b$ |
+| $f_7$ | inhibice | | $a \bar b$ |
+| $f_8$ | Peirceova funkce | NOR | $\bar a \cdot \bar b = \overline{a + b}$ |
+| $f_9$ | identita | | $a$ |
+| $f_{10}$ | identita | | $b$ |
+| $f_{11}$ | ekvivalence | | $ab + \bar a \bar b$ |
+| $f_{12}$ | neekvivalence | Exclusive OR | $\bar a b + a \bar b$ |
+| $f_{13}$ | negace | NE (NOT, NICHT) | $\bar a$ |
+| $f_{14}$ | negace | NE (NOT, NICHT) | $\bar b$ |
+| $f_{15}$ | konstanta | | $1$ |
+
+- **NOT** - Negace (doplněk)
+
 ![[media/szz-20/media/image10.png]]
 
-![[media/szz-20/media/image11.png]]
+- **Opakovač** - Realizuje funkci **identity**. Lze použít jako **buffer**.
 
-
-- **Opakovač** - Realizuje funkci **identity**. Lze použít jako **buffer**.\
-  
 ![[media/szz-20/media/image8.png]]
 
+- **OR** - Disjunkce (spojení)
 
-- **OR** - Disjunkce (spojení)\
-  
 ![[media/szz-20/media/image15.png]]
 
+- **AND** - Konjunkce (průnik)
 
-- **AND** - Konjunkce (průnik)\
-  
 ![[media/szz-20/media/image17.png]]
 
+- **XOR** - negovaná ekvivalence - **Exkluzivní disjunkce**
 
-- **XOR** - negovaná ekvivalence - **Exkluzivní disjunkce**\
-  
 ![[media/szz-20/media/image2.png]]
 
+- **NOR** - Negovaná disjunkce - **Peirceova funkce**
 
-- **NOR** - Negovaná disjunkce - **Peirceova funkce**\
-  
 ![[media/szz-20/media/image14.png]]
 
+- **NAND** - Negovaná konjunkce - **Shefferova funkce**
 
-- **NAND** - Negovaná konjunkce - **Shefferova funkce**\
-  
 ![[media/szz-20/media/image4.png]]
 
+- **XNOR** - negovaná exkluzivní disjunkce - **Ekvivalence**
 
-- **XNOR** - negovaná exkluzivní disjunkce - **Ekvivalence**\
-  
 ![[media/szz-20/media/image1.png]]
-
 
 ### Shefferova funkce
 
@@ -245,13 +205,11 @@ Pomocí Piercovy funkce lze lze také vyjádřit všechny ostatní funkce Booleo
 
 ### Vennovy diagramy
 
-Grafické znázornění příslušnosti prvků do množin.\
+Grafické znázornění příslušnosti prvků do množin.
 
 ![[media/szz-20/media/image3.png]]
-\
 
 ![[media/szz-20/media/image13.png]]
-
 
 ### Switching algebra
 
