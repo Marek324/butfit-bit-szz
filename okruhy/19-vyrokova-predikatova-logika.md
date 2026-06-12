@@ -103,25 +103,17 @@ Sémantika formule určuje její **význam** a určuje, jakou **pravdivostní ho
 
 ## Splnitelnost, platnost
 
-V následujících bodech uvažujeme ohodnocení proměnných **I : X → {0, 1}**.
-![[media/szz-19/media/image8.png]]
+V následujících bodech uvažujeme ohodnocení proměnných $I : X \to \{0, 1\}$.
 
+- **I splňuje ϕ** ($I \models \varphi$): Zjišťujeme na základě daného ohodnocení proměnných **I** formule **ϕ**. Pokud je pro toto ohodnocení hodnota **ϕ 1**, je **I** **modelem** formule **ϕ** a formuli splňuje.
 
-- **I splňuje ϕ** (**I \|= ϕ**): Zjišťujeme na základě daného ohodnocení proměnných **I** formule **ϕ**. Pokud je pro toto ohodnocení hodnota **ϕ 1**, je **I** **modelem** formule **ϕ** a formuli splňuje.
+- **splnitelnost**: Formule je splnitelná, pokud existuje nějaké ohodnocení proměnných **I** takové, že $I \models \varphi$ (**I** splňuje **ϕ** pro nějaké ohodnocení **I**). Z pravdivostní tabulky poznáme **splnitelnou formuli** tak, že se ve sloupci značící **ϕ** vyskytuje **alespoň jednou hodnota 1**.
 
-- **splnitelnost**: Formule je splnitelná, pokud existuje nějaké ohodnocení proměnných **I** takové, že **I \|= ϕ** (**I** splňuje **ϕ** pro nějaké ohodnocení **I**). Z pravdivostní tabulky poznáme **splnitelnou formuli** tak, že se ve sloupci značící **ϕ** vyskytuje **alespoň jednou hodnota 1**.
-![[media/szz-19/media/image20.png]]
+- **platnost, tautologie** ($\models \varphi$): formule je platná (tautologie) pokud je splněna libovolným ohodnocením proměnných. Pomocí pravdivostní tabulky můžeme platnou formuli poznat tak, že v **posledním sloupci** (sloupec s **ϕ**) tabulky jsou **samé hodnoty 1**.
 
+- **I nesplňuje ϕ** ($I \not\models \varphi$): zjišťujeme na základě daného ohodnocení proměnných **I** formule **ϕ**. Pokud je pro toto ohodnocení hodnota **ϕ 0**, není **I** modelem formule **ϕ** a formuli nesplňuje.
 
-- **platnost, tautologie, \|= ϕ**: formule je platná (tautologie) pokud je splněna libovolným ohodnocením proměnných. Pomocí pravdivostní tabulky můžeme platnou formuli poznat tak, že v **posledním sloupci** (sloupec s **ϕ**) tabulky jsou **samé hodnoty 1**.
-![[media/szz-19/media/image30.png]]
-
-
-- **I nesplňuje ϕ** (**I \\= ϕ**): zjišťujeme na základě daného ohodnocení proměnných **I** formule **ϕ**. Pokud je pro toto ohodnocení hodnota **ϕ 0**, není **I** modelem formule **ϕ** a formuli nesplňuje.
-![[media/szz-19/media/image24.png]]
-
-
-- **neplatnost** (**\\= ϕ**)**:** formule **ϕ** je neplatná, pokud existuje **ohodnocení** proměnných, které ji **nesplňuje**. Pomocí pravdivostní tabulky takovou formuli poznáme tak, že by v posledním sloupci (sloupec s **ϕ**) je **alespoň** **jedna hodnota 0**.
+- **neplatnost** ($\not\models \varphi$): formule **ϕ** je neplatná, pokud existuje **ohodnocení** proměnných, které ji **nesplňuje**. Pomocí pravdivostní tabulky takovou formuli poznáme tak, že v posledním sloupci (sloupec s **ϕ**) je **alespoň** **jedna hodnota 0**.
 
 - **nesplnitelnost, kontradikce**: formule je nesplnitelná, pokud **není splnitelná**, tj. ve sloupci s **ϕ** pravdivostní tabulky jsou **samé** **0**.
 
