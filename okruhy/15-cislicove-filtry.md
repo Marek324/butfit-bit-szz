@@ -61,7 +61,6 @@ updated: 2026-06-03T15:40:00Z
 
 Frekvenční analýza staví na [[okruhy/14-spektralni-analyza|Fourierově transformaci]]; rekurzivní struktury implementují zpožďovací články (klopné obvody, [[okruhy/03-sekvencni-logicke-obvody]]).
 
-
 ## Související syntéza
 
 - [[synthesis/fourier-konvoluce-filtry|Spektrální analýza × konvoluce × filtry]] — syntéza
@@ -91,182 +90,99 @@ Frekvenční analýza staví na [[okruhy/14-spektralni-analyza|Fourierově trans
 
 ## Diferenční rovnice
 
-Diferenční rovnice představují **rovnice o neznámé
-posloupnosti a jejích diferencích**. Jedná se o **diferenciální
-rovnice**, které jsou **v diskrétním čase**. Obecná diferenční rovnice
-vypadá následovně: 
+Diferenční rovnice představují **rovnice o neznámé posloupnosti a jejích diferencích**. Jedná se o **diferenciální rovnice**, které jsou **v diskrétním čase**. Obecná diferenční rovnice vypadá následovně:
 ![[media/szz-15/media/image36.png]]
 
+Diferenční rovnice stejně jako diferenciální vyžadují počáteční podmínky. Pomocí diferenčních rovnic můžeme popisovat LTI (Linear time-invariant) systémy.
 
-Diferenční rovnice stejně jako diferenciální vyžadují
-počáteční podmínky. Pomocí diferenčních rovnic můžeme popisovat LTI
-(Linear time-invariant) systémy.
-
-- **linearita**: musí platit aditivita a scaling nebo
-  homogenita: 
+- **linearita**: musí platit aditivita a scaling nebo homogenita:
 ![[media/szz-15/media/image15.png]]
 
-
-- **časová invariantnost**: systém **nemění** své
-  **chování v čase**. Pokud systém zareagoval na signál **x** výstupem
-  **y**, zareaguje na stejný signál **x** za deset sekund stejným
-  signálem **y**.
+- **časová invariantnost**: systém **nemění** své **chování v čase**. Pokud systém zareagoval na signál **x** výstupem **y**, zareaguje na stejný signál **x** za deset sekund stejným signálem **y**.
 
 Příklad popisu systému:
 
-- aktuální výstup **y\[n\]** je dán součtem minulého
-  výstupu **1/2y\[n-1\]**, aktuálního vstupu **1/4x\[n\]** a minulého
-  vstupu **1/4x\[n-1\]**.
+- aktuální výstup **y\[n\]** je dán součtem minulého výstupu **1/2y\[n-1\]**, aktuálního vstupu **1/4x\[n\]** a minulého vstupu **1/4x\[n-1\]**.
 ![[media/szz-15/media/image4.png]]
 
-
-- Schéma jiného systému daného **diferenční**
-  rovnicí **y\[n\] = 4\*(x\[n\] +
-  1/6y\[n-1\] + 1/6y\[n-2\])** (POZOR: Zpožďovací články by měly být
-  napojené až za násobičkou, u y\[n\]. V obrázku je tedy chyba. Modrou
-  čarou je naznačeno správné
-  řešení.)
+- Schéma jiného systému daného **diferenční** rovnicí **y\[n\] = 4\*(x\[n\] + 1/6y\[n-1\] + 1/6y\[n-2\])** (POZOR: Zpožďovací články by měly být napojené až za násobičkou, u y\[n\]. V obrázku je tedy chyba. Modrou čarou je naznačeno správné řešení.)
 ![[media/szz-15/media/image6.png]]
 
+Příklady systémů, které se chovají jako dolní propusť (propouštějí nízké frekvence).
 
-Příklady systémů, které se chovají jako dolní propusť
-(propouštějí nízké frekvence).
-
-- **průměr** posledních 6
-  vstupů:
+- **průměr** posledních 6 vstupů:
 ![[media/szz-15/media/image34.png]]
 
-
-- ‘nabalující se vstup’ (obsahuje **rekurzi** –
-  **aktuální výstup** je **dán** nejen hodnotami vstupů (aktuálních nebo
-  minulých), ale i **hodnotami minulých
-  výstupů**):
+- ‘nabalující se vstup’ (obsahuje **rekurzi** – **aktuální výstup** je **dán** nejen hodnotami vstupů (aktuálních nebo minulých), ale i **hodnotami minulých výstupů**):
 ![[media/szz-15/media/image35.png]]
 
+Příklady systémů, které se chovají jako horní propusť (propouštějí vysoké frekvence).
 
-Příklady systémů, které se chovají jako horní propusť
-(propouštějí vysoké frekvence).
-
-- **rozdíl** posledních 6
-  vstupů:
+- **rozdíl** posledních 6 vstupů:
 ![[media/szz-15/media/image1.png]]
 
-
-- ‘nabalující se
-  vstup’:
+- ‘nabalující se vstup’:
 ![[media/szz-15/media/image9.png]]
-
 
 **Videa:**
 
-[<u>Difference Equation Descriptions for
-Systems</u>](https://youtu.be/MtHpbGUIGaA)
+[<u>Difference Equation Descriptions for Systems</u>](https://youtu.be/MtHpbGUIGaA)
 
 ## Impulsní odezva (Impulse Response, h\[n\])
 
-[<u>The Impulse Response of
-Systems</u>](https://www.youtube.com/watch?v=GwgAFqK0QgI)
+[<u>The Impulse Response of Systems</u>](https://www.youtube.com/watch?v=GwgAFqK0QgI)
 
-Zkoumá **odezvu** systému na impuls. Impulsní odezva
-může být spočítána pouze pro LTI systém: impulsní odezva definuje LTI
-systém (popisuje jeho chování, jeho charakteristiku); impulsní odezva je
-výstupem LTI systému pro vstup o diskrétním jednotkovém impulsu.
-**Diskrétní impuls** je definován jako
-
-**Jakýkoliv diskrétní signál** může být reprezentován
-jako **vážený součet** **posunutých** diskrétních **impulsů** v
-čase:
+Zkoumá **odezvu** systému na impuls. Impulsní odezva může být spočítána pouze pro LTI systém: impulsní odezva definuje LTI systém (popisuje jeho chování, jeho charakteristiku); impulsní odezva je výstupem LTI systému pro vstup o diskrétním jednotkovém impulsu. **Diskrétní impuls** je definován jako **Jakýkoliv diskrétní signál** může být reprezentován jako **vážený součet** **posunutých** diskrétních **impulsů** v čase:
 ![[media/szz-15/media/image26.png]]
 
 ![[media/szz-15/media/image23.png]]
 
 ![[media/szz-15/media/image19.png]]
 
-
-Impulsní odezva k definici LTI systému používá
-**konvoluci**. Impulsní odezva definuje systém, protože impuls obsahuje
-**všechny** frekvence (**ve frekvenční doméně je roven 1 pro všechny
-frekvence**, tj. po provedení DFT/FFT).
+Impulsní odezva k definici LTI systému používá **konvoluci**. Impulsní odezva definuje systém, protože impuls obsahuje **všechny** frekvence (**ve frekvenční doméně je roven 1 pro všechny frekvence**, tj. po provedení DFT/FFT).
 
 ### Konvoluce
 
-**Základní operace** pracující se dvěma signály je
-definovaná vzorcem
+**Základní operace** pracující se dvěma signály je definovaná vzorcem
 ![[media/szz-15/media/image12.png]]
 
 ![[media/szz-15/media/image5.png]]
 
-
-
 ![[media/szz-15/media/image33.png]]
 
-
-Konvoluce graficky [<u>Discrete Time Convolution
-Example</u>](https://youtu.be/KAOJsqCyd5Y):
+Konvoluce graficky [<u>Discrete Time Convolution Example</u>](https://youtu.be/KAOJsqCyd5Y):
 ![[media/szz-15/media/image40.jpg]]
 
-
-Konvoluci lze ve **frekvenční doméně** provést pouze
-**násobením**.
+Konvoluci lze ve **frekvenční doméně** provést pouze **násobením**.
 
 ### FIR - Finite Impulse Response, IIR - Infinite Impulse Response
 
-- **FIR**: impulsní odezva nebo odezva konečného
-  vstupu má **konečnou délku**. Tyto filtry **nesmí** mít ani jednu
-  **zpětnou smyčku (=
-  rekurzi)**.
+- **FIR**: impulsní odezva nebo odezva konečného vstupu má **konečnou délku**. Tyto filtry **nesmí** mít ani jednu **zpětnou smyčku (= rekurzi)**.
 ![[media/szz-15/media/image16.png]]
 
 ![[media/szz-15/media/image17.png]]
 
-
-- **IIR**: impulsní odezva a odezva konečného vstupu
-  má **nekonečnou délku**. Tyto filtry **musí** mít alespoň jednu
-  **zpětnou smyčku (=
-  rekurzi)**.
+- **IIR**: impulsní odezva a odezva konečného vstupu má **nekonečnou délku**. Tyto filtry **musí** mít alespoň jednu **zpětnou smyčku (= rekurzi)**.
 ![[media/szz-15/media/image25.png]]
 
 ![[media/szz-15/media/image21.png]]
 
-
 ## Přenosová funkce
 
-Přenosová funkce definuje LTI systém. Pokud chceme na
-nějaký signál aplikovat filtr, tímto filtrem signál **vynásobíme**
-(konvoluce v časové doméně) ve frekvenční doméně (např. filtrem, který
-propouští pouze spodní frekvence). X(z)\*H(z)=Y(z) → Přenosová funkce je
-definována jako **poměr** (podíl) **výstupu** - Y(z) ku **vstupu** -
-X(z) ve **frekvenční oblasti**, když jsou **zanedbány počáteční
-podmínky**. Jinak řečeno při **nulových** počátečních podmínkách, jde o
-podíl **Fourierovy transformace v diskrétním čase** výstupu a vstupu,
-respektive **Z-transformace** u signálů, pro které nelze provést
-**DTFT** (signály, které **nejsou** v +- nekonečnu **0**, mají
-nekonečnou energii, Z-transformace je násobí tak, aby **byly** v +-
-nekonečnu **0**). Přenosovou funkci lze také vyjádřit jako **DTFT**
-**impulsní odezvy** u FIR systémů (výstup je v nekonečnu 0), nebo jako
-**ZT** [<u>Z Transform Region of Convergence
-Explained</u>](https://youtu.be/uq_qv3Spzbs) IIR systémů (v nekonečnu
-nejsou 0). FT/ZT impulsní odezvy z toho důvodu, že X(z) mínus vstup **je
-1** (FT jednotkového
-impulsu).
+Přenosová funkce definuje LTI systém. Pokud chceme na nějaký signál aplikovat filtr, tímto filtrem signál **vynásobíme** (konvoluce v časové doméně) ve frekvenční doméně (např. filtrem, který propouští pouze spodní frekvence). X(z)\*H(z)=Y(z) → Přenosová funkce je definována jako **poměr** (podíl) **výstupu** - Y(z) ku **vstupu** - X(z) ve **frekvenční oblasti**, když jsou **zanedbány počáteční podmínky**. Jinak řečeno při **nulových** počátečních podmínkách, jde o podíl **Fourierovy transformace v diskrétním čase** výstupu a vstupu, respektive **Z-transformace** u signálů, pro které nelze provést **DTFT** (signály, které **nejsou** v +- nekonečnu **0**, mají nekonečnou energii, Z-transformace je násobí tak, aby **byly** v +- nekonečnu **0**). Přenosovou funkci lze také vyjádřit jako **DTFT** **impulsní odezvy** u FIR systémů (výstup je v nekonečnu 0), nebo jako **ZT** [<u>Z Transform Region of Convergence Explained</u>](https://youtu.be/uq_qv3Spzbs) IIR systémů (v nekonečnu nejsou 0). FT/ZT impulsní odezvy z toho důvodu, že X(z) mínus vstup **je 1** (FT jednotkového impulsu).
 ![[media/szz-15/media/image28.png]]
 
 ![[media/szz-15/media/image27.png]]
 
 ![[media/szz-15/media/image14.png]]
 
-
-Přenosovou funkci lze získat z IR pomocí Laplaceovy
-transformace a IR lze získat z přenosové funkce pomocí inverzní
-Laplaceovy transformace.
+Přenosovou funkci lze získat z IR pomocí Laplaceovy transformace a IR lze získat z přenosové funkce pomocí inverzní Laplaceovy transformace.
 
 ### Region of Convergence
 ![[media/szz-15/media/image29.png]]
 
-
 <u>[Z Transform Region of Convergence
-Explained](https://youtu.be/uq_qv3Spzbs)[Laplace Transform Region of
-Convergence Explained](https://youtu.be/SexBL1OlhhU)</u>
+Explained](https://youtu.be/uq_qv3Spzbs)[Laplace Transform Region of Convergence Explained](https://youtu.be/SexBL1OlhhU)</u>
 
 ### Stabilita
 ![[media/szz-15/media/image30.png]]
@@ -275,56 +191,29 @@ Convergence Explained](https://youtu.be/SexBL1OlhhU)</u>
 
 ![[media/szz-15/media/image8.png]]
 
+[<u>How do Poles and Zeros affect the Laplace Transform and the Fourier Transform?</u>](https://youtu.be/iP4fckfDNK8)
 
-[<u>How do Poles and Zeros affect the Laplace
-Transform and the Fourier
-Transform?</u>](https://youtu.be/iP4fckfDNK8)
-
-[<u>Frequency Response Magnitude and Poles and
-Zeros</u>](https://youtu.be/8jNjVkoZQCU)
+[<u>Frequency Response Magnitude and Poles and Zeros</u>](https://youtu.be/8jNjVkoZQCU)
 
 ## Frekvenční charakteristika
 ![[media/szz-15/media/image39.png]]
 
-
-**Frekvenční charakteristika** popisuje/definuje
-systém **ve frekvenční doméně**, stejně jako **impulsní odezva** jej
-charakterizuje v **časové doméně**. Graficky ji vynášíme ve dvou grafech
-jako **amplitudovou charakteristiku** **\|H(⍵)\|** (jak filtr
-zeslabuje/zesiluje) a **fázovou** **charakteristiku arg(H(⍵))** (jak
-filtr posouvá). Frekvenční charakteristika je přenosová funkce
-(z-transformace) vyhodnocená pro **z = $e^{j\*omega}$**, tedy pro
-DTFT.
+**Frekvenční charakteristika** popisuje/definuje systém **ve frekvenční doméně**, stejně jako **impulsní odezva** jej charakterizuje v **časové doméně**. Graficky ji vynášíme ve dvou grafech jako **amplitudovou charakteristiku** **\|H(⍵)\|** (jak filtr zeslabuje/zesiluje) a **fázovou** **charakteristiku arg(H(⍵))** (jak filtr posouvá). Frekvenční charakteristika je přenosová funkce (z-transformace) vyhodnocená pro **z = $e^{j\*omega}$**, tedy pro DTFT.
 
 ### Dělení frekvenčních charakteristik
 ![[media/szz-15/media/image38.png]]
 
-
-- **Dolní propusť** - filtr, který **propouští
-  nízké** frekvence.
-
-- **Horní propusť** - filtr, který **propouští
-  vysoké** frekvence.
-
-- **Pásmová propusť** - filtr, který **propouští**
-  signál **jen určitých** frekvencí.
-
-- **Pásmová zádrž** - filtr, který **nepropouští**
-  signál **určitých** frekvencí.
+- **Dolní propusť** - filtr, který **propouští nízké** frekvence.
+- **Horní propusť** - filtr, který **propouští vysoké** frekvence.
+- **Pásmová propusť** - filtr, který **propouští** signál **jen určitých** frekvencí.
+- **Pásmová zádrž** - filtr, který **nepropouští** signál **určitých** frekvencí.
 
 ## Filtr
 ![[media/szz-15/media/image11.png]]
 
-
-**Filtr** je lineárně časově invariantní (**LTI**)
-systém, který upravuje signál **ve frekvenční oblasti**. Je
-charakterizován **impulsní odezvou**. Výstup se získá konvolucí vstupu
-filtru s jeho impulsní odezvou. Lze implementovat pomocí diferenční
-rovnice.
-
+**Filtr** je lineárně časově invariantní (**LTI**) systém, který upravuje signál **ve frekvenční oblasti**. Je charakterizován **impulsní odezvou**. Výstup se získá konvolucí vstupu filtru s jeho impulsní odezvou. Lze implementovat pomocí diferenční rovnice.
 
 ![[media/szz-15/media/image2.png]]
-
 
 **Základní bloky filtrů**
 
@@ -332,99 +221,60 @@ rovnice.
 
 Postup:
 
-1.  vstupy **x\[n-k\]** se přepíší na $X(z)\,z^{-k}$,
-
-2.  výstupy **y\[n-k\]** se přepíší na $Y(z)\,z^{-k}$ (pro k = 0 se
-    jedná o $z^0$, což je 1 a proto se nepíše),
-
-3.  všechny **Y(z)** se přepíší na jednu stranu rovnice a všechny
-    **X(z)** na druhou (tento krok chybí v příkladu níže),
-
-4.  vytknou se **Y(z)** a **X(z)**, takže vznikne něco jako
-    $Y(z) \cdot (1 + a_1 z^{-1} + \dots) = X(z) \cdot (b_1 z^{-1} + \dots)$,
-
-5.  převedeme do tvaru
-    $H(z) = \dfrac{Y(z)}{X(z)} = \dfrac{b_1 z^{-1} + \dots}{1 + a_1 z^{-1} + \dots}$.
-
-6.  vzniklý zlomek se **rozšíří** násobením $z^x / z^x$ (což je 1, takže
-    je hodnota zlomku pořád stejná), **x** se rovná největšímu **k**
-    (krok není explicitně uveden v příkladě),
-
-7.  převod na PoS (product of sums - např. $z^2 - 4 = (z-2)(z+2)$)
-
-8.  určení nul (z Y(z), tedy z čitatele) a pólů (z X(z), tedy ze
-    jmenovatele).
+1. vstupy **x\[n-k\]** se přepíší na $X(z)\,z^{-k}$,
+2. výstupy **y\[n-k\]** se přepíší na $Y(z)\,z^{-k}$ (pro k = 0 se jedná o $z^0$, což je 1 a proto se nepíše),
+3. všechny **Y(z)** se přepíší na jednu stranu rovnice a všechny **X(z)** na druhou (tento krok chybí v příkladu níže),
+4. vytknou se **Y(z)** a **X(z)**, takže vznikne něco jako $Y(z) \cdot (1 + a_1 z^{-1} + \dots) = X(z) \cdot (b_1 z^{-1} + \dots)$,
+5. převedeme do tvaru $H(z) = \dfrac{Y(z)}{X(z)} = \dfrac{b_1 z^{-1} + \dots}{1 + a_1 z^{-1} + \dots}$.
+6. vzniklý zlomek se **rozšíří** násobením $z^x / z^x$ (což je 1, takže je hodnota zlomku pořád stejná), **x** se rovná největšímu **k** (krok není explicitně uveden v příkladě),
+7. převod na PoS (product of sums - např. $z^2 - 4 = (z-2)(z+2)$)
+8. určení nul (z Y(z), tedy z čitatele) a pólů (z X(z), tedy ze jmenovatele).
 
 Konkrétní příklad:
 
 Výsledek:
 ![[media/szz-15/media/image13.png]]
 
-
 - **Nuly**: z = 1/2,
-
 - **Póly**: z = -1/2.
 
-Komplexní čísla\
+Komplexní čísla
 
 ![[media/szz-15/media/image20.png]]
 
 ------------------------------------------------
 
 - **Možné transformace signálu**
-
   - **Otočení časové osy** - s(-t)
-
   - **Zpoždění** - s(t-x), kde x \> 0
-
   - **Předběhnutí** - s(t+x), kde x \> 0
-
   - **Kontrakce** - s(m\*t), kde m \> 1
-
   - **Dilatace** - s(t/m), kde m \> 1
+- **Komplexní číslo** - Složené z reálné části (osa x) a imaginární části (osa y), kde jednotka je odmocnina z -1, za kterou se substituuje *i* nebo *j*. Komplexní číslo je možné zapsat jako sumu těchto 2 hodnota (42 + 3i) nebo vektorem: z = \|z\|(cosⲪ + i\*sinⲪ), kde \|z\| je délka vektoru a Ⲫ je úhel s kladnou osou x.
 
-- **Komplexní číslo** - Složené z reálné části
-  (osa x) a imaginární části (osa y), kde jednotka je odmocnina z -1, za
-  kterou se substituuje *i* nebo *j*. Komplexní číslo je možné zapsat
-  jako sumu těchto 2 hodnota (42 + 3i) nebo vektorem:\
-  z = \|z\|(cosⲪ + i\*sinⲪ), kde \|z\| je délka vektoru a Ⲫ je úhel s
-  kladnou osou x.\
-  
 ![[media/szz-15/media/image10.png]]
-\
-  \
-  
+
 ![[media/szz-15/media/image18.png]]
 
-
 - **Exponenciální tvar komplexního čísla** - $z = r \cdot e^{j\varphi}$
-
 - **Komplexně sdružené číslo** - pro číslo
-  
+
 ![[media/szz-15/media/image31.png]]
-existuje
-  komplexně sdružené číslo
-  
+existuje komplexně sdružené číslo
+
 ![[media/szz-15/media/image24.png]]
-.
-  Vznikne změnou znaménka imaginární části čísla. Např.
-  
+. Vznikne změnou znaménka imaginární části čísla. Např.
+
 ![[media/szz-15/media/image22.png]]
-. Součtem
-  čísla a jeho komplexně sdruženého čísla vznikne reálné číslo. Funkce $y = e^{jx}$ je komplexní exponenciála; Součtem s komplexně
-  sdruženou získáme kosinusovku.\
-  
+. Součtem čísla a jeho komplexně sdruženého čísla vznikne reálné číslo. Funkce $y = e^{jx}$ je komplexní exponenciála; Součtem s komplexně sdruženou získáme kosinusovku.
+
 ![[media/szz-15/media/image7.png]]
 
+- **Obecná kosinusovka**
 
-- **Obecná kosinusovka**\
-  
 ![[media/szz-15/media/image32.png]]
 
-
-
 ![[media/szz-15/media/image37.png]]
-
 
 ## Zdroje
 

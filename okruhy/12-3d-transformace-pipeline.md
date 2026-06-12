@@ -63,7 +63,6 @@ updated: 2026-06-03T15:40:00Z
 
 Rasterizace trojúhelníků navazuje na [[okruhy/11-2d-vektorova-grafika|2D rasterizaci]]; prvky GUI staví na této pipeline viz [[okruhy/13-graficka-uzivatelska-rozhrani]]; matice a vektory řeší lineární algebra.
 
-
 ## Časté otázky u zkoušky
 
 *Na co se u tohoto okruhu typicky ptají. Plné odpovědi níže.*
@@ -84,32 +83,19 @@ Rasterizace trojúhelníků navazuje na [[okruhy/11-2d-vektorova-grafika|2D rast
 
 ## Geometrická transformace
 
-**změna** pozice **vrcholů** objektů v **aktuálním**
-souřadnicovém systému nebo **změna** **souřadnicového** systému
+**změna** pozice **vrcholů** objektů v **aktuálním** souřadnicovém systému nebo **změna** **souřadnicového** systému
 
 ### Lineární transformace
 
-Lineární transformace **zachovává lineární kombinaci** — vektory lze aplikovat
-**zároveň nebo po jednom** a výsledek je vždy stejný. Pro libovolné dva vektory
-a skalár platí:
+Lineární transformace **zachovává lineární kombinaci** — vektory lze aplikovat **zároveň nebo po jednom** a výsledek je vždy stejný. Pro libovolné dva vektory a skalár platí:
 
 $$f(\vec{x}_1+\vec{x}_2) = f(\vec{x}_1)+f(\vec{x}_2), \qquad f(\alpha\,\vec{x}_1) = \alpha\,f(\vec{x}_1).$$
 
-Důsledek: lineární transformace **vždy zachovává počátek** ($f(\vec{0})=\vec{0}$).
-Patří sem **měřítko** (zvětšení, zmenšení), **rotace**, **zkosení** a **zrcadlení**.
-**Posunutí (translace) lineární není** — posunulo by počátek — proto se zavádějí
-homogenní souřadnice.
+Důsledek: lineární transformace **vždy zachovává počátek** ($f(\vec{0})=\vec{0}$). Patří sem **měřítko** (zvětšení, zmenšení), **rotace**, **zkosení** a **zrcadlení**. **Posunutí (translace) lineární není** — posunulo by počátek — proto se zavádějí homogenní souřadnice.
 
 ### Afinní transformace
 
-Afinní transformace = **lineární následovaná posunutím**, $f(\vec{x})=A\vec{x}+\vec{b}$.
-Zachovává **kolinearitu a dělící poměr** (body ležící na přímce zůstanou na přímce
-a poměr jejich vzdáleností se nezmění), dále **rovnoběžnost** a **konvexnost**.
-Obecně nezachovává délky ani úhly (zkosení a nestejnoměrné měřítko je deformují,
-přímku ale nechají přímkou). Všechny základní geometrické operace (**měřítko Sc**,
-**rotace R**, **zkosení Sh** i **posunutí T**) jsou afinní. Každá lineární
-transformace je současně afinní (s $\vec{b}=\vec{0}$); afinní množina je striktně
-větší.
+Afinní transformace = **lineární následovaná posunutím**, $f(\vec{x})=A\vec{x}+\vec{b}$. Zachovává **kolinearitu a dělící poměr** (body ležící na přímce zůstanou na přímce a poměr jejich vzdáleností se nezmění), dále **rovnoběžnost** a **konvexnost**. Obecně nezachovává délky ani úhly (zkosení a nestejnoměrné měřítko je deformují, přímku ale nechají přímkou). Všechny základní geometrické operace (**měřítko Sc**, **rotace R**, **zkosení Sh** i **posunutí T**) jsou afinní. Každá lineární transformace je současně afinní (s $\vec{b}=\vec{0}$); afinní množina je striktně větší.
 
 > [!note] Proč afinní zachovává kolinearitu
 > Přímku zapíšeme parametricky jako $P + t\,\vec{d}$ (bod + skalár × směr) a dosadíme do $f(\vec{x})=A\vec{x}+\vec{b}$:
@@ -118,26 +104,13 @@ větší.
 
 ### Homogenní souřadnice (váha)
 
-Ke standardním **kartézským** souřadnicím (x, y ve 2D, x, y, z ve 3D) se přidá
-souřadnice **w** (váha bodu, u **afinních je w = 1**). Umožňují pracovat se
-**všemi** základními **transformacemi** jednotně pomocí **maticového zápisu**.
+Ke standardním **kartézským** souřadnicím (x, y ve 2D, x, y, z ve 3D) se přidá souřadnice **w** (váha bodu, u **afinních je w = 1**). Umožňují pracovat se **všemi** základními **transformacemi** jednotně pomocí **maticového zápisu**.
 
 **Tři důvody použití** (přibližně dle důležitosti):
 
-1. **Posunutí jako násobení maticí.** Posunutí je afinní, ne lineární, takže běžnou
-   $n\times n$ maticí ho jako násobení nevyjádříme. Přidáním jedné dimenze se
-   přičtení $\vec{b}$ "schová" do matice — pak je *každá* afinní transformace jediné
-   maticové násobení.
-
-2. **Jednotné skládání.** Když je vše "násobení maticí", celý řetězec složíme
-   vynásobením matic do jediné. Tu předpočítáme jednou a aplikujeme na tisíce
-   vrcholů (bez homogenních souřadnic by se střídalo násobení s přičítáním a nešlo
-   by to sloučit do jediné operace).
-
-3. **Perspektiva a body v nekonečnu.** Souřadnice $w$ není vždy 1: perspektivní
-   projekce zapisuje nenulové hodnoty do spodního řádku a **perspektivní dělení**
-   (dělení $w$) zmenšuje vzdálené objekty. $w$ navíc odlišuje **body** ($w=1$) od
-   **směrů/vektorů** ($w=0$); $w=0$ reprezentuje bod v nekonečnu (úběžník).
+1. **Posunutí jako násobení maticí.** Posunutí je afinní, ne lineární, takže běžnou $n\times n$ maticí ho jako násobení nevyjádříme. Přidáním jedné dimenze se přičtení $\vec{b}$ "schová" do matice — pak je *každá* afinní transformace jediné maticové násobení.
+2. **Jednotné skládání.** Když je vše "násobení maticí", celý řetězec složíme vynásobením matic do jediné. Tu předpočítáme jednou a aplikujeme na tisíce vrcholů (bez homogenních souřadnic by se střídalo násobení s přičítáním a nešlo by to sloučit do jediné operace).
+3. **Perspektiva a body v nekonečnu.** Souřadnice $w$ není vždy 1: perspektivní projekce zapisuje nenulové hodnoty do spodního řádku a **perspektivní dělení** (dělení $w$) zmenšuje vzdálené objekty. $w$ navíc odlišuje **body** ($w=1$) od **směrů/vektorů** ($w=0$); $w=0$ reprezentuje bod v nekonečnu (úběžník).
 
 Důvody 1–2 jsou pohodlí a jednotnost, důvod 3 je skutečná nová schopnost.
 
@@ -149,7 +122,7 @@ Níže ve **sloupcové konvenci** (bod jako sloupec, matice vlevo): $P' = M\cdot
 
 $$\begin{bmatrix}x'\\y'\\1\end{bmatrix} = \begin{bmatrix}1&0&d_x\\0&1&d_y\\0&0&1\end{bmatrix}\begin{bmatrix}x\\y\\1\end{bmatrix},\qquad T^{-1}=\begin{bmatrix}1&0&-d_x\\0&1&-d_y\\0&0&1\end{bmatrix}.$$
 
-  Ve **3D** stačí matici rozšířit o řádek a sloupec s $d_z$ (resp. $-d_z$):
+Ve **3D** stačí matici rozšířit o řádek a sloupec s $d_z$ (resp. $-d_z$):
 
 $$T_{3D}=\begin{bmatrix}1&0&0&d_x\\0&1&0&d_y\\0&0&1&d_z\\0&0&0&1\end{bmatrix}.$$
 
@@ -167,7 +140,7 @@ $$S_{HYZ}=\begin{bmatrix}1&0&0&0\\S_{hy}&1&0&0\\S_{hz}&0&1&0\\0&0&0&1\end{bmatri
 
 $$R=\begin{bmatrix}\cos\alpha&-\sin\alpha&0\\\sin\alpha&\cos\alpha&0\\0&0&1\end{bmatrix},\qquad R^{-1}=\begin{bmatrix}\cos\alpha&\sin\alpha&0\\-\sin\alpha&\cos\alpha&0\\0&0&1\end{bmatrix}.$$
 
-  Ve **3D** jsou **3 matice** (rotace kolem os X, Y, Z):
+Ve **3D** jsou **3 matice** (rotace kolem os X, Y, Z):
 
 $$R_x=\begin{bmatrix}1&0&0&0\\0&\cos\alpha&-\sin\alpha&0\\0&\sin\alpha&\cos\alpha&0\\0&0&0&1\end{bmatrix},\quad R_y=\begin{bmatrix}\cos\alpha&0&\sin\alpha&0\\0&1&0&0\\-\sin\alpha&0&\cos\alpha&0\\0&0&0&1\end{bmatrix},\quad R_z=\begin{bmatrix}\cos\alpha&-\sin\alpha&0&0\\\sin\alpha&\cos\alpha&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}.$$
 
@@ -175,158 +148,95 @@ $$R_x=\begin{bmatrix}1&0&0&0\\0&\cos\alpha&-\sin\alpha&0\\0&\sin\alpha&\cos\alph
 > Všechny tři rotace točí **proti směru hodinových ručiček při pohledu z kladné poloosy** (pravidlo pravé ruky) a každá pracuje v rovině zbývajících dvou os v pořadí cyklu $x\to y\to z\to x$. $R_x$ (rovina y,z) i $R_z$ (rovina x,y) mají osy v matici ve stejném pořadí jako cyklus, kdežto $R_y$ má pořadí $z\to x$ obrácené — blok 2×2 se proto vloží "transponovaně" a znaménka u sinů se prohodí. Tím $R_y$ zůstává správnou pravotočivou rotací. (Ve **řádkové** konvenci $P'=P\cdot M$ jsou všechny matice transpozicí zde uvedených.)
 
 - **Rotace ve 3D kolem obecné osy** (dané směrovým vektorem $\vec{v}$ a bodem $P$) se rozloží na posloupnost:
-
   1. posunutí osy rotace do počátku souřadného systému,
   2. sklopení posunuté osy do jedné ze souřadných rovin,
   3. otočení sklopené osy do jedné ze souřadných os (např. X),
   4. provedení požadované rotace o úhel ω kolem této osy (zde X),
   5. vrácení osy rotace do původní polohy.
 
-  Souhrnná matice:
+Souhrnná matice:
 
 $$M = T\cdot R_x\cdot R_z\cdot R_{x(\omega)}\cdot R_z^{-1}\cdot R_x^{-1}\cdot T^{-1}.$$
 
-  Zkráceně: **obecnou osu dostat do pozice jedné z os**, provést otočení a vrátit osu na původní místo.
+Zkráceně: **obecnou osu dostat do pozice jedné z os**, provést otočení a vrátit osu na původní místo.
 
 ### Skládání transformací
 
-U skládání závisí na **pořadí** (násobení matic je asociativní, ale
-**nekomutativní**; ani rotace mezi sebou nekomutují, $R_x R_y \neq R_y R_x$).
-Souhrnnou matici $M$ předpočítáme jednou a každý vrchol je pak jediné násobení.
+U skládání závisí na **pořadí** (násobení matic je asociativní, ale **nekomutativní**; ani rotace mezi sebou nekomutují, $R_x R_y \neq R_y R_x$). Souhrnnou matici $M$ předpočítáme jednou a každý vrchol je pak jediné násobení.
 
 - **zápis bodu ve sloupci** (sloupcová konvence): $P' = T\cdot R\cdot S\cdot P$, matici $M = T\cdot R\cdot S$; aplikuje se **zprava doleva**, tj. nejprve $S$ (nejblíž bodu).
 - **zápis bodu v řádku** (řádková konvence): $P' = P\cdot S\cdot R\cdot T$, matici $M = S\cdot R\cdot T$; aplikuje se **zleva doprava**, opět nejprve $S$.
 
-V obou případech musí být **první transformace v pořadí nejblíž transformovanému
-bodu**. Typicky **měřítko → rotace → posunutí**: objekt nejdřív zvětšíme a otočíme
-kolem vlastního počátku a teprve pak posuneme na místo (posunutí jako první by
-rotaci provedlo kolem počátku světa).
+V obou případech musí být **první transformace v pořadí nejblíž transformovanému bodu**. Typicky **měřítko → rotace → posunutí**: objekt nejdřív zvětšíme a otočíme kolem vlastního počátku a teprve pak posuneme na místo (posunutí jako první by rotaci provedlo kolem počátku světa).
 
 > [!note] Řádkové vs. sloupcové vektory
 > Jde o **dvě konvence téhož**: řádkové vektory ($P'=P\cdot M$, matice vpravo) vs. sloupcové ($P'=M\cdot P$, matice vlevo — standard v matematice a OpenGL). Matice jedné konvence jsou **transpozicí** druhé ($M_{\text{sloupec}} = M_{\text{řádek}}^{\mathsf{T}}$), proto se i pořadí ve skládání obrací ($(AB)^{\mathsf{T}}=B^{\mathsf{T}}A^{\mathsf{T}}$). Pozor: konvence vektoru **není totéž** co řádkové/sloupcové uložení v paměti (row-/column-major) — to jsou nezávislé volby (OpenGL: sloupcové vektory + column-major; DirectX tradičně: řádkové vektory + row-major, obě volby se "vyruší").
 
 ## Zobrazení 3D polygonálních modelů
 
-Zobrazení **3D** objektů provádíme většinou na **2D**
-obrazovku **projekcí** (transformací z 3D do 2D, to znamená ztrátu dat),
-obrazovka je tedy **průmětna**. Promítání provádíme pomocí paprsků, tzv.
-**projekčních paprsků**. V počítačové grafice se většinou rasterizují
-všechny objekty **pomocí trojúhelníku** (konvexnost, lze dobře
-akcelerovat v HW).
+Zobrazení **3D** objektů provádíme většinou na **2D** obrazovku **projekcí** (transformací z 3D do 2D, to znamená ztrátu dat), obrazovka je tedy **průmětna**. Promítání provádíme pomocí paprsků, tzv. **projekčních paprsků**. V počítačové grafice se většinou rasterizují všechny objekty **pomocí trojúhelníku** (konvexnost, lze dobře akcelerovat v HW).
 
 ### Prvky 3D scény
 
-- **near clip plane**: určuje minimální hloubku
-  zobrazovaných objektů,
-
-- **far clip plane**: udává maximální hloubku
-  zobrazovaných objektů,
+- **near clip plane**: určuje minimální hloubku zobrazovaných objektů,
+- **far clip plane**: udává maximální hloubku zobrazovaných objektů,
 ![[media/szz-12/media/image12.png]]
 
-
-- **viewing frustum**: prostor v modelovaném
-  prostředí, který se objeví na obrazovce,
-
-- **viewpoint:** místo, ze kterého scénu pozorujeme
-  (kamera)
-
-- **světlo**: bodové nebo plošné, umístění rozhoduje
-  o viditelnosti objektů (barvy, stíny, …),
-
+- **viewing frustum**: prostor v modelovaném prostředí, který se objeví na obrazovce,
+- **viewpoint:** místo, ze kterého scénu pozorujeme (kamera)
+- **světlo**: bodové nebo plošné, umístění rozhoduje o viditelnosti objektů (barvy, stíny, …),
 - **modelované objekty**.
-
 
 ![[media/szz-12/media/image10.png]]
 
-
 ### Paralelní projekce (**rovnoběžná**, ortografická)
 - **zachovává rovnoběžnost hran**
-- **vzdálenost** průmětny **neovlivňuje**
-  **velikost** průmětu (při změně vzdálenosti objektu se nemění jeho
-  velikost)
-- **kolmé promítání** - paprsky jsou **kolmé na
-  průmětnu**
-- použití: technické **CAD** aplikace, výkresová
-  dokumentace
+- **vzdálenost** průmětny **neovlivňuje** **velikost** průmětu (při změně vzdálenosti objektu se nemění jeho velikost)
+- **kolmé promítání** - paprsky jsou **kolmé na průmětnu**
+- použití: technické **CAD** aplikace, výkresová dokumentace
 
-**Ortografická matice** (kolmé promítání do roviny $z=0$, sloupcová konvence
-$P'=M\cdot P$) jen zahodí hloubku $z$ a ponechá $w=1$ — proto velikost na
-vzdálenosti nezávisí (žádné dělení $w$):
+**Ortografická matice** (kolmé promítání do roviny $z=0$, sloupcová konvence $P'=M\cdot P$) jen zahodí hloubku $z$ a ponechá $w=1$ — proto velikost na vzdálenosti nezávisí (žádné dělení $w$):
 
 $$\begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&0&0\\0&0&0&1\end{bmatrix}\cdot\begin{bmatrix}x\\y\\z\\1\end{bmatrix}=\begin{bmatrix}x\\y\\0\\1\end{bmatrix}.$$
 
-Je to **afinní** (lineární) transformace — spodní řádek zůstává $[0\;0\;0\;1]$,
-na rozdíl od perspektivní matice níže.
+Je to **afinní** (lineární) transformace — spodní řádek zůstává $[0\;0\;0\;1]$, na rozdíl od perspektivní matice níže.
 ![[media/szz-12/media/image9.png]]
 
 ### Perspektivní projekce (**středová**)
 - **nezachovává** **rovnoběžnost** hran
 - použití ve **hrách**, **VR** a jinde
-- **vzdálenost průmětny** od objektu **ovlivňuje
-  velikost průmětu** (se vzdáleností objektu se objekt zmenšuje)
-- nelineární středová projekce: paprsky **vycházejí z
-  1 bodu** - **středu projekce**
-- pro jednodušší manipulaci se **kamera** obvykle
-  **zafixuje** do počátku souřadného systému a **hýbe** se (pomocí
-  transformačních matic) se **scénou**.
-  - **Geometrický princip projekce**: z vrcholů
-    trojúhelníku se do středu projekce (tj. střed souřadného systému,
-    kam je umístěna i kamera) vrhnou paprsky (u perspektivní projekce se
-    všechny paprsky sbíhají do středu projekce). V tom místě, kde
-    paprsek protnul projekční rovinu, se promítne bod, ze kterého
-    paprsek původně
-    vyšel.
+- **vzdálenost průmětny** od objektu **ovlivňuje velikost průmětu** (se vzdáleností objektu se objekt zmenšuje)
+- nelineární středová projekce: paprsky **vycházejí z 1 bodu** - **středu projekce**
+- pro jednodušší manipulaci se **kamera** obvykle **zafixuje** do počátku souřadného systému a **hýbe** se (pomocí transformačních matic) se **scénou**.
+  - **Geometrický princip projekce**: z vrcholů trojúhelníku se do středu projekce (tj. střed souřadného systému, kam je umístěna i kamera) vrhnou paprsky (u perspektivní projekce se všechny paprsky sbíhají do středu projekce). V tom místě, kde paprsek protnul projekční rovinu, se promítne bod, ze kterého paprsek původně vyšel.
 ![[media/szz-12/media/image5.png]]
 
-**Perspektivní matice** (promítnutí na rovinu $z=d$, střed projekce v počátku;
-sloupcová konvence $P'=M\cdot P$) zapisuje do spodního řádku, čímž $w$ závisí na
-hloubce:
+**Perspektivní matice** (promítnutí na rovinu $z=d$, střed projekce v počátku; sloupcová konvence $P'=M\cdot P$) zapisuje do spodního řádku, čímž $w$ závisí na hloubce:
 
 $$\begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&1/d&0\end{bmatrix}\cdot\begin{bmatrix}x\\y\\z\\1\end{bmatrix}=\begin{bmatrix}x\\y\\z\\z/d\end{bmatrix}\;\xrightarrow{\text{/ }w}\;\left(\frac{dx}{z},\,\frac{dy}{z}\right).$$
 
-Je to jediná **projektivní (neafinní)** matice — má nenulový spodní řádek. Až
-**perspektivní dělení** souřadnicí $w=z/d$ zajistí, že se vzdálené objekty zmenší.
-
+Je to jediná **projektivní (neafinní)** matice — má nenulový spodní řádek. Až **perspektivní dělení** souřadnicí $w=z/d$ zajistí, že se vzdálené objekty zmenší.
 
 ### RayTracing
 
-Metoda pro realistické zobrazování. Funguje na
-principu zpětného sledování cest paprsku od kamery ke zdroji světla.
-Hledá se množství světla, které paprsek přináší.
+Metoda pro realistické zobrazování. Funguje na principu zpětného sledování cest paprsku od kamery ke zdroji světla. Hledá se množství světla, které paprsek přináší.
 
 Paprsky dělíme na:
-- **Primární**: Vychází z kamery, mají společný
-  počátek nebo jsou rovnoběžné
-- **Stínové**: Z místa dopadu paprsku do každého
-  světla, zajímá nás, jestli jej **vidíme nebo nevidíme**, podle toho
-  následně spočítáme **stín**.
-- **Sekundární**: Vznikají **odrazem a lomem** z míst
-  **dopadů primárních** a sekundárních paprsků. Jsou chaotičtější než
-  primární paprsky.
+- **Primární**: Vychází z kamery, mají společný počátek nebo jsou rovnoběžné
+- **Stínové**: Z místa dopadu paprsku do každého světla, zajímá nás, jestli jej **vidíme nebo nevidíme**, podle toho následně spočítáme **stín**.
+- **Sekundární**: Vznikají **odrazem a lomem** z míst **dopadů primárních** a sekundárních paprsků. Jsou chaotičtější než primární paprsky.
 
-Výpočetně je RayTracing velmi náročný, lze
-optimalizovat například ohledem na to, že **sekundární** paprsky mají
-**menší vliv** na výsledný obraz, **intenzita světla** se snižuje se
-**čtvercem** vzdálenosti, **snížit rozlišení**. Výpočet scény je
-**závislý na poloze kamery**.
+Výpočetně je RayTracing velmi náročný, lze optimalizovat například ohledem na to, že **sekundární** paprsky mají **menší vliv** na výsledný obraz, **intenzita světla** se snižuje se **čtvercem** vzdálenosti, **snížit rozlišení**. Výpočet scény je **závislý na poloze kamery**.
 
 ### Radiozita
 
-Metoda **globálního osvětlení scény**. Řeší **šíření
-energie**, objekty mohou být sekundárními zdroji světla (odraz).
-- Vychází ze zákona zachování energie, vyžaduje
-  energeticky uzavřenou scénu.
-- Scéna musí být reprezentovaná **polygonálním
-  modelem** (jiné modely - CSG, B-rep, Drátové modely).
-- Vychází z dvousměrové distribuční **funkce
-  BRDF**.
-- Před vlastním výpočtem je třeba **polygony** ve
-  scéně **rozdělit** na **malé plošky** a spočítat **konfigurační
-  faktory** (**vliv** každé **plošky** na každou **jinou plošku** ve
-  scéně).
+Metoda **globálního osvětlení scény**. Řeší **šíření energie**, objekty mohou být sekundárními zdroji světla (odraz).
+- Vychází ze zákona zachování energie, vyžaduje energeticky uzavřenou scénu.
+- Scéna musí být reprezentovaná **polygonálním modelem** (jiné modely - CSG, B-rep, Drátové modely).
+- Vychází z dvousměrové distribuční **funkce BRDF**.
+- Před vlastním výpočtem je třeba **polygony** ve scéně **rozdělit** na **malé plošky** a spočítat **konfigurační faktory** (**vliv** každé **plošky** na každou **jinou plošku** ve scéně).
 - Nedokáže pracovat s průhlednými objekty.
-- Výpočet scény **není závislý na poloze
-  kamery**.
+- Výpočet scény **není závislý na poloze kamery**.
 - V praxi lze **kombinovat s RayTracing**.
 
 ## Principy programovatelného vykreslovacího řetězce (zobrazovací pipeline)
@@ -336,70 +246,24 @@ energie**, objekty mohou být sekundárními zdroji světla (odraz).
 
 zobrazovací pipeline je tvořena těmito částmi:
 
-1.  **Vertex Assembly (Vertex Puller)**: je zařízení
-    na grafické kartě, které se stará o **sestavení vrcholů**. Vertex
-    puller je tvořen **čtecími hlavami**, každá konstruuje jeden atribut
-    vrcholu (pozice, normála, souřadnice textury, barva, …). Čtecí hlavy
-    se pohybují s krokem (**stride**) a mají nějaký posun (**offset**).
-    Data čtou z pole bytů.
-
-2.  **Vertex Shader** (programovatelný): Provádí
-    zpracování vrcholů z Vertex Assembly. Jedná se o násobení
-    **modelovou maticí**, **view maticí** a **projekční maticí**.
-    Vstupem jsou vrcholy v **model space**, výstupem vrcholy v **clip
-    space**.
-
-3.  **Primitive Assembly**: je jednotka, která
-    sestavuje trojúhelníky. **Čeká na 3** po sobě jdoucí **vrcholy** z
-    vertex shaderu a **sestaví trojúhelník**. Lze na to také nahlížet
-    tak, že Primitive Assembly dostane příkaz vykreslit třeba 4
-    trojúhelníky. Jednotka tak spustí Vertex Shader 12x, který takto
-    spustí 12x Vertex Assembly.
-
-4.  **Clipping/Culling**: provádí **ořez prostoru** na view frustum. Trojúhelníky na **hranicích** musí ořezat (může vést na rozdělení na 2).
-
-5.  **Perspective Division**: provádí převod z
-    homogenních souřadnic na kartézskéch na základě hloubky trojúhelníků
-    (dělením - co je daleko se zmenší více, co je blízko se zmenší
-    méně).
-
-6.  **Viewport Transformation**: Převádí souřadnice z
-    NDC (normalized device coordinates, **-1, +1**) na rozlišení okna,
-    aby se mohla provést rasterizace.
-
-7.  **Rasterization**: rasterizuje připravené
-    trojúhelníky a produkuje **fragmenty** (čtvercové úlomky
-    trojúhelníku - **pixely**, které se nakonec **zapíší** do
-    **framebufferu**).
-
-8.  **Fragment Shader** (programovatelný): **obarvuje
-    fragmenty** (aplikuje textury na fragmenty) uvnitř trojúhelníka
-    (střed pixelu musí ležet uvnitř). Pro konkrétní fragment (pixel)
-    trojúhelníku se spočítají **barycentrické souřadnice** a použijí se
-    pro **interpolaci** všech atributů z **vrcholů**.
-
-9.  **Per-Fragment Operations**: jedná se o dvě
-    operace: **hloubkový test** a **blending** (a další testy a
-    operace).
-
-    - **Hloubkový test** (depth test) se stará o
-      **zahazování fragmentů**, které jsou **hlouběji** než to, co už se
-      **vyrasterizovalo, naopak** pokud je **hloubka** nového fragment
-      **menší,** je jeho **barva a hloubka zapsána do
-      framebufferu**.
-
-    - **Blending** místo přepsání barvy ve
-      framebufferu je míchá. Existuje mnoho způsobů realizace, např.
-      pomocí **průhlednosti** (**alpha blending**).
+1. **Vertex Assembly (Vertex Puller)**: je zařízení na grafické kartě, které se stará o **sestavení vrcholů**. Vertex puller je tvořen **čtecími hlavami**, každá konstruuje jeden atribut vrcholu (pozice, normála, souřadnice textury, barva, …). Čtecí hlavy se pohybují s krokem (**stride**) a mají nějaký posun (**offset**). Data čtou z pole bytů.
+2. **Vertex Shader** (programovatelný): Provádí zpracování vrcholů z Vertex Assembly. Jedná se o násobení **modelovou maticí**, **view maticí** a **projekční maticí**. Vstupem jsou vrcholy v **model space**, výstupem vrcholy v **clip space**.
+3. **Primitive Assembly**: je jednotka, která sestavuje trojúhelníky. **Čeká na 3** po sobě jdoucí **vrcholy** z vertex shaderu a **sestaví trojúhelník**. Lze na to také nahlížet tak, že Primitive Assembly dostane příkaz vykreslit třeba 4 trojúhelníky. Jednotka tak spustí Vertex Shader 12x, který takto spustí 12x Vertex Assembly.
+4. **Clipping/Culling**: provádí **ořez prostoru** na view frustum. Trojúhelníky na **hranicích** musí ořezat (může vést na rozdělení na 2).
+5. **Perspective Division**: provádí převod z homogenních souřadnic na kartézskéch na základě hloubky trojúhelníků (dělením - co je daleko se zmenší více, co je blízko se zmenší méně).
+6. **Viewport Transformation**: Převádí souřadnice z NDC (normalized device coordinates, **-1, +1**) na rozlišení okna, aby se mohla provést rasterizace.
+7. **Rasterization**: rasterizuje připravené trojúhelníky a produkuje **fragmenty** (čtvercové úlomky trojúhelníku - **pixely**, které se nakonec **zapíší** do **framebufferu**).
+8. **Fragment Shader** (programovatelný): **obarvuje fragmenty** (aplikuje textury na fragmenty) uvnitř trojúhelníka (střed pixelu musí ležet uvnitř). Pro konkrétní fragment (pixel) trojúhelníku se spočítají **barycentrické souřadnice** a použijí se pro **interpolaci** všech atributů z **vrcholů**.
+9. **Per-Fragment Operations**: jedná se o dvě operace: **hloubkový test** a **blending** (a další testy a operace).
+    - **Hloubkový test** (depth test) se stará o **zahazování fragmentů**, které jsou **hlouběji** než to, co už se **vyrasterizovalo, naopak** pokud je **hloubka** nového fragment **menší,** je jeho **barva a hloubka zapsána do framebufferu**.
+    - **Blending** místo přepsání barvy ve framebufferu je míchá. Existuje mnoho způsobů realizace, např. pomocí **průhlednosti** (**alpha blending**).
 
 Obsah framebufferu je poté zobrazen.
+
 ## Jiná reprezentace objektů
 
-- **CSG** (Constructive solid geometry) - skládání jednoduchých 3D
-  primitiv (koule, krychle, kvádry, válce, …).
-
+- **CSG** (Constructive solid geometry) - skládání jednoduchých 3D primitiv (koule, krychle, kvádry, válce, …).
 - Pomocí objemových jednotek - **voxely** (analogie pixelu ve 3D).
-
 - **Implicitní plochy** - potenciální pole kolem nějaké kostry.
 
 ## Zdroje

@@ -65,7 +65,6 @@ Architektura oddělující **model** (data), **view** (prezentace) a **controlle
 
 Vykreslení prvků staví na [[okruhy/12-3d-transformace-pipeline|grafické pipeline]]; MVC a události se uplatňují i ve [[okruhy/37-webova-rozhrani-autentizace|webových rozhraních]].
 
-
 ## Související syntéza
 
 - [[synthesis/preruseni-udalosti-signaly|Přerušení × události × signály]] — syntéza
@@ -91,238 +90,100 @@ Vykreslení prvků staví na [[okruhy/12-3d-transformace-pipeline|grafické pipe
 
 ## Plné znění (ke studiu)
 
-Komunikaci člověka se strojem lze definovat jako
-**obousměrnou výměnu informací** mezi člověkem a strojem. Tok informací
-od počítače k člověku lze uskutečnit pomocí **periferních** výstupních
-zařízení generujících výstupy, na které mohou reagovat **smysly
-člověka**. Tok údaj od člověka k počítači lze naopak uskutečnit pomocí
-vstupních periferních zařízení, která mohou **reagovat na podněty**
-generované člověkem.
+Komunikaci člověka se strojem lze definovat jako **obousměrnou výměnu informací** mezi člověkem a strojem. Tok informací od počítače k člověku lze uskutečnit pomocí **periferních** výstupních zařízení generujících výstupy, na které mohou reagovat **smysly člověka**. Tok údaj od člověka k počítači lze naopak uskutečnit pomocí vstupních periferních zařízení, která mohou **reagovat na podněty** generované člověkem.
 
 ## Komunikační kanály
 
-Komunikační kanály jsou způsoby **komunikace člověka
-a stroje** pomocí periferních zařízení - **monitor**, **klávesnice**,
-**tiskárna**, **myš**, **kamera**, … Jsou **založené** na **lidských
-smyslech**.
+Komunikační kanály jsou způsoby **komunikace člověka a stroje** pomocí periferních zařízení - **monitor**, **klávesnice**, **tiskárna**, **myš**, **kamera**, … Jsou **založené** na **lidských smyslech**.
 
 ### Komunikační kanály od stroje k človeku
 
-- **Obraz (zrak)** - Nejvýhodnější pro přenos
-  informace. **Nejvyšší informační propustnost**.
-
-- **Zvuk (sluch)** - Vhodný pro přenos menšího počtu
-  informací. Nižší propustnost a “sériový” přístup (je obtížné
-  poslouchat 2 věci zároveň). Zvuk na sebe však může **lépe
-  upozorňovat** - varovné signály.
-
-- **Hmat** - Využívá se pro komunikaci **nevidomých**
-  a stroje (braillovo písmo). Běžní uživatelé se nejčastěji setkávají s
-  tímto druhem komunikace na mobilních zařízeních, formou **vibrací**
-  (náhrada za pocit stisknutí tlačítka) a také na ovladačích her (např.
-  signalizace překážky, **silový odpor** u závodního volantu).
-
-- **Čich, chuť** - V současnosti **nejsou** pro
-  komunikaci **použitelné**. Problémy s umělým syntezováním chuti a vůně
-  v reálném čase.
+- **Obraz (zrak)** - Nejvýhodnější pro přenos informace. **Nejvyšší informační propustnost**.
+- **Zvuk (sluch)** - Vhodný pro přenos menšího počtu informací. Nižší propustnost a “sériový” přístup (je obtížné poslouchat 2 věci zároveň). Zvuk na sebe však může **lépe upozorňovat** - varovné signály.
+- **Hmat** - Využívá se pro komunikaci **nevidomých** a stroje (braillovo písmo). Běžní uživatelé se nejčastěji setkávají s tímto druhem komunikace na mobilních zařízeních, formou **vibrací** (náhrada za pocit stisknutí tlačítka) a také na ovladačích her (např. signalizace překážky, **silový odpor** u závodního volantu).
+- **Čich, chuť** - V současnosti **nejsou** pro komunikaci **použitelné**. Problémy s umělým syntezováním chuti a vůně v reálném čase.
 
 ### Komunikační kanály od člověka ke stroji
 
-- **Pohyb (Hmat)** - Nejobvyklejší prostředek -
-  **klávesnice**, tlačítka, přepínače, … a **mechanické polohovací
-  zařízení** - **myš**, páčky. (Dnes nejpoužívanější, ale neznamená to,
-  že je nejlepší, pouze je obvykle nejjednodušší na implementaci - např.
-  diktování textu může být pro většinu uživatelů příjemnější, než psaní
-  na klávesnici).
-
-- **Zvuk (Řeč)** - Rychle se vyvíjí, dnes už
-  prakticky **použitelný** způsob ovládání, zejména v anglickém jazyce
-  (asistenti na mobilu, speech to text apod.). **Problém** s
-  rozpoznáváním řeči a náročnost zpracování, **soukromí**. Není vhodné
-  pro sdělování citlivých informací (hesla, číslo OP., …)
-
-- **Obraz (gesta)** - Sdělování informací **gesty,**
-  **pohyby** a **mimikou v obličeji** (filtry na Instagramu). Lze využít
-  ve **virtuální realitě** a hrách (Just dance, Wii games…), gesta ruky
-  pro přeskočení písničky na Android 10 (Google Pixel). Rozpoznávání
-  osob a objektů - pro bezpečnost nebo klasifikaci.
+- **Pohyb (Hmat)** - Nejobvyklejší prostředek - **klávesnice**, tlačítka, přepínače, … a **mechanické polohovací zařízení** - **myš**, páčky. (Dnes nejpoužívanější, ale neznamená to, že je nejlepší, pouze je obvykle nejjednodušší na implementaci - např. diktování textu může být pro většinu uživatelů příjemnější, než psaní na klávesnici).
+- **Zvuk (Řeč)** - Rychle se vyvíjí, dnes už prakticky **použitelný** způsob ovládání, zejména v anglickém jazyce (asistenti na mobilu, speech to text apod.). **Problém** s rozpoznáváním řeči a náročnost zpracování, **soukromí**. Není vhodné pro sdělování citlivých informací (hesla, číslo OP., …)
+- **Obraz (gesta)** - Sdělování informací **gesty,** **pohyby** a **mimikou v obličeji** (filtry na Instagramu). Lze využít ve **virtuální realitě** a hrách (Just dance, Wii games…), gesta ruky pro přeskočení písničky na Android 10 (Google Pixel). Rozpoznávání osob a objektů - pro bezpečnost nebo klasifikaci.
 
 ## Způsob komunikace
 
-Nejzákladnějším dělením obrazové komunikace člověka s
-počítačem je dělení podle aktivity uživatele:
+Nejzákladnějším dělením obrazové komunikace člověka s počítačem je dělení podle aktivity uživatele:
 
-- **Aktivní komunikace** - **Uživatel řídí** činnost
-  počítače - činnost počítače záleží na **vůli uživatele**. Například
-  panel nástrojů v grafickém editoru, unixový terminál…
+- **Aktivní komunikace** - **Uživatel řídí** činnost počítače - činnost počítače záleží na **vůli uživatele**. Například panel nástrojů v grafickém editoru, unixový terminál…
+- **Pasivní komunikace** - Uživatel **odpovídá** na dotazy počítače. **Dialogová**/modální okna.
 
-- **Pasivní komunikace** - Uživatel **odpovídá** na
-  dotazy počítače. **Dialogová**/modální okna.
+Je zřejmé, že komunikace s počítačem se **nebude trvale** odehrávat jen **pasivně** nebo jen **aktivně**, a že je vhodné oba způsoby **kombinovat**. **Aktivní** komunikaci je nutné používat tam, kde uživatel **musí rozhodnout**, jakou činnost má počítač vykonávat a kdy není možné rozhodnutí obsluhy předvídat. **Pasivní** komunikace je naopak vhodná tehdy, je-li příští **činnost** počítače **známá**, a obsluha jen zadává údaje nebo rozhoduje mezi několik málo možnými variantami, které lze přesně určit.
 
-Je zřejmé, že komunikace s počítačem se **nebude
-trvale** odehrávat jen **pasivně** nebo jen **aktivně**, a že je vhodné
-oba způsoby **kombinovat**. **Aktivní** komunikaci je nutné používat
-tam, kde uživatel **musí rozhodnout**, jakou činnost má počítač
-vykonávat a kdy není možné rozhodnutí obsluhy předvídat. **Pasivní**
-komunikace je naopak vhodná tehdy, je-li příští **činnost** počítače
-**známá**, a obsluha jen zadává údaje nebo rozhoduje mezi několik málo
-možnými variantami, které lze přesně určit.
-
-> 
 ![[media/szz-13/media/image4.png]]
- style="width:4.75in;height:2.01042in" />
+style="width:4.75in;height:2.01042in" />
 
 ## Módy komunikace
 
-**Mód komunikace** = Stav, ve kterém počítač reaguje
-jedinečným způsobem na vstup od uživatele (změny módů - změny chování
-počíteče na vstupy, na klávesnici **Caps Lock, Insert**, grafický editor
-a levé tlačítko myši může kreslit, mazat, přesouvat objekty). Obecně čím
-méně modů tím lípe. Typické mody (např. Vim - **i** pro editaci):
+**Mód komunikace** = Stav, ve kterém počítač reaguje jedinečným způsobem na vstup od uživatele (změny módů - změny chování počíteče na vstupy, na klávesnici **Caps Lock, Insert**, grafický editor a levé tlačítko myši může kreslit, mazat, přesouvat objekty). Obecně čím méně modů tím lípe. Typické mody (např. Vim - **i** pro editaci):
 
 - Zadání příkazu v příkazovém jazyce
-
-- Odpověď na dotaz (potvrzení akce - např.
-  smazání).
-
+- Odpověď na dotaz (potvrzení akce - např. smazání).
 - Editace textu
-
 - Reakce na chybu
 
 ### Přímá manipulace (Drag and Drop, Look and Feel)
 
-Umožňuje interakci mezi uživatelem a objekty
-zobrazenými na obrazovce - podporuje **přirozené chování** uživatele.
-**Zjednodušuje ovládání** počítače pro neškolené uživatele a zlepšuje
-jejich dojem při práci s PC. Zjednodušuje nároky na zkušeného uživatele,
-který nemusí vynakládat úsilí např. pro přesun souboru, ale provede jej
-intuitivně pomocí **Drag and Drop**. **Look and Feel** - uživatelské
-rozhraní se dá používat **intuitivním způsobem** vycházejícím z
-podobnosti s prací s předměty v běžném životě.
+Umožňuje interakci mezi uživatelem a objekty zobrazenými na obrazovce - podporuje **přirozené chování** uživatele. **Zjednodušuje ovládání** počítače pro neškolené uživatele a zlepšuje jejich dojem při práci s PC. Zjednodušuje nároky na zkušeného uživatele, který nemusí vynakládat úsilí např. pro přesun souboru, ale provede jej intuitivně pomocí **Drag and Drop**. **Look and Feel** - uživatelské rozhraní se dá používat **intuitivním způsobem** vycházejícím z podobnosti s prací s předměty v běžném životě.
 
 ## Systémy řízené událostmi
 
-Systémy, které se zabývají **detekcí**,
-**zpracováním** a **reakcí** na události. Tok programu je řízen různými
-událostmi (vstup z periferií - **zmáčknutí klávesy**, **pohyb**
-**myši**). Program naslouchá na tyto akce, a nějak reaguje (např. v JS
-pomocí **event listeners**: onclick, onhover, onkeypress). U hardware je
-toto prováděno pomocí **přerušení**. Tento přístup je velmi využívaný.
-Programy, které takto pracují, běží v nekonečné smyčce (z té vystoupí po
-události signalizující ukončení) a čekají na příchod události (HW
-přerušení) nebo sami kontrolují její vznik (Polling), nebo probíhá
-formou zasílání zpráv. **Detekuje se, o jakou se jedná událost, a spustí
-se její obsluha. Po dokončení obsluhy se program dostává zpět do stavu,
-ve kterém čeká na další událost.**
+Systémy, které se zabývají **detekcí**, **zpracováním** a **reakcí** na události. Tok programu je řízen různými událostmi (vstup z periferií - **zmáčknutí klávesy**, **pohyb** **myši**). Program naslouchá na tyto akce, a nějak reaguje (např. v JS pomocí **event listeners**: onclick, onhover, onkeypress). U hardware je toto prováděno pomocí **přerušení**. Tento přístup je velmi využívaný. Programy, které takto pracují, běží v nekonečné smyčce (z té vystoupí po události signalizující ukončení) a čekají na příchod události (HW přerušení) nebo sami kontrolují její vznik (Polling), nebo probíhá formou zasílání zpráv. **Detekuje se, o jakou se jedná událost, a spustí se její obsluha. Po dokončení obsluhy se program dostává zpět do stavu, ve kterém čeká na další událost.**
 
 - QT: signal and slots,
-
 - callbacks
 
 ## Standardní prvky rozhraní
 
-Standardní prvky GUI obvykle označujeme pod zkratkou
-**WIMP**:
+Standardní prvky GUI obvykle označujeme pod zkratkou **WIMP**:
 
-- **Window - okno**: reprezentují spuštěné programy
-  (Douglas Engelbart; Xerox PARC):
-
-  - **primární**: hlavní okno aplikace, obsahuje
-    menu, více nezávislých funkcí,
-
-  - **sekundární**: okno pro zpracování vedlejších,
-    rozšiřujících či doplňkových funkcí, pevný rozměr, nemá
-    min/maximalizaci, menší než primární okno. Může být nazývané jako
-    **modální**, protože **mění mód/režim** chování aplikace/systému,
-    mění pracovní postup. Může vyžadovat interakci uživatele, než vrátí
-    řízení rodičovskému oknu (např. dialogová okna). Slouží k upozornění
-    uživatele a blokování aplikace/systému pro získání klíčových
-    informací (uživatel musí dokončit práci v modálním okně)
-
+- **Window - okno**: reprezentují spuštěné programy (Douglas Engelbart; Xerox PARC):
+  - **primární**: hlavní okno aplikace, obsahuje menu, více nezávislých funkcí,
+  - **sekundární**: okno pro zpracování vedlejších, rozšiřujících či doplňkových funkcí, pevný rozměr, nemá min/maximalizaci, menší než primární okno. Může být nazývané jako **modální**, protože **mění mód/režim** chování aplikace/systému, mění pracovní postup. Může vyžadovat interakci uživatele, než vrátí řízení rodičovskému oknu (např. dialogová okna). Slouží k upozornění uživatele a blokování aplikace/systému pro získání klíčových informací (uživatel musí dokončit práci v modálním okně)
     - **modální** - dialog v rámci aplikace,
-
-    - **systémově modální** - Mají prioritu nad
-      aplikacemi (např. nedostatečná práva pro provedení akce,
-      **potvrzení instalace**).
-
-    - **nemodální** - Neprioritní. Uživatel může mít
-      okno otevřené a stále pracovat s aplikací (výběr barvy štětce v
-      malování například).
-
-- **Icon - ikona**: reprezentují zkratky sloužící k
-  provedení určité činnosti (například spuštění programu).
-
-- **Menu**: textové nebo z ikon složené **nabídky**,
-  ze kterých je možné jednu vybrat a provést tak určitou akci.
-
-- **Pointer - ukazatel**: pohybující se grafický
-  symbol reprezentující pohyb fyzického zařízení (myš), pomocí něhož
-  uživatel vybírá ikony, položky v menu nebo data.
+    - **systémově modální** - Mají prioritu nad aplikacemi (např. nedostatečná práva pro provedení akce, **potvrzení instalace**).
+    - **nemodální** - Neprioritní. Uživatel může mít okno otevřené a stále pracovat s aplikací (výběr barvy štětce v malování například).
+- **Icon - ikona**: reprezentují zkratky sloužící k provedení určité činnosti (například spuštění programu).
+- **Menu**: textové nebo z ikon složené **nabídky**, ze kterých je možné jednu vybrat a provést tak určitou akci.
+- **Pointer - ukazatel**: pohybující se grafický symbol reprezentující pohyb fyzického zařízení (myš), pomocí něhož uživatel vybírá ikony, položky v menu nebo data.
 
 ### Další prvku UI
 
 - tlačítka,
-
 - přepínače,
-
 - popisky,
-
 - checkboxy,
-
 - seznamy,
-
 - slidery,
-
 - výběr souboru,
-
 - vstupní pole pro text
 
 ### Režim oken aplikace
 
-- **Single-Document Interface** (SDI): Jedno primární
-  okno, několik sekundárních. Jednoznačný vztah okna s objektem.
-  **Přehledné, srozumitelné**. **Každé okno má své menu**. Několik
-  instancí aplikace v liště OS. (Excel 2013)
-
-- **Multiple-Document Interface** (MDI): Jedna
-  aplikace **obsahuje více oken.** Práce s jedním objektem z více
-  pohledů (otevřený ve více oknech) nebo práce s více objekty současně
-  (možnost při práci s jedním nahlížet na druhý). Menší přehlednost a
-  obtížnější zvládnutí. (Excel
-  2010)
+- **Single-Document Interface** (SDI): Jedno primární okno, několik sekundárních. Jednoznačný vztah okna s objektem. **Přehledné, srozumitelné**. **Každé okno má své menu**. Několik instancí aplikace v liště OS. (Excel 2013)
+- **Multiple-Document Interface** (MDI): Jedna aplikace **obsahuje více oken.** Práce s jedním objektem z více pohledů (otevřený ve více oknech) nebo práce s více objekty současně (možnost při práci s jedním nahlížet na druhý). Menší přehlednost a obtížnější zvládnutí. (Excel 2010)
 ![[media/szz-13/media/image3.png]]
 
-
-- **Tabbed Document Interface** (TDI) - prohlížeče,
-  editory zdrojových kódů, … Dnes často používané. Řízené SDI - SDI
-  doplněné o řídící okno, které obsahuje menu a seznam otevřených
-  objektů (záložek). Kooperativní SDI - některé funkce mohou ovlivnit
-  obsah i jiných oken.\
-  (jednotlivé dokumenty v
-  záložkách)
+- **Tabbed Document Interface** (TDI) - prohlížeče, editory zdrojových kódů, … Dnes často používané. Řízené SDI - SDI doplněné o řídící okno, které obsahuje menu a seznam otevřených objektů (záložek). Kooperativní SDI - některé funkce mohou ovlivnit obsah i jiných oken. (jednotlivé dokumenty v záložkách)
 ![[media/szz-13/media/image2.png]]
-
 
 Vzor MVC (model-view-controller)
 
-je softwarová architektura, která rozděluje datový
-model aplikace, uživatelské rozhraní a řídicí logiku do tří nezávislých
-komponent tak, že modifikace některé z nich má jen minimální vliv na
-ostatní
+je softwarová architektura, která rozděluje datový model aplikace, uživatelské rozhraní a řídicí logiku do tří nezávislých komponent tak, že modifikace některé z nich má jen minimální vliv na ostatní
 
-- model - reprezentace informací (dat), s nimiž
-  aplikace pracuje
-
-- view (pohled) - převádí data reprezentovaná modelem
-  do podoby vhodné k interaktivní prezentaci uživateli
-
-- controller (řadič) - reaguje na události (typicky
-  od uživatele) a zajišťuje změny v modelu, na základě těchto změn se
-  aktualizuje samotný pohled
-
+- model - reprezentace informací (dat), s nimiž aplikace pracuje
+- view (pohled) - převádí data reprezentovaná modelem do podoby vhodné k interaktivní prezentaci uživateli
+- controller (řadič) - reaguje na události (typicky od uživatele) a zajišťuje změny v modelu, na základě těchto změn se aktualizuje samotný pohled
 
 ![[media/szz-13/media/image1.png]]
-
 
 **Odkazy:**
 

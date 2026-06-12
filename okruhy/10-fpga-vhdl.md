@@ -58,7 +58,6 @@ updated: 2026-06-03T15:40:00Z
 ![[media/szz-10/media/image6.png]]
 *Strukturální popis ve VHDL — entita složená propojením komponent.*
 
-
 ## Související syntéza
 
 - [[synthesis/konecne-automaty-napric-obory|Konečné automaty napříč obory]] — syntéza
@@ -86,159 +85,68 @@ updated: 2026-06-03T15:40:00Z
 
 ![[media/szz-10/media/image10.png]]
 
+FPGA je programovatelné hradlové pole, které je kompromisem mezi pouze HW řešením - ASIC (Application specific integrated circuit - nejrychlejší, nejúspornější) a pouze SW řešení (největší flexibilita). Je tvořeno z:
 
-FPGA je programovatelné hradlové pole, které je
-kompromisem mezi pouze HW řešením - ASIC (Application specific
-integrated circuit - nejrychlejší, nejúspornější) a pouze SW řešení
-(největší flexibilita). Je tvořeno z:
-
-- **Configurable Logic Blocks** (**CLBs**) — umožňují
-  naprogramovat logické funkce realizované hardwarově. Jsou tvořeny
-  součástkami, které dohromady v nejjednodušším případě mohou tvořit
-  jeden **CLB** nebo **slice**. **CLB** může být tvořeno více
-  **slice**:
-
-  - Look Up Table (**LUT**): $2^N$ bitový register
-    obsahující výsledky kombinační logiky **N** proměnných. Jedná se
-    volatilní paměť, tzn. konfigurace jednotlivých LUT musí být uložena
-    v nevolatilní paměti (FLASH), ze které jsou LUT při spuštění
-    nakonfigurovány.
-
-  - **$2^N-1$ multiplexor**: **N** určuje počet
-    vstupních proměnných. Pomocí kterého se **vybírá** hodnota z **LUT**
-    na výstup na základě hodnot **vstupních proměnných**.
-
-  - klopný obvod (typ **D**): vytváří paměť a
-    umožňuje tvorbu sekvenčních obvodů.
-
-  - **2-1** multiplexor: vybírá mezi výstupem z LUT
-    (získaného pomocí **$2^N-1$ multiplexor**u) nebo výstupem z klopného
-    obvodu. Tento multiplexor tak určuje, jestli půjde o sekvenční. nebo
-    kombinační logiku.
+- **Configurable Logic Blocks** (**CLBs**) — umožňují naprogramovat logické funkce realizované hardwarově. Jsou tvořeny součástkami, které dohromady v nejjednodušším případě mohou tvořit jeden **CLB** nebo **slice**. **CLB** může být tvořeno více **slice**:
+  - Look Up Table (**LUT**): $2^N$ bitový register obsahující výsledky kombinační logiky **N** proměnných. Jedná se volatilní paměť, tzn. konfigurace jednotlivých LUT musí být uložena v nevolatilní paměti (FLASH), ze které jsou LUT při spuštění nakonfigurovány.
+  - **$2^N-1$ multiplexor**: **N** určuje počet vstupních proměnných. Pomocí kterého se **vybírá** hodnota z **LUT** na výstup na základě hodnot **vstupních proměnných**.
+  - klopný obvod (typ **D**): vytváří paměť a umožňuje tvorbu sekvenčních obvodů.
+  - **2-1** multiplexor: vybírá mezi výstupem z LUT (získaného pomocí **$2^N-1$ multiplexor**u) nebo výstupem z klopného obvodu. Tento multiplexor tak určuje, jestli půjde o sekvenční. nebo kombinační logiku.
 ![[media/szz-10/media/image7.png]]
 
-
   - případně další komponenty…
-
-- **Programmable Interconnects** — programovatelné
-  **propojení** mezi **CLBs**, jedná se o spoje vedené horizontálně a
-  vertikálně. V místech křížení lze naprogramovat logiku propojování
-  (**switch**).
-
-- **Programmable I/O Blocks** (**IOBs**) — slouží k
-  propojování **konfigurovatelných logických bloků** s externími
-  součástkami pomocí propojovacích **pinů** FPGA čipu.
-
-- **Vestavěné bloky** — paměti, sčítačky, násobičky,
-  ethernet, …
+- **Programmable Interconnects** — programovatelné **propojení** mezi **CLBs**, jedná se o spoje vedené horizontálně a vertikálně. V místech křížení lze naprogramovat logiku propojování (**switch**).
+- **Programmable I/O Blocks** (**IOBs**) — slouží k propojování **konfigurovatelných logických bloků** s externími součástkami pomocí propojovacích **pinů** FPGA čipu.
+- **Vestavěné bloky** — paměti, sčítačky, násobičky, ethernet, …
 
 # VHDL (VHSIC Hardware Description Language)
 
 ## Kroky návrhu aplikací využívajících FPGA
 
-Pro návrh aplikací využívající FPGA se používá systém
-návrhu **shora dolů** (**Top-Down**). Začíná z celkového popisu problému
-a končí návrhem s úplnou mírou detailů jeho částí - **dekompozice** a
-začlenění do celku. Na každé úrovni abstrakce je potřeba **verifikovat
-správnou** funkci navrhovaného systému. Dekompozicí vzniknou **jednoduše
-realizovatelné komponenty** (sčítačka, posuvný registr, násobička,
-čítač, …), které lze popsat ve VHDL nebo Verilog. Např. zpracování
-obrazu:
+Pro návrh aplikací využívající FPGA se používá systém návrhu **shora dolů** (**Top-Down**). Začíná z celkového popisu problému a končí návrhem s úplnou mírou detailů jeho částí - **dekompozice** a začlenění do celku. Na každé úrovni abstrakce je potřeba **verifikovat správnou** funkci navrhovaného systému. Dekompozicí vzniknou **jednoduše realizovatelné komponenty** (sčítačka, posuvný registr, násobička, čítač, …), které lze popsat ve VHDL nebo Verilog. Např. zpracování obrazu:
 
 ### Metodologie návrhu na úrovni meziregistrových přesunů (RT)
 ![[media/szz-10/media/image9.png]]
 
-
 Návrh je vhodné rozdělit do několika kroků:
 
-- **Popis obvodu na úrovni základního stavového
-  automatu** - automat popisuje základní stavy obvodu, ale neřeší
-  konkrétní nastavení řídících, vstupních nebo výstupních
-  signálů.
-
-- **Vytvoření datové cesty (datapath)** - datová
-  cesta provádí manipulaci s daty, a to na základě řízení z obecného
-  automatu.
-
-- **Identifikace signálů pro řízení datové cesty** -
-  definice signálů, které jsou potřeba pro napojení datové cesty na
-  řídící blok.
-
-- **Návrh řídícího automatu** - převedení obecného
-  automatu na Mealyho nebo Moorův automat, který řídí datovou
-  cestu
+- **Popis obvodu na úrovni základního stavového automatu** - automat popisuje základní stavy obvodu, ale neřeší konkrétní nastavení řídících, vstupních nebo výstupních signálů.
+- **Vytvoření datové cesty (datapath)** - datová cesta provádí manipulaci s daty, a to na základě řízení z obecného automatu.
+- **Identifikace signálů pro řízení datové cesty** - definice signálů, které jsou potřeba pro napojení datové cesty na řídící blok.
+- **Návrh řídícího automatu** - převedení obecného automatu na Mealyho nebo Moorův automat, který řídí datovou cestu
 ![[media/szz-10/media/image3.png]]
-
 
 ## Strukturální, behaviorální a dataflow popis ve VHDL
 
-V praxi se typy popisů často kombinují, jedna logika
-lze současně popsat strukturálně, behaviorálně i pomocí dataflow. Pomocí
-syntézy (něco jako kompilace) jsou tyto popisy převáděny na konkrétní
-obvodová řešení pro danou technologii (FPGA, ASIC). VHDL umožňuje také
-pouze simulovat dané obvody.
+V praxi se typy popisů často kombinují, jedna logika lze současně popsat strukturálně, behaviorálně i pomocí dataflow. Pomocí syntézy (něco jako kompilace) jsou tyto popisy převáděny na konkrétní obvodová řešení pro danou technologii (FPGA, ASIC). VHDL umožňuje také pouze simulovat dané obvody.
 
 ### Strukturální popis
 
-Při strukturálním popisu **definujeme** **entitu**
-(např. poloviční sčítačku), **propojením** vstupů a výstupů a
-**komponent** (AND a XOR hradla), které realizují logiku entity. Samotné
-komponenty mohou být předtím popsány jako entity na nižší úrovni
-abstrakce. Strukturální popis **umožňuje rozdělit** **komplexní** systém
-**na méně komplexní** části, ty mohou být vyvíjeny a ověřovány samotně.
-Návrhář má u tohoto typu popisu kontrolu (pokud komponenty postupně
-popisuje od úrovně hradel nebo i níže) nad tím, jak bude výsledný obvod
-vypadat (z jakých bude prvků - hradel).
+Při strukturálním popisu **definujeme** **entitu** (např. poloviční sčítačku), **propojením** vstupů a výstupů a **komponent** (AND a XOR hradla), které realizují logiku entity. Samotné komponenty mohou být předtím popsány jako entity na nižší úrovni abstrakce. Strukturální popis **umožňuje rozdělit** **komplexní** systém **na méně komplexní** části, ty mohou být vyvíjeny a ověřovány samotně. Návrhář má u tohoto typu popisu kontrolu (pokud komponenty postupně popisuje od úrovně hradel nebo i níže) nad tím, jak bude výsledný obvod vypadat (z jakých bude prvků - hradel).
 
 ![[media/szz-10/media/image6.png]]
 
-
 ### Behaviorální popis
 
-Popisuje chování systému/funkce/bloku algoritmicky.
-Jedná se o nejvíce abstraktní popis. Z behaviorálního popisu není přímo
-jasné, jaká bude implementace na úrovni hradel (HW realizace).
-Behaviorální popis prvku obsahuje jeden nebo více procesů, které se dějí
-paralelně. Popis uvnitř procesu se odehrává sekvenčně. V procesu se
-nastavují výstupy na základě hodnot
-vstupů.
+Popisuje chování systému/funkce/bloku algoritmicky. Jedná se o nejvíce abstraktní popis. Z behaviorálního popisu není přímo jasné, jaká bude implementace na úrovni hradel (HW realizace). Behaviorální popis prvku obsahuje jeden nebo více procesů, které se dějí paralelně. Popis uvnitř procesu se odehrává sekvenčně. V procesu se nastavují výstupy na základě hodnot vstupů.
 ![[media/szz-10/media/image2.png]]
-
 
 ### Dataflow popis
 
-Pomocí DataFlow popisu se modelují systémy na základě
-toho, jak jimi putují data. Tento způsob popisu využívá odpovídající
-implementace logických hradel. DataFlow popis popisuje systém/prvek
-jedním nebo více přiřazeními paralelních
-signálů.
+Pomocí DataFlow popisu se modelují systémy na základě toho, jak jimi putují data. Tento způsob popisu využívá odpovídající implementace logických hradel. DataFlow popis popisuje systém/prvek jedním nebo více přiřazeními paralelních signálů.
 ![[media/szz-10/media/image5.png]]
 
-
-**Logická syntéza**
-
-Automatická transformace mezi různými úrovněmi
-popisu. Transformace na jemnější popis s cílem vylepšit parametry zadané
-uživatelem: rychlost, spotřeba,
-rozměry.
+**Logická syntéza** Automatická transformace mezi různými úrovněmi popisu. Transformace na jemnější popis s cílem vylepšit parametry zadané uživatelem: rychlost, spotřeba, rozměry.
 ![[media/szz-10/media/image1.png]]
 
-
-# 
 ![[media/szz-10/media/image4.png]]
 
-
-Rozpoznání prvků cílové technologie a jejich mapování
-do FPGA. Výsledkem procesu je konfigurační soubor pro FPGA.
+Rozpoznání prvků cílové technologie a jejich mapování do FPGA. Výsledkem procesu je konfigurační soubor pro FPGA.
 
 **Automatická syntéza:**
 
-- vstup: popis obvodu v HDL, knihovna prvků cílové
-  technologie, constraints (např. spotřeba, velikost na čipu,
-  čas...)
-
-- výstup: optimalizovaný NetList na úrovni prvků
-  cílové technologie
+- vstup: popis obvodu v HDL, knihovna prvků cílové technologie, constraints (např. spotřeba, velikost na čipu, čas...)
+- výstup: optimalizovaný NetList na úrovni prvků cílové technologie
 
 ## Zdroje
 

@@ -109,15 +109,12 @@ Při deserializaci provádíme **rekonstrukci** serializované hodnoty na **tent
 Relační databáze jsou založené na definicích **množin**, **kartézského součinu** a **relací**, jak je známe z matematiky. **Relace je podmnožinou kartézského součinu** a v případě relačních databází ji chápeme jako **tabulku**. Konkrétně tabulku tvoří **schéma relace** (záhlaví tabulky - názvy sloupců) a **tělo relace** (představuje uložená data v tabulce po řádcích). Počet atributů relace označujeme jako **stupeň** (řád) relace, kardinalita těla relace (počet řádků) označujeme jako **kardinalitu relace**. Postup odvození tabulky z matematických definicí:
 ![[media/szz-36/media/image7.png]]
 
-
 - **Atribut relace** považujeme za sloupec tabulky,
 ![[media/szz-36/media/image9.png]]
 
 ![[media/szz-36/media/image1.png]]
 
-
 - **N-tici relace** považujeme za řádek tabulky.
-
 - **Doména** - Množina hodnot, kterých může atribut nabývat. Hodnoty musí býť pouze **skalární**.
 
 Název **relační model** a **relační databáze** je odvozen od faktu, že relace je základním abstraktním pojmem modelu a jedinou strukturou databáze na logické úrovni.
@@ -127,7 +124,6 @@ Název **relační model** a **relační databáze** je odvozen od faktu, že re
 Schématem relační databáze nazýváma **dvojici (R, I)**, kde:
 
 - $R = \{R_1, R_2, \dots, R_n\}$ je množina schémat relací,
-
 - $I = \{I_1, I_2, \dots, I_m\}$ je množina integritních omezení.
 
 ### Integritní omezení
@@ -135,7 +131,6 @@ Schématem relační databáze nazýváma **dvojici (R, I)**, kde:
 Omezení ukládaných dat do databáze plynoucí z reality.
 
 - **specifická**: pro konkrétní aplikaci (pole může nabývat určitých hodnot, může nabývat pouze určitého počtu znaků, nesmí být NULL, …)
-
 - **obecná**: platí v **každé databázi** (**primární** a **cizí klíč**).
 
 #### **Kandidátní klíč**
@@ -143,7 +138,6 @@ Omezení ukládaných dat do databáze plynoucí z reality.
 **Atribut** nebo **složený atribut** pro který platí:
 
 - je **jednoznačný**,
-
 - zároveň je ale **minimální** (nelze už dále redukovat).
 
 Každá relace v teorii relačního modelu má alespoň jeden kandidátní klíč.
@@ -157,7 +151,6 @@ Primární klíč je jeden z kandidátních klíčů. Primární klíč je zákl
 **Atribut** nebo **složený atribut** relace **R2**, pro který platí:
 
 - každá jeho hodnota je buď **zadaná**, nebo je každá **prázdná**,
-
 - V CK je uložena hodnota, která je **shodná** s nějakou hodnotou primárního klíče **jiné relace R1**.
 
 ## Relační algebra
@@ -165,18 +158,15 @@ Primární klíč je jeden z kandidátních klíčů. Primární klíč je zákl
 Relační algebra je dvojice RA = (R, O), kde:
 
 - **R** je množina relací,
-
 - **O** je množina operací (s relacemi)
 
 Množina operací zahrnuje:
 
 - **tradiční množinové operace**: sjednocení, průnik, rozdíl, kartézský součin,
-
 - **speciální relační operace**: **projekce**, **selekce** (restrikce), **spojení** a **dělení**.
 
 Tradiční množinové operace mají stejné výsledky jako u množin, lze ale provádět (až na kartézský součin) s relacemi, které mají stejné schéma (stejné záhlaví tabulky).
 ![[media/szz-36/media/image10.png]]
-
 
 ### Projekce
 
@@ -185,26 +175,20 @@ Projekce je operace při které **vybíráme jen některé sloupce** z původní
 ### Selekce (restrikce)
 ![[media/szz-36/media/image4.png]]
 
-
 Restrikce je operace, při které je **zachováno původní schéma** relace (záhlaví tabulky), ale jsou vybrány pouze **některé n-tice** relace (řádky tabulky), které odpovídají určité podmínce. V SQL tomu odpovídá zápis **WHERE id = 42**… (s různými operátory pro porovnání).
 
 ### Spojení
 ![[media/szz-36/media/image2.png]]
 
-
 Spojení je operace, při které je dochází ke **sloučení dvou schémat** relace (dvou záhlaví tabulek) tak, že schéma výsledné relace obsahuje **všechny atributy původních relací** a minimálně jeden atribut je mezi původními relacemi sdílen. Podle tohoto **sdíleného atributu** je prováděno spojení, tak že jsou spojeny n-tice původních relací, které mají stejnou hodnotu tohoto sdíleného atributu. V SQL zapisujeme:
 
 - **INNER JOIN** **companies ON names.id = companies.id**… Vrací záznamy z levé tabulky které mají **odpovídající** záznam v pravé tabulce (tj. vynechává řádky, které na sebe nelze navázat).
-
 - **LEFT JOIN companies ON names.id = companies.id**… Vrací **všechny** záznamy z **levé tabulky**. K nim připojí odpovídající záznamy z pravé tabulky a pokud žádný odpovídající záznam neexistuje jsou sloupce odpovídající pravé tabulce **prázdné** (ve výsledku nemusí být všechny řádky pravé tabulky).
-
 - **RIGHT JOIN** **companies ON names.id = companies.id**… Vrací **všechny** záznamy z **pravé tabulky** a připojí k nim odpovídající záznamy z levé tabulky a pokud žádný odpovídající záznam neexistuje jsou sloupce odpovídající levé tabulce **prázdné** (ve výsledku nemusí být všechny řádky levé tabulky).
-
 - **OUTER JOIN** **companies ON names.id = companies.id**… Vrací všechny záznamy obou tabulek. Pokud mezi nimi neexistuje spojení, jsou atributy patřičné tabulky ve výsledné tabulce prázdné.
 
 ## Jazyk SQL (Structured Query Language)
 ![[media/szz-36/media/image11.png]]
-
 
 SQL je jazyk pro dotazování nad **relačními databázemi**. SQL je standardizovaný, nicméně se některé příkazy mohou lišit napříč implementacemi (jedná se ale o nestandardní části). Jazyk je **case insensitive**.
 
@@ -214,65 +198,35 @@ Tvorba databázových objektů, **tabulky**, **pohledy**, **indexy**.
 
 #### **CREATE TABLE**
 
-CREATE TABLE Persons (
-
-PersonID int GENERATED AS IDENTITY PRIMARY KEY,
-
-LastName varchar(255),
-
-FirstName varchar(255),
-
-Address varchar(255),
-
-City varchar(255)
+CREATE TABLE Persons ( PersonID int GENERATED AS IDENTITY PRIMARY KEY, LastName varchar(255), FirstName varchar(255), Address varchar(255), City varchar(255)
 
 );
 
-CREATE TABLE *new_table_name* AS
+CREATE TABLE *new_table_name* AS SELECT *column1, column2,...*
 
-SELECT *column1, column2,...*
-
-FROM *existing_table_name*
-
-WHERE ....;
+FROM *existing_table_name* WHERE ....;
 
 #### **CREATE INDEX**
 
-CREATE (UNIQUE) INDEX *index_name*
+CREATE (UNIQUE) INDEX *index_name* ON *table_name* (*column1*, *column2*, ...);
 
-ON *table_name* (*column1*, *column2*, ...);
-
-CREATE INDEX idx_lastname
-
-ON Persons (LastName);
+CREATE INDEX idx_lastname ON Persons (LastName);
 
 #### **CREATE VIEW**
 
-CREATE VIEW *view_name* AS
+CREATE VIEW *view_name* AS SELECT *column1*, *column2*, ...
 
-SELECT *column1*, *column2*, ...
-
-FROM *table_name*
-
-WHERE *condition*;
+FROM *table_name* WHERE *condition*;
 
 #### **ALTER**
 
-ALTER TABLE *table_name*
+ALTER TABLE *table_name* ADD *column_name datatype*;
 
-ADD *column_name datatype*;
+ALTER TABLE *table_name* DROP COLUMN *column_name*;
 
-ALTER TABLE *table_name*
+ALTER TABLE *table_name* ALTER COLUMN *column_name datatype*;
 
-DROP COLUMN *column_name*;
-
-ALTER TABLE *table_name*
-
-ALTER COLUMN *column_name datatype*;
-
-ALTER TABLE *table_name*
-
-MODIFY COLUMN *column_name datatype*;
+ALTER TABLE *table_name* MODIFY COLUMN *column_name datatype*;
 
 #### **DROP**
 
@@ -295,14 +249,11 @@ Při manipulaci s daty jsou operandem bázové tabulky nebo pohledy, výsledkem 
 
 ![[media/szz-36/media/image3.png]]
 
-
 INSERT INTO *table_name* (*column1*, *column2*, *column3*, ...)
 
 VALUES (*value1*, *value2*, *value3*, ...);
 
-INSERT INTO *table_name*
-
-VALUES (*value1*, *value2*, *value3*, ...);
+INSERT INTO *table_name* VALUES (*value1*, *value2*, *value3*, ...);
 
 INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
 
@@ -310,27 +261,17 @@ VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway
 
 #### **UPDATE**
 
-UPDATE *table_name*
-
-SET *column1* = *value1*, *column2* = *value2*, ...
+UPDATE *table_name* SET *column1* = *value1*, *column2* = *value2*, ...
 
 WHERE *condition*;
 
-UPDATE Customers
-
-SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
-
-WHERE CustomerID = 1;
+UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
 
 #### **DELETE**
 
-DELETE FROM *table_name* 
+DELETE FROM *table_name* WHERE *condition*;
 
-WHERE *condition*;
-
-DELETE FROM Customers
-
-WHERE CustomerName='Alfreds Futterkiste';
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
 
 ### Pohled (View)
 

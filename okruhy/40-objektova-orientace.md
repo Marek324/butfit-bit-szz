@@ -70,79 +70,46 @@ Modelování v UML viz [[okruhy/34-uml]]; ADT a struktury viz [[okruhy/29-datove
 **Objektově orientované programování** (OOP) je programovací paradigma, které se začalo hojně objevovat v 80. letech minulého století. Základem tohoto paradigmatu je abstrahovat a modelovat principy reálného světa pomocí objektů a jejich vzájemné komunikace. V dnešní době je toto paradigma jedno z nejrozšířenějších, zejména pro velké aplikace. Mezi **výhody** patří **analogie reálného a softwarového modelu**, **flexibilita**, **znovupoužitelnost**. Nevýhodou může být složitější sémantika, delší učící se křivka či režie spojená s prací s objekty**.** Mezi základní koncepty OOP patří:
 
 - **Abstrakce** (Abstraction): pomocí objektů, skrytí implementačních detailů za rozhraní,
-
 - **Zapouzdření** (Encapsulation): pomocí viditelnosti atributů,
-
 - **Mnohotvárnost** (Polymorphism): abstraktní funkce a VMT (Virtual Method Table),
-
 - **Dědičnost** (Inheritance): generalizace/specializace.
 
 ## Klasifikace objektově orientovaných jazyků
 
 - Dle přístupu k vytváření objektů:
-
   - **Beztřídní** OOJ
-
     - JavaScript (od es6 má sice keyword [<u>"class" pro definici tříd</u>](https://www.w3schools.com/js/js_classes.asp), ale v pozadí se pořád používají prototypy)
-
     - Lua - prototype-based, class-less,
-
   - **Třídní** OOJ
-
     - C#
-
     - C++ - class-based
-
 - Dle čistoty objektového modelu:
-
   - **Čisté** (Ruby, Python - vše je objekt),
-
   - **Hybridní** (C#, C++ - míchání s jinými paradigmaty, doplněny objekty),
-
 - Dle platformy pro běh OO programů:
-
   - **Překládané** (C++ - efektivita běhu, více zdrojového textu),
-
   - **Interpretované** (Python, PHP - pomalé, velmi flexibilní),
-
   - **Částečně interpretované** (C#, Java - bytecode, mezikód, virtuální stroj)
-
 - Dle dědičnosti (počet přímých předků):
-
   - **Jednoduchá** (C#, Java - oba tyto jazyky ale podporují vícenásobnou dědičnost rozhraní),
-
   - **Vícenásobná** (C++, Python - problematická, nutno řešit kolize)
-
 - Dle předmětu dědění:
-
   - **Dědičnost implementace** (C++, C#, Java, Python, …)
-
     - Třídní dědičnost: nadtřída (superclass), podtřída (subclass)
-
     - Delegace
-
   - **Dědičnost rozhraní** (C#, Java)
 
 ## Klasifikace nejen OOJ
 
 - Dle způsobu určení typů:
-
   - **Beztypové** (Lambda kalkul - nemají žádný typ),
-
   - **Netypované** (Python, JavaScript - uživatel nepracuje s typem, typ ale mají a lze na vyžádání zjistit),
-
   - **Typované** (C++, C# - uživatel explicitně specifikuje typ, nebo musí být odvoditelný)
-
 - Dle důslednosti kontroly typů:
-
   - **Silně typované** (Rust, Go - nelze provádět implicitní konverze, type-safe),
-
   - **Slabě typované** (C, C++ (méně než C) - implicitní konverze)
-
 - Dle doby kontroly typů:
-
   - **Staticky typované** (C, C++ - při překladu, tedy už před samotným spuštěním programu),
-
   - **Dynamicky** **typované** (Python, JavaScript - za běhu, run-time).
 
 ## Minimální model OO výpočtu
@@ -150,9 +117,7 @@ Modelování v UML viz [[okruhy/34-uml]]; ADT a struktury viz [[okruhy/29-datove
 Minimální výpočetně úplný OO model výpočtu potřebuje pouze:
 
 - proměnné,
-
 - konstrukt objektu (způsob vytváření objektů),
-
 - zasílání zpráv (komunikace mezi objekty).
 
 ## Základní koncepty OOP
@@ -172,17 +137,11 @@ Objekt může obsahovat jako položky i jiné objekty.
 Jedná se o **uzavřenost** vůči okolním objektům, dnes je to obvykle implementováno pomocí **identifikátorů viditelnosti** (**public**, **protected**, **private**). V případě **zpráv** mluvíme o přístupu přes:
 
 - **veřejný** protokol umožňuje okolním objektům zasílat zprávy tomuto objektu. Zaslání zprávy veřejným protokolem může vést na:
-
   - **chybu** - objekt nerozumí zprávě,
-
   - **invokaci** odpovídající metody a **navrácení** výsledné hodnoty odesílateli.
-
 - **interní** protokol se používá, když objekt zasílá **zprávu sám sobě** (this, self). Zaslání zprávy interním protokolem může vést na:
-
   - **chybu** - objekt nerozumí zprávě,
-
   - **přístup k atributu** (čtení nebo zapsání),
-
   - **invokaci** odpovídající metody a návratu výsledku.
 
 #### **Zpráva**
@@ -194,15 +153,12 @@ Zpráva je tvořena z **příjemce** (objekt, kterému je zpráva zaslána), **s
 Vychází z toho, že **stejnou zprávu lze zaslat různým objektům** (často je to ale **omezeno** typovým systémem, aby nedocházelo k chybám typu “nerozumím zprávě” a stejné zprávy lze zasílat různým objektům jen v rámci dědičnosti). Protokol umožňuje **individuální reakci** na zaslané zprávy (volající díky zapouzdření nezná implementaci zprávou invokované metody, implementace se u různých objektů může lišit).
 ![[media/szz-40/media/image6.png]]
 
-
 ### Dědičnost
 
 Vychází z toho, abychom **nemuseli** neustále **opakovat implementaci** podobných vlastností. Jedná se o jednu z hlavních předností OOP, a to **znovupoužitelnost**. Dědičnost umožňuje **sdílení** společných **položek** (atributy a metody) **od předků** a možnost definovat **individuální položky v potomcích**. Zděděný (specializovaný) objekt (třída) tak sdílí všechny atributy a metody předka (jejich použití objektem závisí na viditelnosti - musí být **public** nebo **protected**) a dále může být specializován:
 
 - **přidáním** nových atributů a metod,
-
 - **modifikací** metod (**override**),
-
 - někdy lze také zakázat některé položky, většinou ale **ne**, viz dále.
 
 #### **Zahrnutí typu (subsumption)**
@@ -212,11 +168,8 @@ Pokud B je podtřída třídy A, lze instanci třídy B využít kdekoliv je oč
 #### **Problém vícenásobné (třídní) dědičnosti**
 
 - nadtřídy obsahují položky **stejného jména a typu**,
-
 - nadtřídy obsahují položky **stejného jména**, ale **různých typů**,
-
 - **inicializace instancí** - pořadí volání konstruktorů,
-
 - **uložení instancí v paměti** - instance třídy **C** (**C** je přímá podtřída **A** i **B**) lze využít **kdekoliv**, kde očekávám instance tříd **A** nebo **B**.
 
 #### **Řešení problémů vícenásobné (třídní) dědičnosti**
@@ -224,19 +177,14 @@ Pokud B je podtřída třídy A, lze instanci třídy B využít kdekoliv je oč
 Nejjednodušší je vícenásobnou dědičnost **zakázat**, stejně se ukázalo, že není často při programování nutná. Pokud ji ale potřebujeme:
 
 - **Metoda stejného jména a typu**: zakázat, použít první výskyt (dle pořadí zapsání dědění v kódu), programátor musí explicitně vybrat jednu, skrytí (např. A::m() přístupná jen v A, ne v C).
-
 - **Metody stejného jména a různých typů (parametrů)**: zakázat, povolit přetěžování metod (overloading), lze ale pouze u metod s rozdílnou signaturou (návratová hodnota není součást signatury), takže s rozdílnými parametry.
-
 - **Atributy stejného jména a typu**: zakázat, skrytí a existence obou (např. A::d přístupný jen v A, ne v C), sloučení.
-
 - **Atributy stejného jména a různého typu**: zakázat, nebo ponechat, ale při práci s objektem musí být možné atributy vždy odlišit.
 
 ## Tvorba nových objektů
 
 - Vytvoření **prázdného objektu** a přidání položek (atributů a metod).
-
 - Klonování (kopie) a přidání či úprava položek. Klonovanému objektu říkáme **prototyp**. Kopie může být **mělká** (pouze 1. úroveň atributů), nebo **hluboká** (celý objekt). Princip klonování používají beztřídní OOJ.
-
 - Vytvořením pomocí **předlohy - třídy** a naplnění atributů hodnotami. Děje se tak pomocí **konstruktoru**. Pro každý objekt je definována jeho třída - předloha. Třída také může být objektem první kategorie.
 
 ## Vzájemné vazby mezi třídami/objekty
@@ -248,13 +196,9 @@ Nejjednodušší je vícenásobnou dědičnost **zakázat**, stejně se ukázalo
 Třídně orientované jazyky využívají pro tvorbu nových objektů - **instancí** šablony, které nazýváme **třídy**. Třída může být sama o sobě objekt nebo pouze entita, která obsahuje:
 
 - seznam **instančních atributů** (atributů, které bude mít objekt po vytvoření) včetně **metadat**,
-
 - **data třídních atributů** (pokud je třída taky objekt),
-
 - implementace **instančních metod** (sdílené mezi instancemi),
-
 - reference na její třídu,
-
 - **statické** (!= třídní) položky - **atributy** a **metody** (pokud je třída entitou jazyka a není objekt).
 
 **Instance - objekt** je poté tvořen svojí **identitou**, **referencí na třídu**, **daty instančních atributů**.
@@ -276,7 +220,6 @@ Levý obrázek ukazuje dědičnost u jazyků pouze s **jednoduchou** dědičnost
 
 ![[media/szz-40/media/image4.png]]
 
-
 ### Statické volání funkce (žádná vazba)
 
 Jedná se o běžnou metodu/funkci, která je pouze ve jmenném prostoru třídy (její jediný rozdíl od normální funkce). Uvnitř metody **nelze** používat **self/this** parameter, není implicitně předán. Může ale používat jiné statické proměnné třídy.
@@ -294,11 +237,8 @@ Umožňuje **polymorfismus** (volání virtuálních metod), volání metody nad
 Problémy implementace vychází z toho, že OOJ používají **objektovou paměť**, která je **asociativní** a **heterogenní** a modelem výpočtu je **zasílání zpráv** objektům (invokace metod). Paměť počítače je ale **homogenní** a **neasociativní** a modelem výpočtu je **volání instrukcí** a použití **zásobníku**. Je nutné řešit:
 
 - **Uložení instancí a přístup k atributům**, tak aby byla reflektovaná dědičnost. Problematické je zejména zajistit přístup k atributům objektu při vícenásobné dědičnosti, tak aby šlo k objektu, který dědí z více objektů, přistupovat protokolem každého z obecných objektů. U jednonásobné dědičnosti to nemusí být problém, hodnoty specializovaných atributů se ukládají za hodnoty obecných atributů a při přístupu se specializované atributy ignorují (paměť se přetypuje na obecný objekt). Ale jak uložit atributy při mnohonásobné dědičnosti? Pouhé “přetypování” nebude fungovat.
-
 - **Uložení a invokace polymorfních metod**. Ukládání kódu metody v objektu je **nesmysl**, stačí metodu ukládat **jednou**, např. ve třídě a objekt implicitně předávat jako parametr (nultý parametr) při volání metody. Do objektu by tedy mohlo stačit uložit **odkazy na metody**, což **řeší** i **polymorfismus** tj. každý objekt má odkazy na takové metody, které doopravdy implementuje. Tento způsob je jednoduchý ale má 2 zásadní problémy:
-
   - **přístup k** **metodám předků** (pomocí **super**/**base**) po jejich redefinici - objekt by musel obsahovat odkazy na jeho redefinici metody, všechny různé redefinice metod předky a originální definici metody,
-
   - **plýtvání pamětí** - při vytvoření tisíce stejných objektů bude v paměti uloženy zbytečně tisíce stejných odkazů na metody.
 
 > Řešením problémů je použití **tabulky virtuálních metod** (virtual method table - VMT), kterou odkazuje objekt na místo všech jeho metod.
@@ -312,21 +252,18 @@ Tento princip **zanořeného** odkazování je ale **pomalý**, proto se za cenu
 
 ![[media/szz-40/media/image2.png]]
 
-
 ## Vytváření instancí (objektů)
 
 Většinou se provádí pomocí klíčového slova **new** a je tvořena ze 2 kroků:
 
-1.  **Přidělení paměti** (většinou na hromadě)pro danou instanci (objekt).
-
-2.  **Inicializace atributů** pomocí **konstruktoru** (speciální metoda), nutné si v konkrétním jazyce zjistit, jaké je pořadí volání konstruktorů při dědičnosti.
+1. **Přidělení paměti** (většinou na hromadě)pro danou instanci (objekt).
+2. **Inicializace atributů** pomocí **konstruktoru** (speciální metoda), nutné si v konkrétním jazyce zjistit, jaké je pořadí volání konstruktorů při dědičnosti.
 
 ## Rušení instancí (objektů)
 
 Při rušení objektů se volá speciální metoda tzv. **destruktor** (opět je nutné znát pořadí volání destruktorů při dědičnosti) a může být provedena:
 
 - **Implicitně** pomocí správce paměti (**Garbage Collector**) objekty jsou z paměti mazány, když již jsou nedosažitelné. Programátor **nemá pod kontrolou**, kdy se tak stane a jak dlouho to zabere → nelze použít např. u real time systémů s požadovanou odezvou. Algoritmy uvolňování ale obvykle **nezpůsobují** memory leaks.
-
 - **Explicitní** použitím klíčového slova **delete** (nebo jiného) řeší **programátor** a má nad uvolňováním paměti **plnou kontrolu**, nicméně **může** vést na **memory leaks**.
 
 ## Reflektivita/Reflexe (Reflection)
@@ -334,13 +271,11 @@ Při rušení objektů se volá speciální metoda tzv. **destruktor** (opět je
 Vlastnost jazyků (interpretovaných a částečně interpretovaných), která umožňuje:
 
 - zkoumat vnitřní reprezentaci (**Introspection**) entit programu (objektů),
-
 - měnit vnitřní reprezentaci (méně časté).
 
 Na základě prováděných změn a zkoumání vnitřní struktury dělíme reflektivitu na:
 
 - **Strukturální**: pracuje se **statickými strukturami** (balíčky, třídy, metody), např. zjišťujeme názvy atributů objektu.
-
 - **Behaviorální**: pracuje s **prováděním programu** (invokace metody, přiřazení, zásobník volání), např. voláme metody na základě hodnoty řetězce, který obsahuje její název.
 
 Reflektivita umožňuje jednodušeji vytvářet generický software. Nejlepším příkladem je serializace a deserializace. Na základě reflexe můžeme zjistit názvy atributů, získat jejich hodnoty a vytvořit např. JSON reprezentaci. Taková funkce pak může mít za parametr libovolný objekt a nepotřebujeme mít speciální funkci pro každý objekt.
@@ -348,23 +283,18 @@ Reflektivita umožňuje jednodušeji vytvářet generický software. Nejlepším
 ## Typy vs. Třídy
 
 - **Typ** udává množinu validních hodnot a operací nad nimi,
-
 - **Třída** udává množina vnitřních stavů a operací nad nimi.
 
 Typy jsou obecnější než třídy. Třída často určuje typ, ale né naopak. Typ třídy může být určen:
 
 - **jménem** např. int, Car, Person, … Pak pokud máme funkci s parametrem **typu A**, můžeme jí volat s:
-
   - **instancemi** třídy **A**,
-
   - **instancemi** libovolné **podtřídy A** (kompatibilní podtyp).
 
 > Pro zajištění kompatibilního typu musíme použít dědičnost - **vyžádaná dědičnost** a **polymorfismus** se vyskytuje také **pouze v rámci dědičnosti**.
 
 - **výčtem položek** tj. nezáleží, jestli jde o třídu Car nebo Person. Typ se zjistí prozkoumáním položek instance - **test implementace** potřebného podtypu:
-
   - **staticky** během překladu (často se k tomu využívá rozhraní/interface),
-
   - **dynamicky** za běhu.
 
 > Umožňuje **polymorfismus nezávislý na třídní dědičnosti**, např. funkce má jako parameter typ JmenoStari, která obsahuje dva atributy “jméno” a “stáří”, pokud Car i Person mají (i mimo jiné) tyto atributy, lze je použít jako parametr pro volání této funkce (obdobně s metodami a kombinací metod a atributů).
@@ -373,7 +303,6 @@ Typy jsou obecnější než třídy. Třída často určuje typ, ale né naopak.
 ![[media/szz-40/media/image1.png]]
 
 ![[media/szz-40/media/image7.png]]
-
 
 **Implementace** skutečného **podtypu** je **náročná** (změna pořadí položek atd. kód metody je ale statický a očekává položky na stejných pozicích, …) je nutné skutečný podtyp řešit **až na běhu**. Skutečný podtyp se tak typicky vyskytuje u **interpretovaných** (nebo alespoň částečně interpretovaných) a **dynamicky typovaných** jazyků. Objekt je ve skutečnosti **slovník** s názvem položky (klíč), hodnotou, typem, aj. a interpret hledá, jestli ve slovníku existují dané položky. U **překládaných a staticky typovaných** jazyků lze podtyp nahradit **rozhraním**.
 
@@ -390,10 +319,8 @@ Objekt (instance třídy) odkazuje na více VMT, pro **každé rozhraní jiná V
 # Beztřídní objektově orientované jazyky
 ![[media/szz-40/media/image8.png]]
 
-
 U beztřídních jazyků je tvorba objektů závislá na **klonování prototypů**. Prototyp je také objekt. Např. v JS je prototypem každého objektu **Object** a ten už nemá další prototyp. Pomocí prototypů se realizuje v JS **dědičnost**, každý objekt má jeden **přímý** prototyp, ten pak může mít další přímý prototyp atd. (tzv. **prototype chain**). Obecně ale může mít objekt více přímých předků (prototypů). **Specializace** objektů je prováděna **dynamicky** za běhu (případně by mohla být prováděna staticky před překladem) přidáním nové položky (**atributu** nebo **metody**). Klonováním prototypu se **nekopírují metody** klonovaného objektu. **Atributy** jsou obecně **zkopírovány** a je jim při klonování nastavena buď zadaná hodnota, nebo implicitní hodnota (hodnoty v prototypu). Metody zůstávají pouze u prototypu. Invokace těchto metod u naklonovaného objektu se řeší pomocí **delegace** (výpočetní systém se nejdřív snaží metodu spustit na daném objektu, pokud ji nemůže najít, deleguje ji na prototyp). **Polymorfismus** je zajištěn tak, že u naklonovaného objektu **definujeme stejně pojmenovanou metodu**. Např. JS je **dynamicky typovaný netypovaný** jazyk a implementuje **skutečný podtyp**, což umožňuje i polymorfismus i mimo dědičnost. Pokud objekt neimplementuje danou metodu (nerozumí zprávě) a ani žádný z jeho prototypů, dochází k chybě. Příklad klonování z JS:
 ![[media/szz-40/media/image10.png]]
-
 
 personPrototype je zde objekt (složené závorky je mimo jiné způsoby v JS syntax pro tvorbu objektu), jeho prototypem je tedy v tomto případě Object (vznikl jeho klonováním, i když to není na první pohled zřejmé). U tvorby objektu\* carl je již ale zřejmé, že se jedná o klonování objektu personPrototype. Objekt carl tak má za přímý prototyp personPrototype a ten má přímý prototyp Object. Voláním metody greet nad objektem carl vede na delegaci a volá se metoda greet objektu personPrototype.
 
@@ -408,9 +335,7 @@ Delegace je obdoba zasílání zprávy. Zpráva je v tomto případě zasílána
 Slot obsahuje **název položky** a **odkaz** na:
 
 - **datový objekt**,
-
 - **objekt s metodou**,
-
 - **rodičovský objekt**.
 
 ### Rysy (traits v jazyce SELF)
@@ -423,37 +348,25 @@ Při objektově orientované tvorbě SW využíváme skutečnosti, že **objekty
 
 Pokud by k nám přišel někdo, že už nechce psát faktury ručně a chce abychom mu pro to napsali SW, můžeme postupovat následovně (posloupnost kroků nemusí odpovídat realitě):
 
-1.  Setkáme se s touto osobou (zákazník) a na základě jeho požadavků můžeme pomocí **UML** (standardizovaný grafický jazyk podporující objektovou orientaci) vytvořit objektově orientovaný návrh např. pomocí **diagramů tříd** a **diagramů objektů**.
-
-2.  Následně zjistíme, jestli již **neexistuje** nějaká objektová orientovaná implementace, která řeší tvorbu faktur na základě **vytvořených diagramů**. Pokud najdeme vhodné již implementované **třídy** (objekty u beztřídního jazyka), které obsahují část atributů a metod. Můžeme použít tyto - využijeme jednu z výhod OOP, a to **znovupoužitelnost**.
-
-3.  Následně z vyhledaných objektů **zdědíme** (použijeme **dědičnost**) a do zděděného objektu **doplníme** potřebné atributy a metody (provedeme specializaci).
-
-4.  Metody, které jsou již v původním objektu implementovány, ale nevyhovují našemu zadání přepíšeme (**override**) a využijeme vlastnosti OOJ **polymorfismu**.
-
-5.  Pro ukládání faktur (tj. objektů faktura) můžeme využít buď **objektové databáze**, ale mnohem častější je využití SQL databází a vrstvy mezi databázi a OOJ, která převádí relační data na objekty - **ORM** (**Objektově-relační mapování**)
+1. Setkáme se s touto osobou (zákazník) a na základě jeho požadavků můžeme pomocí **UML** (standardizovaný grafický jazyk podporující objektovou orientaci) vytvořit objektově orientovaný návrh např. pomocí **diagramů tříd** a **diagramů objektů**.
+2. Následně zjistíme, jestli již **neexistuje** nějaká objektová orientovaná implementace, která řeší tvorbu faktur na základě **vytvořených diagramů**. Pokud najdeme vhodné již implementované **třídy** (objekty u beztřídního jazyka), které obsahují část atributů a metod. Můžeme použít tyto - využijeme jednu z výhod OOP, a to **znovupoužitelnost**.
+3. Následně z vyhledaných objektů **zdědíme** (použijeme **dědičnost**) a do zděděného objektu **doplníme** potřebné atributy a metody (provedeme specializaci).
+4. Metody, které jsou již v původním objektu implementovány, ale nevyhovují našemu zadání přepíšeme (**override**) a využijeme vlastnosti OOJ **polymorfismu**.
+5. Pro ukládání faktur (tj. objektů faktura) můžeme využít buď **objektové databáze**, ale mnohem častější je využití SQL databází a vrstvy mezi databázi a OOJ, která převádí relační data na objekty - **ORM** (**Objektově-relační mapování**)
 
 ### Shrnutí
 
 Při OO přístupu k vývoji SW se snažíme využít:
 
 - **analogie** objektů reálného světa (mají nějaké znaky a funkce) se SW objekty (mají atributy a metody), Snažíme se zachovat vztah dat a jejich manipulátorů, respektive akcí nad nimi.
-
 - při návrhu využíváme nástroje podporující objektový přístup, jako je jazyk **UML - formální reprezentace OOP**,
-
 - využíváme **dekompozice** složitých objektů na jednodušší,
-
 - při implementaci se snažíme využít **výhod OOP**, zejména **znovupoužitelnost**,
-
 - při implementaci využíváme základní **koncepty OOP**, a to **abstrakci**, **zapouzdření**, **dědičnost** a **polymorfismus**.
-
 - snažíme se využít nástroje, které umožňují převádět jiný SW na objektové paradigma, např. **ORM**.
-
 - snažíme se využít **návrhových vzorů** (poskytují radu/návod/vzor, jak vhodně řešit často vyskytujících se problémy a umožňují lepší znovupoužitelnost, např. singleton, factory, adapter, MVC, MVVM, MVP, Facade).
 
-> 
 ![[media/szz-40/media/image3.png]]
-
 
 ## Zdroje
 

@@ -84,29 +84,21 @@ Matematická disciplína, která zkoumá **změny funkčních hodnot** v závisl
 Spojitost funkce je její důležitá vlastnost pro určování limit a derivací. Spojitá funkce je funkce, jejíž hodnoty se **mění plynule**, tedy při dostatečně malé změně hodnoty **x** se hodnota **f(x)** změní libovolně málo. Intuitivní (ne zcela přesná) představa spojité funkce spočívá ve funkci, jejíž graf lze nakreslit jedním tahem, aniž by se tužka zvedla z papíru. Pokud funkce není v bodě spojitá, může tato nespojitost být dvojího druhu:
 ![[media/szz-17/media/image5.png]]
 
-
 - **Nespojitost prvního druhu**: Limity **zleva a zprava jsou vlastní, ale nerovnají se.**
-
 - **Nespojitost druhého druhu**: Bod má alespoň jednu **nevlastní** jednostrannou limitu nebo pokud alespoň jedna **limita neexistuje**.
 
 ### Limita
 
 Limita je matematická konstrukce vyjadřující, že se hodnoty zadané funkce blíží **libovolně blízko** k nějakému bodu. Právě tento bod je pak označován jako limita.
 
-**Definice**: Funkce **f(x)** má v bodě **a** limitu **L**, jestliže k libovolně zvolenému **epsilon** okolí bodu **L** existuje **delta** okolí bodu **a** takové, že pro všechna reálná **x != a** tohoto okolí **náleží hodnoty f(x)** epsilon okolí **bodu L**. Značíme jako
-
-Funkce má v bodě **maximálně jednu limitu**. Druhy limit:
+**Definice**: Funkce **f(x)** má v bodě **a** limitu **L**, jestliže k libovolně zvolenému **epsilon** okolí bodu **L** existuje **delta** okolí bodu **a** takové, že pro všechna reálná **x != a** tohoto okolí **náleží hodnoty f(x)** epsilon okolí **bodu L**. Značíme jako Funkce má v bodě **maximálně jednu limitu**. Druhy limit:
 ![[media/szz-17/media/image45.png]]
 
 ![[media/szz-17/media/image38.png]]
 
-
 - **Vlastní** - Pokud hodnota neroste do +- nekonečna.
-
 - **Nevlastní** - Limita roste do +- nekonečna.
-
 - **Zprava** - Pokud se blížíme k bodu zprava na ose (z kladných čísel).
-
 - **Zleva** - Pokud se blížíme k bodu zleva na ose (ze záporných čísel). Např. funkce signum má v bodě 0 limitu zleva rovnu -1 a limitu zprava rovnu +1.
 
 ### Derivace
@@ -122,18 +114,15 @@ Derivace funkce je **změna** (růst či pokles) její funkční hodnoty **v pom
 
 ![[media/szz-17/media/image49.png]]
 
-
 Derivaci používáme k **vyšetření průběhu funkce**. První derivací určujeme, jestli funkce v daném bodě roste, nebo klesá. V bodech, kde je **první derivace nulová** nebo **neexistuje** hledáme **lokální extrémy** (minima a maxima). **Druhou derivací** určujeme **konvexnost** (druhá derivace je kladná) a **konkávnost** (druhá derivace je záporná) funkcí. Body, ve kterých je druhá **derivace nulová nebo neexistuje**, jsou **inflexní** body. **Asymptoty grafu funkce** jsou přímky, ke kterým se graf funkce blíží v +/- nekonečnu (výpočet viz [<u>Asymptota funkce</u>](https://maths.cz/clanky/213-asymptota-funkce))
 
 - **Bez směrnice**: podezřelé jsou hodnoty **vyloučené** z definičního oboru. Pro ověření je potřeba **spočítat limitu** **zleva** a **zprava** pro daný bod a pokud vyjdou **+/- nekonečno**, jedná se o **asymptotu bez směrnic**.
-
 - **Se směrnicí**: Jedná se o asymptotu, která **není rovnoběžná s osou y**. Mohou existovat **maximálně 2** pro jednu funkci. (y = ax + b).
 
 ### Derivace elementárních funkcí
 
 viz tabulka
 ![[media/szz-17/media/image40.png]]
-
 
 ## Integrální počet
 
@@ -142,10 +131,8 @@ Integrální počet je část matematiky, která se zabývá především **inte
 **Neurčitý integrál** definujeme pomocí derivace takto: Nechť **I** je otevřený interval, **f(x)** a **F(x)** funkce na něm definované, pokud **F′(x) = f(x)**, pak se funkce **F(x)** nazývá primitivní funkcí k funkci **f(x)**, nebo též **neurčitý integrál funkce** **f(x)** na intervalu **I**.
 ![[media/szz-17/media/image11.png]]
 
-
 ### Neurčitý integrál
 ![[media/szz-17/media/image8.png]]
-
 
 Operace integrování je **opačná** k operaci derivování. Integrál ale **není inverzní** funkcí k derivaci, protože **derivováním ztrácíme** informaci o **konstantní** (stejnosměrné) složce derivované funkce. Abychom integrováním zderivované funkce získali funkci původní, musíme znát její hodnotu **alespoň v jednom bodě**. Pomocí této hodnoty můžeme **vypočítat konstantní** (**c**) složku.
 
@@ -158,12 +145,10 @@ Slouží pro výpočet **povrchu**, **objemu** nebo **obvodu** geometrického ú
 
 ![[media/szz-17/media/image51.png]]
 
-
 - **Metoda per partes**: využívá se pro integraci funkcí v součinovém tvaru dle vzorce (pro úspěšnou integraci velmi **záleží** **na** správném výběru **u** a **v**):
 
 > Příklad integrace metodou per partes:
 ![[media/szz-17/media/image33.png]]
-
 
 - **Substituční metoda**: Během integrování nahrazujeme část integrované funkce za jinou, provedeme integraci a vrátíme funkci zpět do původního tvaru. U **určitého** integrálu je **nutné přepočítat meze integrace**.
 ![[media/szz-17/media/image16.png]]
@@ -176,13 +161,9 @@ Slouží pro výpočet **povrchu**, **objemu** nebo **obvodu** geometrického ú
 
 ![[media/szz-17/media/image26.png]]
 
-
-> \
 > Příklad integrace substituční metodou:
->
-> 
 ![[media/szz-17/media/image30.png]]
-\
+
 > Příklad integrace určitého integrálu:
 ![[media/szz-17/media/image12.png]]
 
@@ -192,20 +173,14 @@ Slouží pro výpočet **povrchu**, **objemu** nebo **obvodu** geometrického ú
 
 ![[media/szz-17/media/image6.png]]
 
->
-> 
 ![[media/szz-17/media/image34.png]]
 
 ![[media/szz-17/media/image15.png]]
-
-
-### \
 
 ### Integrace elementárních funkcí
 
 Viz tabulka
 ![[media/szz-17/media/image22.png]]
-
 
 ## Více proměnných
 
@@ -213,24 +188,19 @@ Derivace i integrace více proměnných je založená na postupné derivaci/inte
 
 ### Parciální derivace
 
-Parciální derivace funkce o **více proměnných** je její derivace vzhledem **k jedné** z těchto proměnných, přičemž s **ostatními** proměnnými se zachází jako s **konstantami**. **Většinou** platí:\
-Pomocí parciálních derivací se např. určuje tečná rovina grafu dvou proměnných
+Parciální derivace funkce o **více proměnných** je její derivace vzhledem **k jedné** z těchto proměnných, přičemž s **ostatními** proměnnými se zachází jako s **konstantami**. **Většinou** platí: Pomocí parciálních derivací se např. určuje tečná rovina grafu dvou proměnných
 ![[media/szz-17/media/image41.png]]
 
 ![[media/szz-17/media/image3.png]]
-
 
 ### Gradient (parciálních derivací)
 
 Jedná se o **vektor prvních parciálních derivací** dle **všech** proměnných funkce, který určuje směr **největšího růstu** funkce (respektive největšího poklesu, pokud jej vezmeme záporně). Délka vektoru gradientu je nárůst veličiny **f** na intervalu jednotkové délky.
 
-Umožňuje vypočítat **derivaci** funkce více proměnných ve **směru nějakého vektoru**, viz [<u>19 - Gradient a jeho využití (MAT - Diferenciální počet funkcí více proměnných)</u>](https://youtu.be/wEItObA6Ozs). Směrová derivace se vypočítá jako skalární součin vektoru **u** (vektor udávající směr) a gradientu v bodě **A** (lze vyjádřit i obecně a poté dosadit libovolný bod).\
-Gradient je kolmý na křivky (u funkcí 2 proměnných) a plochy (u funkcí 3 proměnných) o **stejné funkční hodnotě - hladiny funkce**. Jedná se např. o **vrstevnice** na mapách.\
-V bodech, kde je gradient **nulový vektor**, se mohou nacházet **lokální extrémy** funkce více proměnných nebo **sedlové body**. Jedná se o stacionární body. Lokální **maximum** se v bodě nachází, pokud existuje i gradient druhé parciální derivace a jeho **hodnota je menší než 0**, respektive je zde lokální **minimum**, pokud je **hodnota větší než 0**.
+Umožňuje vypočítat **derivaci** funkce více proměnných ve **směru nějakého vektoru**, viz [<u>19 - Gradient a jeho využití (MAT - Diferenciální počet funkcí více proměnných)</u>](https://youtu.be/wEItObA6Ozs). Směrová derivace se vypočítá jako skalární součin vektoru **u** (vektor udávající směr) a gradientu v bodě **A** (lze vyjádřit i obecně a poté dosadit libovolný bod). Gradient je kolmý na křivky (u funkcí 2 proměnných) a plochy (u funkcí 3 proměnných) o **stejné funkční hodnotě - hladiny funkce**. Jedná se např. o **vrstevnice** na mapách. V bodech, kde je gradient **nulový vektor**, se mohou nacházet **lokální extrémy** funkce více proměnných nebo **sedlové body**. Jedná se o stacionární body. Lokální **maximum** se v bodě nachází, pokud existuje i gradient druhé parciální derivace a jeho **hodnota je menší než 0**, respektive je zde lokální **minimum**, pokud je **hodnota větší než 0**.
 ![[media/szz-17/media/image48.png]]
 
 ![[media/szz-17/media/image23.png]]
-
 
 Lze využít I Hessovu matici a Hessián (její determinant) viz: [<u>https://is.muni.cz/el/sci/jaro2021/C1471/um/extremy.pdf</u>](https://is.muni.cz/el/sci/jaro2021/C1471/um/extremy.pdf)
 ![[media/szz-17/media/image27.png]]
@@ -239,15 +209,12 @@ Lze využít I Hessovu matici a Hessián (její determinant) viz: [<u>https://is
 
 ![[media/szz-17/media/image43.png]]
 
-
 ### Integrace více proměnných
 
 U integrace více proměnných můžeme využít na základě vlastností integrované funkce a hranic integrování 3 různé postupy:
 
 - Funkci lze rozdělit na **součin** funkcí jedné proměnné → dvojný/trojný integrál lze rozdělit na **součin jednoduchých** integrálů.
-
 - Hranice, na kterých máme integrovat jsou známé pro všechny proměnné - **konstanty** (integrace na obdélníku, kvádru) → sestavení **dvojnásobného/trojnásobného** integrálu, na způsobu zanoření integrálů nezáleží, je nutné ale zachovat meze.
-
 - Hranice jsou vyjádřeny **funkcí** zbylých **proměnných** (konstantou, poté funkcí jedné proměnné a u trojného integrálu funkcí dvou proměnných), zde již záleží i na způsobu zanoření integrálů - ten s hranicemi definovanými funkcí nejvíce proměnných musí být nejvíce vnořený.
 
 ### Dvojný integrál
@@ -259,26 +226,21 @@ Jedná se o integrál funkce **dvou proměnných**. Používá se např. pro vý
 
 ![[media/szz-17/media/image19.png]]
 
-
-Jedná se o integrál funkce **tří proměnných**. Používá se např. pro výpočet **objemu** tělesa ohraničeného třemi křivkami, výpočet jeho **hmotnosti** na základě proměnlivé hustoty, **statické momenty**, aj. 
+Jedná se o integrál funkce **tří proměnných**. Používá se např. pro výpočet **objemu** tělesa ohraničeného třemi křivkami, výpočet jeho **hmotnosti** na základě proměnlivé hustoty, **statické momenty**, aj.
 ![[media/szz-17/media/image4.png]]
 
 ![[media/szz-17/media/image2.png]]
 
-
-Výpočet **trojného integrálu** opět provádíme jeho **převodem na trojnásobný** integrál. 
+Výpočet **trojného integrálu** opět provádíme jeho **převodem na trojnásobný** integrál.
 ![[media/szz-17/media/image7.png]]
-
 
 ### Příklady dvojného a trojného integrálu
 
-- **dvojný integrál na obdelníku**: 
+- **dvojný integrál na obdelníku**:
 ![[media/szz-17/media/image1.png]]
-
 
 - **dvojný integrál - Fubiniova věta**:
 ![[media/szz-17/media/image37.png]]
-
 
 - **trojný integrál na kvádru**:
 ![[media/szz-17/media/image13.png]]
@@ -287,62 +249,45 @@ Výpočet **trojného integrálu** opět provádíme jeho **převodem na trojná
 
 ![[media/szz-17/media/image21.png]]
 
-
 - **trojný integrál - Fubiniova věta**:
 ![[media/szz-17/media/image46.png]]
-
 
 ### Limity funkcí více proměnných
 
 Limity funkcí více proměnných fungují na **podobném** principu jako limity funkce jedné proměnné. Limita funkce **existuje**, když hodnoty **libovolně malého okolí** bodu **spadají do ohraničeného pásu funkčních hodnot**. U funkce **dvou** proměnných bude okolím **kruh**, u tří proměnných **koule**. Limitu funkce více proměnných v bodě **p ∈ U** lze počítat pouze, pokud je tento bod **bodem** **hromadným** (X a Y na obr.) - bod, jehož **každé prstencové** okolí má s množinou **U neprázdný průnik**. Body, které toto nesplňují, jsou body **izolované** (Z na obr.) a v nich **limitu** funkce více proměnných počítat **nelze**.
 
 - **Otevřená množina** - Neobsahuje žádný bod ze své hranice.
-
 - **Uzavřená množina** - Obsahuje všechny body své hranice.
-
 - **Vnitřní** **bod** - Bod uvnitř množiny.
-
 - **Hraniční** **bod** - Bod na hranici množiny.
-
-- **Hranice** **množiny** - Množina všech hraničních bodů. 
+- **Hranice** **množiny** - Množina všech hraničních bodů.
 ![[media/szz-17/media/image14.png]]
 
 ![[media/szz-17/media/image29.png]]
-
 
 ## Další info
 
 ### L'Hôpitalovo pravidlo
 
-Umožňuje v některých případech vypočítat limitu podílu dvou funkcí. Říká, že limita podílu dvou funkcí, které splňují jisté předpoklady, je rovna limitě podílu derivací těchto funkcí.\
-Pokud
-
-potom
+Umožňuje v některých případech vypočítat limitu podílu dvou funkcí. Říká, že limita podílu dvou funkcí, které splňují jisté předpoklady, je rovna limitě podílu derivací těchto funkcí. Pokud potom
 ![[media/szz-17/media/image31.png]]
 
 ![[media/szz-17/media/image24.png]]
 
 ![[media/szz-17/media/image44.png]]
 
-
 ### Taylorova řada
 
-Mocninná řada, vyjádřená jako **suma derivací funkce v bodě**. Pokud se jedná o rozvoj v **okolí bodu 0**, mluvíme o **Maclaurinově řadě**. **Taylorovy** a **Maclaurinovy řady** se využívají k **aproximaci funkcí**. 
+Mocninná řada, vyjádřená jako **suma derivací funkce v bodě**. Pokud se jedná o rozvoj v **okolí bodu 0**, mluvíme o **Maclaurinově řadě**. **Taylorovy** a **Maclaurinovy řady** se využívají k **aproximaci funkcí**.
 ![[media/szz-17/media/image17.png]]
-
 
 **Odkazy:**
 
 - [<u>Neurcity integral</u>](http://user.mendelu.cz/marik/mat-web/mat-webse9.html)
-
 - [<u>Integrace substitucí</u>](https://matematika.cz/integrace-substituci)
-
 - [<u>Spojitost funkce</u>](https://kag.upol.cz/mat1/texty/ch08/kapitola8.pdf)
-
 - [<u>Funkce více proměnných</u>](https://math.feld.cvut.cz/tiser/web2.pdf)
-
 - [<u>VZORCE PRO INTEGROVÁNÍ</u>](http://www.matematika-lucerna.cz/graph/vzorce-integrovani.pdf)
-
 - Derivace: [<u>Tabulky</u>](https://www.karlin.mff.cuni.cz/~rokyta/vyuka/general/tahaky/derivace.htm)
 
 ## Zdroje

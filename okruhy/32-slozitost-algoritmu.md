@@ -70,7 +70,6 @@ Použití u řazení/vyhledávání viz [[okruhy/30-vyhledavani-razeni]]; u proh
 Složitost algoritmů definuje kritéria, podle kterých jednotlivé algoritmy hodnotíme. Nejčastějšími kritérii jsou **časové a paměťové nároky algoritmu**. Reálné doby běhů programů se **liší na různých strojích** a s různými vstupy. Proto zavádíme **časovou a prostorovou složitost algoritmů**, které umožňují:
 
 - vyjádření vlastností algoritmu **nezávisle** na technických podrobnostech (počítači, na kterém běží),
-
 - popis chování algoritmu pomocí **jednoduchých matematických funkcí**.
 
 # Časová složitost
@@ -78,20 +77,15 @@ Složitost algoritmů definuje kritéria, podle kterých jednotlivé algoritmy h
 Časová složitost je odvozena od počtu elementárních operací (sčítání, násobení, porovnání, …). Udává **řádový počet provedených elementárních operací v závislosti na velikosti vstupu** (počet prvků řazeného pole, větší z čísel, u kterého hledáme společného dělitele, …). Příkladem mohou být 2 různé (nejedná se o stejnou funkcionalitu) algoritmy součtů:
 ![[media/szz-32/media/image6.png]]
 
-
 - **Součet1**: U prvního algoritmu lze jednoduše **detekovat cyklus** podle **n** a **vnořený cyklus** podle **n** (obecně nemusí být jednoduché vnořené cykly detekovat). To znamená, že pro **každé konkrétní číslo z n** se provede **n iterací**, celkově tedy **n\*n** iterací, neboli **$n^2$** iterací, a v každé iteraci je **provedeno sčítání**.
-
 - **Součet2**: Zde je pouze **jeden cyklus** (while), tudíž hned na první pohled by se dalo **chybně** říct, že bude provedeno n operací. To ale není pravda, protože je nutné si v těle cyklu všimnou **dělení n** v každé iteraci, to znamená, že bude provedeno **log2(n)** operací.
 
 ## Postup určení časové složitosti
 
-1.  Zhodnotíme, co je vstupem **n** a jak **měřit jeho velikost**.
-
-2.  Určíme maximální možný počet elementárních kroků algoritmu (elementárních operací jako je sčítání) provedených pro vstup o **velikosti n**.
-
-3.  Ve výsledné formuli **ponecháme pouze nejrychleji rostoucí člen**, ostatní zanedbáme.
-
-4.  Seškrtáme multiplikativní konstanty (**odebereme násobení konstantou**).
+1. Zhodnotíme, co je vstupem **n** a jak **měřit jeho velikost**.
+2. Určíme maximální možný počet elementárních kroků algoritmu (elementárních operací jako je sčítání) provedených pro vstup o **velikosti n**.
+3. Ve výsledné formuli **ponecháme pouze nejrychleji rostoucí člen**, ostatní zanedbáme.
+4. Seškrtáme multiplikativní konstanty (**odebereme násobení konstantou**).
 
 ### Průměrná časová složitost
 
@@ -102,9 +96,7 @@ Určujeme, pokud pro **různé vstupy stejné velikosti** vykoná algoritmus **r
 Jedná se o nejčastěji používané hodnotící kritérium, vychází z toho, že pro **malá n** se **nejrychleji rostoucí člen** nemusí výrazně projevovat. Popisujeme tedy chování algoritmu pro **n blížící se k nekonečnu**. Používají se tři různé asymptotické složitosti:
 
 - O – Omikron (velké O, Ό, big O) – horní hranice chování (**nejčastější**),
-
 - Ω – Omega – dolní hranice chování,
-
 - Θ – Théta – třída chování.
 
 U definování složitostí se snažíme, aby co nejvíce odpovídaly složitosti algoritmu (tj. hledáme **nejmenší horní** hranici a **největší dolní** hranici). Není podstatná konkrétní přesná časová závislost, stačí **charakterizovat třídu**.
@@ -122,7 +114,6 @@ Nejčastěji používané složitosti:
 
 ![[media/szz-32/media/image5.png]]
 
-
 ### Složitost Omega - **Ώ**
 
 Složitost Omega vyjadřuje **dolní hranici** časového chování algoritmu (omezuje chování algoritmu zdola, tj. algoritmus **nebude nikdy rychlejší (nebude trvat kratší dobu)**, než dané omezení). V praxi nemá moc využití. Značíme jako **Omega(g(n)), Ώ(g(n)) nebo jen Ω(g(n))**.
@@ -132,7 +123,6 @@ Složitost Omega vyjadřuje **dolní hranici** časového chování algoritmu (o
 ### Složitost Théta - **Θ**
 ![[media/szz-32/media/image3.png]]
 
-
 Složitost **Theta** vyjadřuje třídu chování algoritmu – ohraničuje funkci f(n) z obou stran (slouží jako **dolní** **i horní hranice**, tedy že funkce nebude **nikdy rychlejší** než **c1\*g(n)** a nebude **nikdy pomalejší** než **c2\*g(n)**). Značíme jako **Theta(g(n))**, nebo **Θ(g(n))**.
 
 - Zápis **f(n) ∈ Theta(g(n))** označuje, že funkce **f(n)** roste **stejně tak rychle** jako funkce **g(n)**.
@@ -140,16 +130,13 @@ Složitost **Theta** vyjadřuje třídu chování algoritmu – ohraničuje funk
 ### Třídy složitosti
 ![[media/szz-32/media/image1.png]]
 
-
 - **P** - Pokud existuje Turingův stroj, který úlohu vyřeší v polynomiálním čase.
-
 - **NP** - Pokud existuje nedeterministický Turingův stroj, který rozhodne úlohu v polynomiálním čase
 
 ### Orientační rychlost výpočtu
 
 Orientační typické hodnoty velikosti vstupu **n**, pro které algoritmus s danou časovou složitostí ještě většinou zvládne na běžném PC spočítat výsledek **ve zlomku sekundy nebo maximálně v řádu sekund**.
 ![[media/szz-32/media/image4.png]]
-
 
 # Paměťová (prostorová) složitost
 
@@ -160,9 +147,7 @@ Udává **spotřebu paměti**, případně **diskového prostoru** v závislosti
 Obdobně jako u časové složitosti se používají **tři** různé asymptotické složitosti:
 
 - O – Omikron (velké O, Ό, big O) – horní hranice chování (**nejčastější**),
-
 - Ω – Omega – dolní hranice chování,
-
 - Θ – Théta – třída chování.
 
 Mají i stejný význam.
@@ -174,7 +159,6 @@ Mají i stejný význam.
 Hlavní dva jevy, které řešíme při určování časové složitosti, jsou **cykly** (zejména **vnořené**) a **rekurze** závisející na **vstupních datech**.
 
 - **Vnoření cyklů** většinou znamená násobení složitosti → vede na polynomiální časovou složitost: dva vnořené cykly - **$O(n^2)$**, tři vnořené cykly - **$O(n^3)$**. Nutno **sledovat úpravy řídící proměnné cyklu**, např. její **dělení** vede na **logaritmickou složitost $O(\log (n))$.**
-
 - **Rekurze** většinou znamená **exponenciální složitost**. Záleží, na **počtu rekurzivních volání funkce** v jejím těle. Pro dvě volání je složitost **$O(2^n)$**, pro tři volání **$O(3^n)$**, … Počet volání můžeme označovat jako **faktor větvení** (zejména se používá u stromů).
 
 Při více cyklech za sebou uvažujeme ten **nejhorší** - **nejrychleji rostoucí člen**.
@@ -184,9 +168,7 @@ Při více cyklech za sebou uvažujeme ten **nejhorší** - **nejrychleji rostou
 Musíme identifikovat, jaké používáme proměnné
 
 - **lokální statické proměnné**,
-
 - **dynamické proměnné**,
-
 - **REKURZE** - má **velký vliv** na paměťovou složitost programu, při každém rekurzivním volání funkce se **ukládají všechny její lokální proměnné**.
 
 Globální statické proměnné můžeme ignorovat (považovat za **konstantní** paměťovou náročnost), lokální statické proměnné můžeme ignorovat jen v případě, že se funkce **nevolá** rekurzivně. U **dynamických** proměnných **musíme sledovat alokaci** v cyklech **nebo při rekurzi** a jak **velká paměť** je alokována (pokud cyklem projdeme **n krát**, a **n** **krát** alokujeme **n prvků**, je **prostorová složitost kvadratická** (časová je lineární)).
@@ -194,9 +176,7 @@ Globální statické proměnné můžeme ignorovat (považovat za **konstantní*
 <u>Další zdroje:</u>
 
 - <u><https://docplayer.cz/108481191-Prostorova-pametova-slozitost-algoritmu.html></u>
-
 - [<u>Asymptotická složitost</u>](http://voho.eu/wiki/asymptoticka-slozitost/)
-
 - [<u>Třídy složitosti a Turingovy stroje</u>](https://www.algoritmy.net/article/5774/Tridy-slozitosti)
 
 ## Zdroje
