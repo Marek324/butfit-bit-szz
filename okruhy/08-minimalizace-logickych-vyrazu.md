@@ -158,14 +158,15 @@ Karnaughovy mapy vytváříme s pomocí **Grayova** (sousední hodnoty se liší
 ### Minimalizace Karnaughovy mapy v disjunktivní formě
 
 **Jedničky** (popř. x) se sdružují do **skupin**, které jsou **mocniny 2** - lze i přes okraje a rohy. Pokud daná skupina zasahuje do **bitů** **0 i 1** dané proměnné, proměnná **nebude** ve výsledném termu. Pokud daná skupina zasahuje pouze do **bitů 1** dané proměnné, **bude** proměnná ve výsledném termu **přímo**. Pokud daná skupina zasahuje pouze do **bitů 0**, **bude** proměnná ve výsledném termu **negovaně**.
+![[media/szz-08/media/image17.png]]
+
+![[media/szz-08/media/image1.png]]
+
 ![[media/szz-08/media/image5.png]]
 
 ![[media/szz-08/media/image20.png]]
 
 ### Minimalizace Karnaughovy mapy v konjunktivní formě
-![[media/szz-08/media/image1.png]]
-
-![[media/szz-08/media/image17.png]]
 
 **Nuly** (popř. x) se sdružují do skupin, které jsou **mocniny 2** - lze i přes okraje a rohy. Pokud daná skupina zasahuje do **bitů** **0 i 1** dané proměnné, proměnná **nebude** ve výsledném termu. Pokud daná skupina zasahuje pouze do **bitů 1** dané proměnné, **bude** proměnná ve výsledném termu **negovaně**. Pokud daná skupina zasahuje pouze do **bitů 0**, **bude** proměnná ve výsledném termu **přímo**.
 ![[media/szz-08/media/image21.png]]
