@@ -150,9 +150,10 @@ Umožňuje na **N** **výstupů** zakódovat až **$2^N$** **vstupů**. Musí al
 ## Binární dekodér (Decoder)
 
 Dekóduje **N vstupů** na **$2^N$ výstupů**, narozdíl od kodéru mohou být vstupy libovolně aktivní. Pro daný vstup je ale aktivní vždy **pouze jeden výstup**. Dekodér lze například použít pro adresaci zařízení na sběrnici (binární adresa umožňuje aktivovat jedno z připojených zařízení). Dekodér lze implementovat pomocí **demultiplexoru**, vstup se zapojí na log. 1 a na **sel** se zapojí vstupy.
+![[media/szz-02/media/image5.png]]
 
 ## Prioritní kodér
-![[media/szz-02/media/image5.png]]
+![[media/szz-02/media/image6.png]]
 
 Narozdíl od běžného binárního kodéru umožňuje mít na **vstupu více aktivních vodičů**. V tom případě na výstup kóduje hodnotu odpovídající tomu s **největší prioritou**. Využívá se například k řízení **obsluhy přerušení**. Na obrázku má **I(3)**
 
@@ -160,7 +161,6 @@ Narozdíl od běžného binárního kodéru umožňuje mít na **vstupu více ak
 **největší** prioritu a I(0) nejmenší.
 
 ## Binární sčítačka
-![[media/szz-02/media/image6.png]]
 
 - **Poloviční sčítačka** (**half adder**) - realizuje sčítání dvou jednobitových čísel. Výstupem je **jednobitový součet** (**S**) a jednobitový **příznak přenosu** do vyššího řádu (**C**). Poloviční sčítačka ale sama **nedokáže zpracovat přenos z nižšího řádu**.
 ![[media/szz-02/media/image9.png]]
