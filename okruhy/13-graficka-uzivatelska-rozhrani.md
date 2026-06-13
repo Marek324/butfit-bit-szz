@@ -169,11 +169,10 @@ Standardní prvky GUI obvykle označujeme pod zkratkou **WIMP**:
 ### Režim oken aplikace
 
 - **Single-Document Interface** (SDI): Jedno primární okno, několik sekundárních. Jednoznačný vztah okna s objektem. **Přehledné, srozumitelné**. **Každé okno má své menu**. Několik instancí aplikace v liště OS. (Excel 2013)
-- **Multiple-Document Interface** (MDI): Jedna aplikace **obsahuje více oken.** Práce s jedním objektem z více pohledů (otevřený ve více oknech) nebo práce s více objekty současně (možnost při práci s jedním nahlížet na druhý). Menší přehlednost a obtížnější zvládnutí. (Excel 2010)
 ![[media/szz-13/media/image3.png]]
-
-- **Tabbed Document Interface** (TDI) - prohlížeče, editory zdrojových kódů, … Dnes často používané. Řízené SDI - SDI doplněné o řídící okno, které obsahuje menu a seznam otevřených objektů (záložek). Kooperativní SDI - některé funkce mohou ovlivnit obsah i jiných oken. (jednotlivé dokumenty v záložkách)
+- **Multiple-Document Interface** (MDI): Jedna aplikace **obsahuje více oken.** Práce s jedním objektem z více pohledů (otevřený ve více oknech) nebo práce s více objekty současně (možnost při práci s jedním nahlížet na druhý). Menší přehlednost a obtížnější zvládnutí. (Excel 2010)
 ![[media/szz-13/media/image2.png]]
+- **Tabbed Document Interface** (TDI) - prohlížeče, editory zdrojových kódů, … Dnes často používané. Řízené SDI - SDI doplněné o řídící okno, které obsahuje menu a seznam otevřených objektů (záložek). Kooperativní SDI - některé funkce mohou ovlivnit obsah i jiných oken. (jednotlivé dokumenty v záložkách)
 
 Vzor MVC (model-view-controller)
 
