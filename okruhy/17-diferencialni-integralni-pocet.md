@@ -139,40 +139,39 @@ Operace integrování je **opačná** k operaci derivování. Integrál ale **ne
 ### Určitý integrál
 
 Slouží pro výpočet **povrchu**, **objemu** nebo **obvodu** geometrického útvaru (výpočet je omezen na určitou část). Aby byla funkce integrovatelná nemusí být **spojitá** na celém intervalu nebo **spojitá po částech** (měla **konečně** mnoho bodů nespojitosti).
-
-### Postupy integrace
 ![[media/szz-17/media/image35.png]]
 
 ![[media/szz-17/media/image51.png]]
 
+### Postupy integrace
+
 - **Metoda per partes**: využívá se pro integraci funkcí v součinovém tvaru dle vzorce (pro úspěšnou integraci velmi **záleží** **na** správném výběru **u** a **v**):
-
-> Příklad integrace metodou per partes:
-![[media/szz-17/media/image33.png]]
-
-- **Substituční metoda**: Během integrování nahrazujeme část integrované funkce za jinou, provedeme integraci a vrátíme funkci zpět do původního tvaru. U **určitého** integrálu je **nutné přepočítat meze integrace**.
 ![[media/szz-17/media/image16.png]]
 
-![[media/szz-17/media/image42.png]]
+> Příklad integrace metodou per partes:
+![[media/szz-17/media/image26.png]]
 
 ![[media/szz-17/media/image10.png]]
 
+![[media/szz-17/media/image33.png]]
+
 ![[media/szz-17/media/image18.png]]
 
-![[media/szz-17/media/image26.png]]
+- **Substituční metoda**: Během integrování nahrazujeme část integrované funkce za jinou, provedeme integraci a vrátíme funkci zpět do původního tvaru. U **určitého** integrálu je **nutné přepočítat meze integrace**.
+![[media/szz-17/media/image42.png]]
 
 > Příklad integrace substituční metodou:
-![[media/szz-17/media/image30.png]]
+![[media/szz-17/media/image47.png]]
 
-> Příklad integrace určitého integrálu:
 ![[media/szz-17/media/image12.png]]
 
 ![[media/szz-17/media/image28.png]]
 
-![[media/szz-17/media/image47.png]]
-
 ![[media/szz-17/media/image6.png]]
 
+![[media/szz-17/media/image30.png]]
+
+> Příklad integrace určitého integrálu:
 ![[media/szz-17/media/image34.png]]
 
 ![[media/szz-17/media/image15.png]]
@@ -220,11 +219,11 @@ U integrace více proměnných můžeme využít na základě vlastností integr
 ### Dvojný integrál
 
 Jedná se o integrál funkce **dvou proměnných**. Používá se např. pro výpočet **objemu**, výpočet **hmotnosti nehomogenní plochy**, výpočet **povrchu**. Při výpočtu se snažíme **dvojný** integrál převést **na integrál dvojnásobný**, tj. **dva jednoduché** integrály a integraci provádět postupně (Fubiniova věta). Hranicí vnitřního integrálu budou tvořit funkce.
-
-### Trojný integrál
 ![[media/szz-17/media/image50.png]]
 
 ![[media/szz-17/media/image19.png]]
+
+### Trojný integrál
 
 Jedná se o integrál funkce **tří proměnných**. Používá se např. pro výpočet **objemu** tělesa ohraničeného třemi křivkami, výpočet jeho **hmotnosti** na základě proměnlivé hustoty, **statické momenty**, aj.
 ![[media/szz-17/media/image4.png]]
@@ -239,15 +238,15 @@ Výpočet **trojného integrálu** opět provádíme jeho **převodem na trojná
 - **dvojný integrál na obdelníku**:
 ![[media/szz-17/media/image1.png]]
 
-- **dvojný integrál - Fubiniova věta**:
 ![[media/szz-17/media/image37.png]]
 
-- **trojný integrál na kvádru**:
-![[media/szz-17/media/image13.png]]
+- **dvojný integrál - Fubiniova věta**:
+![[media/szz-17/media/image21.png]]
 
+- **trojný integrál na kvádru**:
 ![[media/szz-17/media/image39.png]]
 
-![[media/szz-17/media/image21.png]]
+![[media/szz-17/media/image13.png]]
 
 - **trojný integrál - Fubiniova věta**:
 ![[media/szz-17/media/image46.png]]
@@ -263,18 +262,18 @@ Limity funkcí více proměnných fungují na **podobném** principu jako limity
 - **Hranice** **množiny** - Množina všech hraničních bodů.
 ![[media/szz-17/media/image14.png]]
 
-![[media/szz-17/media/image29.png]]
+![[media/szz-17/media/image44.png]]
 
 ## Další info
 
 ### L'Hôpitalovo pravidlo
 
 Umožňuje v některých případech vypočítat limitu podílu dvou funkcí. Říká, že limita podílu dvou funkcí, které splňují jisté předpoklady, je rovna limitě podílu derivací těchto funkcí. Pokud potom
+![[media/szz-17/media/image29.png]]
+
 ![[media/szz-17/media/image31.png]]
 
 ![[media/szz-17/media/image24.png]]
-
-![[media/szz-17/media/image44.png]]
 
 ### Taylorova řada
 
