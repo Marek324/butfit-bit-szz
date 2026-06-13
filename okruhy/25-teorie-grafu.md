@@ -89,11 +89,10 @@ Množiny grafu G odkazujeme:
 - **E(G)**: množina **hran** grafu **G**.
 
 Grafy zadáváme **neformálně** graficky:
+![[media/szz-25/media/image5.png]]
 
 nebo formálně výčtem vrcholů a hran:
 ![[media/szz-25/media/image16.png]]
-
-![[media/szz-25/media/image5.png]]
 
 ### Stupeň vrcholu
 
@@ -116,22 +115,20 @@ Je sled v grafu, ve kterém se **neopakují** ani **hrany** ani **vrcholy**.
 ### Typy grafů
 
 - **Kružnice**: Kružnice délky **n** má **n \>= 3** různých vrcholů spojených **do jednoho cyklu** **n** hranami. Značí se jako **Cn**.
-- **Cesta**: Cesta délky **n \>= 0** má **n+1** **různých** vrcholů spojených za sebou **n** hranami. Značí se jako **Pn**. (**Žádné vrcholy ani hrany se neopakují.**)
 ![[media/szz-25/media/image6.png]]
 
-- **Úplný graf**: Úplný graf na **n \>= 1** vrcholech má **n** různých vrcholů spojených **po všech dvojicích** - celkem **n nad 2** (výpočet **n** nad **k** ve vzorečku; konkrétní vzoreček pro počet hran ve druhém výrazu, odvozený z prvního vzorečku pro k = 2) hran. Značí se jako **Kn**.
+- **Cesta**: Cesta délky **n \>= 0** má **n+1** **různých** vrcholů spojených za sebou **n** hranami. Značí se jako **Pn**. (**Žádné vrcholy ani hrany se neopakují.**)
 ![[media/szz-25/media/image12.png]]
 
-- **Úplný bipartitní graf**: Úplný bipartitní graf na **m \>= 1** a **n \>= 1** vrcholech má **m+n** vrcholů ve **dvou skupinách** (partitách), přičemž hranami jsou spojeny všechny **mᐧn dvojice** z různých skupin. Značí se jako **Km,n**.
+- **Úplný graf**: Úplný graf na **n \>= 1** vrcholech má **n** různých vrcholů spojených **po všech dvojicích** - celkem **n nad 2** (výpočet **n** nad **k** ve vzorečku; konkrétní vzoreček pro počet hran ve druhém výrazu, odvozený z prvního vzorečku pro k = 2) hran. Značí se jako **Kn**.
 ![[media/szz-25/media/image13.png]]
-
+![[media/szz-25/media/image15.png]]
 ![[media/szz-25/media/image7.png]]
 
-![[media/szz-25/media/image15.png]]
-
-- **Hvězda**: Hvězda s **n \>= 1** rameny je zvláštní název pro **úplný bipartitní graf**. Značí se jako **K1,n**.
+- **Úplný bipartitní graf**: Úplný bipartitní graf na **m \>= 1** a **n \>= 1** vrcholech má **m+n** vrcholů ve **dvou skupinách** (partitách), přičemž hranami jsou spojeny všechny **mᐧn dvojice** z různých skupin. Značí se jako **Km,n**.
 ![[media/szz-25/media/image9.png]]
 
+- **Hvězda**: Hvězda s **n \>= 1** rameny je zvláštní název pro **úplný bipartitní graf**. Značí se jako **K1,n**.
 ![[media/szz-25/media/image18.png]]
 
 - **Eulerovský graf** - graf, který je *souvislý* a má všechny vrcholy sudého stupně, lze ho nakreslit jedním *uzavřeným tahem*
@@ -140,9 +137,9 @@ Je sled v grafu, ve kterém se **neopakují** ani **hrany** ani **vrcholy**.
 ### Orientované grafy
 
 V orientovaných grafech má každá hrana jistý směr. Formálně mají orientované grafy množinu orientovaných hran **A**, která je dána **A ⊆ V(G) × V(G)**.
+![[media/szz-25/media/image3.png]]
 
 ### Podgraf
-![[media/szz-25/media/image3.png]]
 
 Podgrafem grafu **G** rozumíme libovolný graf **H** pro který platí:
 
@@ -153,9 +150,9 @@ Podgrafem grafu **G** rozumíme libovolný graf **H** pro který platí:
 ### Indukovaný podgraf
 
 Indukovaným podgrafem je podgraf **H ⊆ G** takový, který obsahuje **všechny hrany grafu G** mezi dvojicemi vrcholů z **V(H)**. Jinak řečeno graf **H** vznikne smazáním části vrcholů grafu **G** a **pouze** hran, které vycházely z těchto vrcholů.
+![[media/szz-25/media/image8.png]]
 
 ### Typy podgrafů grafu G
-![[media/szz-25/media/image8.png]]
 
 - **Kružnice v G** je podgraf **H ⊆ G**, který je **izomorfní** nějaké **kružnici**. (kružnici délky 3 říkáme trojúhelník).
 - **Indukovaná kružnice v G** je **indukovaný** podgraf **H ⊆ G**, který je **izomorfní** nějaké **kružnici**.
@@ -165,10 +162,15 @@ Indukovaným podgrafem je podgraf **H ⊆ G** takový, který obsahuje **všechn
 
 ## Izomorfismus
 
-Isomorfismus grafů **G** a **H** je **bijektivní** zobrazení **f: V(G) → V(H)**, pro které každá dvojice **u, v ∈ V(G)** je spojená hranou v grafu **G** **právě, když** je dvojice **f(u), f(v)** spojená hranou v grafu **H**. Příklad pro grafy **G** a **G’**:
+Isomorfismus grafů **G** a **H** je **bijektivní** zobrazení **f: V(G) → V(H)**, pro které každá dvojice **u, v ∈ V(G)** je spojená hranou v grafu **G** **právě, když** je dvojice **f(u), f(v)** spojená hranou v grafu **H**:
+![[media/szz-25/media/image11.png]]
+
+Příklad pro grafy **G** a **G’**:
+![[media/szz-25/media/image17.png]]
+
+![[media/szz-25/media/image10.png]]
 
 Pro izomorfní grafy **G** a **H** platí (může to platit ale i pro neizomorfní grafy):
-![[media/szz-25/media/image11.png]]
 
 - **G** a **H** mají stejný počet vrcholů,
 - **G** a **H** mají stejný počet hran,
@@ -182,9 +184,6 @@ Postup **hledání izomorfismu** (pokud pro nějaký bod neplatí, grafy nejsou 
 4. zkoušíme všechny **přípustné možnosti** zobrazení izomorfismu.
 
 ## Souvislost
-![[media/szz-25/media/image17.png]]
-
-![[media/szz-25/media/image10.png]]
 
 Možnost se v grafu pohybovat z jakéhokoliv vrcholu do jakéhokoliv jiného vrcholu podél jeho hran. To znamená, že pro každé dva vrcholy **u, v ∈ V(G)** existuje sled z vrcholu **u** do vrcholu **v**.
 
@@ -204,9 +203,9 @@ Relace **~** je tedy relací **ekvivalence**.
 ### Komponenty souvislosti
 
 Jsou jednotlivé **třídy ekvivalence** grafu (graf je **souvislý**, pokud má **pouze jednu** komponentu souvislosti). Graf o třech komponentách:
+![[media/szz-25/media/image4.png]]
 
 ### Stromy
-![[media/szz-25/media/image4.png]]
 
 Strom je jednoduchý **souvislý graf T** **bez kružnic**. Grafy bez kružnic lze také nazývat **acyklické**. **Les** je nesouvislý graf tvořený více stromy. Stromové grafy jsou zároveň kostrou grafu. Pro stromy platí:
 
