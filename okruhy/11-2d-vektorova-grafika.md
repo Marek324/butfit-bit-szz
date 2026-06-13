@@ -131,9 +131,9 @@ Výpočet je ve **floating** point aritmetice. Postup je následující:
 - V **ose X** postupujeme s přírůstkem **dx = 1**.
 - V **ose Y** je přírůstek dán **velikostí směrnice** ($k = \dfrac{y_2 - y_1}{x_2 - x_1}$) úsečky.
 - Souřadnice **Y** se **zaokrouhluje** na **nejbližší** **celé** číslo - (přičíst **0.5 před** konverzí na **int**).
+![[media/szz-11/media/image9.png]]
 
 ### DDA s fixed-point aritmetikou
-![[media/szz-11/media/image9.png]]
 
 Používá bitový posun a eliminuje tak nutnost používat floating point, jinak pracuje na stejném principu jako floating point DDA.
 ![[media/szz-11/media/image6.png]]
@@ -146,15 +146,17 @@ Algoritmus používá celočíselnou aritmetiku. Je jednodušší pro HW impleme
 - V **ose X** postupujeme s přírůstkem **dx = 1**.
 - O posunu v **ose** **Y** rozhodujeme podle znaménka tzv. **prediktoru**.
 
+![[media/szz-11/media/image26.png]]
+
 ![[media/szz-11/media/image25.png]]
 
 ![[media/szz-11/media/image18.png]]
 
 ![[media/szz-11/media/image23.png]]
 
-### Kružnice
-![[media/szz-11/media/image26.png]]
+![[media/szz-11/media/image8.png]]
 
+### Kružnice
 ![[media/szz-11/media/image2.png]]
 
 Definována souřadnicí **středu** a **poloměrem**:
@@ -171,8 +173,6 @@ Nejjednodušší pro pochopení a implementaci, ale náročné pro HW zpracován
 - V **ose X** postupujeme s přírůstkem **dx = 1**.
 - Pozici v **ose Y** vypočteme po každé změně **X** podle vztahu $y = \sqrt{r^2 - x^2}$.
 - Souřadnice **Y** se **zaokrouhluje** na **nejbližší** **celé** číslo - (přičíst **0.5 před** konverzí na **int**).
-
-![[media/szz-11/media/image8.png]]
 
 ![[media/szz-11/media/image24.png]]
 
@@ -229,11 +229,11 @@ Pracuje pouze s **konvexními** mnohoúhelníky - trojúhelníky (ty jsou **vžd
 
 - **Rozdělení** oblasti každou hranou na **poloroviny** (**kladnou** a **zápornou**).
 - **Vybarveny** jsou body (pixely) oblasti, které leží v **kladné** **polorovině** všech hran.
-
-### Semínkové vyplňování
 ![[media/szz-11/media/image7.png]]
 
 ![[media/szz-11/media/image15.png]]
+
+### Semínkové vyplňování
 
 Vyplňovaná oblast musí být definovaná **spojitou hranicí** z pixelů **požadované** **barvy**. Obravují se pouze pixely s barvou pozadí následovně:
 
