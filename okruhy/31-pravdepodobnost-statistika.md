@@ -232,9 +232,19 @@ Střední hodnotu lze chápat jako „těžiště“ rozdělení — na obrázku
 
 Také **střední kvadratická odchylka**. Jedná se o **charakteristiku** variability rozdělení pravděpodobnosti **náhodné veličiny**, která vyjadřuje variabilitu rozdělení **souboru náhodných hodnot kolem její střední hodnoty**. Jedná se o **součet obsahů čtverců** jednotlivých hodnot dle vzdálenosti od střední hodnoty.
 
-$$D(X) = E(X^2) - [E(X)]^2, \qquad E(X^2) = \sum_{x \in M} x^2 \cdot p(x)$$
+**Definiční tvar** (střední hodnota kvadrátu odchylky od $E(X)$):
 
-$$\sigma^2 = \int_{-\infty}^{\infty} [x - E(X)]^2 p(x)\,dx = \int_{-\infty}^{\infty} x^2 p(x)\,dx - [E(X)]^2$$
+$$D(X) = \sigma^2 = E\big([X - E(X)]^2\big)$$
+
+Pro **diskrétní** náhodnou veličinu se střední hodnota nahradí váženým součtem, pro **spojitou** integrálem:
+
+$$\sigma^2 = \sum_{i=1}^{n} [x_i - E(X)]^2\, p_i \qquad \sigma^2 = \int_{-\infty}^{\infty} [x - E(X)]^2 f(x)\,dx$$
+
+**Výpočetní (zkrácený) tvar** — rozdíl střední hodnoty kvadrátu a kvadrátu střední hodnoty:
+
+$$D(X) = E(X^2) - [E(X)]^2$$
+
+$$\sigma^2 = \sum_{x \in M} x^2\, p(x) - [E(X)]^2 \qquad \sigma^2 = \int_{-\infty}^{\infty} x^2 f(x)\,dx - [E(X)]^2$$
 
 Vlastnosti rozptylu:
 

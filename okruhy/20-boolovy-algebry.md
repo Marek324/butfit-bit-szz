@@ -98,7 +98,7 @@ Je preto potrebné si pozrieť pojmy ako **čiastočne usporiadaná množina**, 
 ### Vlastnosti / Teorémy
 
 - **Asociativita**: u operace nezáleží, jak jsou použity závorky u více operandů (někde nebývá jako axiom). $a \lor (b \lor c) = (a \lor b) \lor c, \quad a \land (b \land c) = (a \land b) \land c$
-- **Absorpce**: (někde nebývá jako axiom) $a \lor (a \land b) = a, \quad a \land (a \lor b) = a$
+- **Absorpce**: $a \lor (a \land b) = a, \quad a \land (a \lor b) = a$
 - **Agresivita nuly** - Při průseku jakéhokoliv prvku s 0, je výsledek 0. $x \land 0 = 0$
 - **Agresivita jedničky** - Při spojení jakéhokoliv prvku s 1, je výsledek 1. $x \lor 1 = 1$
 - **Idempotence** - Opakovaným použitím na nějaký vstup vznikne stejný výstup. Tedy jakákoliv binární operace prvku se sebou samým má za výsledek ten stejný prvek. $x \lor x = x, \quad x \land x = x$

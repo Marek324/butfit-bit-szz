@@ -81,7 +81,7 @@ $$A = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
 
 - **Jednotková matice** - Čtvercová matice, která má na hlavní diagonále (úhlopříčka z levého horního rohu do pravého dolního rohu) jedničky a všude jinde 0.
 
-$$A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
+$$I = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
 
 - **Schodová matice** - Každý následující řádek má na začátku více nul než předchozí řádek.
 
@@ -108,7 +108,8 @@ $$A_1 = \begin{pmatrix} 9 & 0 & 0 \\ 0 & 7 & 0 \\ 0 & 0 & 2 \end{pmatrix}, \quad
 
 $$A = \begin{pmatrix} 3 & -2 & 1 \\ 1 & -3 & 2 \\ -1 & 2 & 4 \end{pmatrix}$$
 
-Je diagonálně dominantní, protože $|a_{11}| \ge |a_{12}| + |a_{13}|$ ($|3| \ge |{-2}| + |1|$), $|a_{22}| \ge |a_{21}| + |a_{23}|$ ($|{-3}| \ge |1| + |2|$) a $|a_{33}| \ge |a_{31}| + |a_{32}|$ ($|4| \ge |{-1}| + |2|$).
+Je diagonálně dominantní, protože $|a_{11}| \ge |a_{12}| + |a_{13}|$ ($|3| \ge |{-2}| + |1|$), 
+$|a_{22}| \ge |a_{21}| + |a_{23}|$ ($|{-3}| \ge |1| + |2|$) a $|a_{33}| \ge |a_{31}| + |a_{32}|$ ($|4| \ge |{-1}| + |2|$).
 
 - **Pozitivně definitní matice** - Čtvercová matice, u které pro každý nenulový vektor $\mathbf{x}$ platí $\mathbf{x}^T \mathbf{M} \mathbf{x} > 0$:
 
