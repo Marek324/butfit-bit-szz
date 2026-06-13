@@ -104,9 +104,9 @@ FPGA je programovatelné hradlové pole, které je kompromisem mezi pouze HW ře
 ## Kroky návrhu aplikací využívajících FPGA
 
 Pro návrh aplikací využívající FPGA se používá systém návrhu **shora dolů** (**Top-Down**). Začíná z celkového popisu problému a končí návrhem s úplnou mírou detailů jeho částí - **dekompozice** a začlenění do celku. Na každé úrovni abstrakce je potřeba **verifikovat správnou** funkci navrhovaného systému. Dekompozicí vzniknou **jednoduše realizovatelné komponenty** (sčítačka, posuvný registr, násobička, čítač, …), které lze popsat ve VHDL nebo Verilog. Např. zpracování obrazu:
+![[media/szz-10/media/image9.png]]
 
 ### Metodologie návrhu na úrovni meziregistrových přesunů (RT)
-![[media/szz-10/media/image9.png]]
 
 Návrh je vhodné rozdělit do několika kroků:
 
