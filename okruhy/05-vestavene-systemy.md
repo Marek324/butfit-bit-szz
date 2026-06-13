@@ -234,8 +234,9 @@ Převádí **analogový** (spojitý) signál na **digitální** (diskrétní - *
   - Pokud je Vin **poloviční** jako Vref, bude v **log. 1** spodní polovina výstupů z komparátorů.
   - Pokud je Vin **nulové**, nebude v **log. 1** **žádný** komparátor.
   - Pokud je Vin **rovné nebo větší** Vref, budou v **log. 1** všechny výstupy komparátorů.
-- **Aproximační ADC**: Jedná se o **sekvenční** obvod, měřené napětí musí být **navzorkováno** a poté až probíhá převod. Funguje na principu binárního vyhledávání (**půlení intervalů**) správné hodnoty napětí, pracuje ale s lineární časovou složitostí **$O(N)$**, kde **N** je počet převáděných bitů (musí se zkontrolovat každý). Je tvořen:
 ![[media/szz-05/media/image9.png]]
+
+- **Aproximační ADC**: Jedná se o **sekvenční** obvod, měřené napětí musí být **navzorkováno** a poté až probíhá převod. Funguje na principu binárního vyhledávání (**půlení intervalů**) správné hodnoty napětí, pracuje ale s lineární časovou složitostí **$O(N)$**, kde **N** je počet převáděných bitů (musí se zkontrolovat každý). Je tvořen:
 
   - **Sample and hold** **obvod**: navzorkuje napětí na začátku převodu a poté jej drží beze změny až do jeho konce,
   - **DA převodník**: převádí aktuální **odhad** napětí z binární hodnoty na napětí,
