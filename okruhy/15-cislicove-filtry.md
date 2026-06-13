@@ -181,27 +181,29 @@ Přenosovou funkci lze získat z IR pomocí Laplaceovy transformace a IR lze zí
 ### Region of Convergence
 ![[media/szz-15/media/image29.png]]
 
-<u>[Z Transform Region of Convergence
-Explained](https://youtu.be/uq_qv3Spzbs)[Laplace Transform Region of Convergence Explained](https://youtu.be/SexBL1OlhhU)</u>
-
-### Stabilita
 ![[media/szz-15/media/image30.png]]
 
 ![[media/szz-15/media/image3.png]]
 
 ![[media/szz-15/media/image8.png]]
 
+<u>[Z Transform Region of Convergence
+Explained](https://youtu.be/uq_qv3Spzbs)[Laplace Transform Region of Convergence Explained](https://youtu.be/SexBL1OlhhU)</u>
+
+### Stabilita
+![[media/szz-15/media/image39.png]]
+
 [<u>How do Poles and Zeros affect the Laplace Transform and the Fourier Transform?</u>](https://youtu.be/iP4fckfDNK8)
 
 [<u>Frequency Response Magnitude and Poles and Zeros</u>](https://youtu.be/8jNjVkoZQCU)
 
 ## Frekvenční charakteristika
-![[media/szz-15/media/image39.png]]
+![[media/szz-15/media/image38.png]]
 
 **Frekvenční charakteristika** popisuje/definuje systém **ve frekvenční doméně**, stejně jako **impulsní odezva** jej charakterizuje v **časové doméně**. Graficky ji vynášíme ve dvou grafech jako **amplitudovou charakteristiku** **\|H(⍵)\|** (jak filtr zeslabuje/zesiluje) a **fázovou** **charakteristiku arg(H(⍵))** (jak filtr posouvá). Frekvenční charakteristika je přenosová funkce (z-transformace) vyhodnocená pro **z = $e^{j\*omega}$**, tedy pro DTFT.
 
 ### Dělení frekvenčních charakteristik
-![[media/szz-15/media/image38.png]]
+![[media/szz-15/media/image11.png]]
 
 - **Dolní propusť** - filtr, který **propouští nízké** frekvence.
 - **Horní propusť** - filtr, který **propouští vysoké** frekvence.
@@ -209,7 +211,6 @@ Explained](https://youtu.be/uq_qv3Spzbs)[Laplace Transform Region of Convergence
 - **Pásmová zádrž** - filtr, který **nepropouští** signál **určitých** frekvencí.
 
 ## Filtr
-![[media/szz-15/media/image11.png]]
 
 **Filtr** je lineárně časově invariantní (**LTI**) systém, který upravuje signál **ve frekvenční oblasti**. Je charakterizován **impulsní odezvou**. Výstup se získá konvolucí vstupu filtru s jeho impulsní odezvou. Lze implementovat pomocí diferenční rovnice.
 
