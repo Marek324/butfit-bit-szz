@@ -124,10 +124,18 @@ Klopné obvodu dělíme na:
 ### Bistabilní klopné obvody
 
 - **SET klopný obvod** - velmi jednoduchý, ale prakticky nepoužitelný. Nelze překlopit zpět ze stavu v **log. 1**. Produkuje **Moorův výstup**.
-- **R-S klopný obvod** (reset-set)
 ![[media/szz-03/media/image30.png]]
 
 ![[media/szz-03/media/image36.png]]
+
+- **R-S klopný obvod** (reset-set)
+![[media/szz-03/media/image8.png]]
+
+![[media/szz-03/media/image32.png]]
+
+![[media/szz-03/media/image18.png]]
+
+![[media/szz-03/media/image37.png]]
 
   - Přivedení **log. 1** na vstup **R** (reset) nastaví na výstupu **log. 0**.
   - Přivedení **log. 1** na vstup **S** (set) nastaví na výstup **log. 1**.
@@ -137,35 +145,27 @@ Klopné obvodu dělíme na:
 
 ![[media/szz-03/media/image31.png]]
 
-![[media/szz-03/media/image18.png]]
-
 ![[media/szz-03/media/image35.png]]
 
-![[media/szz-03/media/image37.png]]
-
-![[media/szz-03/media/image8.png]]
-
-![[media/szz-03/media/image32.png]]
-
 - **J-K klopný obvod (J** odpovídá **S, K** odpovídá **R)** - Zavádí zpětnou vazbu, která eliminuje zakázanou kombinaci. V případě, že jsou oba vstupy v **log. 1**, dochází ke **změně aktuální hodnoty na výstupu** (překlop - toggle).
-- **T** (toggle) **klopný obvod** - Jedná se o **J-K** klopný obvod, který na oba vstupy posílá jednu hodnotu **T**. Pokud je **T** v **log. 0**, na výstupu zůstává aktuální hodnota, pokud je na vstupu **log. 1**, dochází k překlopení aktuální hodnoty na výstupu. Držení **log 1.** na vstupu **T** (a případně vstupu **C**) způsobí oscilování, změny log. 1 a log. 0.
-![[media/szz-03/media/image17.png]]
-
 ![[media/szz-03/media/image23.png]]
 
--
-![[media/szz-03/media/image20.png]]
-**D** (data) **klopný obvod** - Jedná se **R-S** klopný obvod, který posílá na vstup **S** hodnotu **D** a na vstup **R** její negaci **not D**. Nemůže takto vzniknout nepovolený stav (**R** a **S** nikdy nebude současně v **log. 1**). Na výstup posílá hodnotu na vstupu (vytváří tedy zpoždění).
-![[media/szz-03/media/image27.png]]
+![[media/szz-03/media/image17.png]]
 
+- **T** (toggle) **klopný obvod** - Jedná se o **J-K** klopný obvod, který na oba vstupy posílá jednu hodnotu **T**. Pokud je **T** v **log. 0**, na výstupu zůstává aktuální hodnota, pokud je na vstupu **log. 1**, dochází k překlopení aktuální hodnoty na výstupu. Držení **log 1.** na vstupu **T** (a případně vstupu **C**) způsobí oscilování, změny log. 1 a log. 0.
 ![[media/szz-03/media/image11.png]]
 
-- **D klopný obvod s povolovacím vstupem** - Narozdíl od jednoduchého **D** klopného obvodu, zde dochází ke **změně hodnoty** na výstupu, **jen** pokud je aktivní vstup **C** (pokud je C v **log. 0**, na výstupu setrvává nastavená hodnota).
+![[media/szz-03/media/image20.png]]
 
-## Dvoufázové bistabilní klopné obvody
+- **D** (data) **klopný obvod** - Jedná se **R-S** klopný obvod, který posílá na vstup **S** hodnotu **D** a na vstup **R** její negaci **not D**. Nemůže takto vzniknout nepovolený stav (**R** a **S** nikdy nebude současně v **log. 1**). Na výstup posílá hodnotu na vstupu (vytváří tedy zpoždění).
+![[media/szz-03/media/image27.png]]
+
+- **D klopný obvod s povolovacím vstupem** - Narozdíl od jednoduchého **D** klopného obvodu, zde dochází ke **změně hodnoty** na výstupu, **jen** pokud je aktivní vstup **C** (pokud je C v **log. 0**, na výstupu setrvává nastavená hodnota).
 ![[media/szz-03/media/image26.png]]
 
 ![[media/szz-03/media/image5.png]]
+
+## Dvoufázové bistabilní klopné obvody
 
 Využívají se v **synchronních obvodech**, které jsou řízeny hodinami **CLK**. Mohou být typu **Master-Slave** nebo **Derivační**.
 
@@ -241,8 +241,10 @@ Postup: [<u>3-Bit & 4-bit Up/Down Synchronous Counter</u>](https://youtu.be/svFU
 V **log. 1** je vždy pouze jeden **D** klopný obvod, výstup kaskády je přiveden na vstup. Pro N klopných obvodů je délka posloupnosti N.
 
 ![[media/szz-03/media/image4.png]]
-Čítač v Johnsonově kódu
+
 ![[media/szz-03/media/image12.png]]
+
+Čítač v Johnsonově kódu
 
 Opět čítá pomocí **D** klopných obvodů, **negovaný** výstup kaskády je přiveden na vstup. Pro N klopných obvodů je délka posloupnosti 2N
 ![[media/szz-03/media/image34.png]]
