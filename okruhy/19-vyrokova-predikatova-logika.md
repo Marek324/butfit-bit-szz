@@ -106,13 +106,13 @@ V následujících bodech uvažujeme ohodnocení proměnných $I : X \to \{0, 1\
 - **I nesplňuje ϕ** ($I \not\models \varphi$): zjišťujeme na základě daného ohodnocení proměnných **I** formule **ϕ**. Pokud je pro toto ohodnocení hodnota **ϕ 0**, není **I** modelem formule **ϕ** a formuli nesplňuje.
 - **neplatnost** ($\not\models \varphi$): formule **ϕ** je neplatná, pokud existuje **ohodnocení** proměnných, které ji **nesplňuje**. Pomocí pravdivostní tabulky takovou formuli poznáme tak, že v posledním sloupci (sloupec s **ϕ**) je **alespoň** **jedna hodnota 0**.
 - **nesplnitelnost, kontradikce**: formule je nesplnitelná, pokud **není splnitelná**, tj. ve sloupci s **ϕ** pravdivostní tabulky jsou **samé** **0**.
-
-## Logická ekvivalence a logický důsledek
-![[media/szz-19/media/image9.png]]
+![[media/szz-19/media/image23.png]]
 
 ![[media/szz-19/media/image10.png]]
 
-![[media/szz-19/media/image23.png]]
+![[media/szz-19/media/image9.png]]
+
+## Logická ekvivalence a logický důsledek
 
 - **logická ekvivalence**: Dvě formule **ϕ** a **ψ** jsou (logicky) **ekvivalentní**, zapisováno **ϕ ⇔ ψ**, pokud pro **všechna ohodnocení** proměnných **I** platí, že **I** je modelem (splňuje) **ϕ** právě tehdy, když **I** je modelem (splňuje) **ψ**.
 ![[media/szz-19/media/image33.png]]
@@ -146,9 +146,9 @@ Jedná se o literály (proměnné nebo negace proměnných) spojené konjunkcemi
 Postup převodu obecné formule na formuli v NNF:
 
 1. **Přepíšeme** postupně všechny **bikondicionály ↔** ve formuli **za implikace**.
-2. **Přepíšeme** postupně všechny **implikace →** ve formuli **za negaci a disjunkci**.
 ![[media/szz-19/media/image3.png]]
 
+2. **Přepíšeme** postupně všechny **implikace →** ve formuli **za negaci a disjunkci**.
 ![[media/szz-19/media/image26.png]]
 
 3. Pomocí **De Morganových** zákonů postupně **přesuneme negaci** co **nejhlouběji**.
@@ -177,12 +177,13 @@ Formule je v CNF (product of sums, PoS) v případě, že je zapsána jako konju
 ![[media/szz-19/media/image14.png]]
 
 Příklady formulí v CNF:
+![[media/szz-19/media/image21.png]]
 
 Postup převodu obecné formule na formuli v CNF:
-![[media/szz-19/media/image21.png]]
 
 1. Převedeme obecnou formuli na formuli v NNF.
 2. Formuli v NNF převedeme do tvaru, kde jsou všechny **disjunkce pod konjunkcemi** pomocí **distributivního zákona**.
+![[media/szz-19/media/image29.png]]
 
 ## Systémy logických spojek
 ![[media/szz-19/media/image6.png]]
@@ -202,7 +203,6 @@ Další logické spojky:
 > x ↑ y ⇐def⇒ ¬(x ∧ y).
 
 Ne všechny zavedené logické spojky jsou nezbytné. Systém logických spojek S je nějaká podmnožina logických spojek, např. S = {→, ∧, 1}. Budeme používat označení $\Phi_S$ pro množinu všech formulí, které lze vytvořit pomocí spojek z S (a proměnných z X a závorek). Systém spojek S je úplný, pokud pro každou formuli výrokové logiky $\varphi \in \Phi_{VL}$ existuje formule $\varphi_S \in \Phi_S$ taková, že $\varphi \Leftrightarrow \varphi_S$.
-![[media/szz-19/media/image29.png]]
 
 Příklady úplných a neúplných systémů spojek:
 
@@ -230,20 +230,20 @@ Oproti výrokové logice **poskytuje** predikátová logika mnohem bohatší vyj
 - **termy**:
   - Je-li **x** proměnná (**x ∈ X**), pak řetězec **“x”** je **term**.
   - Je-li **f** funkční symbol s aritou **n** a **t1, . . . ,tn** jsou **termy**, pak i řetězec **„f(t1, . . . ,tn)“** je term.
-- **formule**:
 ![[media/szz-19/media/image19.png]]
 
+- **formule**:
   - Je-li **p** predikátový symbol s aritou **n** a **t1, . . . ,tn** jsou **termy**, potom je řetězec **„p(t1, . . . ,tn)“** **formule** (toto platí i pro „vestavěný“ binární predikátový symbol **=**). Formuli tohoto tvaru říkáme **atomická formule**.
   - Jsou-li **ϕ** a **ψ** **formule**, pak jsou **formule** i řetězce **„(¬ϕ)“**, **„(ϕ ∧ ψ)“**, **„(ϕ ∨ ψ)“**, **„(ϕ → ψ)“** a **„(ϕ ↔ ψ)“**.
   - Je-li **ϕ** formule a **x ∈ X** **proměnná**, pak jsou formule i řetězce **„(∃xϕ)“** a **„(∀xϕ)“**.
-
-## Syntaxe predikátové logiky
 ![[media/szz-19/media/image18.png]]
 
+## Syntaxe predikátové logiky
+
 Syntax predikátové logiky tvoří abeceda a gramatika (viz výše). Navíc funkční a predikátové symboly nejsou **pevně zafixovány**, ale lze je chápat jako *parametr* jazyka, který si volíme podle toho, co **chceme** v logice **vyjádřit**. Jedná se o signaturu jazyka predikátové logiky, která je dána jako dvojice **\<množina funkčních symbolů, množina predikátových symbolů\>**. Příklady jazyků predikátové logiky.
+![[media/szz-19/media/image1.png]]
 
 ## Vázané proměnné
-![[media/szz-19/media/image1.png]]
 
 Výskyt proměnné je ve formuli vázaný, pokud se nachází v **oboru platnosti** kvantifikátoru ∃ nebo ∀. Pokud je výskyt proměnné vázaný, pak je vázaný **nejbližším** kvantifikátorem nad sebou. Příklad oborů platnosti jednotlivých kvantifikátorů:
 ![[media/szz-19/media/image12.png]]
@@ -280,11 +280,10 @@ pokud **x** nenáleží FREE\[φ\] znamená, že operaci lze provést jen tehdy,
 Základní normální forma v predikátové logice je tzv. **prenexní normální** **forma**. Tato forma slouží jako **základ** pro mnoho dalších úprav formulí, jako je například Skolemizace (odstranění existenčních kvantifikátorů zavedením nových funkčních symbolů).
 
 Formule φ je v prenexní normální formě (PNF), pokud začíná prefixem kvantifikátorů, za nímž následuje formule bez kvantifikátorů, tj. má následující tvar:
+![[media/szz-19/media/image11.png]]
 
 kde $Q_1, \dots, Q_k \in \{\exists, \forall\}$, $x_1, \dots, x_k \in X$ a $\psi$ je formule bez kvantifikátorů. Postup:
 ![[media/szz-19/media/image4.png]]
-
-![[media/szz-19/media/image11.png]]
 
 ## Zdroje
 
