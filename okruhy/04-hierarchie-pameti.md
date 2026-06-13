@@ -186,9 +186,9 @@ Je dána zvoleným mapováním. Účel organizace RVP je především co nejvíc
 ![[media/szz-04/media/image2.png]]
 
 Pravděpodobnost výpadku lze samozřejmě nejlépe snížit **zvýšením kapacity** RVP, ale také lze snížit určením vhodné **velikosti bloku**. Větší blok znamená menší objem paměti celkové RVP (nemusí se ukládat tolik adres, lze víc místa použít pro data)
+![[media/szz-04/media/image4.png]]
 
 U vícecestných RVP se musí také řešit problém výběru oběti, pokud je RVP pro daný ukazatel (adresu) plná (všechny bloku jsou označeny jako **validní**). Používají se metody jako náhodný výběr, LRU, MFU, FIFO atd. Obecně tyto metody vyžadují další logiku (obvody).
-![[media/szz-04/media/image4.png]]
 
 - **Skupinově asociativní mapování** - Kompromis mezi přímým a plně asociativním mapováním. Paměť je rozdělena do skupin, kde každá skupina obsahuje stejný počet bloků. Adresa skupiny je vyhledávána přímo, blok v ní pak asociativně.
 - **Sektorové mapování** - Hlavní paměť je rozdělena do sektorů, které mají několik bloků. Cache je také rozdělena do sektorů o několika blocích. Sektor hlavní paměti může být uložen do libovolného sektoru v cache, ale bloky musí být v sektoru shodné. Při přenosu bloku do cache jsou tedy staré bloky označeny za neplatné (příznakovým bitem) a je tam blok vložen.
