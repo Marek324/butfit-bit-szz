@@ -2,7 +2,7 @@
 title: Kryptografie × autentizace (primitiva a jejich použití)
 category: synthesis
 tags: [security, networking, web]
-sources: ["okruhy/44-smerovani-zabezpeceni-siti.md", "okruhy/37-webova-rozhrani-autentizace.md", "okruhy/42-sluzby-aplikacni-vrstvy.md"]
+sources: ["topics/44-smerovani-zabezpeceni-siti.md", "topics/37-webova-rozhrani-autentizace.md", "topics/42-sluzby-aplikacni-vrstvy.md"]
 summary: Kryptografická primitiva z okruhu 44 (hash, sym/asym šifra, podpis, certifikát) se 1:1 promítají do webových mechanismů z okruhu 37 (JWT, TLS, OAuth) a do zabezpečení e-mailu z 42 (PGP).
 provenance:
   extracted: 0.2
@@ -19,7 +19,7 @@ updated: 2026-06-03T19:45:00Z
 
 ## Spojení
 
-[[okruhy/44-smerovani-zabezpeceni-siti|Okruh 44]] staví **primitiva** (co kryptografie umí), [[okruhy/37-webova-rozhrani-autentizace|okruh 37]] je **aplikuje** (jak se to používá na webu), [[okruhy/42-sluzby-aplikacni-vrstvy|okruh 42]] je používá pro e-mail/HTTPS:
+[[topics/44-smerovani-zabezpeceni-siti|Okruh 44]] staví **primitiva** (co kryptografie umí), [[topics/37-webova-rozhrani-autentizace|okruh 37]] je **aplikuje** (jak se to používá na webu), [[topics/42-sluzby-aplikacni-vrstvy|okruh 42]] je používá pro e-mail/HTTPS:
 
 - **44** — symetrická/asymetrická šifra, kryptografický **hash**, **digitální podpis**, **certifikáty** a řetězec důvěry, integrita, ochrana proti přehrání.
 - **37** — **JWT** (podepsaný token), **TLS** (výměna klíčů + šifrování), cookies, **OAuth**, SSO.
@@ -51,6 +51,6 @@ Klíčový rozdíl, který musíš udržet stejně v 44 i 37: **hash ≠ šifra 
 
 ## Související
 
-- [[okruhy/44-smerovani-zabezpeceni-siti]]
-- [[okruhy/37-webova-rozhrani-autentizace]]
-- [[okruhy/42-sluzby-aplikacni-vrstvy]]
+- [[topics/44-smerovani-zabezpeceni-siti]]
+- [[topics/37-webova-rozhrani-autentizace]]
+- [[topics/42-sluzby-aplikacni-vrstvy]]

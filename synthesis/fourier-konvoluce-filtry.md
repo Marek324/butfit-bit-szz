@@ -2,7 +2,7 @@
 title: Spektrální analýza × konvoluce × číslicové filtry
 category: synthesis
 tags: [dsp, signals, fourier]
-sources: ["okruhy/14-spektralni-analyza.md", "okruhy/15-cislicove-filtry.md"]
+sources: ["topics/14-spektralni-analyza.md", "topics/15-cislicove-filtry.md"]
 summary: Spektrální analýza a číslicové filtry jsou dvě poloviny jednoho příběhu spojené konvolučním teorémem; FFT je to, co celý vztah dělá prakticky použitelným.
 provenance:
   extracted: 0.2
@@ -19,7 +19,7 @@ updated: 2026-06-03T19:30:00Z
 
 ## Spojení
 
-[[okruhy/14-spektralni-analyza|Okruh 14]] (spektrální analýza) a [[okruhy/15-cislicove-filtry|okruh 15]] (číslicové filtry) se na první pohled učí zvlášť, ale jsou to **dvě poloviny téhož**, slepené **konvolučním teorémem**:
+[[topics/14-spektralni-analyza|Okruh 14]] (spektrální analýza) a [[topics/15-cislicove-filtry|okruh 15]] (číslicové filtry) se na první pohled učí zvlášť, ale jsou to **dvě poloviny téhož**, slepené **konvolučním teorémem**:
 
 - **Impulsní odezva h[n]** plně definuje LTI filtr v **časové** doméně (okruh 15).
 - Její **Fourierova/Z-transformace** je **frekvenční charakteristika / přenosová funkce** — týž filtr ve **frekvenční** doméně.
@@ -49,5 +49,5 @@ updated: 2026-06-03T19:30:00Z
 
 ## Související
 
-- [[okruhy/14-spektralni-analyza]]
-- [[okruhy/15-cislicove-filtry]]
+- [[topics/14-spektralni-analyza]]
+- [[topics/15-cislicove-filtry]]

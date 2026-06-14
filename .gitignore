@@ -4,10 +4,8 @@
 # --- Strojově specifická konfigurace (absolutní cesty) ---
 .env
 
-# --- Obsidian: sdílíme nastavení, ale ne per-user UI stav ---
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/cache
+# --- Obsidian: lokální konfigurace vaultu (neverzujeme) ---
+.obsidian/
 .trash/
 
 # --- Původní zdrojové docx (47 MB binárek, jen vstup; wiki je odvozená) ---

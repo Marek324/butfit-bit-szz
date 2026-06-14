@@ -2,7 +2,7 @@
 title: Transakce a ACID — databáze × operační systém
 category: synthesis
 tags: [databases, operating-systems, concurrency]
-sources: ["okruhy/36-relacni-data-sql-transakce.md", "okruhy/38-sprava-souboru-pameti.md", "okruhy/39-planovani-synchronizace-procesu.md"]
+sources: ["topics/36-relacni-data-sql-transakce.md", "topics/38-sprava-souboru-pameti.md", "topics/39-planovani-synchronizace-procesu.md"]
 summary: Pojem transakce přechází mezi databází a OS, ale ACID plně platí jen v DB; atomicita je přenositelné jádro, kdežto trvalost a konzistence se nepřenášejí čistě. Žurnálování je znovupoužitý DB write-ahead log.
 provenance:
   extracted: 0.2
@@ -21,9 +21,9 @@ updated: 2026-06-03T19:30:00Z
 
 „Transakce" se objevuje ve třech okruzích, ale **ACID v plné síle platí jen v jednom**:
 
-- **[[okruhy/36-relacni-data-sql-transakce|okruh 36]]** — databázová transakce = plné **ACID** (Atomicity, Consistency, Isolation, Durability); BEGIN/COMMIT/ROLLBACK.
-- **[[okruhy/39-planovani-synchronizace-procesu|okruh 39]]** — transakce na úrovni **OS** (skupina operací jako celek); sám okruh upozorňuje, že definice ACID „**nemusí být přesná**" — např. trvalost (durability) u přepnutí kontextu nezajistíme.
-- **[[okruhy/38-sprava-souboru-pameti|okruh 38]]** — zápis na disk přes **žurnálování** (REDO/UNDO) — týž princip jako zotavení DB.
+- **[[topics/36-relacni-data-sql-transakce|okruh 36]]** — databázová transakce = plné **ACID** (Atomicity, Consistency, Isolation, Durability); BEGIN/COMMIT/ROLLBACK.
+- **[[topics/39-planovani-synchronizace-procesu|okruh 39]]** — transakce na úrovni **OS** (skupina operací jako celek); sám okruh upozorňuje, že definice ACID „**nemusí být přesná**" — např. trvalost (durability) u přepnutí kontextu nezajistíme.
+- **[[topics/38-sprava-souboru-pameti|okruh 38]]** — zápis na disk přes **žurnálování** (REDO/UNDO) — týž princip jako zotavení DB.
 
 ## Kde se potkávají
 
@@ -38,7 +38,7 @@ Okruh 39 explicitně srovnává OS transakci s databázovou ACID a říká, kde 
 - **Consistency** ve smyslu *významu dat* nedokáže OS posoudit (okruh 38 zajistí jen, že **bity** jsou zapsané přesně) — sémantickou konzistenci hlídá až aplikace/DB.
 - **Žurnálování** souborového systému (38) je doslova znovupoužitý nápad DB recovery (36): zapiš záměr do logu, pak teprve data; po pádu REDO/UNDO. ^[inferred]
 
-Souvislost se [[okruhy/39-planovani-synchronizace-procesu|synchronizací]]: izolace (I) v DB je tatáž starost jako **kritická sekce / race condition** u procesů — souběžný přístup ke sdílenému stavu se řeší vzájemným vyloučením v obou světech. ^[inferred]
+Souvislost se [[topics/39-planovani-synchronizace-procesu|synchronizací]]: izolace (I) v DB je tatáž starost jako **kritická sekce / race condition** u procesů — souběžný přístup ke sdílenému stavu se řeší vzájemným vyloučením v obou světech. ^[inferred]
 
 ## Napětí a kompromisy
 
@@ -51,6 +51,6 @@ Souvislost se [[okruhy/39-planovani-synchronizace-procesu|synchronizací]]: izol
 
 ## Související
 
-- [[okruhy/36-relacni-data-sql-transakce]]
-- [[okruhy/39-planovani-synchronizace-procesu]]
-- [[okruhy/38-sprava-souboru-pameti]]
+- [[topics/36-relacni-data-sql-transakce]]
+- [[topics/39-planovani-synchronizace-procesu]]
+- [[topics/38-sprava-souboru-pameti]]

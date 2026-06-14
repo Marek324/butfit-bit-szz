@@ -2,7 +2,7 @@
 title: Konečné automaty × hardware × jazyky × překladače
 category: synthesis
 tags: [theory, automata, computer-architecture, compilers]
-sources: ["okruhy/03-sekvencni-logicke-obvody.md", "okruhy/10-fpga-vhdl.md", "okruhy/21-regularni-jazyky.md", "okruhy/22-bezkontextove-jazyky.md", "okruhy/23-struktura-prekladace.md"]
+sources: ["topics/03-sekvencni-logicke-obvody.md", "topics/10-fpga-vhdl.md", "topics/21-regularni-jazyky.md", "topics/22-bezkontextove-jazyky.md", "topics/23-struktura-prekladace.md"]
 summary: Konečný automat je jeden matematický objekt, který se vrací ve čtyřech okruzích jako sekvenční obvod, akceptor regulárních jazyků, scanner a řídicí automat — a jeho hranice určuje fáze překladače.
 provenance:
   extracted: 0.2
@@ -21,11 +21,11 @@ updated: 2026-06-03T19:30:00Z
 
 Konečný automat **M = (Q, Σ, …)** není „téma jednoho okruhu" — je to **jeden a tentýž objekt**, který se v různých okruzích objevuje v jiném kabátě:
 
-- **[[okruhy/03-sekvencni-logicke-obvody|okruh 3]]** — FSM jako **hardware**: Mealy/Moore automat = registr stavu (klopné obvody) + kombinační next-state logika.
-- **[[okruhy/21-regularni-jazyky|okruh 21]]** — FSM jako **akceptor jazyka**: DFA/NFA rozpoznávající regulární jazyk; přesně tatáž pětice.
-- **[[okruhy/23-struktura-prekladace|okruh 23]]** — FSM jako **scanner**: lexikální analýza je implementace DKA (switch ve while cyklu).
-- **[[okruhy/10-fpga-vhdl|okruh 10]]** — FSM jako **řídicí automat** datové cesty v RT metodologii návrhu FPGA.
-- **[[okruhy/22-bezkontextove-jazyky|okruh 22]]** — FSM **rozšířený o zásobník** = zásobníkový automat (viz [[synthesis/zasobnik-napric-obory]]).
+- **[[topics/03-sekvencni-logicke-obvody|okruh 3]]** — FSM jako **hardware**: Mealy/Moore automat = registr stavu (klopné obvody) + kombinační next-state logika.
+- **[[topics/21-regularni-jazyky|okruh 21]]** — FSM jako **akceptor jazyka**: DFA/NFA rozpoznávající regulární jazyk; přesně tatáž pětice.
+- **[[topics/23-struktura-prekladace|okruh 23]]** — FSM jako **scanner**: lexikální analýza je implementace DKA (switch ve while cyklu).
+- **[[topics/10-fpga-vhdl|okruh 10]]** — FSM jako **řídicí automat** datové cesty v RT metodologii návrhu FPGA.
+- **[[topics/22-bezkontextove-jazyky|okruh 22]]** — FSM **rozšířený o zásobník** = zásobníkový automat (viz [[synthesis/zasobnik-napric-obory]]).
 
 ## Kde se potkávají
 
@@ -47,13 +47,13 @@ Jinými slovy: **LA = konečný automat, SA = zásobníkový automat** není ná
 
 ## Otevřené otázky
 
-- Kde přesně leží UML stavový diagram ([[okruhy/34-uml|okruh 34]]) na této ose — je to jen vizualizace Mealy/Moore, nebo přidává sémantiku navíc?
+- Kde přesně leží UML stavový diagram ([[topics/34-uml|okruh 34]]) na této ose — je to jen vizualizace Mealy/Moore, nebo přidává sémantiku navíc?
 
 ## Související
 
-- [[okruhy/03-sekvencni-logicke-obvody]]
-- [[okruhy/21-regularni-jazyky]]
-- [[okruhy/22-bezkontextove-jazyky]]
-- [[okruhy/23-struktura-prekladace]]
-- [[okruhy/10-fpga-vhdl]]
+- [[topics/03-sekvencni-logicke-obvody]]
+- [[topics/21-regularni-jazyky]]
+- [[topics/22-bezkontextove-jazyky]]
+- [[topics/23-struktura-prekladace]]
+- [[topics/10-fpga-vhdl]]
 - [[synthesis/zasobnik-napric-obory]]

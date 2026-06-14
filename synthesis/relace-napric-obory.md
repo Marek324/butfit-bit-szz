@@ -2,7 +2,7 @@
 title: Relace × graf × tabulka (jeden objekt, tři obory)
 category: synthesis
 tags: [math, discrete-math, graph-theory, databases]
-sources: ["okruhy/16-mnoziny-relace-zobrazeni.md", "okruhy/25-teorie-grafu.md", "okruhy/36-relacni-data-sql-transakce.md"]
+sources: ["topics/16-mnoziny-relace-zobrazeni.md", "topics/25-teorie-grafu.md", "topics/36-relacni-data-sql-transakce.md"]
 summary: „Relace = podmnožina kartézského součinu" je jediná definice, která se vrací jako relace v diskrétní matematice, jako graf v teorii grafů a jako tabulka v relačním modelu.
 provenance:
   extracted: 0.2
@@ -21,9 +21,9 @@ updated: 2026-06-03T19:45:00Z
 
 Tatáž věta — **„relace je podmnožina kartézského součinu"** — je základem tří různých okruhů:
 
-- **[[okruhy/16-mnoziny-relace-zobrazeni|okruh 16]]** — binární relace **R ⊆ A×B**; vlastnosti (reflexivní, symetrická, tranzitivní); **ekvivalence** a **uspořádání**.
-- **[[okruhy/25-teorie-grafu|okruh 25]]** — graf **JE relace** na vrcholech (hrany ⊆ V×V); relace „spojeno sledem" je **ekvivalence** → komponenty souvislosti.
-- **[[okruhy/36-relacni-data-sql-transakce|okruh 36]]** — relace v DB **JE podmnožina kartézského součinu domén** = **tabulka**.
+- **[[topics/16-mnoziny-relace-zobrazeni|okruh 16]]** — binární relace **R ⊆ A×B**; vlastnosti (reflexivní, symetrická, tranzitivní); **ekvivalence** a **uspořádání**.
+- **[[topics/25-teorie-grafu|okruh 25]]** — graf **JE relace** na vrcholech (hrany ⊆ V×V); relace „spojeno sledem" je **ekvivalence** → komponenty souvislosti.
+- **[[topics/36-relacni-data-sql-transakce|okruh 36]]** — relace v DB **JE podmnožina kartézského součinu domén** = **tabulka**.
 
 ## Kde se potkávají
 
@@ -44,11 +44,11 @@ Okruh 25 sám říká, že graf je speciální případ binární relace; okruh 
 
 ## Otevřené otázky
 
-- Jak se *zobrazení/funkce* (16, speciální relace s nejvýše jedním obrazem) promítá do DB (funkční závislost, [[okruhy/35-konceptualni-modelovani-db|normalizace]])?
+- Jak se *zobrazení/funkce* (16, speciální relace s nejvýše jedním obrazem) promítá do DB (funkční závislost, [[topics/35-konceptualni-modelovani-db|normalizace]])?
 
 ## Související
 
-- [[okruhy/16-mnoziny-relace-zobrazeni]]
-- [[okruhy/25-teorie-grafu]]
-- [[okruhy/36-relacni-data-sql-transakce]]
-- [[okruhy/35-konceptualni-modelovani-db]]
+- [[topics/16-mnoziny-relace-zobrazeni]]
+- [[topics/25-teorie-grafu]]
+- [[topics/36-relacni-data-sql-transakce]]
+- [[topics/35-konceptualni-modelovani-db]]

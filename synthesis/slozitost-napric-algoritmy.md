@@ -2,7 +2,7 @@
 title: Asymptotická složitost napříč algoritmy
 category: synthesis
 tags: [algorithms, complexity, theory]
-sources: ["okruhy/32-slozitost-algoritmu.md", "okruhy/25-teorie-grafu.md", "okruhy/26-reseni-uloh-prohledavani.md", "okruhy/30-vyhledavani-razeni.md"]
+sources: ["topics/32-slozitost-algoritmu.md", "topics/25-teorie-grafu.md", "topics/26-reseni-uloh-prohledavani.md", "topics/30-vyhledavani-razeni.md"]
 summary: Asymptotická složitost je společné měřítko, kterým se na stejné úrovni porovnávají řazení, grafové algoritmy i prohledávání; tytéž vzorce (cykly→polynom, rekurze→exponenciála) se opakují všude.
 provenance:
   extracted: 0.2
@@ -19,11 +19,11 @@ updated: 2026-06-03T19:45:00Z
 
 ## Spojení
 
-[[okruhy/32-slozitost-algoritmu|Okruh 32]] definuje aparát (O/Ω/Θ, P/NP, určování z cyklů a rekurze) — a ten **se používá jako jednotné měřítko v každém algoritmickém okruhu**:
+[[topics/32-slozitost-algoritmu|Okruh 32]] definuje aparát (O/Ω/Θ, P/NP, určování z cyklů a rekurze) — a ten **se používá jako jednotné měřítko v každém algoritmickém okruhu**:
 
-- **[[okruhy/30-vyhledavani-razeni|okruh 30]]** — řazení O(n²) vs. O(n log n), dolní mez porovnávacího řazení **O(n log n)**, vyhledávání O(log n)/O(1).
-- **[[okruhy/25-teorie-grafu|okruh 25]]** — Dijkstra O((V+E)·log V), Kruskal O(E·log V), BFS/DFS O(V+E).
-- **[[okruhy/26-reseni-uloh-prohledavani|okruh 26]]** — prohledávání s faktorem větvení **b^d**, kritéria úplnost/optimalita vedle složitosti.
+- **[[topics/30-vyhledavani-razeni|okruh 30]]** — řazení O(n²) vs. O(n log n), dolní mez porovnávacího řazení **O(n log n)**, vyhledávání O(log n)/O(1).
+- **[[topics/25-teorie-grafu|okruh 25]]** — Dijkstra O((V+E)·log V), Kruskal O(E·log V), BFS/DFS O(V+E).
+- **[[topics/26-reseni-uloh-prohledavani|okruh 26]]** — prohledávání s faktorem větvení **b^d**, kritéria úplnost/optimalita vedle složitosti.
 
 ## Kde se potkávají
 
@@ -52,8 +52,8 @@ Prostorová složitost přitom propojuje tento okruh se [[synthesis/zasobnik-nap
 
 ## Související
 
-- [[okruhy/32-slozitost-algoritmu]]
-- [[okruhy/25-teorie-grafu]]
-- [[okruhy/26-reseni-uloh-prohledavani]]
-- [[okruhy/30-vyhledavani-razeni]]
+- [[topics/32-slozitost-algoritmu]]
+- [[topics/25-teorie-grafu]]
+- [[topics/26-reseni-uloh-prohledavani]]
+- [[topics/30-vyhledavani-razeni]]
 - [[synthesis/zasobnik-napric-obory]]

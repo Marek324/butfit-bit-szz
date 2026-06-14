@@ -43,7 +43,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 HEADER = Path(__file__).resolve().parent / "pandoc-header.tex"
-OKRUHY = ROOT / "okruhy"
+OKRUHY = ROOT / "topics"
 SYNTHESIS = ROOT / "synthesis"
 BUILD = ROOT / "build"
 
