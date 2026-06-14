@@ -115,6 +115,7 @@ Jakmile zná každý směrovač celou topologii sítě, má sestavený **vážen
 [<u>Distance-Vector Routing Algorithm - IP Network Layer \| Computer Networks Ep. 5.2.2 \| Kurose & Ross</u>](https://youtu.be/1yt76zl5jcg)
 
 Jedná se o protokoly **Enhanced Interior Gateway Routing Protocol** (EIGRP) a **Routing Information Protocol** (RIP). Každý uzel (směrovač) komunikuje **pouze se svými sousedy** (směrovači, se kterými má přímé spojení). Směrovač tak na začátku algoritmu zná cestu pouze k sousedním směrovačů (do vzdálenosti 1) a zapíše ceny těchto cest do své směrovací tabulky, do zbytku sítě nevidí (na příkladech se to vyjadřuje nekonečným ohodnocením, v realitě ani neví, že tam něco existuje). Algoritmus je **iterativní**.
+![[media/szz-44/media/image3.png]]
 
 - **1. iterace**: směrovač (a všechny ostatní také) dostane směrovací tabulky od **sousedních** směrovačů, vidí tak už do **vzdálenosti 2**. Na základě získaných informací **aktualizují svou směrovací tabulku** (přidá **nově zviditelněné** směrovače a pokud se dokáže dostat přes jiný směrovač **rychleji** k uzlu, do kterého již cestu zná, aktualizuje i tuto cestu, stejně tak při zdražení cesty).
 - **2. iterace**: směrovač opět dostane směrovací tabulky od svých **sousedních** směrovačů, ty ale **mohou být jiné**, než při 1. iteraci (přibyly nově viditelné směrovače, zlevnili se některé cesty, zdražily se některé cesty). Směrovač opět aktualizuje svojí směrovací tabulku, už vidí do **vzdálenosti 3**.
@@ -130,10 +131,9 @@ Z výše uvedeného postupu plyne, že bude třeba **minimálně tolik iterací*
 Distance-Vector je **distribuovaný algoritmus**, je problematický, pokud nějaký router **lže** nebo **špatně počítá cenu** (hlásí cenu menší, než doopravdy je). Pak přes něj může být směřován provoz, který ale bude **pomalý** (a takový podvodný router může sledovat všechen provoz, který je přes něj kvůli tomu přenášen).
 
 ## Srovnání Link-State a Distance-Vector
-![[media/szz-44/media/image3.png]]
+![[media/szz-44/media/image6.png]]
 
 # Zabezpečení na síti
-![[media/szz-44/media/image6.png]]
 
 Zabezpečením sítě chceme zajistit, aby při komunikaci dvou systémů nedocházelo k:
 
