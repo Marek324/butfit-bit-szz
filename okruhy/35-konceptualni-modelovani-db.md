@@ -122,9 +122,9 @@ Spojují **entitní množiny** a vyjadřují vztahy mezi nimi.
 #### **Stupeň**
 
 Určuje, kolik je vztahem **propojeno entitních množin**.
+![[media/szz-35/media/image15.png]]
 
 #### **Kardinalita**
-![[media/szz-35/media/image15.png]]
 
 Udává **maximální počet vztahů** daného typu, ve kterých může **participovat jedna entita** (1, M, případně přesněji) z entitní množiny. Jedná se o vlastnost **každého “konce”** vztahu. **Pro návrh schématu databáze je rozhodující správné určení maximální kardinality.** Kardinalitu značíme znaky (0, 1, \*) nebo pomocí symbolů na obrázku (Crow’s foot notation).
 
@@ -133,20 +133,20 @@ Udává **maximální počet vztahů** daného typu, ve kterých může **partic
 #### **Atributy vztahu**
 
 **Rozvíjí vztah**, **v databázi** ale musí být uloženy **ve zvláštní vazební tabulce**. Převádíme je na následující tabulku (druhé schéma).
+![[media/szz-35/media/image12.png]]
 
 ### Slabé a silné entity
-![[media/szz-35/media/image10.png]]
+![[media/szz-35/media/image4.png]]
 
 - **silná entita** může existovat nezávisle na ostatních,
 - **slabá entita** je závislá na jiném **jednom dominantním** typu entity. Slabé entity jsou identifikovány **primárním klíčem silné entity** a **diskriminátorem** - dílčím klíčem. Primární klíč silné entity slouží jako **cizí klíč**. Nemohou existovat samy o sobě a při zániku dominantní entity také zanikají.
 
 ### Generalizace a specializace
-![[media/szz-35/media/image4.png]]
+![[media/szz-35/media/image10.png]]
 
 Vychází z principů OOP. Umožňuje rozšiřovat entity o **další atributy** (specializované entity) a současně **sdílet jiné** (obecná entita). Existovat sama o sobě může i obecná entita. Primární klíč odvozené (specializované) entity je **stejný** jako ten obecné.
 
 ### Jména/Názvy
-![[media/szz-35/media/image9.png]]
 
 - **srozumitelná**, musí vyjadřovat význam typů entit a vztahů,
 - **typ entit**: podstatná jména,
@@ -203,15 +203,15 @@ Schéma relace je v 1. normální formě, pokud její atributy obsahují pouze *
 ### 2. Normální forma
 
 Schéma relace (tabulka) je v druhé normální formě, pokud je v **1. NF** a **každý její neklíčový atribut je plně funkčně závislý na každém kandidátním klíči relace** (musí být závislý na všech atributech složeného klíče). Převod do 2. NF zajišťujeme rozdělením tabulky na více tabulek a propojením pomocí cizích klíčů. Na obrázku tímto **cizím klíčem** je **Č_ÚČTU**.
+![[media/szz-35/media/image2.png]]
 
 ### 3. Normální forma
-![[media/szz-35/media/image2.png]]
 
 Schéma relace je ve třetí normální formě, právě když je ve 2NF a **neexistuje žádný neklíčový atribut, který je tranzitivně závislý na některém kandidátním klíči relace.** Tranzitivní závislost je závislost mezi minimálně dvěma atributy a klíčem, kde **jeden atribut je funkčně závislý na klíči a druhý atribut je funkčně závislý na prvním atributu**. Řešíme tak, že vytvoříme novou tabulku s těmito atributy, kde první atribut je klíčem a v původní tabulce zůstane pouze první atribut jako cizí klíč do nové tabulky.
 ![[media/szz-35/media/image1.png]]
 
 transformujeme na:
-![[media/szz-35/media/image12.png]]
+![[media/szz-35/media/image9.png]]
 
 ![[media/szz-35/media/image11.png]]
 
