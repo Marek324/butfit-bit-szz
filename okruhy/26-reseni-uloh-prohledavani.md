@@ -412,9 +412,9 @@ Popis příkladu na obrázku:
 
 - žlutá čísla určují **pořadí** při vyhodnocování,
 - nepodbarvená čísla určují **ohodnocení α** a **β** a změny jejich ohodnocení,
+![[media/szz-26/media/image8.png]]
 
 ### ExpectiMiniMax (Hry s neurčitostí)
-![[media/szz-26/media/image8.png]]
 
 [<u>Games: Q2. Expectiminimax</u>](https://youtu.be/fY-9Kcf9ycI) [<u>AI U3 D5 Prababilistic Cut ExpectiMax AlphaBeta</u>](https://youtu.be/Z0CM1PrC5mA?t=244)
 
