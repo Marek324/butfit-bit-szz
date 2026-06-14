@@ -52,8 +52,8 @@ Zbylé dva flagy (okruhy **26, 27**) nejsou chyby, ale **poznámky k rozsahu** z
 
 ## PDF (k tisku / offline)
 
-> [!warning] Neudržováno
-> Tahle část mě nezajímá a **aktivně ji neudržuju** — skript ani návod nemusí odpovídat aktuálnímu stavu. Ber jako „funguje mi to lokálně", ne jako podporovanou cestu.
+> [!warning] Bez záruky
+> Tohle mi **fungovalo lokálně**, ale pořádně to neověřuju — nechce se mi to procházet. Takže klidně **může být něco rozbité**; ber to jako „takhle si to vyrábím já", ne jako prověřený postup.
 
 PDF se **negenerují automaticky ani neverzují** v repu — vyrobíš si je lokálně skriptem `scripts/build_pdf.py` (pandoc + LuaLaTeX). Výstup jde do `build/` (ignorováno gitem).
 
