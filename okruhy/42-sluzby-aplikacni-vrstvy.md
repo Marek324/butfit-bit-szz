@@ -80,9 +80,9 @@ Na základě požadavků aplikace může být aplikační protokol implementová
 
 - **UDP**: **DNS** (překlad doménových jmen na IP adresy), **TFTP** (přenos souborů), **SNMP** (správa sítě), **Netflow** (správa sítě), **NTP** (synchronizace času), **SIP** (signalizace VoIP), **RTP** (přenos zvuku a obrazu), **RTCP** (řídící informace pro RTP a QoS),
 - **TCP**: **HTTP** (webové stránky), **SMTP** (e-mailová komunikace), **LDAP** (adresářové služby, může být i přes UDP), **FTP** (přenos souborů), **POP3** (stahování el. pošty), **IMAP** (stahování a čtení el. pošty).
+![[media/szz-42/media/image13.png]]
 
 ### Adresa
-![[media/szz-42/media/image13.png]]
 
 **Způsob identifikace adresáta pomocí jednoznačné informace**.
 
@@ -413,9 +413,9 @@ Hlas je nejdříve nutné **navzorkovat** a poté navzorkovaná data **rozdělit
 - Pokud chceme vzorkovat **4 kHz** frekvenci, musíme vzorky vytvářet **2x** rychleji (Shannonův teorém) tzn. **8 kHz**. Řekněme, že jeden vzorek má 8 bitů (1 B). Za 1 sekundu budeme muset zpracovat **8000\*8 = 64 kb**. **Šířka pásma** tak bude **64 kb/s**.
 
 Tato šířka pásma bere v potaz pouze samotná data, v paketových sítích je musíme ale zapouzdřit. Na aplikační vrstvě je to protokol **Real-time Transport Protocol** (RTP), který je dále zapojen do **UDP**, **IP** a **Ethernetového rámce**. Data navíc nemůžeme posílat po příliš velkých kusech (problém se ztrátou a zpožděním). Obvykle se posílají data po **20-30 ms**, což může díky hlavičkám jednotlivých protokolů způsobit navýšení potřebné šířky pásma třeba až o polovinu.
+![[media/szz-42/media/image9.png]]
 
 ### Session Initiation Protocol (SIP)
-![[media/szz-42/media/image9.png]]
 
 Aplikační protokol nad UDP určený pro **signalizaci** VoIP (vytáčení atd.), neřeší přenos dat hovoru (k tomu se používá RTP). Zajišťuje:
 
@@ -464,9 +464,9 @@ IP telefonie je pomocí SIP **globální** (zahrnuje celý internet) a **distrib
 4. Probíhá hovor tj. přenos zvukových dat pomocí protokolů **RTP** a **RTCP**.
 5. Jeden z účastníků ukončí hovor zprávou **BYE** (peer-to-peer).
 6. Druhý odpovídá s **OK**.
+![[media/szz-42/media/image18.png]]
 
 ### Session Description Protocol (SDP)
-![[media/szz-42/media/image18.png]]
 
 Obsahuje **informace** potřebné pro **navázání datového spojení** pro přenos hlasu a videa (použité kodeky, bitrate, IP adresa spojení atd.). Protokol je zapouzdřen do SIP zpráv **INVITE** a **OK** při zahajování přenosu.
 
@@ -528,8 +528,9 @@ SNMP je protokol pro přenos informací o zařízeních na síti, pod pojmem SNM
 - **SNMP protokol**: **nestavový** protokol sloužící pro přenos informací o zařízeních na síti, jedná se o protokol typu request-response a existuje několik verzí **SNMP**, **SNMPv2** (přidává autentizaci), **SNMPv3** (přidává šifrování).
 ![[media/szz-42/media/image30.png]]
 
-### Monitorované objekty
 ![[media/szz-42/media/image2.png]]
+
+### Monitorované objekty
 
 Objekty jsou uspořádané do **skupin** v **databázi objektů MIB** (Management Information Base). Databáze MIB má stromovou strukturu:
 
@@ -558,9 +559,9 @@ Jedná se o binární kódování informací po za sebou jdoucích trojicích tv
 - **Length**: délka hodnoty v bytech, implicitně je uložena pouze na 1 B (tj. na druhém bytu). Pokud nelze vyjádřit na 1 B (tj. v tomhle případě větší než 0x80), pak je délka vyjádřena v **N** následujících bytech a **N = hodnota druhého B - 0x80**.
   - Když se ti nevleze délka do 2. bytu, specifikuješ v něm, na kolika následujících bytech je uložena délka. Tj., pokud má být délka na 4 bytech, bude ve 2. bytu hodnota 0x84 a délka dat bude specifikovaná od 3. do 7. bytu, data samotná pak budou začínat na 8 bytu a budou mít délku specifikovanou na těch 4 bytech.
 - **Value**: hodnota záznamu.
+![[media/szz-42/media/image26.png]]
 
 ### Nasazení SNMP
-![[media/szz-42/media/image26.png]]
 
 Při praktickém nasazení SNMP musíme brát v potaz:
 
