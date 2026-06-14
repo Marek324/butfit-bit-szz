@@ -87,9 +87,9 @@ Model TCP/IP je v současnosti hlavní využívaný síťový model. Má **5 vrs
 Důvodem vrstvení modelu je **oddělení logiky jednotlivých vrstev**, například L4 staví na službách L3 a své služby poskytuje vyšší vrstvě (L7). Cílem je schopnost doručit paket z libovolného uzlu do jiného uzlu za jakýchkoliv okolností.
 
 Při průchodu paketu sítí probíhá tzv. **zapouzdření** (vzniká **PDU** - Protocol data unit), tj. čistá data jsou nejprve zabalena do L7 hlavičky, takovýto paket je zabalen do L4 hlaviček (tím vzniká **UDP datagram** nebo **TCP segment**), ten je zabalen do IP hlavičky, tak vzniká **IP paket**, ten je zabalen do L2 hlaviček a vzniká Ethernetový **rámec**. Při průchodu sítí síťové prvky rozbalují pouze část hlaviček dle své vrstvy, např. **switch** (L2 prvek) **si přečte L2 hlavičku** a při přeposlání (přepínání) přidá novou, podobně pak **router** (L3 prvek) **nahlíží do IP hlaviček** a podle nich směruje.
+![[media/szz-43/media/image29.png]]
 
 ## Klient-server
-![[media/szz-43/media/image29.png]]
 
 Model klient-server je běžné komunikační schéma mezi 2 procesy. **Klient** **aktivně** **zahajuje spojení** k serveru a požaduje od něj službu (posílá mu požadavky a dostává na ně odpovědi). **Server pasivně čeká** na požadavek klienta, který následně provede a zašle odpověď odpovídající např. úspěšnosti provedení požadavku. Rozlišujeme **iterativní** a **konkurentní server**:
 
@@ -132,13 +132,12 @@ Transportní vrstva vytváří logické **spojení mezi procesy**. Hlavními pro
 ## User Datagram Protocol (UDP)
 
 Connection-less protokol, **nenavazuje tedy spojení**, podobně jako na L3 doručení probíhá na bází **best-effort**. Hlavička je tedy velmi jednoduchá, obsahuje **zdrojový a cílový port, délku** (minimálně 8 B – délka samotné hlavičky) a **checksum**.
-
-Protože není navázáno spojení, nezaručuje doručení, ani doručení v pořadí. Díky tomu je ovšem komunikace **rychlejší**, což je vhodné pro časově závislé aplikace (např. přenos hlasu přes RTP, video streaming, DNS). V případě požadavků na **spolehlivost** je nutné to **řešit na L7** (např. protokol TFTP pracuje nad UDP, na L7 přidává ACK datagramy, díky kterým je možné poznat, zda doručení proběhlo v pořádku).
-
-## Transmission Control Protocol (TCP)
 ![[media/szz-43/media/image13.png]]
 
+Protože není navázáno spojení, nezaručuje doručení, ani doručení v pořadí. Díky tomu je ovšem komunikace **rychlejší**, což je vhodné pro časově závislé aplikace (např. přenos hlasu přes RTP, video streaming, DNS). V případě požadavků na **spolehlivost** je nutné to **řešit na L7** (např. protokol TFTP pracuje nad UDP, na L7 přidává ACK datagramy, díky kterým je možné poznat, zda doručení proběhlo v pořádku).
 ![[media/szz-43/media/image11.png]]
+
+## Transmission Control Protocol (TCP)
 
 Spojově orientovaný protokol poskytující **spolehlivý přenos** dat (řeší ztráty paketů a pořadí, vyšší vrstvy se o případné ztrátě ani nedozví). Na začátku komunikace se vytváří spojení pomocí **3-way handshake**. Využívá **pipeliningu** (viz dále) a **klouzavého okna**, díky kterému je **přenos řízen** a je **předcházeno zahlcení**. Hlavička TCP obsahuje:
 
@@ -192,9 +191,9 @@ Ukončení spojení probíhá **dvoufázově** (také někdy označováno dvojic
 ### Pipelining (zřetězené protokoly)
 
 Na rozdíl od přístupu **Stop-and-wait**, který zašle paket, čeká na ACK a až poté zasílá další paket, u pipelining dochází k odesílání více paketů naráz, aniž bychom čekali na potvrzení každého. Díky tomu je možné **maximalizovat** využití linky a **minimalizovat prodlevu** mezi odesíláním paketů **při čekání na potvrzení** přijetí předchozího paketu. Jsou k němu 2 běžné přístupy: Go-back-N a Selective Repeat.
+![[media/szz-43/media/image9.png]]
 
 #### **Go-back-N**
-![[media/szz-43/media/image9.png]]
 
 - Odesílatel má **sliding window** pro **N** paketů, každý nepotvrzený paket má časovač. V případě **vypršení** nejstaršího nepotvrzeného **časovače** nebo obdržení **duplicitního ACK** (příjemce odesílá duplicitní ACK, pokud mu přijde paket ve špatném pořadí a ten **zahazuje**), znovu proběhne zaslání celého aktuálního okna (nejstarší nepotvrzený paket je na začátku okna).
 - Příjemce může potvrdit **jedním ACK** více předchozích paketů (**kumulativní potvrzení**, např. příjemce zašle ACK4, ACK5 a ACK6. ACK4 a ACK5 se ztratí, ACK6 ale přijde, odesílatel tak považuje i ACK4 a ACK5 za potvrzené - odesílatel by jinak neodesílal ACK6, kdyby mu nedorazil paket 4 a 5. Případně někdy se ani příjemce nemusí pokoušet odesílat ACK na všechny pakety a rovnou pouze na poslední).
@@ -211,9 +210,9 @@ Na rozdíl od přístupu **Stop-and-wait**, který zašle paket, čeká na ACK a
 - **výhody**: zasílají se opravdu pakety, které nebyly doručeny, snižuje množství paketů v síti a případnou šanci na zahlcení.
 - **nevýhody**: příjemce musí implementovat vyrovnávací paměť.
 - **Používá se dnes**.
+![[media/szz-43/media/image14.png]]
 
 ### Řízení zahlcení
-![[media/szz-43/media/image14.png]]
 
 Zahlcení sítě nastává, když **objem přenášených dat je větší než přenosová kapacita** linky. Směrovače mají vyrovnávací paměť (frontu), do které ukládají příchozí pakety před zpracováním. V případě, že se tato fronta zaplní (příliš mnoho paketů), začnou se **zahazovat**. Zahlcení má tendenci se zhoršovat (pokusy o znovuzasílání způsobují ještě vyšší objem dat).
 
@@ -222,20 +221,20 @@ TCP má implementované mechanismy řízení zahlcení, které jsou založené n
 #### **Additive Increase, Multiplicative Decrease (AIMD)**
 
 Odesilatel zvedá rychlost odesílání lineárně (zvětšuje velikost okna o 1). V případě ztráty sníží rychlost na polovinu (zmenší okno na polovinu aktuální velikosti).
+![[media/szz-43/media/image12.png]]
 
 #### **Tahoe**
-![[media/szz-43/media/image12.png]]
 
 Tahoe po ztrátě paketu resetuje velikost okna na **1**, pro hledání správné velikosti využívá proměnnou (slow start threshold). V případě, že je velikost okna menší než **ssthresh**, probíhá **slow start** (exponenciální nárůst okna), **jinak congestion** **avoidance** (lineární nárůst okna). V případě ztráty paketu se **ssthresh** zmenší na **polovinu aktuální** velikosti klouzavého **okna.** (obr. vlevo počítá se stabilní rychlostí sítě, reálnější je ale obrázek vpravo, kde propustnost kolísá, lze zde také vidět změnu ssthresh)
 ![[media/szz-43/media/image15.png]]
+![[media/szz-43/media/image3.png]]
 
 #### **Reno**
-![[media/szz-43/media/image3.png]]
+![[media/szz-43/media/image28.png]]
 
 Reno je vylepšením Tahoe. Zavádí ještě jeden stav, a to **Fast Recovery** (lineární nárůst velikosti okna). U Reno ztráta paketu (obdržení duplicitního ACK (konkrétně 3 duplikáty) nebo ACK mimo pořadí u SACK) nezpůsobí zásadní propad v propustnosti a velikost okna se **zmenší na polovinu (CHECK: nebo ¼? Prý se v knížce od Veselého ukazuje ¼. Někdo potvrďte/vyvraťte, co se nyní učí.)**. Až v případě, že dojde k **vypršení časovače**, dochází k restartování velikosti okna **na minimum**.
 
 #### **NewReno**
-![[media/szz-43/media/image28.png]]
 
 Detekuje **vícenásobnou ztrátu** paketů **v jednom klouzavém okně**. Po první ztrátě přechází do **Fast Recovery** a při další ztrátě ve **stejném klouzavém okně** **nesnižuje** velikost na polovinu. Velikost okna snižuje, až je zase ztráta mimo původní klouzavé okno, na kterém došlo k první ztrátě, viz [<u>https://inst.eecs.berkeley.edu/~ee122/fa05/projects/Project2/SACKRENEVEGAS.pdf</u>](https://inst.eecs.berkeley.edu/~ee122/fa05/projects/Project2/SACKRENEVEGAS.pdf)
 
@@ -294,9 +293,9 @@ Slouží k **dynamickému přidělování IP adres v síti**, klient-server para
 ### Network Address Translation (NAT)
 
 NAT je mechanismus, který pomáhá “**šetřit**” IP adresy. Funguje na tom principu, že v lokální síti mají stroje pouze lokálně platnou IP adresu (např. 192.168.1.113 nebo 10.0.0.0/8), ovšem z lokální sítě veškerý provoz odchází přes router, kde proběhne **překlad na reálnou adresu sítě** (private IP -\> public IP). Běžně se používá Port overloading.
+![[media/szz-43/media/image17.png]]
 
 ### IPv6
-![[media/szz-43/media/image17.png]]
 
 Protokol IP verze 6 vznikl s motivací vyřešit nedostatek adres IPv4. Adresy mají 128 b, což poskytuje mnohem **větší adresový prostor**. Má narozdíl od IPv4 **pevnou velikost hlavičky** (40 bytů) a **nepodporuje broadcast**. Umožňuje, aby jedno rozhraní mělo více než jednu IPv6 adresu.
 
@@ -348,9 +347,9 @@ Z pohledu zpracování provozu na směrovači máme několik přístupů:
 <!-- -->
 
 - **Zásobník žetonů** - do zásobníku žetonů se sypou s **konstantní** rychlostí žetony (až do určitého omezeného počtu). Jeden žeton představuje určité množství dat v bytech, které lze přenést. Pokud je v zásobníku dostatek žetonů pro přeposlání paketu o určité délce, je **přeposlán** a žetony jsou **odebrány**. Pokud je zásobník plný, lze takhle odeslat v krátkém čase velké množství dat (burst), umí se tedy vyrovnat s krátkodobou špičkou. Poté se ale zásobník **vyprázdní** a musí se čekat, dokud se zase nenaplní žetony (dostatek pro odeslání dalšího paketu na řadě). V tento okamžik jsou příchozí pakety **buď zahazovány**, **nebo musí čekat** ve frontě.
+![[media/szz-43/media/image6.png]]
 
 ### IntServ
-![[media/szz-43/media/image6.png]]
 
 Integrované služby implementují QoS formou **rezervace zdrojů** (před každým přenosem nebo při změně cesty) pomocí protokolu **RSVP** (stanice zažádá o spojení v určité kvalitě: **garantované služby** - garantuje vyhrazení nějakého pásma, **kontrolovaná zátěž** - kvalita provozu blížící se nezatíženému prvku, nebo **best-effort**). Protokol RSVP prakticky nelze použít na globálním internetu. Zajištění požadovaného přenosového pásma nemusí být na zatížené síti vůbec možné.
 
