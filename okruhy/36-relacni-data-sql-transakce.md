@@ -110,11 +110,10 @@ Relační databáze jsou založené na definicích **množin**, **kartézského 
 ![[media/szz-36/media/image7.png]]
 
 - **Atribut relace** považujeme za sloupec tabulky,
-![[media/szz-36/media/image9.png]]
-
 ![[media/szz-36/media/image1.png]]
 
 - **N-tici relace** považujeme za řádek tabulky.
+![[media/szz-36/media/image9.png]]
 - **Doména** - Množina hodnot, kterých může atribut nabývat. Hodnoty musí býť pouze **skalární**.
 
 Název **relační model** a **relační databáze** je odvozen od faktu, že relace je základním abstraktním pojmem modelu a jedinou strukturou databáze na logické úrovni.
@@ -169,16 +168,17 @@ Tradiční množinové operace mají stejné výsledky jako u množin, lze ale p
 ![[media/szz-36/media/image10.png]]
 
 ### Projekce
+![[media/szz-36/media/image4.png]]
 
 Projekce je operace při které **vybíráme jen některé sloupce** z původní tabulky. Z relace **R** tak vytváříme relaci **R\[X, Y, …, Z\]** se schématem **(X, Y, …, Z)** a tělem obsahující patřičné (redukované) **n-tice** odpovídající novému schématu z původní relace **R**. V SQL tomu odpovídá zápis **SELECT name, surname FROM users**, kde users je tabulka obsahující např. (name, surname, title, email, phone, …). Součástí operace projekce je i **odebrání duplicitních řádků**, které projekcí vzniknou (v SQL je ale nutné použít SELECT DISTINCT, samotný SELECT duplicity neodstraňuje).
 
 ### Selekce (restrikce)
-![[media/szz-36/media/image4.png]]
+![[media/szz-36/media/image2.png]]
 
 Restrikce je operace, při které je **zachováno původní schéma** relace (záhlaví tabulky), ale jsou vybrány pouze **některé n-tice** relace (řádky tabulky), které odpovídají určité podmínce. V SQL tomu odpovídá zápis **WHERE id = 42**… (s různými operátory pro porovnání).
 
 ### Spojení
-![[media/szz-36/media/image2.png]]
+![[media/szz-36/media/image12.png]]
 
 Spojení je operace, při které je dochází ke **sloučení dvou schémat** relace (dvou záhlaví tabulek) tak, že schéma výsledné relace obsahuje **všechny atributy původních relací** a minimálně jeden atribut je mezi původními relacemi sdílen. Podle tohoto **sdíleného atributu** je prováděno spojení, tak že jsou spojeny n-tice původních relací, které mají stejnou hodnotu tohoto sdíleného atributu. V SQL zapisujeme:
 
@@ -188,7 +188,6 @@ Spojení je operace, při které je dochází ke **sloučení dvou schémat** re
 - **OUTER JOIN** **companies ON names.id = companies.id**… Vrací všechny záznamy obou tabulek. Pokud mezi nimi neexistuje spojení, jsou atributy patřičné tabulky ve výsledné tabulce prázdné.
 
 ## Jazyk SQL (Structured Query Language)
-![[media/szz-36/media/image11.png]]
 
 SQL je jazyk pro dotazování nad **relačními databázemi**. SQL je standardizovaný, nicméně se některé příkazy mohou lišit napříč implementacemi (jedná se ale o nestandardní části). Jazyk je **case insensitive**.
 
@@ -198,39 +197,55 @@ Tvorba databázových objektů, **tabulky**, **pohledy**, **indexy**.
 
 #### **CREATE TABLE**
 
-CREATE TABLE Persons ( PersonID int GENERATED AS IDENTITY PRIMARY KEY, LastName varchar(255), FirstName varchar(255), Address varchar(255), City varchar(255)
-
+```sql
+CREATE TABLE Persons (
+    PersonID  int GENERATED AS IDENTITY PRIMARY KEY,
+    LastName  varchar(255),
+    FirstName varchar(255),
+    Address   varchar(255),
+    City      varchar(255)
 );
 
-CREATE TABLE *new_table_name* AS SELECT *column1, column2,...*
-
-FROM *existing_table_name* WHERE ....;
+CREATE TABLE new_table_name AS
+SELECT column1, column2, ...
+FROM existing_table_name
+WHERE ...;
+```
 
 #### **CREATE INDEX**
 
-CREATE (UNIQUE) INDEX *index_name* ON *table_name* (*column1*, *column2*, ...);
+```sql
+CREATE [UNIQUE] INDEX index_name ON table_name (column1, column2, ...);
 
 CREATE INDEX idx_lastname ON Persons (LastName);
+```
 
 #### **CREATE VIEW**
 
-CREATE VIEW *view_name* AS SELECT *column1*, *column2*, ...
-
-FROM *table_name* WHERE *condition*;
+```sql
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
 
 #### **ALTER**
 
-ALTER TABLE *table_name* ADD *column_name datatype*;
+```sql
+ALTER TABLE table_name ADD column_name datatype;
 
-ALTER TABLE *table_name* DROP COLUMN *column_name*;
+ALTER TABLE table_name DROP COLUMN column_name;
 
-ALTER TABLE *table_name* ALTER COLUMN *column_name datatype*;
+ALTER TABLE table_name ALTER COLUMN column_name datatype;
 
-ALTER TABLE *table_name* MODIFY COLUMN *column_name datatype*;
+ALTER TABLE table_name MODIFY COLUMN column_name datatype;
+```
 
 #### **DROP**
 
-DROP TABLE *table_name*;
+```sql
+DROP TABLE table_name;
+```
 
 ### Manipulace s daty
 
@@ -238,40 +253,46 @@ Při manipulaci s daty jsou operandem bázové tabulky nebo pohledy, výsledkem 
 
 #### **SELECT**
 
-#### **INSERT**
-![[media/szz-36/media/image5.png]]
+Obecná struktura příkazu SELECT:
+![[media/szz-36/media/image11.png]]
 
-![[media/szz-36/media/image12.png]]
-
+Příklady dotazů:
 ![[media/szz-36/media/image6.png]]
-
-![[media/szz-36/media/image8.png]]
 
 ![[media/szz-36/media/image3.png]]
 
-INSERT INTO *table_name* (*column1*, *column2*, *column3*, ...)
+![[media/szz-36/media/image5.png]]
 
-VALUES (*value1*, *value2*, *value3*, ...);
+![[media/szz-36/media/image8.png]]
 
-INSERT INTO *table_name* VALUES (*value1*, *value2*, *value3*, ...);
+#### **INSERT**
+
+```sql
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+INSERT INTO table_name VALUES (value1, value2, value3, ...);
 
 INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
-
 VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+```
 
 #### **UPDATE**
 
-UPDATE *table_name* SET *column1* = *value1*, *column2* = *value2*, ...
+```sql
+UPDATE table_name SET column1 = value1, column2 = value2, ...
+WHERE condition;
 
-WHERE *condition*;
-
-UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
+UPDATE Customers SET ContactName = 'Alfred Schmidt', City = 'Frankfurt' WHERE CustomerID = 1;
+```
 
 #### **DELETE**
 
-DELETE FROM *table_name* WHERE *condition*;
+```sql
+DELETE FROM table_name WHERE condition;
 
-DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+DELETE FROM Customers WHERE CustomerName = 'Alfreds Futterkiste';
+```
 
 ### Pohled (View)
 
