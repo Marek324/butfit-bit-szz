@@ -120,6 +120,16 @@ Metoda pro zabezpečení dat proti selhání pevného disku.
 - **RAID 3-5** - Používají paritu, dokáží se vyrovnat se **ztrátou 1 disku**.
 - **RAID 6** - Používá 2 paritní bloky oproti RAID 5. dokáže se vyrovnat se **ztrátou 2 disků**.
 
+| Úroveň | Popis | Min. počet disků | Odolnost proti výpadku |
+|---|---|---|---|
+| RAID 0 | Prokládání na úrovni bloků bez parity a zrcadlení | 2 | žádná |
+| RAID 1 | Zrcadlení bez parity a prokládání | 2 | výpadek n−1 disků |
+| RAID 2 | Prokládání na úrovni bitů s Hammingovým kódem pro opravu chyb | 3 | výpadek 1 disku |
+| RAID 3 | Prokládání na úrovni bajtů s vyhrazenou paritou | 3 | výpadek 1 disku |
+| RAID 4 | Prokládání na úrovni bloků s vyhrazenou paritou | 3 | výpadek 1 disku |
+| RAID 5 | Prokládání na úrovni bloků s distribuovanou paritou | 3 | výpadek 1 disku |
+| RAID 6 | Prokládání na úrovni bloků s dvojitou distribuovanou paritou | 4 | výpadek 2 disků |
+
 **Parita** se používá se k jednoduché detekci chyb
 
 - **Lichá** - Lichý počet jedniček.
