@@ -315,9 +315,9 @@ Koncept **rozhraní** umožňuje **polymorfismus** i mimo třídní dědičnost.
 ### Implementace rozhraní
 
 Objekt (instance třídy) odkazuje na více VMT, pro **každé rozhraní jiná VMT**, respektive z VMT objektu jsou odkazy na VMT realizující rozhraní (odkazující na metody, které deklaruje rozhraní).
+![[media/szz-40/media/image8.png]]
 
 # Beztřídní objektově orientované jazyky
-![[media/szz-40/media/image8.png]]
 
 U beztřídních jazyků je tvorba objektů závislá na **klonování prototypů**. Prototyp je také objekt. Např. v JS je prototypem každého objektu **Object** a ten už nemá další prototyp. Pomocí prototypů se realizuje v JS **dědičnost**, každý objekt má jeden **přímý** prototyp, ten pak může mít další přímý prototyp atd. (tzv. **prototype chain**). Obecně ale může mít objekt více přímých předků (prototypů). **Specializace** objektů je prováděna **dynamicky** za běhu (případně by mohla být prováděna staticky před překladem) přidáním nové položky (**atributu** nebo **metody**). Klonováním prototypu se **nekopírují metody** klonovaného objektu. **Atributy** jsou obecně **zkopírovány** a je jim při klonování nastavena buď zadaná hodnota, nebo implicitní hodnota (hodnoty v prototypu). Metody zůstávají pouze u prototypu. Invokace těchto metod u naklonovaného objektu se řeší pomocí **delegace** (výpočetní systém se nejdřív snaží metodu spustit na daném objektu, pokud ji nemůže najít, deleguje ji na prototyp). **Polymorfismus** je zajištěn tak, že u naklonovaného objektu **definujeme stejně pojmenovanou metodu**. Např. JS je **dynamicky typovaný netypovaný** jazyk a implementuje **skutečný podtyp**, což umožňuje i polymorfismus i mimo dědičnost. Pokud objekt neimplementuje danou metodu (nerozumí zprávě) a ani žádný z jeho prototypů, dochází k chybě. Příklad klonování z JS:
 ![[media/szz-40/media/image10.png]]
