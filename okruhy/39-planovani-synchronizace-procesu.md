@@ -124,11 +124,11 @@ Nový proces vytváříme **duplikací aktuálního** pomocí funkce **fork** (v
 Změna vykonávaného programu se provádí pomocí **exec()**.
 
 ## Vlákna
+![[media/szz-39/media/image4.png]]
 
 Jedná se o odlehčený proces, v rámci jednoho procesu jich může běžet více. Program je ve vláknech vykonáván paralelně. Vlákna mají své **vlastní registry a zásobník**, **sdílí kód, data a další** zdroje (otevřené soubory, signály, tabulku stránek). Vlákna se **rychleji vytvářejí** a je **rychlejší** mezi nimi **přepínat**. Komunikace mezi vlákny je také jednodušší, protože sdílí data (nutno používat obezřetně - uzamykat). Pro paralelizaci úloh se běžně používají vlákna místo procesů.
 
 # Plánování procesu
-![[media/szz-39/media/image4.png]]
 
 Plánovač procesů (**scheduler**) rozhoduje, **který proces poběží** a případně **jak dlouho**. Existují dva druhy plánování:
 
