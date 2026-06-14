@@ -115,6 +115,7 @@ Nejčastěji používané složitosti:
 ![[media/szz-32/media/image5.png]]
 
 ### Složitost Omega - **Ώ**
+![[media/szz-32/media/image1.png]]
 
 Složitost Omega vyjadřuje **dolní hranici** časového chování algoritmu (omezuje chování algoritmu zdola, tj. algoritmus **nebude nikdy rychlejší (nebude trvat kratší dobu)**, než dané omezení). V praxi nemá moc využití. Značíme jako **Omega(g(n)), Ώ(g(n)) nebo jen Ω(g(n))**.
 
@@ -128,7 +129,6 @@ Složitost **Theta** vyjadřuje třídu chování algoritmu – ohraničuje funk
 - Zápis **f(n) ∈ Theta(g(n))** označuje, že funkce **f(n)** roste **stejně tak rychle** jako funkce **g(n)**.
 
 ### Třídy složitosti
-![[media/szz-32/media/image1.png]]
 
 - **P** - Pokud existuje Turingův stroj, který úlohu vyřeší v polynomiálním čase.
 - **NP** - Pokud existuje nedeterministický Turingův stroj, který rozhodne úlohu v polynomiálním čase
