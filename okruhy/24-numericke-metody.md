@@ -300,8 +300,6 @@ $$y_{n+2} = y_{n+1} + \tfrac{3}{2}h\,f(t_{n+1}, y_{n+1}) - \tfrac{1}{2}h\,f(t_n,
 
 $$y_{n+1} = y_n + \frac{h}{24}\left(55 f_n - 59 f_{n-1} + 37 f_{n-2} - 9 f_{n-3}\right)$$
 
-![[media/szz-24/media/image26.png]]
-
 ### Adams-Bashforth-Moulton
 
 Metoda typu **prediktor-korektor**, zpřesňují výsledek použitím prvotního odhadu pro výpočet výsledného odhadu (zde čtyřkrokový korektor Adams-Moulton):
