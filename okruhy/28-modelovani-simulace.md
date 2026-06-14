@@ -290,11 +290,11 @@ Jedná se o Markovské procesy, které splňují Markovovu vlastnost, tj. násle
 1. Osamostatnit nejvyšší řád derivace.
 2. Zapojit všechny integrátory za sebe a na vstupu prvního zapojit (modifikovaný - násobení, přičítání) výsledek
 3. Tato metoda funguje, pokud nejsou derivované vstupy derivace vstupů (x’, x’’, …).
-
-### Metoda postupné integrace
 ![[media/szz-28/media/image26.png]]
 
 ![[media/szz-28/media/image17.png]]
+
+### Metoda postupné integrace
 
 1. **Osamostatnit nejvyšší řád** derivace.
 2. Postupná integrace rovnice a zavádění nových stavových podmínek.
@@ -302,8 +302,9 @@ Jedná se o Markovské procesy, které splňují Markovovu vlastnost, tj. násle
 4. Podmínka: konstantní koeficienty.
 ![[media/szz-28/media/image16.png]]
 
-# Algoritmy řízení simulace
 ![[media/szz-28/media/image12.png]]
+
+# Algoritmy řízení simulace
 
 Různé algoritmy pro diskrétní, spojité a kombinované simulace.
 
@@ -341,9 +342,9 @@ Spojitá simulace je složena ze tří částí:
 - pokud do konce simulace **zbývá krok a kousek**, můžeme poslední **krok prodloužit** tak, aby čas po jeho provedení přesně odpovídal konci simulace.
 
 Příklad řízení spojité simulace bez dokročení:
+![[media/szz-28/media/image14.png]]
 
 ## Řízení kombinované simulace
-![[media/szz-28/media/image14.png]]
 
 Je to kombinace spojité a diskrétní simulace. U kombinované simulace je nutné řešit kombinaci **stavových** **událostí** a **numerické integrace**. Je nutné **detekovat změnu** stavových podmínek a **přesně dokročit** na čas, kdy ke změně dochází (problém příliš malého kroku). Ke **stavovým událostem** dochází při **změnách stavových podmínek**, nelze je naplánovat. Změnu stavové podmínky může být **obtížné detekovat** z důvodu **nepřesnosti numerického výpočtu** nebo **příliš dlouhého kroku**.
 ![[media/szz-28/media/image11.png]]
