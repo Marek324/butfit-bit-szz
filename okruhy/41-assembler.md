@@ -136,11 +136,8 @@ Instrukce jsou **příkazy pro procesor**, obsahují jednoznačný **operační 
 Obecně mají instrukce **proměnnou délku** (ta je např. dána způsobem adresování operandů nebo jejich počtem). Formát instrukce na procesoru intel Pentium je takový (délka může být od **1 B** do **16 B**):
 ![[media/szz-41/media/image6.png]]
 
-![[media/szz-41/media/image11.png]]
-
-![[media/szz-41/media/image8.png]]
-
 ### Konvence volání
+![[media/szz-41/media/image11.png]]
 
 - **pascal** - parametry **uklízí volaný** (tj. uvnitř funkce), parametry se dávají na zásobník **zleva doprava**, tzn. na vrcholu zásobníku je při předání řízení do funkce hodnota **posledního parametru** (využito v Pascalu),
 - **cdecl** - parametry **uklízí volající** (tj. až po návratu za funkcí), předávají se **zprava doleva**, tzn. na vrcholu zásobníku je po předání řízení do funkce **první parametr** (jazyk C),
@@ -171,10 +168,12 @@ Máme mnoho registrů pro různé účely různých velikostí. Základní datov
 V základním režimu (16b) má fyzická adresa 20b, tedy pro adresaci pomocí registrů chybí 4b. K řešení tohoto problému se vytváří **segmenty** (úseky paměti o velikosti 64 KiB, které lze adresovat 16 bity), každý segment začíná na adrese, která je násobkem 16 (je **posunutá** o 4 bity doleva). Fyzická adresa je pak kombinací **segment:ofset** (RegReg:Offset), kdy **fyzická adresa** = **16 \* segment + ofset**.
 ![[media/szz-41/media/image9.png]]
 
+![[media/szz-41/media/image8.png]]
+
 #### **Little a Big Endian**
+![[media/szz-41/media/image3.png]]
 
 ### FPU
-![[media/szz-41/media/image3.png]]
 
 Dosud tato otázka řešila pouze operace v ALU, tj. integer a unsigned aritmetika, pro operace s floating point (IEEE754 viz jiné otázky) se používají specializované jednotky (koprocesory), například **FPU** (floating point unit).
 
