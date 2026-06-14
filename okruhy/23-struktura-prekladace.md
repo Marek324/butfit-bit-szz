@@ -154,9 +154,9 @@ Provádí Pravý rozbor = reverzovaná posloupnost pravidel, která je použita 
 - Gramatika **nesmí** obsahovat **ε-pravidla**.
 
 Pro syntaktickou analýzu využívá **precedenční tabulku**, která je dána **asociativitou** a **precedencí operátorů**. Používá se zejména k syntaktické analýze matematických výrazů (přiřazení do proměnných). V obrázku níže **červené záhlaví** precedenční tabulky představuje symboly na **vstupu** a **žluté záhlaví** symboly na **zásobníku**.
+![[media/szz-23/media/image8.png]]
 
 ### Sémantická analýza
-![[media/szz-23/media/image8.png]]
 
 - **Vstup** - Simulace konstrukce derivačního stromu.
 - **Výstup** - Abstraktní syntaktický strom.
@@ -172,6 +172,9 @@ Syntaktický analyzátor (parser) řídí:
 - Generování abstraktního syntaktického stromu.
 
 ### Generátor vnitřního kódu
+![[media/szz-23/media/image3.png]]
+
+![[media/szz-23/media/image7.png]]
 
 - **Vstup** - Abstraktní syntaktický strom.
 - **Výstup** - Vnitřní kód.
@@ -179,9 +182,6 @@ Syntaktický analyzátor (parser) řídí:
 Generuje **vnitřní kód** - vnitřní reprezentaci programu (většinou **tříadresný**), ten je **jednotný**, lehce se **překládá** do cílového kódu a lehce se **optimalizuje**. Generování vnitřního kódu může být prováděno rekurzivně na základě abstraktního syntaktického stromu. Syntaktický analyzátor, který pracuje metodou **zdola nahoru**, může generovat tříadresný kód **přímo** bez tvorby ASS. Přímé generování 3AK je založeno na **postfixové notaci**.
 
 ### Optimalizátor
-![[media/szz-23/media/image3.png]]
-
-![[media/szz-23/media/image7.png]]
 
 - **Vstup** - Vnitřní kód.
 - **Výstup** - Optimalizovaný vnitřní kód.
