@@ -79,11 +79,11 @@ Webová uživatelská rozhraní jsou založená na technologiích HTML, CSS, a J
 - koncovka: **.html**, **.htm**
 
 Základem HTML jsou **značky**, které vymezují **úseky** dokumentu. Obvykle jsou značky **párové** (\<div\>\</div\>, \<p\>\</p\>), ale existují i **nepárové** (prázdné - void, \<br\>, \<hr\>), tyto značky mohou mít pouze atributy, ale nemají obsah. Dále HTML dokument tvoří **komentáře**/**poznámky**, které nezpracovává prohlížeč (\<!-- Libovolný text --\>). Pro vkládání **speciálních znaků** (\<, \>, &, …) používáme escape sekvence (\&lt; \&gt; \&amp; …). Používáním HTML značek vytváříme **stromovou strukturu** dokumentu.
-
-Samotný html obsah bez stylování pomocí CSS není uživatelsky přívětivý (má dle mého názoru škaredý vzhled), proto se zavedlo CSS na úpravu vzheldu HTML dokumentu..
 ![[media/szz-37/media/image1.png]]
 
 ![[media/szz-37/media/image2.png]]
+
+Samotný html obsah bez stylování pomocí CSS není uživatelsky přívětivý (má dle mého názoru škaredý vzhled), proto se zavedlo CSS na úpravu vzheldu HTML dokumentu..
 
 ### Základní ovládací prvky HTML
 
