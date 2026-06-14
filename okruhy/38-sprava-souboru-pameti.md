@@ -96,15 +96,15 @@ Disk je rozdělen na sektory, což jsou nejmenší jednotky, které lze číst/z
 - **Fragmentace** - Data jsou uložena nesouvisle po částech. Zpomaluje operace prováděné s diskem. Disk lze defragmentovat - přeuspořádat uložená data, aby byla souvislá.
   - **Interní** - Fragmentace uvnitř alokovaných oblastí. Souborový systém **vyhradí pro soubor větší prostor**, než je jeho velikost.
   - **Externí** - Fragmentace mezi alokovanými oblastmi, vzniká mazáním souborů - vytvořením nesouvislého uložení. Při nedostatku místa musí být soubor rozdělen (fragmentován) na části, které jsou uloženy do volných míst. Stejný problém vzniká při zvětšování souborů (za zvětšeným souborem může být uložen jiný soubor a je nutné jej rozdělit). Může to zapříčnit, že na disk nelze uložit soubor, i když je tam dostatek místa (soubor nelze ukládat po částech nebo volná místa jsou natolik malá, že není možné současně uložit metadata a data, tj. je nevhodně zvolená velikost alokačního bloku).
-- **Přístup na disk (čtení a zápis)** - Přístup se musí plánovat v závislosti na aktuální pozici hlav. Jednotlivé požadavky lze přeuspořádat tak, aby se hlavy musely mezi přístupy pohybovat co nejméně. Různé postupy při pohybu hlav (od středu k okraji a zpět, pouze v mezikruží, kde jsou požadovaná data, operace prováděné pouze při pohybu v jednom směru, …). Dokončení operace (včetně chyb) je oznamováno pomocí HW přerušení.
 ![[media/szz-38/media/image12.png]]
+- **Přístup na disk (čtení a zápis)** - Přístup se musí plánovat v závislosti na aktuální pozici hlav. Jednotlivé požadavky lze přeuspořádat tak, aby se hlavy musely mezi přístupy pohybovat co nejméně. Různé postupy při pohybu hlav (od středu k okraji a zpět, pouze v mezikruží, kde jsou požadovaná data, operace prováděné pouze při pohybu v jednom směru, …). Dokončení operace (včetně chyb) je oznamováno pomocí HW přerušení.
 
 - **Logický disk** - Dělení fyzického disku na diskové oddíly (**partition**), se kterými je možné nezávisle manipulovat (jeví se jako více fyzických disků). Tabulka MBR (**Master Boot Record**) nebo novější GPT (**GUID Partition Table**) obsahuje informace o diskových oblastech.
 - **Žurnálování** - stejně jako u DB zajišťuje zachování konzistence dat na disku při zápisu. Na žurnál se zapisují operace, které budou prováděny, a po úspěšném zapsání na disk se odstraní. Při chybě lze použít jednu ze dvou metod REDO (operace byla dokončena, ale všechna data ještě nebyla zapsána na disk) a UNDO (operace začala upravovat data, ale nebyla dokončena).
 - **Copy-on-write** - nejprve zapisuje nová data a metadata na disk, poté je až zpřístupní. Zápis dat vychází z uložení v B+ stromech. Data se zapisují postupně od listového uzlu, kde jsou uložena, až po kořen (vnitřní uzly představují metadata). Tedy nejprve máme původní data, potom někam na disk zapíšeme nová data (původní data stále necháváme včetně vnitřních uzlů), postupně od listů ke kořeni upravujeme vnitřní uzly. Až když máme všechny vnitřní uzly upravené, nahradíme původní uzly novými uzly, které už ukazují na nová data.
+![[media/szz-38/media/image23.png]]
 
 #### **Typické parametry disku**
-![[media/szz-38/media/image23.png]]
 
 - kapacita do 20 TB,
 - doba přístupu od nízkých jednotek ms,
@@ -179,11 +179,11 @@ Organizace souborů a popis uložení jsou implementovány tak, aby byla **minim
 Jednoduchá data jsou uložena na disku jako jedna **spojitá posloupnost**. Problematické je **zvětšování souborů**, pokud se za souborem nachází další. Problém ukládání nových souborů při **externí fragmentaci**.
 
 ### Zřetězené seznamy bloků
+![[media/szz-38/media/image10.png]]
 
 Každý datový blok kromě dat obsahuje odkaz na další blok (nebo příznak konce souboru). Problém je náhodný přístup k určité části souboru. Vždy se musí **procházet sekvenčně** od začátku. Stejný problém je při zápisu. Chyba v provázání kdekoliv na disku vede ke ztrátě zbytku souboru. Řeší ale problém s fragmentací (blok lze ukládat na disk libovolně nespojitě).
 
 ### File Allocation Table (FAT)
-![[media/szz-38/media/image10.png]]
 
 Podobný princip zřetězeným seznamům bloků. Tentokrát ale **není odkaz** na následující blok uložen **na konci datového bloku**, ale ve speciální **tabulce** (FAT - ta je uložena na začátku disku a pro jistotu 2×). Buňka tabulky obsahuje **odkaz** (index) **na jinou buňku** v tabulce a **odkaz** (index) **na blok dat** na disku. **Částečně** řeší problém s náhodným přístupem, není nutné načítat do paměti blok po bloku (pro nalezení odkazu na další), ale samotný průchod ve FAT je **pořád sekvenční** (bude ale rychlejší).
 ![[media/szz-38/media/image5.png]]
@@ -254,11 +254,11 @@ Vytváří **jednotné rozhraní** pro práci s **různými souborovými systém
 ![[media/szz-38/media/image19.png]]
 
 ### Network File System (NFS)
+![[media/szz-38/media/image15.png]]
 
 Zpřístupňuje soubory uložené na vzdálených systémech, zapojuje se do **VFS** a práce s ním je pak pro OS i uživatele stejná jako se soubory na disku.
 
 ### Spooling (simultaneous peripheral operations on-line)
-![[media/szz-38/media/image15.png]]
 
 Umožňuje **zrychlení** u pomalých **výstupních zařízení**. Výstup je proveden do **souboru** a proces, který ho zadal (nejčastěji se jedná o **tisk**), může pokračovat. Vytvořený soubor je uložen do **fronty požadavků** na výstupní zařízení (tiskárnu) a čeká, až na něj přijde řada.
 
@@ -287,9 +287,9 @@ např. **-rwx---r--** (číselně 0704), první znak znamená typ souboru (zde o
 # Práce se soubory vstup/výstup/mazání
 
 Pro urychlení práce se soubory se používají vyrovnávací paměti (VP), které minimalizují operace s pomalými periferiemi (HDD, SSD, terminál, …). Dílčí VP mívají **velikost datového bloku** nebo skupiny a jsou sdružovány do kolekcí pevné nebo proměnné délky. Možná implementace pomocí **hash table**.
+![[media/szz-38/media/image25.png]]
 
 ## Čtení
-![[media/szz-38/media/image25.png]]
 
 Postup při prvním čtení (soubor ještě není ve VP):
 
@@ -343,9 +343,9 @@ Otevření pro čtení **již otevřeného** souboru (např. jiný proces nebo i
 3. **Vyhrazení nového** záznamu v **systémové tabulce otevřených souborů** (může jít o jiný způsob otevření a také každé otevření může vyžadovat jinou pozici v souboru, odkaz v této tabulce se sdílí **pouze po fork**) s odkazem na v-uzel a **zvýšení počítadla odkazů v-uzlu**.
 4. Vytvoření nového **fd**.
 5. Vrácení **fd** nebo chyba.
+![[media/szz-38/media/image7.png]]
 
 ## Přímý přístup
-![[media/szz-38/media/image7.png]]
 
 Pomocí lseek, postup:
 
@@ -432,14 +432,14 @@ Jedná se o rychlou **asociativní** (**obsahem adresovatelná paměť**) vyrovn
 - řízení je předáno **SW**, které do TLB doplní požadovanou dvojici a hledání v TLB se opakuje.
 
 Při **přepnutí kontextu** (změna procesu, který je prováděn) je nutné **změnit i položky v TLB** (oba procesy používají stejný LAP → vznik kolizí). Lze řešit označením některých stránek za **globální** (sdílené mezi procesy) nebo **přidáním indetifikátoru procesu** do TLB (pak nemusí být záznamy odstraňovány, ale je složitější porovnání a vyžaduje více paměti). Záznamy z TLB musí být odstraněny i při změně mapování.
-
-#### **Hierarchické tabulky stránek**
 ![[media/szz-38/media/image21.png]]
 
+#### **Hierarchické tabulky stránek**
+
 Eliminuje problém s **nadměrnou velikostí tabulek stránek**, na moderních procesorech jsou tabulky stránek **4úrovňové** (tj. strom o výšce 4, v paměti jsou uloženy jen **podstromy**, které jsou potřeba). Údaje o mapování **stránek s daty** jsou obvykle v listové úrovni, mohou být ale i v **některé z vyšších úrovní** (podle příznaku), pak má stránka a odpovídající rámec větší velikost (2 MiB nebo někdy i 1 GiB). U hierarchických tabulek **roste význam TLB**, při **TLB miss** je nutné vyhledávat ve stránkové hierarchii (až 4 přístupy do paměti navíc). Optimalizace např. použitím **různých TLB pro kód a pro data**. Pozor na výpočet fyzické adresy viz obrázek níže pro 2 úrovňovou tabulku (pro 4 je to podobné).
+![[media/szz-38/media/image2.png]]
 
 #### **Hashované tabulky stránek**
-![[media/szz-38/media/image2.png]]
 
 Tento princip je založený na **hashovací tabulce s explicitním řetězením synonym** pomocí seznamu (položky seznamu již nemusí obsahovat celé číslo stránky, pokud hashovací funkce dokáže vždy některé bity rozlišit). **Délka seznamů může být omezena**, pak je nenalezení řízeno SW (a některá překladová dvojice může být ze seznamu odebrána). Hashovací tabulka může být **pro každý proces** nebo **sdílená** (překladové položky pak musí obsahovat i číslo procesu).
 
