@@ -100,11 +100,11 @@ Jedná se o změnění řetězce použitím pravidla na neterminál. Pokud **uAv
 
 - **Nejlevější derivace**: Během nejlevějšího derivačního kroku je přepsán nejlevější neterminál.
 - **Nejpravější derivace**: Během nejpravějšího derivačního kroku je přepsán nejpravější neterminál.
-![[media/szz-22/media/image7.png]]
+![[media/szz-22/media/image12.png]]
 
 ![[media/szz-22/media/image17.png]]
 
-![[media/szz-22/media/image12.png]]
+![[media/szz-22/media/image7.png]]
 
 ## Zásobníkový automat
 
@@ -153,12 +153,10 @@ Z vrcholu zásobníku v **RZA** lze číst **celý řetězec** (v ZA to byl pouz
 Mohou existovat **RZA**, které **přijímají jazyky přechodem do koncového stavu**, **vyprázdněním zásobníku** nebo vyprázdněním zásobníku a současně přechodem do koncového stavu. Opět jsou tyto typu RZA ekvivalentní. Následuje příklad RZA.
 ![[media/szz-22/media/image3.png]]
 
-![[media/szz-22/media/image18.png]]
-
 ## RZA a ZA jako modely pro synt. analýzu
 
 **RZA** nebo **ZA** mohou **SIMULOVAT konstrukci derivačního stromu** pro **BKG**. Používají se k tomu dva přístupy:
-![[media/szz-22/media/image14.png]]
+![[media/szz-22/media/image18.png]]
 
 ### Převod z BKG na RZA (pro SA zdola nahoru)
 
@@ -176,6 +174,7 @@ Např. (pořadí obrázků zůstává):
 ![[media/szz-22/media/image5.png]]
 
 ### Modely pro syntaktickou analýzu shora dolů
+![[media/szz-22/media/image14.png]]
 
 **ZA M = (Q, Σ, Γ, R, s, S , F)** (F = prázdná množina) a **BKG G = (N, T, P, S)**
 
