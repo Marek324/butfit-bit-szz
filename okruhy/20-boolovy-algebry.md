@@ -37,7 +37,7 @@ updated: 2026-06-03T17:10:00Z
 - **Zákony**: asociativita, absorpce, idempotence, agresivita 0/1, dvojitá negace, **De Morgan** (¬(x∨y)=¬x∧¬y, ¬(x∧y)=¬x∨¬y).
 - Souvisí s [[okruhy/16-mnoziny-relace-zobrazeni|uspořádáním a svazy]] (Hasseův diagram, reflexivita/antisymetrie/tranzitivita).
 
-> [!note] Ke kontrole
+> [!note] Ke kontrole (ověřeno)
 > Zdroj nejprve píše, že infimum/supremum vrací „menší/větší z operandů" — to je **nepřesné** (a sám zdroj to o pár řádků níže opravuje): infimum = **největší dolní závora**, supremum = **nejmenší horní závora** obou prvků, ne nutně jeden z nich. Drž se opravené definice.
 
 ### Funkce a úplné systémy

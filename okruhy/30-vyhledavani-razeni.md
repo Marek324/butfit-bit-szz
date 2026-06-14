@@ -36,8 +36,8 @@ updated: 2026-06-03T18:00:00Z
 - Stabilní: Bubble, Insertion, Merge, Radix. Nestabilní: Selection, Quick, Heap, Shell.
 - Porovnávací řazení nelze rychleji než **$O(n \log n)$**; Radix/counting obchází (nesrovnává).
 
-> [!note] Ke kontrole
-> Zdroj označuje **Merge sort** jako „in situ" s prostorovou složitostí **$O(\log n)$**. Standardní Merge sort **není in-place** — vyžaduje **$O(n)$** pomocné paměti na slučování ($O(\log n)$ je jen rekurzní zásobník). Ověř formulaci.
+> [!note] Ke kontrole (ověřeno)
+> Zdroj označuje **Merge sort** jako „in situ" s prostorovou složitostí **$O(\log n)$** — to je **chybně**. Standardní Merge sort **není in-place**, vyžaduje **$O(n)$** pomocné paměti na slučování ($O(\log n)$ je jen rekurzní zásobník).
 
 ### Vyhledávání
 - **Sekvenční** (neseřazené $O(n)$; se zarážkou; seřazené — rychlejší jen neúspěšné; adaptivní dle četnosti).

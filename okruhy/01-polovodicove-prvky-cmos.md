@@ -69,8 +69,8 @@ Tranzistor zesiluje proud; ve **spínacím režimu** malým proudem/napětím sp
 
 - **NAND (Shefferova)** i **NOR (Peirceova)** funkce jsou **funkčně úplné** — z každé lze sestavit libovolnou booleovskou funkci. ^[inferred]
 
-> [!note] Ke kontrole
-> Plné znění tvrdí, že „z hradla NAND lze záměnou PMOS↔NMOS vytvořit OR a z NOR vytvořit AND". Ber s rezervou: **statické CMOS hradlo je vždy invertující** (jednostupňově jen NAND/NOR/NOT). **OR a AND** v CMOS vznikají až **přidáním invertoru**; pouhá záměna tranzistorů dá opět invertující funkci, ne OR/AND.
+> [!note] Ke kontrole (ověřeno)
+> Plné znění tvrdí, že „z hradla NAND lze záměnou PMOS↔NMOS vytvořit OR a z NOR vytvořit AND". To je **chybně**: **statické CMOS hradlo je vždy invertující** (jednostupňově jen NAND/NOR/NOT). **OR a AND** v CMOS vznikají až **přidáním invertoru**; pouhá záměna tranzistorů dá opět invertující funkci, ne OR/AND.
 
 ## Souvislosti
 

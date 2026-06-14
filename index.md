@@ -74,7 +74,7 @@ Wiki je organizovaná podle **okruhů státní závěrečné zkoušky**. Každá
 - **44 / 44** okruhů zpracováno (`okruhy/`), všechny v hybridní podobě (Shrnutí + Časté otázky + Plné znění).
 - Diagramy (≈894 vložených) jsou ve `media/szz-NN/`.
 - Zkušební otázky integrovány ze souboru `_raw/caste-otazky-szz.md`.
-- **10 míst** označeno `> [!note] Ke kontrole` (možné nepřesnosti/nekonzistence zdroje) — okruhy **1, 9, 14, 15, 17, 20, 26, 27, 30, 31**. Klíčové: okruh 9 (IEEE 754 hranice o jedničku posunuté — ověřeno proti standardu), 31 (t-test/z-test prohozeny — ověřeno), 1 (CMOS hradla), 14 (FFT), 15 (Laplace vs. Z).
+- **10 míst** označeno `> [!note] Ke kontrole` — okruhy **1, 9, 14, 15, 17, 20, 26, 27, 30, 31**. Z toho **8 ověřených chyb zdroje**: okruh 9 (IEEE 754 hranice o jedničku posunuté), 31 (t-test/z-test prohozeny), 1 (CMOS hradla vždy invertující), 14 (FFT ne jen pro N=2ᵏ; JPEG=DCT), 15 (Z- místo Laplaceovy transformace), 17 (definitnost Hessiánu), 20 (inf/sup = největší dolní/nejmenší horní závora), 30 (Merge sort není in-place). Okruhy 26, 27 jsou jen poznámky k rozsahu zkoušení.
 
 ## Concepts
 

@@ -26,3 +26,7 @@ desktop.ini
 .venv/
 __pycache__/
 *.pyc
+
+# --- Provozní soubory wiki tooling (regenerovatelné, lokální) ---
+log.md
+hot.md

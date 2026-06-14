@@ -46,8 +46,8 @@ updated: 2026-06-03T18:15:00Z
 - **Testování hypotéz**: H0/H1, kritický obor, **chyba 1. druhu α** (false positive) a **2. druhu β**; t-test, F-test.
 - **Regrese** (funkční závislost, predikce; metoda nejmenších čtverců) × **korelace** (síla závislosti; korelace ≠ kauzalita).
 
-> [!note] Ke kontrole
-> Zdroj uvádí Studentův **t-test** jako „test střední hodnoty se **známým** rozptylem". Obvyklé vymezení je opačné: **t-test** se používá při **neznámém** rozptylu (odhadovaném z výběru), **z-test** při známém. Ověř formulaci.
+> [!note] Ke kontrole (ověřeno)
+> Zdroj uvádí Studentův **t-test** jako „test střední hodnoty se **známým** rozptylem" — to je **prohozené**. Správně: **t-test** se používá při **neznámém** rozptylu (odhadovaném z výběru), **z-test** při známém.
 
 Náhodnost a Monte Carlo viz [[okruhy/28-modelovani-simulace]]; statistika v ML viz [[okruhy/27-strojove-uceni]]; hustota jako integrál viz [[okruhy/17-diferencialni-integralni-pocet]].
 

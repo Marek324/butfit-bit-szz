@@ -52,7 +52,7 @@ updated: 2026-06-03T15:40:00Z
 - **DFT** je pro PC ideální (konečný počet vzorků i koeficientů), pracuje v **$O(n²)$**.
 - **FFT** — rychlá DFT v **$O(n·\log n)$**; jeden z nejpoužívanějších algoritmů (komprese JPEG/MP3, filtrace, **konvoluce** přes násobení ve frekvenční doméně).
 
-> [!note] Ke kontrole
+> [!note] Ke kontrole (ověřeno)
 > Plné znění tvrdí, že FFT „lze počítat **pouze** pro počty vzorků = mocnina 2". To platí jen pro **radix-2** FFT (Cooley-Tukey). Obecně FFT existuje pro **libovolné N** (mixed-radix, Bluestein/chirp-z), jen je nejefektivnější pro vysoce složená N. Také pozn.: JPEG ve skutečnosti používá **DCT**, ne přímo FFT.
 
 ## Souvislosti

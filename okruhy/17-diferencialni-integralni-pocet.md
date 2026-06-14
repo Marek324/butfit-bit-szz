@@ -45,8 +45,8 @@ updated: 2026-06-03T17:10:00Z
 - **Gradient** = vektor parciálních derivací → směr největšího růstu; nulový gradient = stacionární bod (extrém/sedlo).
 - **Dvojný/trojný integrál** — převod na dvoj-/trojnásobný (Fubiniova věta); objem, hmotnost.
 
-> [!note] Ke kontrole
-> Zdroj u extrémů funkcí více proměnných píše „gradient druhé parciální derivace … hodnota menší/větší než 0". Standardně se typ stacionárního bodu určuje **definitností Hessovy matice** (druhých parciálních derivací), ne znaménkem jediné hodnoty — ověř formulaci v Plném znění.
+> [!note] Ke kontrole (ověřeno)
+> Zdroj u extrémů funkcí více proměnných píše „gradient druhé parciální derivace … hodnota menší/větší než 0". To je **nepřesné**: typ stacionárního bodu se určuje **definitností Hessovy matice** (druhých parciálních derivací), ne znaménkem jediné hodnoty.
 
 Numerické postupy (Euler, Monte Carlo) viz [[okruhy/24-numericke-metody]]; integrály a derivace stojí pod [[okruhy/14-spektralni-analyza|Fourierovou analýzou]].
 

@@ -242,7 +242,7 @@ Metoda **globálního osvětlení scény**. Řeší **šíření energie**, obje
 ## Principy programovatelného vykreslovacího řetězce (zobrazovací pipeline)
 
 ![[media/szz-12/media/image4.png]]
-![[Pasted image 20260611171127.png]]
+![[media/szz-12/render-pipeline.png]]
 
 zobrazovací pipeline je tvořena těmito částmi:
 

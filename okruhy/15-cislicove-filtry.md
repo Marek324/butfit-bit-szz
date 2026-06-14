@@ -49,7 +49,7 @@ updated: 2026-06-03T15:40:00Z
 - **Přenosová funkce H(z)** = poměr výstupu Y(z) ku vstupu X(z) ve frekvenční oblasti (při nulových počátečních podmínkách); rovná se DTFT/Z-transformaci impulsní odezvy.
 - **Z-transformace** — x[n−k] → X(z)·$z^{-k}$; umožní určit **nuly** (z čitatele) a **póly** (ze jmenovatele); **Region of Convergence** určuje stabilitu.
 
-> [!note] Ke kontrole
+> [!note] Ke kontrole (ověřeno)
 > Plné znění na jednom místě píše, že „přenosovou funkci lze získat z impulsní odezvy pomocí **Laplaceovy** transformace". Pro **diskrétní** (číslicové) filtry je to **Z-transformace** (Laplaceova transformace patří ke **spojitým** systémům) — zbytek okruhu správně používá Z-transformaci, takže jde o vnitřní nekonzistenci.
 - **Frekvenční charakteristika** — přenosová funkce pro z = $e^{jω}$ (DTFT); **amplitudová** |H(ω)| a **fázová** arg(H(ω)).
 - Typy: **dolní propusť**, **horní propusť**, **pásmová propusť**, **pásmová zádrž**.
